@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "antigravity-doc-handler"
+version = "1.0.0"
+description = "Universal Office Document Studio & Precision Technical Diagram Engine for Antigravity AI and Developers"
+readme = "README.md"
+authors = [{ name = "YukiiMin" }]
+license = { text = "MIT" }
+requires-python = ">=3.10"
+keywords = [
+    "pdf",
+    "docx",
+    "markdown",
+    "openxml",
+    "diagram",
+    "mermaid",
+    "antigravity",
+    "ai-agents",
+    "architecture-diagram",
+    "converter"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Topic :: Text Processing :: Markup",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+dependencies = [
+    "pdf2docx>=0.5.13",
+    "pymupdf>=1.26.7",
+    "python-docx>=1.2.0",
+    "pillow>=10.0.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+windows = [
+    "pywin32>=311",
+    "xlwings>=0.31.0",
+    "tkinterdnd2>=0.6.3",
+]
+
+[project.scripts]
+doc-handler = "ai_tools_cli:main"
+spec-render = "ai_tools_cli:main_spec_render"
+docx-tools = "ai_tools_cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["*"]
+exclude = ["tests*", "scratch*"]

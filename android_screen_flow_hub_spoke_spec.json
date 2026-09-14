@@ -1,0 +1,902 @@
+{
+  "width": 1320,
+  "height": 720,
+  "font_family": "Segoe UI, -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif",
+  "font_size": 10.5,
+  "bg_color": "#ffffff",
+  "nodes": [
+    {
+      "id": "home",
+      "label": "Member Home Screen",
+      "x": 360,
+      "y": 265,
+      "width": 150,
+      "height": 44,
+      "type": "primary",
+      "sublabel": null
+    },
+    {
+      "id": "search",
+      "label": "Voice/Text Search Screen",
+      "x": 470,
+      "y": 45,
+      "width": 155,
+      "height": 36,
+      "type": "standard",
+      "sublabel": null
+    },
+    {
+      "id": "empty_search",
+      "label": "Empty View / Retry",
+      "x": 470,
+      "y": 115,
+      "width": 115,
+      "height": 30,
+      "type": "modal",
+      "sublabel": null
+    },
+    {
+      "id": "recipe",
+      "label": "Recipe Screen",
+      "x": 480,
+      "y": 170,
+      "width": 125,
+      "height": 36,
+      "type": "standard",
+      "sublabel": null
+    },
+    {
+      "id": "suggest_alt",
+      "label": "Suggest Alternatives",
+      "x": 480,
+      "y": 230,
+      "width": 135,
+      "height": 30,
+      "type": "modal",
+      "sublabel": null
+    },
+    {
+      "id": "health_banner",
+      "label": "Health Warning Banner",
+      "x": 720,
+      "y": 15,
+      "width": 140,
+      "height": 30,
+      "type": "modal",
+      "sublabel": null
+    },
+    {
+      "id": "prod_detail",
+      "label": "Product Detail Screen",
+      "x": 715,
+      "y": 75,
+      "width": 150,
+      "height": 40,
+      "type": "primary",
+      "sublabel": null
+    },
+    {
+      "id": "similar_prod",
+      "label": "Show Similar Products",
+      "x": 740,
+      "y": 145,
+      "width": 135,
+      "height": 30,
+      "type": "modal",
+      "sublabel": null
+    },
+    {
+      "id": "cart",
+      "label": "Cart Screen",
+      "x": 980,
+      "y": 230,
+      "width": 110,
+      "height": 42,
+      "type": "primary",
+      "sublabel": null
+    },
+    {
+      "id": "empty_cart",
+      "label": "Empty Cart View",
+      "x": 980,
+      "y": 315,
+      "width": 110,
+      "height": 30,
+      "type": "modal",
+      "sublabel": null
+    },
+    {
+      "id": "nav_map",
+      "label": "Navigation Map Screen",
+      "x": 1135,
+      "y": 170,
+      "width": 145,
+      "height": 36,
+      "type": "standard",
+      "sublabel": null
+    },
+    {
+      "id": "error_toast",
+      "label": "Error Toast",
+      "x": 35,
+      "y": 385,
+      "width": 85,
+      "height": 30,
+      "type": "modal",
+      "sublabel": null
+    },
+    {
+      "id": "face_scan",
+      "label": "Face Scan Screen",
+      "x": 175,
+      "y": 340,
+      "width": 120,
+      "height": 36,
+      "type": "standard",
+      "sublabel": null
+    },
+    {
+      "id": "val_toast",
+      "label": "Validation Toast",
+      "x": 205,
+      "y": 405,
+      "width": 105,
+      "height": 30,
+      "type": "modal",
+      "sublabel": null
+    },
+    {
+      "id": "login",
+      "label": "Login Screen",
+      "x": 35,
+      "y": 460,
+      "width": 105,
+      "height": 42,
+      "type": "primary",
+      "sublabel": null
+    },
+    {
+      "id": "register",
+      "label": "Register Screen",
+      "x": 200,
+      "y": 460,
+      "width": 110,
+      "height": 42,
+      "type": "primary",
+      "sublabel": null
+    },
+    {
+      "id": "face_reg",
+      "label": "Face Register Screen",
+      "x": 370,
+      "y": 460,
+      "width": 125,
+      "height": 36,
+      "type": "standard",
+      "sublabel": null
+    },
+    {
+      "id": "retry_auth",
+      "label": "Retry / Fallback",
+      "x": 375,
+      "y": 565,
+      "width": 115,
+      "height": 32,
+      "type": "modal",
+      "sublabel": null
+    },
+    {
+      "id": "personal_info",
+      "label": "Personal Info Screen",
+      "x": 540,
+      "y": 350,
+      "width": 135,
+      "height": 36,
+      "type": "standard",
+      "sublabel": null
+    },
+    {
+      "id": "shop_prefs",
+      "label": "Shopping Preferences Screen",
+      "x": 750,
+      "y": 350,
+      "width": 160,
+      "height": 40,
+      "type": "primary",
+      "sublabel": null
+    },
+    {
+      "id": "profile",
+      "label": "Profile Screen",
+      "x": 550,
+      "y": 460,
+      "width": 115,
+      "height": 42,
+      "type": "standard",
+      "sublabel": null
+    },
+    {
+      "id": "member_tier",
+      "label": "Member Tier Screen",
+      "x": 760,
+      "y": 415,
+      "width": 125,
+      "height": 34,
+      "type": "standard",
+      "sublabel": null
+    },
+    {
+      "id": "order_history",
+      "label": "Order History Screen",
+      "x": 760,
+      "y": 470,
+      "width": 125,
+      "height": 34,
+      "type": "standard",
+      "sublabel": null
+    },
+    {
+      "id": "face_update",
+      "label": "Face Update Screen",
+      "x": 760,
+      "y": 525,
+      "width": 125,
+      "height": 34,
+      "type": "standard",
+      "sublabel": null
+    },
+    {
+      "id": "auto_logout",
+      "label": "Auto Logout -> Login",
+      "x": 760,
+      "y": 580,
+      "width": 135,
+      "height": 32,
+      "type": "modal",
+      "sublabel": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "home",
+      "target": "search",
+      "source_port": "top",
+      "target_port": "left",
+      "source_offset": -25,
+      "target_offset": 0.0,
+      "label": "Search Bar",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          410,
+          63
+        ]
+      ],
+      "label_pos": 0.45,
+      "label_offset_y": 0.0,
+      "label_offset_x": -15
+    },
+    {
+      "source": "home",
+      "target": "recipe",
+      "source_port": "top",
+      "target_port": "left",
+      "source_offset": 25,
+      "target_offset": 0.0,
+      "label": "Recipe Banner",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          460,
+          188
+        ]
+      ],
+      "label_pos": 0.45,
+      "label_offset_y": 0.0,
+      "label_offset_x": -15
+    },
+    {
+      "source": "home",
+      "target": "cart",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": -6,
+      "target_offset": 0.0,
+      "label": "Bottom Nav",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          945,
+          281
+        ],
+        [
+          945,
+          251
+        ]
+      ],
+      "label_pos": 0.45,
+      "label_offset_y": -8,
+      "label_offset_x": 0.0
+    },
+    {
+      "source": "home",
+      "target": "profile",
+      "source_port": "bottom",
+      "target_port": "left",
+      "source_offset": 30,
+      "target_offset": 0.0,
+      "label": "Bottom Nav",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          520,
+          309
+        ],
+        [
+          520,
+          481
+        ]
+      ],
+      "label_pos": 0.45,
+      "label_offset_y": 0.0,
+      "label_offset_x": -16
+    },
+    {
+      "source": "search",
+      "target": "empty_search",
+      "source_port": "bottom",
+      "target_port": "top",
+      "source_offset": 0.0,
+      "target_offset": 0.0,
+      "label": "No Match / Timeout",
+      "line_style": "dashed",
+      "waypoints": [],
+      "label_pos": 0.5,
+      "label_offset_y": 0.0,
+      "label_offset_x": 2
+    },
+    {
+      "source": "search",
+      "target": "prod_detail",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": -5,
+      "target_offset": -8,
+      "label": "Results Found",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          670,
+          58
+        ],
+        [
+          670,
+          87
+        ]
+      ],
+      "label_pos": 0.5,
+      "label_offset_y": -8,
+      "label_offset_x": 0.0
+    },
+    {
+      "source": "recipe",
+      "target": "suggest_alt",
+      "source_port": "bottom",
+      "target_port": "top",
+      "source_offset": 0.0,
+      "target_offset": 0.0,
+      "label": "Ingredient OutOfStock",
+      "line_style": "dashed",
+      "waypoints": [],
+      "label_pos": 0.5,
+      "label_offset_y": 0.0,
+      "label_offset_x": 2
+    },
+    {
+      "source": "recipe",
+      "target": "prod_detail",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": -5,
+      "target_offset": 8,
+      "label": "Valid Recipe",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          660,
+          183
+        ],
+        [
+          660,
+          103
+        ]
+      ],
+      "label_pos": 0.5,
+      "label_offset_y": -8,
+      "label_offset_x": 0.0
+    },
+    {
+      "source": "recipe",
+      "target": "cart",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": 8,
+      "target_offset": -10,
+      "label": "Add Ingredients",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          645,
+          196
+        ],
+        [
+          645,
+          241
+        ]
+      ],
+      "label_pos": 0.6,
+      "label_offset_y": -8,
+      "label_offset_x": 0.0
+    },
+    {
+      "source": "prod_detail",
+      "target": "health_banner",
+      "source_port": "top",
+      "target_port": "bottom",
+      "source_offset": 0.0,
+      "target_offset": 0.0,
+      "label": "Allergy / Diet Violation",
+      "line_style": "dashed",
+      "waypoints": [],
+      "label_pos": 0.5,
+      "label_offset_y": 0.0,
+      "label_offset_x": 2
+    },
+    {
+      "source": "prod_detail",
+      "target": "similar_prod",
+      "source_port": "bottom",
+      "target_port": "top",
+      "source_offset": 0.0,
+      "target_offset": 0.0,
+      "label": "OutOfStock",
+      "line_style": "dashed",
+      "waypoints": [],
+      "label_pos": 0.5,
+      "label_offset_y": 0.0,
+      "label_offset_x": 2
+    },
+    {
+      "source": "prod_detail",
+      "target": "cart",
+      "source_port": "right",
+      "target_port": "top",
+      "source_offset": -6,
+      "target_offset": 10,
+      "label": "Add to Cart",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          1045,
+          89
+        ]
+      ],
+      "label_pos": 0.5,
+      "label_offset_y": 0.0,
+      "label_offset_x": 18
+    },
+    {
+      "source": "cart",
+      "target": "nav_map",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": -8,
+      "target_offset": 0,
+      "label": "Calculate Route",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          1115,
+          243
+        ],
+        [
+          1115,
+          188
+        ]
+      ],
+      "label_pos": 0.45,
+      "label_offset_y": -8,
+      "label_offset_x": 0.0
+    },
+    {
+      "source": "cart",
+      "target": "empty_cart",
+      "source_port": "bottom",
+      "target_port": "top",
+      "source_offset": 0.0,
+      "target_offset": 0.0,
+      "label": "Empty Cart",
+      "line_style": "dashed",
+      "waypoints": [],
+      "label_pos": 0.5,
+      "label_offset_y": 0.0,
+      "label_offset_x": 2
+    },
+    {
+      "source": "login",
+      "target": "error_toast",
+      "source_port": "top",
+      "target_port": "bottom",
+      "source_offset": -25,
+      "target_offset": 0.0,
+      "label": "Invalid Creds",
+      "line_style": "dashed",
+      "waypoints": [],
+      "label_pos": 0.5,
+      "label_offset_y": 0.0,
+      "label_offset_x": -15
+    },
+    {
+      "source": "login",
+      "target": "face_scan",
+      "source_port": "top",
+      "target_port": "left",
+      "source_offset": 25,
+      "target_offset": 0.0,
+      "label": "Select Face ID",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          112,
+          358
+        ]
+      ],
+      "label_pos": 0.45,
+      "label_offset_y": 0.0,
+      "label_offset_x": 18
+    },
+    {
+      "source": "login",
+      "target": "register",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": 0.0,
+      "target_offset": 0.0,
+      "label": "Select Register",
+      "line_style": "solid",
+      "waypoints": [],
+      "label_pos": 0.5,
+      "label_offset_y": -8,
+      "label_offset_x": 0.0
+    },
+    {
+      "source": "login",
+      "target": "home",
+      "source_port": "left",
+      "target_port": "left",
+      "source_offset": -5,
+      "target_offset": 5,
+      "label": "Valid Creds",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          15,
+          476
+        ],
+        [
+          15,
+          292
+        ]
+      ],
+      "label_pos": 0.7,
+      "label_offset_y": -8,
+      "label_offset_x": 0.0
+    },
+    {
+      "source": "face_scan",
+      "target": "home",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": -2,
+      "target_offset": -10,
+      "label": "Match Success",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          335,
+          356
+        ],
+        [
+          335,
+          277
+        ]
+      ],
+      "label_pos": 0.45,
+      "label_offset_y": -8,
+      "label_offset_x": 0.0
+    },
+    {
+      "source": "face_scan",
+      "target": "retry_auth",
+      "source_port": "bottom",
+      "target_port": "left",
+      "source_offset": 10,
+      "target_offset": 0,
+      "label": "Match Fail",
+      "line_style": "dashed",
+      "waypoints": [
+        [
+          245,
+          390
+        ],
+        [
+          345,
+          390
+        ],
+        [
+          345,
+          581
+        ]
+      ],
+      "label_pos": 0.25,
+      "label_offset_y": -8,
+      "label_offset_x": 0.0
+    },
+    {
+      "source": "register",
+      "target": "val_toast",
+      "source_port": "top",
+      "target_port": "bottom",
+      "source_offset": 0.0,
+      "target_offset": 0.0,
+      "label": "Validation Fail",
+      "line_style": "dashed",
+      "waypoints": [],
+      "label_pos": 0.5,
+      "label_offset_y": 0.0,
+      "label_offset_x": 2
+    },
+    {
+      "source": "register",
+      "target": "face_reg",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": 0.0,
+      "target_offset": 0.0,
+      "label": "Valid Form",
+      "line_style": "solid",
+      "waypoints": [],
+      "label_pos": 0.5,
+      "label_offset_y": -8,
+      "label_offset_x": 0.0
+    },
+    {
+      "source": "face_reg",
+      "target": "login",
+      "source_port": "bottom",
+      "target_port": "bottom",
+      "source_offset": -25,
+      "target_offset": 30,
+      "label": "Capture Success",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          407,
+          518
+        ],
+        [
+          117,
+          518
+        ]
+      ],
+      "label_pos": 0.5,
+      "label_offset_y": -7,
+      "label_offset_x": 0.0
+    },
+    {
+      "source": "face_reg",
+      "target": "login",
+      "source_port": "bottom",
+      "target_port": "bottom",
+      "source_offset": 20,
+      "target_offset": 5,
+      "label": "Cancel",
+      "line_style": "dashed",
+      "waypoints": [
+        [
+          452,
+          542
+        ],
+        [
+          92,
+          542
+        ]
+      ],
+      "label_pos": 0.5,
+      "label_offset_y": -7,
+      "label_offset_x": 0.0
+    },
+    {
+      "source": "retry_auth",
+      "target": "login",
+      "source_port": "bottom",
+      "target_port": "bottom",
+      "source_offset": 0,
+      "target_offset": -20,
+      "label": "Use Password",
+      "line_style": "dashed",
+      "waypoints": [
+        [
+          432,
+          625
+        ],
+        [
+          67,
+          625
+        ]
+      ],
+      "label_pos": 0.5,
+      "label_offset_y": -7,
+      "label_offset_x": 0.0
+    },
+    {
+      "source": "profile",
+      "target": "login",
+      "source_port": "bottom",
+      "target_port": "left",
+      "source_offset": -15,
+      "target_offset": 12,
+      "label": "User Logout",
+      "line_style": "dashed",
+      "waypoints": [
+        [
+          592,
+          665
+        ],
+        [
+          12,
+          665
+        ],
+        [
+          12,
+          493
+        ]
+      ],
+      "label_pos": 0.5,
+      "label_offset_y": -8,
+      "label_offset_x": 0.0
+    },
+    {
+      "source": "profile",
+      "target": "personal_info",
+      "source_port": "top",
+      "target_port": "bottom",
+      "source_offset": -35,
+      "target_offset": -10,
+      "label": "Personal Info",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          572,
+          420
+        ],
+        [
+          597,
+          420
+        ]
+      ],
+      "label_pos": 0.45,
+      "label_offset_y": 0.0,
+      "label_offset_x": -15
+    },
+    {
+      "source": "personal_info",
+      "target": "shop_prefs",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": 0.0,
+      "target_offset": 0.0,
+      "label": "Preferences",
+      "line_style": "solid",
+      "waypoints": [],
+      "label_pos": 0.5,
+      "label_offset_y": -8,
+      "label_offset_x": 0.0
+    },
+    {
+      "source": "profile",
+      "target": "shop_prefs",
+      "source_port": "top",
+      "target_port": "bottom",
+      "source_offset": -10,
+      "target_offset": -30,
+      "label": "Diet & Budget",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          597,
+          402
+        ],
+        [
+          800,
+          402
+        ]
+      ],
+      "label_pos": 0.45,
+      "label_offset_y": -8,
+      "label_offset_x": 0.0
+    },
+    {
+      "source": "profile",
+      "target": "member_tier",
+      "source_port": "top",
+      "target_port": "left",
+      "source_offset": 25,
+      "target_offset": 0.0,
+      "label": "Member Tier",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          632,
+          432
+        ]
+      ],
+      "label_pos": 0.5,
+      "label_offset_y": -8,
+      "label_offset_x": 0.0
+    },
+    {
+      "source": "profile",
+      "target": "order_history",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 0.0,
+      "label": "Order History",
+      "line_style": "solid",
+      "waypoints": [],
+      "label_pos": 0.5,
+      "label_offset_y": -8,
+      "label_offset_x": 0.0
+    },
+    {
+      "source": "profile",
+      "target": "face_update",
+      "source_port": "bottom",
+      "target_port": "left",
+      "source_offset": 25,
+      "target_offset": 0.0,
+      "label": "Face Update",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          632,
+          542
+        ]
+      ],
+      "label_pos": 0.5,
+      "label_offset_y": -8,
+      "label_offset_x": 0.0
+    },
+    {
+      "source": "profile",
+      "target": "auto_logout",
+      "source_port": "bottom",
+      "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 0.0,
+      "label": "Token Expired 401",
+      "line_style": "dashed",
+      "waypoints": [
+        [
+          607,
+          596
+        ]
+      ],
+      "label_pos": 0.5,
+      "label_offset_y": -8,
+      "label_offset_x": 0.0
+    }
+  ],
+  "scale": 3
+}

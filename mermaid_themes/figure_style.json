@@ -1,0 +1,20 @@
+{
+  "theme": "base",
+  "themeVariables": {
+    "background": "#ffffff",
+    "primaryColor": "#ffffff",
+    "primaryBorderColor": "#000000",
+    "primaryTextColor": "#000000",
+    "lineColor": "#000000",
+    "textColor": "#000000",
+    "mainBkg": "#ffffff",
+    "nodeBorder": "#000000",
+    "fontFamily": "Segoe UI, Arial, sans-serif",
+    "fontSize": "14px"
+  },
+  "flowchart": {
+    "nodeSpacing": 45,
+    "rankSpacing": 55,
+    "curve": "stepAfter"
+  }
+}

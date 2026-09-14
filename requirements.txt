@@ -1,0 +1,11 @@
+# Core Document & Image Processing
+pdf2docx>=0.5.13
+pymupdf>=1.26.7
+python-docx>=1.2.0
+pillow>=10.0.0
+pyyaml>=6.0
+
+# Windows System & Office COM Automation (Optional on Non-Windows)
+pywin32>=311; platform_system == "Windows"
+xlwings>=0.31.0; platform_system == "Windows"
+tkinterdnd2>=0.6.3; platform_system == "Windows"
