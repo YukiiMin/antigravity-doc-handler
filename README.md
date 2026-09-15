@@ -71,7 +71,11 @@ pip install -e .
 ### 1. Precision Technical Diagram Rendering
 Render publication-grade diagrams from a declarative JSON specification:
 ```bash
-python -m ai_tools_cli spec-render android_screen_flow_hub_spoke_spec.json -o screen_flow.png -s 3
+# Direct CLI execution:
+python spec_diagram_engine.py --spec android_user_flow_v2_spec.json --out android_user_screen_flow_v2.png --scale 3
+
+# Or via unified AI Tools CLI:
+python -m ai_tools_cli spec-render android_user_flow_v2_spec.json -o android_user_screen_flow_v2.png -s 3
 ```
 
 ### 2. Mermaid Diagram Rendering
