@@ -1,0 +1,10 @@
+{
+  "engine": "mermaid",
+  "diagram_type": "erd",
+  "diagram_name": "sub_erd_store_layout",
+  "title": "Phân hệ 4: Sơ đồ Siêu thị & Kệ hàng (Chi tiết 100% thuộc tính)",
+  "theme_preset": "erd_pastel",
+  "scale": 3,
+  "output_path": "diagram_assets/sub_erd_store_layout.png",
+  "code": "erDiagram\n    FLOOR {\n        int FloorID PK\n        int FloorNumber\n    }\n    ZONE {\n        int ZoneID PK\n        int FloorID FK\n        string ZoneName\n    }\n    AISLE {\n        int AisleID PK\n        int ZoneID FK\n        string AisleCode\n        string AisleName\n    }\n    SHELF {\n        int ShelfID PK\n        int AisleID FK\n        int LevelNumber\n    }\n    SLOT {\n        int SlotID PK\n        int ShelfID FK\n        string SlotCode\n        int Quantity\n    }\n    PRODUCT {\n        int ProductID PK\n        string ProductName\n    }\n    PRODUCT_SLOT {\n        int ProductsSlotID PK\n        int SlotID FK\n        int ProductID FK\n    }\n\n    FLOOR ||--o{ ZONE : \"divides\"\n    ZONE ||--o{ AISLE : \"has_aisles\"\n    AISLE ||--o{ SHELF : \"holds\"\n    SHELF ||--o{ SLOT : \"contains\"\n    SLOT ||--o{ PRODUCT_SLOT : \"stores\"\n    PRODUCT ||--o{ PRODUCT_SLOT : \"placed_in\"\n"
+}

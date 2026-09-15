@@ -1,0 +1,10 @@
+{
+  "engine": "mermaid",
+  "diagram_type": "erd",
+  "diagram_name": "sub_erd_cart_invoice_meal",
+  "title": "Phân hệ 3: Giỏ hàng, Hóa đơn & Gợi ý Món ăn (Chi tiết 100% thuộc tính)",
+  "theme_preset": "erd_pastel",
+  "scale": 3,
+  "output_path": "diagram_assets/sub_erd_cart_invoice_meal.png",
+  "code": "erDiagram\n    MEMBER {\n        int MemberID PK\n        string FullName\n    }\n    PRODUCT {\n        int ProductID PK\n        string ProductName\n        decimal UnitPrice\n    }\n    CART {\n        int CartID PK\n        int MemberID FK\n        datetime CreatedAt\n    }\n    CART_ITEM {\n        int CartItemID PK\n        int CartID FK\n        int ProductID FK\n        int Quantity\n    }\n    INVOICE_HISTORY {\n        int InvoiceHistoryID PK\n        int MemberID FK\n        datetime PurchaseDate\n        decimal TotalPrice\n    }\n    INVOICE_HISTORY_ITEM {\n        int InvoiceHistoryItemID PK\n        int InvoiceHistoryID FK\n        int ProductID FK\n        int Quantity\n        decimal UnitPrice\n    }\n    MEAL_SUGGESTION {\n        int MealSuggestionID PK\n        string MealName\n        int Calories\n        int healthy_score\n    }\n    MEAL_ITEM {\n        int MealSuggestionID PK,FK\n        int ProductID PK,FK\n        decimal QuantityRequired\n    }\n\n    MEMBER ||--o{ CART : \"owns\"\n    CART ||--o{ CART_ITEM : \"contains\"\n    PRODUCT ||--o{ CART_ITEM : \"in_cart\"\n    MEMBER ||--o{ INVOICE_HISTORY : \"purchases\"\n    INVOICE_HISTORY ||--o{ INVOICE_HISTORY_ITEM : \"includes\"\n    PRODUCT ||--o{ INVOICE_HISTORY_ITEM : \"sold_in\"\n    MEAL_SUGGESTION ||--o{ MEAL_ITEM : \"requires\"\n    PRODUCT ||--o{ MEAL_ITEM : \"ingredient\"\n"
+}

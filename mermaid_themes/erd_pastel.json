@@ -1,0 +1,22 @@
+{
+  "theme": "base",
+  "themeVariables": {
+    "fontFamily": "Segoe UI, -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif",
+    "fontSize": "13px",
+    "primaryColor": "#EBF3FA",
+    "primaryBorderColor": "#3B82F6",
+    "primaryTextColor": "#0F172A",
+    "secondaryColor": "#F1F5F9",
+    "secondaryBorderColor": "#94A3B8",
+    "tertiaryColor": "#FFFFFF",
+    "lineColor": "#475569",
+    "edgeLabelBackground": "#FFFFFF",
+    "attributeBackgroundColorOdd": "#F8FAFC",
+    "attributeBackgroundColorEven": "#FFFFFF",
+    "entityBorder": "#3B82F6",
+    "entityBkg": "#F0F9FF",
+    "entityTextColor": "#0F172A",
+    "titleColor": "#1E293B"
+  },
+  "background": "#FFFFFF"
+}

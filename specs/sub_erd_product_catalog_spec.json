@@ -1,0 +1,10 @@
+{
+  "engine": "mermaid",
+  "diagram_type": "erd",
+  "diagram_name": "sub_erd_product_catalog",
+  "title": "Phân hệ 2: Sản phẩm & Danh mục Hàng hóa (Chi tiết 100% thuộc tính)",
+  "theme_preset": "erd_pastel",
+  "scale": 3,
+  "output_path": "diagram_assets/sub_erd_product_catalog.png",
+  "code": "erDiagram\n    CATEGORY {\n        int CategoryID PK\n        string CategoryName\n    }\n    SUBCATEGORY {\n        int SubcategoryID PK\n        int CategoryID FK\n        string SubcategoryName\n    }\n    PRODUCT_TYPE {\n        int ProductTypeID PK\n        int SubcategoryID FK\n        string TypeName\n    }\n    PRODUCT {\n        int ProductID PK\n        int ProductTypeID FK\n        string ProductName\n        decimal UnitPrice\n        decimal PromotionPrice\n        string Status\n    }\n    HEALTH_TAG {\n        int HealthTagID PK\n        string TagName\n        string TagType\n    }\n    PRODUCT_HEALTHTAG {\n        int ProductID PK,FK\n        int HealthTagID PK,FK\n    }\n\n    CATEGORY ||--o{ SUBCATEGORY : \"contains\"\n    SUBCATEGORY ||--o{ PRODUCT_TYPE : \"classifies\"\n    PRODUCT_TYPE ||--o{ PRODUCT : \"categorizes\"\n    PRODUCT ||--o{ PRODUCT_HEALTHTAG : \"has_tags\"\n    HEALTH_TAG ||--o{ PRODUCT_HEALTHTAG : \"applied_to\"\n"
+}

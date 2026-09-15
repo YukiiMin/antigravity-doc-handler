@@ -1,0 +1,10 @@
+{
+  "engine": "mermaid",
+  "diagram_type": "erd",
+  "diagram_name": "sub_erd_account_health",
+  "title": "Phân hệ 1: Tài khoản, Khách hàng & Sức khỏe (Chi tiết 100% thuộc tính)",
+  "theme_preset": "erd_pastel",
+  "scale": 3,
+  "output_path": "diagram_assets/sub_erd_account_health.png",
+  "code": "erDiagram\n    ACCOUNT {\n        int AccountID PK\n        string Username\n        string PasswordHash\n        string Email\n        string FullName\n        string Role\n        string Status\n    }\n    MEMBER {\n        int MemberID PK\n        int AccountID FK\n        string FullName\n        string FaceVector\n        decimal SpendingLimit\n        int TotalPoints\n    }\n    MEMBERSHIP {\n        int MembershipID PK\n        int MemberID FK\n        string TierName\n        string Status\n    }\n    HEALTH_TAG {\n        int HealthTagID PK\n        string TagName\n        string TagType\n    }\n    MEMBERHEALTH_PREFERENCE {\n        int MemberID PK,FK\n        int HealthTagID PK,FK\n        string status\n    }\n    MEMBER_NOTIFICATION {\n        int NotificationID PK\n        int MemberID FK\n        string NotifType\n        string Title\n        boolean IsRead\n    }\n\n    ACCOUNT ||--o| MEMBER : \"has\"\n    MEMBER ||--o{ MEMBERSHIP : \"owns\"\n    MEMBER ||--o{ MEMBERHEALTH_PREFERENCE : \"configures\"\n    HEALTH_TAG ||--o{ MEMBERHEALTH_PREFERENCE : \"tagged\"\n    MEMBER ||--o{ MEMBER_NOTIFICATION : \"receives\"\n"
+}
