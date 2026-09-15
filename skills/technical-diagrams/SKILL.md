@@ -52,12 +52,13 @@ The toolkit adopts a **3-Engine Architecture** unified behind a **Single Source 
 | 4 | **Activity Swimlane** | `plantuml` | BA | Phân làn cột (`\|Partition\|`) thẳng đứng tuyệt đối, không đè dây |
 | 5 | **Class Diagram** | `plantuml` | Dev | Hỗ trợ trọn vẹn OOP (`+`, `-`, `#`, generics `<T>`, composition) |
 | 6 | **Package Diagram** | `plantuml` | Dev / Architect | Hỗ trợ stereotype `<<Folder>>` trực quan cho cấu trúc thư mục |
-| 7 | **ERD (Database Schema)** | `mermaid` | Dev + BA | Nền phẳng pastel hiện đại, gọn gàng cho phân hệ 3–15 bảng |
-| 8 | **Sequence Diagram** | `mermaid` | Dev + BA | Chuỗi gọi API thanh thoát, đánh số tự động `autonumber` |
-| 9 | **Flowchart / Process** | `mermaid` | BA | Bẻ nhánh if/else tự do, đổi màu khối nhanh bằng CSS/style |
-| 10 | **State Diagram** | `mermaid` | Dev | Trạng thái bo góc tròn, màu sắc hiện đại hơn nét vẽ thô |
-| 11 | **Mind Map** | `mermaid` | BA + Dev | Phân rã tính năng nhanh, màu pastel chia nhánh trực quan |
-| 12 | **Screen Flow (Interactive)** | `canvas` | Dev + BA | Định vị X,Y pixel-perfect, kéo thả trên `diagram_editor.py` |
+| 7 | **Master ERD (≥ 15 tables)** | `plantuml` | Architect + Dev | Chuẩn 4K UHD, đường Orthogonal 90°, icon chìa khóa `<&key>`, ký hiệu Nullable `●`/`○`, neo bố cục chữ nhật cân đối |
+| 8 | **Sub-ERD / Phân hệ (3–10 tables)** | `mermaid` / `plantuml` | Dev + BA | Nền phẳng pastel hiện đại hoặc PlantUML gọn gàng cho từng phân hệ |
+| 9 | **Sequence Diagram** | `mermaid` | Dev + BA | Chuỗi gọi API thanh thoát, đánh số tự động `autonumber` |
+| 10 | **Flowchart / Process** | `mermaid` | BA | Bẻ nhánh if/else tự do, đổi màu khối nhanh bằng CSS/style |
+| 11 | **State Diagram** | `mermaid` | Dev | Trạng thái bo góc tròn, màu sắc hiện đại hơn nét vẽ thô |
+| 12 | **Mind Map** | `mermaid` | BA + Dev | Phân rã tính năng nhanh, màu pastel chia nhánh trực quan |
+| 13 | **Screen Flow (Interactive)** | `canvas` | Dev + BA | Định vị X,Y pixel-perfect, kéo thả trên `diagram_editor.py` |
 
 ---
 
@@ -69,8 +70,11 @@ Khi người dùng hoặc tài liệu yêu cầu vẽ sơ đồ kỹ thuật:
 ├─ Là Screen Flow có tọa độ pixel-perfect, dev/BA cần kéo thả trực tiếp?
 │   └─► engine: "canvas"  (spec_diagram_engine.py / diagram_editor.py)
 │
+├─ Là ERD / Database Schema?
+│   ├─ Master ERD / Hệ thống lớn (≥ 15 bảng, 4K UHD, Orthogonal 90°, <&key>, ●/○) ──► engine: "plantuml"
+│   └─ Sub-ERD / Phân hệ nhỏ (3–10 bảng, pastel hoặc classic) ─────────────────────► engine: "mermaid" hoặc "plantuml"
+│
 ├─ Là sơ đồ động, phân rã ý tưởng, hoặc dữ liệu nền phẳng pastel (Mermaid)?
-│   ├─ ERD / Database Schema (3–15 bảng, nền phẳng pastel hiện đại) ──► engine: "mermaid"
 │   ├─ Sequence Diagram (Chuỗi gọi API, autonumber thanh thoát) ────► engine: "mermaid"
 │   ├─ Flowchart / Quy trình nghiệp vụ (Rẽ nhánh if/else, CSS style) ──► engine: "mermaid"
 │   ├─ State Diagram (Máy trạng thái, bo góc tròn hiện đại) ─────────► engine: "mermaid"
@@ -106,6 +110,25 @@ Khi người dùng hoặc tài liệu yêu cầu vẽ sơ đồ kỹ thuật:
    - Mặc định PlantUML giới hạn 4096px. Luôn truyền cờ JVM `-DPLANTUML_LIMIT_SIZE=16384` ở đầu lệnh java để render các ERD lớn ở độ phân giải 300 DPI không bị mờ hay cắt ngang.
 4. **Auto-Inject Vào File Word Đích**:
    - Khi spec có field `"inject_into"`, dispatcher tự động chèn diagram vào vị trí placeholder hoặc heading tương ứng, tự động căn giữa và gán caption chuẩn APA.
+
+---
+
+## 🗄️ Quy Chuẩn Thiết Kế Database ERD (4K UHD, Orthogonal & Column Metadata)
+
+> **BẮT BUỘC TUÂN THỦ**: Áp dụng cho mọi sơ đồ ERD hệ thống khi xuất bản tài liệu kỹ thuật, SRS và báo cáo nghiệm thu.
+
+1. **Độ phân giải 4K UHD & Aspect Ratio Cân Đối (~16:9 hoặc ~4:3)**:
+   - Sơ đồ hệ thống lớn (≥ 15 bảng) bắt buộc render ở độ phân giải tối thiểu 4K (chiều rộng ≥ 3840px hoặc DPI 300) để đảm bảo zoom in 100%–400% không bị vỡ hạt.
+   - Sắp xếp các Table Object nằm gần nhau (`skinparam nodesep 24`, `skinparam ranksep 28`), sử dụng neo ẩn dọc (`-[hidden]down->`) để ép các bảng vào dạng khối chữ nhật cân đối 2 tầng, triệt tiêu khoảng trắng thừa.
+2. **Đường nối Orthogonal (Manhattan 90°)**:
+   - Sử dụng `skinparam linetype ortho` để toàn bộ đường nối vuông góc dứt khoát, loại bỏ hoàn toàn đường cong lượn spline gây rối mắt.
+3. **Ký hiệu Khóa & Tính Nullable**:
+   - **Primary Key (PK)**: Bắt buộc gắn vector icon chìa khóa `<&key>` (OpenIconic) ngay trước tên khóa chính.
+   - **Not Null**: Sử dụng ký hiệu `<color:#0F172A>●</color>` cho các trường bắt buộc nhập.
+   - **Nullable**: Sử dụng ký hiệu `<color:#94A3B8>○</color>` cho các trường cho phép giá trị null.
+   - **Foreign Key (FK)**: Gắn nhãn `<<FK>>` và đường quan hệ trỏ thẳng tới bảng cha.
+4. **Style High-Contrast Classic**:
+   - Nền trắng `#FFFFFF`, Header bảng `#F1F5F9`, viền `#1E293B` (1.5px), mũi tên `#1E293B` (2.0px).
 
 ---
 
