@@ -1,0 +1,268 @@
+{
+  "width": 1280,
+  "height": 720,
+  "font_family": "Segoe UI, -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif",
+  "font_size": 10.5,
+  "bg_color": "#ffffff",
+  "nodes": [
+    {
+      "id": "login",
+      "label": "Đăng nhập\n(Staff Login Screen)",
+      "x": 50,
+      "y": 400,
+      "width": 150,
+      "height": 48,
+      "type": "standard"
+    },
+    {
+      "id": "home",
+      "label": "Trang chủ\n(Staff Home Dashboard)",
+      "x": 280,
+      "y": 260,
+      "width": 165,
+      "height": 56,
+      "type": "primary"
+    },
+    {
+      "id": "notifications",
+      "label": "Cảnh báo & Kệ trống\n(Notifications Tab)",
+      "x": 540,
+      "y": 70,
+      "width": 165,
+      "height": 52,
+      "type": "primary"
+    },
+    {
+      "id": "density_section",
+      "label": "Theo dõi Mật độ 6 Kệ\n(Shelf Density Component)",
+      "x": 540,
+      "y": 190,
+      "width": 165,
+      "height": 50,
+      "type": "standard"
+    },
+    {
+      "id": "robot_card",
+      "label": "Thẻ Telemetry Robot\n(Robot RB0001 Status)",
+      "x": 540,
+      "y": 305,
+      "width": 165,
+      "height": 48,
+      "type": "standard"
+    },
+    {
+      "id": "map_tab",
+      "label": "Bản đồ Siêu thị 2D\n(Interactive Map Tab)",
+      "x": 540,
+      "y": 420,
+      "width": 165,
+      "height": 50,
+      "type": "standard"
+    },
+    {
+      "id": "profile_tab",
+      "label": "Hồ sơ Cá nhân\n(Profile Tab)",
+      "x": 540,
+      "y": 535,
+      "width": 165,
+      "height": 50,
+      "type": "primary"
+    },
+    {
+      "id": "task_detail",
+      "label": "Chi tiết Cảnh báo\n& Châm hàng Screen",
+      "x": 810,
+      "y": 70,
+      "width": 165,
+      "height": 52,
+      "type": "primary"
+    },
+    {
+      "id": "fill_modal",
+      "label": "Modal Xác nhận\nFill Kệ (In-Place)",
+      "x": 810,
+      "y": 190,
+      "width": 165,
+      "height": 50,
+      "type": "modal"
+    },
+    {
+      "id": "auto_sync",
+      "label": "Cập nhật Tồn kho 100%\n(SignalR Broadcast & Close)",
+      "x": 1070,
+      "y": 130,
+      "width": 175,
+      "height": 54,
+      "type": "standard"
+    }
+  ],
+  "edges": [
+    {
+      "source": "login",
+      "target": "home",
+      "source_port": "top",
+      "target_port": "left",
+      "waypoints": [[125, 288]],
+      "label": "Bấm 'Đăng nhập'",
+      "label_pos": 0.5,
+      "label_offset_x": -15
+    },
+    {
+      "source": "home",
+      "target": "notifications",
+      "source_port": "top",
+      "target_port": "left",
+      "source_offset": -25,
+      "waypoints": [[337.5, 96]],
+      "label": "Tab 'Thông báo' / 'Xem tất cả'",
+      "label_pos": 0.45,
+      "label_offset_x": -15
+    },
+    {
+      "source": "home",
+      "target": "density_section",
+      "source_port": "top",
+      "target_port": "left",
+      "source_offset": 25,
+      "waypoints": [[387.5, 215]],
+      "label": "Xem Mật độ Kệ 1..6",
+      "label_pos": 0.45,
+      "label_offset_x": -15
+    },
+    {
+      "source": "home",
+      "target": "robot_card",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": 0,
+      "label": "Giám sát Live Telemetry",
+      "label_pos": 0.5,
+      "label_offset_y": -8
+    },
+    {
+      "source": "home",
+      "target": "map_tab",
+      "source_port": "bottom",
+      "target_port": "left",
+      "source_offset": -20,
+      "waypoints": [[342.5, 445]],
+      "label": "Tab 'Bản đồ'",
+      "label_pos": 0.45,
+      "label_offset_x": -15
+    },
+    {
+      "source": "home",
+      "target": "profile_tab",
+      "source_port": "bottom",
+      "target_port": "left",
+      "source_offset": 25,
+      "waypoints": [[387.5, 560]],
+      "label": "Tab 'Tài khoản'",
+      "label_pos": 0.45,
+      "label_offset_x": -15
+    },
+    {
+      "source": "notifications",
+      "target": "task_detail",
+      "source_port": "right",
+      "target_port": "left",
+      "label": "Bấm 'Xem chi tiết & Châm hàng'",
+      "label_pos": 0.5,
+      "label_offset_y": -8
+    },
+    {
+      "source": "task_detail",
+      "target": "notifications",
+      "source_port": "top",
+      "target_port": "top",
+      "source_offset": -25,
+      "target_offset": 25,
+      "line_style": "dashed",
+      "waypoints": [[867.5, 35], [647.5, 35]],
+      "label": "Bấm 'Quay lại danh sách'",
+      "label_pos": 0.5,
+      "label_offset_y": -8
+    },
+    {
+      "source": "task_detail",
+      "target": "auto_sync",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": 0,
+      "target_offset": -12,
+      "waypoints": [[1022.5, 96], [1022.5, 145]],
+      "label": "Bấm 'Xác nhận đã châm đầy hàng'",
+      "label_pos": 0.5,
+      "label_offset_y": -8
+    },
+    {
+      "source": "density_section",
+      "target": "fill_modal",
+      "source_port": "right",
+      "target_port": "left",
+      "label": "⚡ Bấm 'Fill hàng ngay'",
+      "label_pos": 0.5,
+      "label_offset_y": -8
+    },
+    {
+      "source": "fill_modal",
+      "target": "auto_sync",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 12,
+      "waypoints": [[1022.5, 215], [1022.5, 169]],
+      "label": "Bấm 'Xác nhận đã Fill xong'",
+      "label_pos": 0.5,
+      "label_offset_y": -8
+    },
+    {
+      "source": "fill_modal",
+      "target": "map_tab",
+      "source_port": "bottom",
+      "target_port": "right",
+      "source_offset": 0,
+      "target_offset": 10,
+      "waypoints": [[892.5, 455]],
+      "label": "Bấm 'Xem vị trí trên bản đồ 2D →'",
+      "label_pos": 0.5,
+      "label_offset_x": 22
+    },
+    {
+      "source": "robot_card",
+      "target": "map_tab",
+      "source_port": "right",
+      "target_port": "right",
+      "source_offset": 0,
+      "target_offset": -10,
+      "waypoints": [[760, 329], [760, 435]],
+      "label": "Bấm 'Theo dõi trên bản đồ →'",
+      "label_pos": 0.5,
+      "label_offset_x": 22
+    },
+    {
+      "source": "auto_sync",
+      "target": "notifications",
+      "source_port": "top",
+      "target_port": "top",
+      "source_offset": 0,
+      "target_offset": -20,
+      "line_style": "dashed",
+      "waypoints": [[1157.5, 18], [602.5, 18]],
+      "label": "SignalR Live: Đóng cảnh báo & cập nhật 100%",
+      "label_pos": 0.5,
+      "label_offset_y": -8
+    },
+    {
+      "source": "profile_tab",
+      "target": "login",
+      "source_port": "bottom",
+      "target_port": "bottom",
+      "line_style": "dashed",
+      "waypoints": [[622.5, 650], [125, 650]],
+      "label": "Bấm 'Đăng xuất'",
+      "label_pos": 0.5,
+      "label_offset_y": -8
+    }
+  ]
+}

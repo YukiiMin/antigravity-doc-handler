@@ -1,0 +1,497 @@
+{
+  "width": 1340,
+  "height": 770,
+  "font_family": "Segoe UI, -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif",
+  "font_size": 10.5,
+  "bg_color": "#ffffff",
+  "nodes": [
+    {
+      "id": "face_register",
+      "label": "Đăng ký khuôn mặt\n(Face Register)",
+      "x": 80,
+      "y": 60,
+      "width": 150,
+      "height": 46,
+      "type": "standard"
+    },
+    {
+      "id": "register",
+      "label": "Đăng ký\n(Register Screen)",
+      "x": 80,
+      "y": 170,
+      "width": 150,
+      "height": 46,
+      "type": "standard"
+    },
+    {
+      "id": "login",
+      "label": "Đăng nhập\n(Login Screen)",
+      "x": 80,
+      "y": 320,
+      "width": 150,
+      "height": 54,
+      "type": "primary"
+    },
+    {
+      "id": "face_login",
+      "label": "Quét khuôn mặt\n(Face Login)",
+      "x": 80,
+      "y": 470,
+      "width": 150,
+      "height": 46,
+      "type": "standard"
+    },
+    {
+      "id": "face_update",
+      "label": "Cập nhật khuôn mặt\n(Face Update)",
+      "x": 80,
+      "y": 600,
+      "width": 150,
+      "height": 46,
+      "type": "standard"
+    },
+    {
+      "id": "diet_pref",
+      "label": "Chế độ ăn uống\n(Diet Preferences)",
+      "x": 270,
+      "y": 60,
+      "width": 155,
+      "height": 46,
+      "type": "standard"
+    },
+    {
+      "id": "allergies",
+      "label": "Cảnh báo dị ứng\n(Allergies Screen)",
+      "x": 270,
+      "y": 160,
+      "width": 155,
+      "height": 46,
+      "type": "standard"
+    },
+    {
+      "id": "budget",
+      "label": "Ngân sách mua sắm\n(Budget Screen)",
+      "x": 270,
+      "y": 260,
+      "width": 155,
+      "height": 46,
+      "type": "standard"
+    },
+    {
+      "id": "home",
+      "label": "Trang chủ\n(Home Dashboard)",
+      "x": 480,
+      "y": 340,
+      "width": 160,
+      "height": 60,
+      "type": "primary"
+    },
+    {
+      "id": "robots",
+      "label": "Lộ trình Robot\n(Robot Status Screen)",
+      "x": 480,
+      "y": 590,
+      "width": 160,
+      "height": 48,
+      "type": "standard"
+    },
+    {
+      "id": "search",
+      "label": "Tìm kiếm & Gợi ý AI\n(Search Screen)",
+      "x": 740,
+      "y": 90,
+      "width": 160,
+      "height": 48,
+      "type": "standard"
+    },
+    {
+      "id": "product_detail",
+      "label": "Chi tiết sản phẩm\n(Product Detail)",
+      "x": 740,
+      "y": 220,
+      "width": 160,
+      "height": 48,
+      "type": "standard"
+    },
+    {
+      "id": "cart",
+      "label": "Giỏ hàng\n(Cart Screen)",
+      "x": 740,
+      "y": 340,
+      "width": 160,
+      "height": 54,
+      "type": "primary"
+    },
+    {
+      "id": "profile",
+      "label": "Hồ sơ cá nhân\n(Profile Screen)",
+      "x": 740,
+      "y": 510,
+      "width": 160,
+      "height": 54,
+      "type": "primary"
+    },
+    {
+      "id": "nav_map",
+      "label": "Bản đồ dẫn đường 2D\n(Navigation Map)",
+      "x": 1020,
+      "y": 340,
+      "width": 160,
+      "height": 50,
+      "type": "standard"
+    },
+    {
+      "id": "member_tier",
+      "label": "Hạng thành viên\n(Member Tier)",
+      "x": 1020,
+      "y": 440,
+      "width": 160,
+      "height": 46,
+      "type": "standard"
+    },
+    {
+      "id": "order_history",
+      "label": "Lịch sử đơn hàng\n(Order History)",
+      "x": 1020,
+      "y": 520,
+      "width": 160,
+      "height": 46,
+      "type": "standard"
+    },
+    {
+      "id": "personal_info",
+      "label": "Thông tin cá nhân\n(Personal Info)",
+      "x": 1020,
+      "y": 600,
+      "width": 160,
+      "height": 46,
+      "type": "standard"
+    },
+    {
+      "id": "shopping_prefs",
+      "label": "Tùy chọn mua sắm\n(Shopping Preferences)",
+      "x": 1020,
+      "y": 680,
+      "width": 160,
+      "height": 46,
+      "type": "standard"
+    }
+  ],
+  "edges": [
+    {
+      "source": "login",
+      "target": "home",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": -10,
+      "target_offset": -10,
+      "label": "Bấm 'Đăng nhập'",
+      "label_pos": 0.5,
+      "label_offset_y": -8
+    },
+    {
+      "source": "login",
+      "target": "face_login",
+      "source_port": "bottom",
+      "target_port": "top",
+      "label": "Bấm 'Đăng nhập bằng khuôn mặt'",
+      "label_pos": 0.5,
+      "label_offset_x": 95
+    },
+    {
+      "source": "face_login",
+      "target": "home",
+      "source_port": "right",
+      "target_port": "left",
+      "target_offset": 15,
+      "waypoints": [[340, 493], [340, 385]],
+      "label": "AI nhận diện thành công (Auto)",
+      "label_pos": 0.35,
+      "label_offset_y": -8
+    },
+    {
+      "source": "face_login",
+      "target": "login",
+      "source_port": "left",
+      "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 12,
+      "line_style": "dashed",
+      "waypoints": [[30, 493], [30, 359]],
+      "label": "Bấm 'Sử dụng mật khẩu'",
+      "label_pos": 0.5,
+      "label_offset_x": 65
+    },
+    {
+      "source": "login",
+      "target": "register",
+      "source_port": "top",
+      "target_port": "bottom",
+      "label": "Bấm 'Đăng ký ngay'",
+      "label_pos": 0.5,
+      "label_offset_x": -65
+    },
+    {
+      "source": "register",
+      "target": "face_register",
+      "source_port": "top",
+      "target_port": "bottom",
+      "label": "Bấm 'Tiếp tục quét khuôn mặt'",
+      "label_pos": 0.5,
+      "label_offset_x": 85
+    },
+    {
+      "source": "face_register",
+      "target": "login",
+      "source_port": "left",
+      "target_port": "left",
+      "source_offset": 0,
+      "target_offset": -12,
+      "line_style": "dashed",
+      "waypoints": [[20, 83], [20, 335]],
+      "label": "Bấm 'Đăng nhập ngay'",
+      "label_pos": 0.5,
+      "label_offset_x": 65
+    },
+    {
+      "source": "login",
+      "target": "diet_pref",
+      "source_port": "top",
+      "target_port": "left",
+      "source_offset": 40,
+      "waypoints": [[195, 270], [245, 270], [245, 83]],
+      "label": "Tài khoản mới (needsOnboarding)",
+      "label_pos": 0.5,
+      "label_offset_y": -8
+    },
+    {
+      "source": "diet_pref",
+      "target": "allergies",
+      "source_port": "bottom",
+      "target_port": "top",
+      "label": "Bấm 'Tiếp tục' / 'Để sau'",
+      "label_pos": 0.5,
+      "label_offset_x": 75
+    },
+    {
+      "source": "allergies",
+      "target": "budget",
+      "source_port": "bottom",
+      "target_port": "top",
+      "label": "Bấm 'Tiếp tục' / 'Không dị ứng'",
+      "label_pos": 0.5,
+      "label_offset_x": 88
+    },
+    {
+      "source": "budget",
+      "target": "home",
+      "source_port": "right",
+      "target_port": "top",
+      "target_offset": -40,
+      "waypoints": [[450, 283], [450, 310], [520, 310]],
+      "label": "Bấm 'Hoàn tất'",
+      "label_pos": 0.5,
+      "label_offset_y": -8
+    },
+    {
+      "source": "home",
+      "target": "search",
+      "source_port": "top",
+      "target_port": "left",
+      "source_offset": 35,
+      "waypoints": [[595, 114]],
+      "label": "Bấm 'Khám phá ngay' / Tìm kiếm",
+      "label_pos": 0.45,
+      "label_offset_x": -15
+    },
+    {
+      "source": "home",
+      "target": "product_detail",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": -20,
+      "waypoints": [[690, 350], [690, 244]],
+      "label": "Chạm thẻ gợi ý món",
+      "label_pos": 0.45,
+      "label_offset_x": -15
+    },
+    {
+      "source": "home",
+      "target": "cart",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": 0,
+      "label": "Bấm icon 'Giỏ hàng'",
+      "label_pos": 0.5,
+      "label_offset_y": -8
+    },
+    {
+      "source": "home",
+      "target": "profile",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": 20,
+      "waypoints": [[690, 390], [690, 537]],
+      "label": "Bấm tab 'Tài khoản'",
+      "label_pos": 0.45,
+      "label_offset_x": -15
+    },
+    {
+      "source": "home",
+      "target": "robots",
+      "source_port": "bottom",
+      "target_port": "top",
+      "label": "Bấm 'Xem lộ trình'",
+      "label_pos": 0.5,
+      "label_offset_x": 55
+    },
+    {
+      "source": "search",
+      "target": "product_detail",
+      "source_port": "bottom",
+      "target_port": "top",
+      "label": "Chạm sản phẩm tìm được",
+      "label_pos": 0.5,
+      "label_offset_x": 80
+    },
+    {
+      "source": "search",
+      "target": "cart",
+      "source_port": "right",
+      "target_port": "top",
+      "source_offset": 0,
+      "target_offset": -25,
+      "waypoints": [[950, 114], [950, 305], [795, 305]],
+      "label": "Bấm icon 'Giỏ hàng'",
+      "label_pos": 0.5,
+      "label_offset_y": -8
+    },
+    {
+      "source": "product_detail",
+      "target": "cart",
+      "source_port": "bottom",
+      "target_port": "top",
+      "source_offset": 0,
+      "target_offset": 25,
+      "label": "Bấm 'Thêm vào giỏ'",
+      "label_pos": 0.4,
+      "label_offset_x": 65
+    },
+    {
+      "source": "cart",
+      "target": "nav_map",
+      "source_port": "right",
+      "target_port": "left",
+      "label": "Bấm 'Xem lộ trình & Chỉ đường'",
+      "label_pos": 0.5,
+      "label_offset_y": -8
+    },
+    {
+      "source": "nav_map",
+      "target": "home",
+      "source_port": "bottom",
+      "target_port": "bottom",
+      "source_offset": -30,
+      "target_offset": 35,
+      "line_style": "dashed",
+      "waypoints": [[1070, 440], [595, 440]],
+      "label": "Bấm 'Hoàn thành & Về trang chủ'",
+      "label_pos": 0.5,
+      "label_offset_y": -10
+    },
+    {
+      "source": "profile",
+      "target": "member_tier",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": -18,
+      "waypoints": [[960, 519], [960, 463]],
+      "label": "Bấm 'Hạng thành viên'",
+      "label_pos": 0.5,
+      "label_offset_y": -8
+    },
+    {
+      "source": "profile",
+      "target": "order_history",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": 0,
+      "label": "Bấm 'Lịch sử đơn hàng'",
+      "label_pos": 0.5,
+      "label_offset_y": -8
+    },
+    {
+      "source": "profile",
+      "target": "personal_info",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": 18,
+      "waypoints": [[960, 555], [960, 623]],
+      "label": "Bấm 'Thông tin cá nhân'",
+      "label_pos": 0.5,
+      "label_offset_y": -8
+    },
+    {
+      "source": "profile",
+      "target": "shopping_prefs",
+      "source_port": "bottom",
+      "target_port": "left",
+      "source_offset": 25,
+      "waypoints": [[845, 703]],
+      "label": "Bấm 'Thiết lập cá nhân hoá'",
+      "label_pos": 0.45,
+      "label_offset_x": -15
+    },
+    {
+      "source": "order_history",
+      "target": "cart",
+      "source_port": "top",
+      "target_port": "right",
+      "source_offset": 30,
+      "target_offset": 15,
+      "line_style": "dashed",
+      "waypoints": [[1130, 420], [980, 420], [980, 382]],
+      "label": "Bấm 'Mua lại đơn này'",
+      "label_pos": 0.5,
+      "label_offset_y": -10
+    },
+    {
+      "source": "personal_info",
+      "target": "face_update",
+      "source_port": "bottom",
+      "target_port": "right",
+      "source_offset": 0,
+      "target_offset": 0,
+      "waypoints": [[1100, 745], [260, 745], [260, 623]],
+      "label": "Bấm 'Cập nhật khuôn mặt'",
+      "label_pos": 0.5,
+      "label_offset_y": -10
+    },
+    {
+      "source": "face_update",
+      "target": "login",
+      "source_port": "left",
+      "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 18,
+      "line_style": "dashed",
+      "waypoints": [[40, 623], [40, 365]],
+      "label": "Bấm 'Đăng nhập ngay'",
+      "label_pos": 0.5,
+      "label_offset_x": 65
+    },
+    {
+      "source": "profile",
+      "target": "login",
+      "source_port": "left",
+      "target_port": "right",
+      "source_offset": 0,
+      "target_offset": 12,
+      "line_style": "dashed",
+      "waypoints": [[710, 537], [710, 460], [255, 460], [255, 359]],
+      "label": "Bấm 'Đăng xuất'",
+      "label_pos": 0.5,
+      "label_offset_y": -10
+    }
+  ]
+}
