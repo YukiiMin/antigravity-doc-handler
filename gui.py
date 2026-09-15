@@ -20,7 +20,10 @@ try:
 except ImportError:
     HAS_DND = False
 
-from .converter_engine import convert_universal, get_pdf_page_count
+try:
+    from .converter_engine import convert_universal, get_pdf_page_count
+except (ImportError, ValueError):
+    from converter_engine import convert_universal, get_pdf_page_count
 
 
 class UniversalDocStudioApp:
@@ -250,6 +253,22 @@ class UniversalDocStudioApp:
 
         self.btn_open_dir = ttk.Button(btn_row, text="Mở Thư Mục Chứa", command=self._open_last_dir, state=tk.DISABLED)
         self.btn_open_dir.pack(side=tk.LEFT)
+
+        self.btn_diagram_editor = tk.Button(
+            btn_row,
+            text="📐 Canvas Diagram Editor",
+            command=self._open_diagram_editor,
+            bg="#0f172a",
+            fg="#f8fafc",
+            activebackground="#1e293b",
+            activeforeground="#ffffff",
+            font=("Segoe UI", 9, "bold"),
+            relief=tk.FLAT,
+            padx=12,
+            pady=6,
+            cursor="hand2"
+        )
+        self.btn_diagram_editor.pack(side=tk.RIGHT)
 
         prog_row = ttk.Frame(bottom_frame)
         prog_row.pack(fill=tk.X, pady=(0, 4))
@@ -556,6 +575,23 @@ class UniversalDocStudioApp:
                     os.startfile(folder)
                 except Exception as err:
                     self.log(f"[LỖI] Không thể mở thư mục: {err}")
+
+    def _open_diagram_editor(self) -> None:
+        """Launch the Precision Diagram Canvas Editor in a child window."""
+        try:
+            try:
+                from .diagram_editor import DiagramEditorApp
+            except (ImportError, ValueError):
+                from diagram_editor import DiagramEditorApp
+
+            spec_path = filedialog.askopenfilename(
+                parent=self.root,
+                title="Chọn tệp JSON Spec Diagram để chỉnh sửa (hoặc Huỷ để tạo sơ đồ trống)",
+                filetypes=[("JSON Spec Diagram", "*.json"), ("All Files", "*.*")]
+            )
+            DiagramEditorApp(master=self.root, spec_path=spec_path or None)
+        except Exception as err:
+            messagebox.showerror("Lỗi khởi động Editor", f"Không thể mở Diagram Canvas Editor:\n{err}")
 
 
 def launch_gui(initial_file: Optional[str] = None) -> None:

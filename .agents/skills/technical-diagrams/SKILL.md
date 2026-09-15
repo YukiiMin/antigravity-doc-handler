@@ -189,12 +189,23 @@ When diagrams are destined for Word (`.docx`) or PDF documents on A4 Portrait:
 
 ---
 
-## 💻 CLI Usage
+## 💻 CLI Usage & Visual Editor
 
 ```bash
-# Render directly using the precision diagram engine (scale 3 for 300+ DPI):
+# 1. Render directly using the precision diagram engine (scale 3 for 300+ DPI):
 python spec_diagram_engine.py --spec android_user_flow_v2_spec.json --out android_user_screen_flow_v2.png --scale 3
 
-# Automated collision detection runs on load:
-# Reports any Node-to-Node AABB overlap and Edge-Label-to-Node bounding-box overlap.
+# 2. Launch Interactive Canvas Editor for visual Drag & Drop, port tuning, and 2-way JSON sync:
+python diagram_editor.py --spec android_user_flow_v2_spec.json
+
+# Or via unified CLI:
+python -m ai_tools_cli diagram-editor android_user_flow_v2_spec.json
 ```
+
+### 🎨 Visual Canvas Editor Capabilities:
+- **Two-Way JSON Sync**: Edit visually on canvas, save directly to `.json` (Single Source of Truth).
+- **Zero-Flicker Drag**: Smooth tag-based motion (`canvas.move`) recalculating only incident edges.
+- **Node ID Rename Guard**: Duplicate ID protection ensuring references across all edges remain valid.
+- **Edge Hit-Testing**: Seamless click-to-select on orthogonal polyline connections.
+- **Deep Undo/Redo**: 30-step snapshot stack (`Ctrl+Z` / `Ctrl+Y`).
+- **Direct 300+ DPI Export**: High-resolution PNG rasterization with one click.

@@ -215,6 +215,16 @@ def cmd_spec_render(args: argparse.Namespace) -> int:
     print(f"     Resolution: {w_px}x{h_px}px | Aspect Ratio: {ar}:1 | Size: {f_size} bytes | Scale: {scale}x")
     return 0
 
+
+def cmd_diagram_editor(args: argparse.Namespace) -> int:
+    try:
+        from .diagram_editor import DiagramEditorApp
+    except (ImportError, ValueError):
+        from diagram_editor import DiagramEditorApp
+    app = DiagramEditorApp(spec_path=args.spec)
+    app.run()
+    return 0
+
 def _flatten_body(body: list[dict]) -> dict[int, dict]:
     """Return {element_index: element} mapping."""
     return {el.get("element_index", i): el for i, el in enumerate(body)}
@@ -442,6 +452,14 @@ Examples:
     p_sr.add_argument("--scale", type=int, default=None,
                       help="Override scale factor (default: 3)")
     p_sr.set_defaults(func=cmd_spec_render)
+
+    # --- diagram-editor ---
+    p_de = sub.add_parser(
+        "diagram-editor",
+        help="Launch Interactive Canvas Editor for Precision Diagram JSON specs",
+    )
+    p_de.add_argument("spec", nargs="?", default=None, help="Path to precision diagram spec .json file (optional)")
+    p_de.set_defaults(func=cmd_diagram_editor)
 
 
     # --- docx-diff ---

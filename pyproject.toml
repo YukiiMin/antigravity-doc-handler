@@ -51,6 +51,7 @@ windows = [
 doc-handler = "ai_tools_cli:main"
 spec-render = "ai_tools_cli:main_spec_render"
 docx-tools = "ai_tools_cli:main"
+diagram-editor = "diagram_editor:main"
 
 [tool.setuptools.packages.find]
 where = ["."]

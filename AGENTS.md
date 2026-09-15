@@ -28,6 +28,7 @@ When user requests you to perform document tasks or draw diagrams, run these com
 |---|---|
 | **Render Diagram from JSON Spec** | `python -m ai_tools_cli spec-render <spec.json> -o <out.png> -s 3` |
 | **Direct Diagram Engine CLI** | `python spec_diagram_engine.py --spec <spec.json> --out <out.png> --scale 3` |
+| **Interactive Canvas Diagram Editor** | `python diagram_editor.py --spec <spec.json>` |
 | **Render Mermaid Diagram** | `python -m ai_tools_cli render-diagram <file.mmd> -o <out.png> -s 3` |
 | **Convert PDF to DOCX** | `python -m ai_tools_cli convert <input.pdf> -o <output.docx>` |
 | **Convert DOCX to Decoupled MD** | `python -m ai_tools_cli convert <document.docx> -t md` |
@@ -43,6 +44,8 @@ When user requests you to perform document tasks or draw diagrams, run these com
 ```
 antigravity-doc-handler/
 ├── spec_diagram_engine.py      # Precision Diagram Engine (SVG + Headless Edge/Chrome PNG)
+├── diagram_editor.py           # Interactive Canvas Editor (Drag & Drop, 2-Way JSON Sync)
+├── test_diagram_editor.py      # Automated Test Suite for Diagram Editor & Tkinter Traps
 ├── ai_tools_cli.py              # Unified CLI for AI Agents & Terminal Users
 ├── smart_post_processor.py      # OpenXML Post-Processor (TOC tab stops, table invariants)
 ├── converter_engine.py          # Unified Multi-Format Conversion Engine

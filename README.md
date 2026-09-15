@@ -43,6 +43,17 @@ It bridges the gap between raw document conversion, OpenXML Word standard compli
 - **SVG Text Halo Technology**: Employs `paint-order="stroke fill"` with a `4px` white outline (`#ffffff`) around text, eliminating badge collision boxes that obscure adjacent nodes.
 - **Headless Chromium/Edge 300+ DPI Rasterization**: Generates ultra-sharp PNG images at 3x scale.
 
+### 3. 🎨 Interactive Canvas Diagram Editor (`diagram_editor.py`)
+- **Direct Visual Editing**: Drag & drop screen nodes, modify dimensions, adjust action labels, and connect ports visually.
+- **Two-Way JSON Synchronization**: JSON spec is the Single Source of Truth. Changes are saved back to clean JSON with zero data loss.
+- **Anti-Flicker Drag & Drop (Tkinter Tag Move)**: Uses `canvas.move` and recalculates only incident edges during motion, eliminating canvas flashes and lag.
+- **Safe Node ID Renaming (Collision Guard)**: Strict duplicate ID validation before updating edge references, preventing corrupted state.
+- **Space-Pan Keyboard Isolation**: Canvas panning via Space key strictly verifies canvas focus, allowing seamless typing in property fields.
+- **Precise Edge Hit-Testing**: Uses `canvas.find_overlapping` bounding box to effortlessly select and edit orthogonal connection lines.
+- **30-Step Undo / Redo**: Deep state snapshot history (`Ctrl+Z` / `Ctrl+Y`).
+- **High-Resolution PNG Export**: One-click 300+ DPI export (`scale=3`) with automatic system preview.
+- **Embedded in GUI & Standalone CLI**: Accessible directly from `main.py` or standalone via `python diagram_editor.py --spec <file.json>`.
+
 ---
 
 ## 📦 Installation
@@ -113,8 +124,18 @@ python -m ai_tools_cli insert-diagram document.docx screen_flow.png \
   -w 14.0
 ```
 
-### 5. Desktop Drag-and-Drop GUI
-For non-technical users, launch the native drag-and-drop desktop application:
+### 5. Interactive Canvas Diagram Editor
+Launch the visual two-way editor for real-time drag-and-drop node manipulation, connection routing, and 300+ DPI PNG export:
+```bash
+# Open editor with an existing diagram spec:
+python diagram_editor.py --spec android_user_flow_v2_spec.json
+
+# Or open a blank canvas:
+python diagram_editor.py
+```
+
+### 6. Desktop Drag-and-Drop GUI
+For non-technical users, launch the native desktop studio with integrated **[📐 Canvas Diagram Editor]** button:
 ```bash
 python main.py
 # Or double-click run_gui.bat on Windows
@@ -200,6 +221,8 @@ antigravity-doc-handler/
 │       └── technical-diagrams/SKILL.md          # Technical Diagramming Skill
 ├── ai_tools_cli.py                              # Unified CLI for Terminal & AI
 ├── spec_diagram_engine.py                       # Precision SVG + Chromium Engine
+├── diagram_editor.py                            # Interactive Canvas Diagram Editor
+├── test_diagram_editor.py                       # Automated Test Suite (7 Suites)
 ├── smart_post_processor.py                      # OpenXML Word Table & TOC Repair
 ├── converter_engine.py                          # Multi-Format Pipeline Coordinator
 ├── markdown_converter.py                        # Decoupled MD + Style YAML Engine
