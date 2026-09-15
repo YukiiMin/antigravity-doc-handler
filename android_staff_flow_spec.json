@@ -1,6 +1,6 @@
 {
-  "width": 1360,
-  "height": 720,
+  "width": 1360.0,
+  "height": 720.0,
   "font_family": "Segoe UI, -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif",
   "font_size": 10.5,
   "bg_color": "#ffffff",
@@ -8,92 +8,102 @@
     {
       "id": "login",
       "label": "Staff Login Screen",
-      "x": 60,
-      "y": 400,
-      "width": 150,
-      "height": 48,
-      "type": "standard"
+      "x": 140.0,
+      "y": 440.0,
+      "width": 150.0,
+      "height": 48.0,
+      "type": "standard",
+      "sublabel": null
     },
     {
       "id": "home",
       "label": "Staff Home Dashboard",
-      "x": 280,
-      "y": 260,
-      "width": 165,
-      "height": 56,
-      "type": "primary"
+      "x": 290.0,
+      "y": 280.0,
+      "width": 165.0,
+      "height": 56.0,
+      "type": "primary",
+      "sublabel": null
     },
     {
       "id": "notifications",
       "label": "Notifications Tab\n(Empty Shelves)",
-      "x": 570,
-      "y": 70,
-      "width": 165,
-      "height": 52,
-      "type": "primary"
+      "x": 570.0,
+      "y": 70.0,
+      "width": 165.0,
+      "height": 52.0,
+      "type": "primary",
+      "sublabel": null
     },
     {
       "id": "density_section",
       "label": "Shelf Density Section\n(Shelves 1..6)",
-      "x": 570,
-      "y": 190,
-      "width": 165,
-      "height": 50,
-      "type": "standard"
+      "x": 570.0,
+      "y": 190.0,
+      "width": 165.0,
+      "height": 50.0,
+      "type": "standard",
+      "sublabel": null
     },
     {
       "id": "robot_card",
       "label": "Robot RB0001 Telemetry",
-      "x": 570,
-      "y": 305,
-      "width": 165,
-      "height": 48,
-      "type": "standard"
+      "x": 570.0,
+      "y": 305.0,
+      "width": 165.0,
+      "height": 48.0,
+      "type": "standard",
+      "sublabel": null
     },
     {
       "id": "map_tab",
       "label": "Interactive Map Tab 2D",
-      "x": 570,
-      "y": 420,
-      "width": 165,
-      "height": 50,
-      "type": "standard"
+      "x": 570.0,
+      "y": 420.0,
+      "width": 165.0,
+      "height": 50.0,
+      "type": "standard",
+      "sublabel": null
     },
     {
       "id": "profile_tab",
       "label": "Profile Tab",
-      "x": 570,
-      "y": 535,
-      "width": 165,
-      "height": 50,
-      "type": "primary"
+      "x": 570.0,
+      "y": 580.0,
+      "width": 200.0,
+      "height": 50.0,
+      "type": "primary",
+      "sublabel": null
     },
     {
       "id": "task_detail",
       "label": "Task Detail & Restock Screen",
-      "x": 880,
-      "y": 70,
-      "width": 170,
-      "height": 52,
-      "type": "primary"
+      "x": 880.0,
+      "y": 70.0,
+      "width": 170.0,
+      "height": 52.0,
+      "type": "primary",
+      "sublabel": null
     },
     {
       "id": "fill_modal",
       "label": "In-Place Shelf Fill Modal",
-      "x": 880,
-      "y": 190,
-      "width": 170,
-      "height": 50,
-      "type": "modal"
+      "x": 880.0,
+      "y": 190.0,
+      "width": 170.0,
+      "height": 50.0,
+      "type": "modal",
+      "sublabel": null
     },
     {
       "id": "auto_sync",
       "label": "SignalR Restock Sync\n(100% Broadcast & Close)",
-      "x": 1160,
-      "y": 130,
-      "width": 175,
-      "height": 54,
-      "type": "standard"
+      "x": 1160.0,
+      "y": 130.0,
+      "width": 175.0,
+      "height": 54.0,
+      "type": "standard",
+      "sublabel": null
     }
   ],
   "edges": [
@@ -102,167 +112,294 @@
       "target": "home",
       "source_port": "top",
       "target_port": "left",
-      "waypoints": [[135, 288]],
+      "source_offset": 0.0,
+      "target_offset": 0.0,
       "label": "Click \"Đăng nhập\"",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          135,
+          288
+        ]
+      ],
       "label_pos": 0.5,
-      "label_offset_x": -15
+      "label_offset_y": 0.0,
+      "label_offset_x": -15.0
     },
     {
       "source": "home",
       "target": "notifications",
       "source_port": "top",
       "target_port": "left",
-      "source_offset": -25,
-      "waypoints": [[347.5, 96]],
+      "source_offset": -25.0,
+      "target_offset": 0.0,
       "label": "Tab \"Thông báo\"\n/ \"Xem tất cả\"",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          347.5,
+          96
+        ]
+      ],
       "label_pos": 0.45,
-      "label_offset_x": -15
+      "label_offset_y": 0.0,
+      "label_offset_x": -15.0
     },
     {
       "source": "home",
       "target": "density_section",
       "source_port": "top",
       "target_port": "left",
-      "source_offset": 25,
-      "waypoints": [[407.5, 215]],
+      "source_offset": 25.0,
+      "target_offset": 0.0,
       "label": "View Shelf Density\n(Shelves 1..6)",
-      "label_pos": 0.45,
-      "label_offset_x": -15
+      "line_style": "solid",
+      "waypoints": [
+        [
+          407.5,
+          215
+        ]
+      ],
+      "label_pos": 0.6,
+      "label_offset_y": 10.0,
+      "label_offset_x": -15.0
     },
     {
       "source": "home",
       "target": "robot_card",
       "source_port": "right",
       "target_port": "left",
-      "source_offset": 0,
+      "source_offset": 0.0,
+      "target_offset": 0.0,
       "label": "Live Telemetry\nMonitoring",
+      "line_style": "solid",
+      "waypoints": [],
       "label_pos": 0.5,
-      "label_offset_y": -8
+      "label_offset_y": -8.0,
+      "label_offset_x": 0.0
     },
     {
       "source": "home",
       "target": "map_tab",
       "source_port": "bottom",
       "target_port": "left",
-      "source_offset": -20,
-      "waypoints": [[352.5, 445]],
+      "source_offset": -20.0,
+      "target_offset": 0.0,
       "label": "Tab \"Bản đồ\"",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          352.5,
+          445
+        ]
+      ],
       "label_pos": 0.45,
-      "label_offset_x": -15
+      "label_offset_y": 0.0,
+      "label_offset_x": -15.0
     },
     {
       "source": "home",
       "target": "profile_tab",
       "source_port": "bottom",
       "target_port": "left",
-      "source_offset": 25,
-      "waypoints": [[407.5, 560]],
+      "source_offset": 25.0,
+      "target_offset": 0.0,
       "label": "Tab \"Tài khoản\"",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          407.5,
+          560
+        ]
+      ],
       "label_pos": 0.45,
-      "label_offset_x": -15
+      "label_offset_y": 0.0,
+      "label_offset_x": -15.0
     },
     {
       "source": "notifications",
       "target": "task_detail",
       "source_port": "right",
       "target_port": "left",
+      "source_offset": 0.0,
+      "target_offset": 0.0,
       "label": "Click \"Xem chi tiết\n& Châm hàng\"",
+      "line_style": "solid",
+      "waypoints": [],
       "label_pos": 0.5,
-      "label_offset_y": -8
+      "label_offset_y": -8.0,
+      "label_offset_x": 0.0
     },
     {
       "source": "task_detail",
       "target": "notifications",
       "source_port": "top",
       "target_port": "top",
-      "source_offset": -25,
-      "target_offset": 25,
-      "line_style": "dashed",
-      "waypoints": [[940, 35], [680, 35]],
+      "source_offset": -25.0,
+      "target_offset": 25.0,
       "label": "Click \"Quay lại\ndanh sách\"",
+      "line_style": "dashed",
+      "waypoints": [
+        [
+          940,
+          35
+        ],
+        [
+          680,
+          35
+        ]
+      ],
       "label_pos": 0.5,
-      "label_offset_y": -8
+      "label_offset_y": -8.0,
+      "label_offset_x": 0.0
     },
     {
       "source": "task_detail",
       "target": "auto_sync",
       "source_port": "right",
       "target_port": "left",
-      "source_offset": 0,
-      "target_offset": -12,
-      "waypoints": [[1105, 96], [1105, 145]],
+      "source_offset": 0.0,
+      "target_offset": -12.0,
       "label": "Click \"Xác nhận\nđã châm đầy hàng\"",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          1105,
+          96
+        ],
+        [
+          1105,
+          145
+        ]
+      ],
       "label_pos": 0.45,
-      "label_offset_x": 0
+      "label_offset_y": 0.0,
+      "label_offset_x": 0.0
     },
     {
       "source": "density_section",
       "target": "fill_modal",
       "source_port": "right",
       "target_port": "left",
+      "source_offset": 0.0,
+      "target_offset": 0.0,
       "label": "⚡ Click\n\"Fill hàng ngay\"",
+      "line_style": "solid",
+      "waypoints": [],
       "label_pos": 0.5,
-      "label_offset_y": -8
+      "label_offset_y": -8.0,
+      "label_offset_x": 0.0
     },
     {
       "source": "fill_modal",
       "target": "auto_sync",
       "source_port": "right",
       "target_port": "left",
-      "source_offset": 0,
-      "target_offset": 12,
-      "waypoints": [[1105, 215], [1105, 169]],
+      "source_offset": 0.0,
+      "target_offset": 12.0,
       "label": "Click \"Xác nhận\nđã Fill xong\"",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          1105,
+          215
+        ],
+        [
+          1105,
+          169
+        ]
+      ],
       "label_pos": 0.45,
-      "label_offset_x": 0
+      "label_offset_y": 0.0,
+      "label_offset_x": 0.0
     },
     {
       "source": "fill_modal",
       "target": "map_tab",
       "source_port": "bottom",
       "target_port": "right",
-      "source_offset": 0,
-      "target_offset": 10,
-      "waypoints": [[965, 455]],
+      "source_offset": 0.0,
+      "target_offset": 10.0,
       "label": "Click \"Xem vị trí\nbản đồ 2D →\"",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          965,
+          455
+        ]
+      ],
       "label_pos": 0.5,
-      "label_offset_x": 22
+      "label_offset_y": 0.0,
+      "label_offset_x": 22.0
     },
     {
       "source": "robot_card",
       "target": "map_tab",
       "source_port": "right",
       "target_port": "right",
-      "source_offset": 0,
-      "target_offset": -10,
-      "waypoints": [[800, 329], [800, 435]],
+      "source_offset": 0.0,
+      "target_offset": -10.0,
       "label": "Click \"Theo dõi\nbản đồ →\"",
+      "line_style": "solid",
+      "waypoints": [
+        [
+          800,
+          329
+        ],
+        [
+          800,
+          435
+        ]
+      ],
       "label_pos": 0.5,
-      "label_offset_x": 22
+      "label_offset_y": 0.0,
+      "label_offset_x": 22.0
     },
     {
       "source": "auto_sync",
       "target": "notifications",
       "source_port": "top",
       "target_port": "top",
-      "source_offset": 0,
-      "target_offset": -20,
-      "line_style": "dashed",
-      "waypoints": [[1247.5, 18], [635, 18]],
+      "source_offset": 0.0,
+      "target_offset": -20.0,
       "label": "SignalR Live Sync (Restock 100% Broadcast)",
+      "line_style": "dashed",
+      "waypoints": [
+        [
+          1247.5,
+          18
+        ],
+        [
+          635,
+          18
+        ]
+      ],
       "label_pos": 0.5,
-      "label_offset_y": -8
+      "label_offset_y": -8.0,
+      "label_offset_x": 0.0
     },
     {
       "source": "profile_tab",
       "target": "login",
       "source_port": "bottom",
       "target_port": "bottom",
-      "line_style": "dashed",
-      "waypoints": [[652.5, 650], [135, 650]],
+      "source_offset": 0.0,
+      "target_offset": 0.0,
       "label": "Click \"Đăng xuất\"",
+      "line_style": "dashed",
+      "waypoints": [
+        [
+          652.5,
+          650
+        ],
+        [
+          135,
+          650
+        ]
+      ],
       "label_pos": 0.5,
-      "label_offset_y": -8
+      "label_offset_y": -8.0,
+      "label_offset_x": 0.0
     }
   ]
 }

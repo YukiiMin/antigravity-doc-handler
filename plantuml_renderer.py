@@ -21,6 +21,7 @@ import sys
 import tempfile
 from typing import Any
 from PIL import Image
+Image.MAX_IMAGE_PIXELS = None
 
 _CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
