@@ -34,7 +34,7 @@ Use this skill when designing, generating, or rendering publication-grade techni
 
 ```json
 {
-  "width": 1340,
+  "width": 1400,
   "height": 770,
   "font_family": "Segoe UI, -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif",
   "font_size": 10.5,
@@ -42,7 +42,7 @@ Use this skill when designing, generating, or rendering publication-grade techni
   "nodes": [
     {
       "id": "login",
-      "label": "Đăng nhập\n(Login Screen)",
+      "label": "Login Screen",
       "x": 80,
       "y": 320,
       "width": 150,
@@ -51,7 +51,7 @@ Use this skill when designing, generating, or rendering publication-grade techni
     },
     {
       "id": "home",
-      "label": "Trang chủ\n(Home Dashboard)",
+      "label": "Home Dashboard",
       "x": 480,
       "y": 340,
       "width": 160,
@@ -60,7 +60,7 @@ Use this skill when designing, generating, or rendering publication-grade techni
     },
     {
       "id": "modal_otp",
-      "label": "Modal Nhập mã OTP\n(In-Place Overlay)",
+      "label": "OTP Verification Modal",
       "x": 480,
       "y": 180,
       "width": 160,
@@ -76,7 +76,7 @@ Use this skill when designing, generating, or rendering publication-grade techni
       "target_port": "left",
       "source_offset": 0,
       "target_offset": 0,
-      "label": "Bấm 'Đăng nhập'",
+      "label": "Click \"Đăng nhập\"",
       "line_style": "solid",
       "waypoints": [],
       "label_pos": 0.5,
@@ -92,7 +92,7 @@ Use this skill when designing, generating, or rendering publication-grade techni
       "target_offset": 10,
       "line_style": "dashed",
       "waypoints": [[450, 420], [250, 420]],
-      "label": "Bấm 'Đăng xuất'",
+      "label": "Click \"Đăng xuất\"",
       "label_pos": 0.5,
       "label_offset_y": -8
     }
