@@ -220,7 +220,7 @@ def cmd_diagram_editor(args: argparse.Namespace) -> int:
     try:
         from .diagram_editor import DiagramEditorApp
     except (ImportError, ValueError):
-        from diagram_editor import DiagramEditorApp
+        from diagram_editor import DiagramEditorApp  # type: ignore
     app = DiagramEditorApp(spec_path=args.spec)
     app.run()
     return 0

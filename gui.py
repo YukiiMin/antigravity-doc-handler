@@ -23,7 +23,7 @@ except ImportError:
 try:
     from .converter_engine import convert_universal, get_pdf_page_count
 except (ImportError, ValueError):
-    from converter_engine import convert_universal, get_pdf_page_count
+    from converter_engine import convert_universal, get_pdf_page_count  # type: ignore
 
 
 class UniversalDocStudioApp:
@@ -582,7 +582,7 @@ class UniversalDocStudioApp:
             try:
                 from .diagram_editor import DiagramEditorApp
             except (ImportError, ValueError):
-                from diagram_editor import DiagramEditorApp
+                from diagram_editor import DiagramEditorApp  # type: ignore
 
             spec_path = filedialog.askopenfilename(
                 parent=self.root,

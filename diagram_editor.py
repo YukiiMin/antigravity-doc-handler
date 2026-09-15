@@ -37,7 +37,7 @@ if sys.platform == "win32" and hasattr(sys.stdout, "reconfigure"):
 try:
     from .spec_diagram_engine import Edge, Node, NodeType, PortType, PrecisionDiagram
 except (ImportError, ValueError):
-    from spec_diagram_engine import Edge, Node, NodeType, PortType, PrecisionDiagram
+    from spec_diagram_engine import Edge, Node, NodeType, PortType, PrecisionDiagram  # type: ignore
 
 
 # ==============================================================================

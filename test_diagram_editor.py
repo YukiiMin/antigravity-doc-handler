@@ -23,8 +23,12 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 if CURRENT_DIR not in sys.path:
     sys.path.insert(0, CURRENT_DIR)
 
-from diagram_editor import DiagramState, DiagramCanvas, DiagramEditorApp
-from spec_diagram_engine import PrecisionDiagram
+try:
+    from .diagram_editor import DiagramState, DiagramCanvas, DiagramEditorApp
+    from .spec_diagram_engine import PrecisionDiagram
+except (ImportError, ValueError):
+    from diagram_editor import DiagramState, DiagramCanvas, DiagramEditorApp  # type: ignore
+    from spec_diagram_engine import PrecisionDiagram  # type: ignore
 
 
 def test_diagram_state_basics() -> None:
