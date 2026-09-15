@@ -139,18 +139,42 @@ When diagrams are destined for Word (`.docx`) or PDF documents on A4 Portrait:
 
 > **MANDATORY**: Technical diagrams must maintain international technical standards while faithfully representing the codebase implementation.
 
-1. **Object / Screen Box Names — 100% Standardized English**:
+1. **Object / Screen Box Names & Metadata — 100% Standardized English**:
    - Every node box label MUST be in standardized technical English (e.g., `Login Screen`, `Register Screen`, `Home Dashboard`, `Cart Screen`, `Product Detail Screen`, `Navigation Map 2D`).
-   - NEVER place Vietnamese titles or redundant bilingual strings (`Đăng nhập (Login Screen)`) inside the diagram shapes.
-2. **Action Button Phrasing on Arrows (Codebase Truth)**:
-   - **English Action Verb**: Always start with an English verb (`Click`, `Tap`, `Select`).
-   - **Quoted Button String**:
-     - For **single-language projects without i18n** (such as `SuperMarketBot-Android` which is purely Vietnamese): Quote the exact UI string from the codebase: `Click "Đăng nhập"`, `Click "Xem lộ trình\n& Chỉ đường"`, `Click "Đăng xuất"`, `Tap Recommendation Card`.
-     - For **multi-language (i18n) projects**: Default 100% of all text to English (`Click "Login"`, `Click "View Route & Directions"`).
-3. **Multi-line Wrapping & Collision Avoidance (`\n`)**:
-   - When an action label exceeds 18–22 characters, break it across multiple lines using `\n`.
+   - Applies to ALL diagram entities:
+     - Group / Cluster titles (`Authentication Flow`, `Main Operations`, `Warehouse Staff Area`).
+     - Container boxes, Subtitles, Badges & Role tags (`[Authorized Staff Only]`, `Route: /login`).
+   - NEVER place Vietnamese titles or redundant bilingual strings (`Đăng nhập (Login Screen)`) inside node boxes.
+
+2. **Automated i18n Codebase Detection (AI Heuristic)**:
+   - Before drafting the spec, AI scans the target codebase for internationalization resources:
+     - **Android**: `res/values-*/strings.xml` (presence of `values-en/` alongside `values-vi/` or default `values/`).
+     - **Web/FE**: `locales/`, `messages/`, `i18n.ts/js`, or pairs like `en.json` and `vi.json`.
+     - **Flutter/Cross-platform**: `l10n/` or `.arb` resource files.
+   - **Multi-language (i18n) Mode** (>= 2 languages found): Default 100% of all diagram text, including action button labels, to English (`Tap "Login"`, `Click "View Cart"`, `Select "Settings"`).
+   - **Single-language Native Mode** (only 1 native locale found, e.g. Vietnamese-only FE): Action verbs in English + Quoted native UI string directly from codebase.
+
+3. **Action Button Phrasing on Arrows**:
+   - **Standardized English Action Verbs**:
+     - `Tap`: For Mobile / Touchscreen interactions (`Tap "Đăng nhập"`).
+     - `Click`: For Web / Desktop / Mouse interactions (`Click "Submit"`).
+     - `Select`: For Tabs, Radio buttons, Dropdown menus, List items (`Select "Cài đặt"`).
+     - `Scan`: For Camera, Barcode, QR scanning (`Scan "Mã vạch sản phẩm"`).
+     - `Swipe`: For Gesture-based transitions (`Swipe Down to Refresh`).
+     - `Auto`: For System-triggered redirects and timer expirations (`Auto Redirect (3s)`).
+   - **Quoted Native Button UI String**:
+     - When a real UI button exists in single-language mode: `Click "Đăng nhập"`, `Tap "Xem lộ trình\n& Chỉ đường"`, `Click "Đăng xuất"`.
+   - **Interactions Without Explicit Buttons (Non-button / Gesture / System Events)**:
+     - Use 100% technical English without quotes:
+     - Card / Item selection: `Tap Item Card`, `Tap Recommendation Banner`.
+     - System events: `Auto Redirect (3s)`, `Session Expired`.
+     - Hardware & Scanners: `Press System Back`, `Scan Barcode Success`.
+
+4. **Multi-line Wrapping & Collision Avoidance (`\n`)**:
+   - When an action label exceeds 18–22 characters, break it across multiple lines using `\n` at natural whitespace breaks.
    - Never let button labels overflow horizontally into adjacent node boxes or lines.
    - The diagram engine calculates stacked line heights with white halo masking and automatically runs AABB collision detection to warn if any label collides with a node.
+
 
 ---
 
