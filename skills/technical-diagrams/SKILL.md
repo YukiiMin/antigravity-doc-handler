@@ -135,22 +135,30 @@ When diagrams are destined for Word (`.docx`) or PDF documents on A4 Portrait:
 
 ---
 
-## 🎯 Codebase-Truth Localization Rule
+## 🎯 Standardized Diagram Language & Action Formatting Rules
 
-> **MANDATORY**: Diagram action labels MUST represent the actual codebase implementation.
+> **MANDATORY**: Technical diagrams must maintain international technical standards while faithfully representing the codebase implementation.
 
-1. **Inspect Actual Screen Source**:
-   - Before drafting edge labels, inspect mobile screen components (`.tsx`, `.jsx`, `.dart`, XML layouts).
-   - Find the exact button, link, or tab text (e.g., `<Text style={styles.btnCheckoutText}>Xem lộ trình & Chỉ đường</Text>`).
-2. **Use Exact UI Text**:
-   - Do NOT invent hypothetical English labels like `"Proceed to Route"` when the app button explicitly reads `"Xem lộ trình & Chỉ đường"`.
-   - Format action labels as: `Bấm "Đăng nhập"`, `Bấm "Thêm vào giỏ"`, `Bấm icon "Giỏ hàng"`, `Tab "Tài khoản"`.
+1. **Object / Screen Box Names — 100% Standardized English**:
+   - Every node box label MUST be in standardized technical English (e.g., `Login Screen`, `Register Screen`, `Home Dashboard`, `Cart Screen`, `Product Detail Screen`, `Navigation Map 2D`).
+   - NEVER place Vietnamese titles or redundant bilingual strings (`Đăng nhập (Login Screen)`) inside the diagram shapes.
+2. **Action Button Phrasing on Arrows (Codebase Truth)**:
+   - **English Action Verb**: Always start with an English verb (`Click`, `Tap`, `Select`).
+   - **Quoted Button String**:
+     - For **single-language projects without i18n** (such as `SuperMarketBot-Android` which is purely Vietnamese): Quote the exact UI string from the codebase: `Click "Đăng nhập"`, `Click "Xem lộ trình\n& Chỉ đường"`, `Click "Đăng xuất"`, `Tap Recommendation Card`.
+     - For **multi-language (i18n) projects**: Default 100% of all text to English (`Click "Login"`, `Click "View Route & Directions"`).
+3. **Multi-line Wrapping & Collision Avoidance (`\n`)**:
+   - When an action label exceeds 18–22 characters, break it across multiple lines using `\n`.
+   - Never let button labels overflow horizontally into adjacent node boxes or lines.
+   - The diagram engine calculates stacked line heights with white halo masking and automatically runs AABB collision detection to warn if any label collides with a node.
 
 ---
 
 ## 🚫 Anti-Patterns to Avoid
 
 - ❌ **Wide 1-Row Layouts**: Do not lay out 10+ nodes horizontally in a single row. Use a 4-to-5 column grid with vertical stacking.
+- ❌ **Overlong Single-Line Labels**: Never let a 30-character label stretch across a 100px gap, overlapping adjacent nodes. Always wrap with `\n`.
+- ❌ **Vietnamese Inside Screen Boxes**: Keep screen titles in standardized English for international technical clarity.
 - ❌ **Diagonal Lines Crossing Nodes**: Always route around intervening nodes using L-shaped or U-shaped waypoints.
 - ❌ **Labels Clipped Off-Canvas**: Ensure `label_offset_x` does not push text past the canvas boundary ($x < 0$ or $x > \text{width}$).
 - ❌ **Ambiguous Ports**: Never anchor multiple outgoing arrows to the exact same port without offsetting (`source_offset`).
@@ -160,9 +168,9 @@ When diagrams are destined for Word (`.docx`) or PDF documents on A4 Portrait:
 ## 💻 CLI Usage
 
 ```bash
-# Render directly using the precision diagram engine:
+# Render directly using the precision diagram engine (scale 3 for 300+ DPI):
 python spec_diagram_engine.py --spec android_user_flow_v2_spec.json --out android_user_screen_flow_v2.png --scale 3
 
-# Or via AI Tools CLI:
-python -m ai_tools_cli spec-render android_user_flow_v2_spec.json -o android_user_screen_flow_v2.png -s 3
+# Automated collision detection runs on load:
+# Reports any Node-to-Node AABB overlap and Edge-Label-to-Node bounding-box overlap.
 ```

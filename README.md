@@ -38,6 +38,8 @@ It bridges the gap between raw document conversion, OpenXML Word standard compli
 - **Hub & Spoke & Mobile Screen Flows**: Explicit coordinate control and perimeter port anchors (`top`, `bottom`, `left`, `right`).
 - **Golden Aspect Ratio ($1.6:1 - 1.85:1$)**: Specially tuned for standard portrait A4 margins ($14\text{cm}$ width).
 - **Manhattan Orthogonal Routing**: Clean 90-degree L-shaped and Z-shaped lines with custom waypoints.
+- **Multi-line Edge Labels (`\n`) & Collision Avoidance**: Automatically formats and stacks action labels across multiple lines to remain strictly centered on arrows without touching screen boxes.
+- **AABB Collision Engine**: Automated pre-render validation detecting both Node-to-Node and Edge-Label-to-Node bounding-box overlaps.
 - **SVG Text Halo Technology**: Employs `paint-order="stroke fill"` with a `4px` white outline (`#ffffff`) around text, eliminating badge collision boxes that obscure adjacent nodes.
 - **Headless Chromium/Edge 300+ DPI Rasterization**: Generates ultra-sharp PNG images at 3x scale.
 
