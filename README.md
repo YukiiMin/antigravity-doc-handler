@@ -22,26 +22,36 @@ It bridges the gap between raw document conversion, OpenXML Word standard compli
 
 ---
 
-## 🚀 Dual Core Engines
+## 🚀 Triple Core Diagram Engines & Universal Office Studio
 
-### 1. 📑 Universal Office Document Studio (`smart_post_processor.py`, `converter_engine.py`)
-- **100% Fidelity PDF ↔ DOCX**: Converts PDF to editable Word while applying **Smart Post-Processor v6** to enforce strict OpenXML table invariants.
-- **Word Table OpenXML Invariants**:
-  - `<w:cantSplit/>`: Prohibits table rows from splitting across page breaks.
-  - `<w:tblHeader/>`: Automatically repeats header rows across multiple pages.
-  - `<w:vAlign w:val="center"/>`: Vertically centers text inside table cells.
-  - `<w:shd w:fill="FFE8E0"/>`: Applies elegant Peach shading to table header rows.
-- **TOC Dot-Leader Normalization**: Native right-aligned tab stops with leader dots (`.......`).
-- **Decoupled Markdown + Style YAML**: Exports clean Markdown without inline CSS or YAML frontmatter clutter, pairing it with a standalone `.style.yaml` stylesheet.
+### 1. 📐 Triple Core Diagram Architecture
+`antigravity-doc-handler` unites **3 rendering engines** behind a declarative **JSON Single Source of Truth**:
+- **Canvas Engine (`spec_diagram_engine.py`)**: Pixel-perfect Cartesian coordinates, orthogonal Manhattan routing, and white-halo collision avoidance for complex screen flows.
+- **PlantUML Engine (`plantuml_renderer.py`)**: Industry-standard UML for ERD (Crow's foot PK/FK), Class OOP, C4 Architecture, Swimlane Activity, and Mind Maps using bundled `plantuml.jar` and Java runtime.
+- **Mermaid Engine (`mermaid_renderer.py`)**: Fast dynamic text-based rendering for Sequence diagrams, Flowcharts, and State machines.
 
-### 2. 📐 Precision Technical Diagram Engine (`spec_diagram_engine.py`)
-- **Hub & Spoke & Mobile Screen Flows**: Explicit coordinate control and perimeter port anchors (`top`, `bottom`, `left`, `right`).
-- **Golden Aspect Ratio ($1.6:1 - 1.85:1$)**: Specially tuned for standard portrait A4 margins ($14\text{cm}$ width).
-- **Manhattan Orthogonal Routing**: Clean 90-degree L-shaped and Z-shaped lines with custom waypoints.
-- **Multi-line Edge Labels (`\n`) & Collision Avoidance**: Automatically formats and stacks action labels across multiple lines to remain strictly centered on arrows without touching screen boxes.
-- **AABB Collision Engine**: Automated pre-render validation detecting both Node-to-Node and Edge-Label-to-Node bounding-box overlaps.
-- **SVG Text Halo Technology**: Employs `paint-order="stroke fill"` with a `4px` white outline (`#ffffff`) around text, eliminating badge collision boxes that obscure adjacent nodes.
-- **Headless Chromium/Edge 300+ DPI Rasterization**: Generates ultra-sharp PNG images at 3x scale.
+#### 📊 12 Supported Diagram Types & Engine Mapping
+
+| # | Loại Diagram | Người dùng | Engine | Ghi chú & Cú pháp |
+|---|---|---|---|---|
+| 1 | **Screen Flow (Mobile/Web)** | Dev + BA | `canvas` | Pixel-perfect coordinate, kéo thả trên `diagram_editor.py` |
+| 2 | **Sequence Diagram** | Dev + BA | `mermaid` | API call chain, luồng xác thực |
+| 3 | **Flowchart / Business Process** | BA | `mermaid` | Logic nghiệp vụ, rẽ nhánh if/else |
+| 4 | **State Diagram** | Dev | `mermaid` | Vòng đời đơn hàng, trạng thái hệ thống |
+| 5 | **ERD (Entity-Relationship)** | Dev + BA | `plantuml` | Crow's foot (`||--o{`), PK/FK, render 50+ bảng |
+| 6 | **Class Diagram (OOP)** | Dev | `plantuml` | Class, visibility (`+/-/#`), kế thừa, composition |
+| 7 | **Package / Directory Architecture** | Dev / Architect | `plantuml` | Cấu trúc thư mục module, namespace |
+| 8 | **Component / Deployment** | DevOps / Architect | `plantuml` | Microservices, Docker container, Cloud |
+| 9 | **Activity / Swimlane** | BA | `plantuml` | Phân làn nghiệp vụ (`|User|`, `|System|`) |
+| 10 | **C4 Architecture** | Architect | `plantuml` | Context, Container, Component (`!include <C4/C4_Context>`) |
+| 11 | **Use Case Diagram** | BA | `plantuml` | Actor, usecase, `<<include>>`, `<<extend>>` |
+| 12 | **Mind Map** | BA + Dev | `plantuml` | Phân rã tính năng (`@startmindmap`) |
+
+### 2. 🛡️ Windows Production Invariants for PlantUML
+1. **C4 Standard Library**: Uses internal `<C4/C4_Context>` (100% offline, never depends on raw github URLs).
+2. **UTF-8 Subprocess**: Explicit `-charset UTF-8` JVM argument preventing Vietnamese text corruption.
+3. **16K Pixel Limit**: `-DPLANTUML_LIMIT_SIZE=16384` eliminates truncating on massive high-DPI ERDs.
+4. **Auto Word Injection**: Automatically injects diagrams into target Word `.docx` documents.
 
 ### 3. 🎨 Interactive Canvas Diagram Editor (`diagram_editor.py`)
 - **Direct Visual Editing**: Drag & drop screen nodes, modify dimensions, adjust action labels, and connect ports visually.
@@ -54,13 +64,25 @@ It bridges the gap between raw document conversion, OpenXML Word standard compli
 - **High-Resolution PNG Export**: One-click 300+ DPI export (`scale=3`) with automatic system preview.
 - **Embedded in GUI & Standalone CLI**: Accessible directly from `main.py` or standalone via `python diagram_editor.py --spec <file.json>`.
 
+### 4. 📑 Universal Office Document Studio (`smart_post_processor.py`, `converter_engine.py`)
+- **100% Fidelity PDF ↔ DOCX**: Converts PDF to editable Word while applying **Smart Post-Processor v6** to enforce strict OpenXML table invariants.
+- **Word Table OpenXML Invariants**:
+  - `<w:cantSplit/>`: Prohibits table rows from splitting across page breaks.
+  - `<w:tblHeader/>`: Automatically repeats header rows across multiple pages.
+  - `<w:vAlign w:val="center"/>`: Vertically centers text inside table cells.
+  - `<w:shd w:fill="FFE8E0"/>`: Applies elegant Peach shading to table header rows.
+- **TOC Dot-Leader Normalization**: Native right-aligned tab stops with leader dots (`.......`).
+- **Decoupled Markdown + Style YAML**: Exports clean Markdown without inline CSS or YAML frontmatter clutter, pairing it with a standalone `.style.yaml` stylesheet.
+
 ---
 
 ## 📦 Installation
 
 ### Prerequisites
 - Python 3.10 or higher
-- Microsoft Edge or Google Chrome (for headless diagram rasterization)
+- Java JRE/JDK >= 8 (for PlantUML diagrams)
+- Node.js + `@mermaid-js/mermaid-cli` (optional, for Mermaid diagrams)
+- Microsoft Edge or Google Chrome (for headless Canvas diagram rasterization)
 
 ### Setup
 ```bash
@@ -81,20 +103,22 @@ pip install -e .
 
 `antigravity-doc-handler` provides a unified command line interface via `ai_tools_cli.py`:
 
-### 1. Precision Technical Diagram Rendering
-Render publication-grade diagrams from a declarative JSON specification:
+### 1. Unified Multi-Engine Diagram Rendering (Recommended)
+Auto-detects backend (`canvas`, `mermaid`, `plantuml`) from the JSON spec's `"engine"` field:
 ```bash
-# Direct CLI execution:
-python spec_diagram_engine.py --spec android_user_flow_v2_spec.json --out android_user_screen_flow_v2.png --scale 3
-
-# Or via unified AI Tools CLI:
-python -m ai_tools_cli spec-render android_user_flow_v2_spec.json -o android_user_screen_flow_v2.png -s 3
+python ai_tools_cli.py diagram-render spec.json -o diagram.png
 ```
 
-### 2. Mermaid Diagram Rendering
-Render `.mmd` diagrams using Mermaid CLI with standardized tree fan-out styling:
+### 2. Dedicated Diagram Renderers
 ```bash
-python -m ai_tools_cli render-diagram architecture.mmd -o architecture.png -s 3
+# Render PlantUML (ERD, Class, C4, Swimlane, Use Case, Mind Map)
+python ai_tools_cli.py plantuml-render erd_spec.json -o erd.png --dpi 300
+
+# Render Mermaid (Sequence, Flowchart, State)
+python ai_tools_cli.py mermaid-render sequence_spec.json -o seq.png
+
+# Render SVG Canvas (Screen Flow)
+python ai_tools_cli.py spec-render screen_flow_spec.json -o screen_flow.png --scale 3
 ```
 
 ### 3. Document Conversion Matrix

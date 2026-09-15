@@ -442,31 +442,63 @@ def inject_content_into_docx(
 
 
 def inject_diagram_into_docx(
-    source_docx_path: str,
-    diagram_spec: dict[str, Any],
+    source_docx_path: str | None = None,
+    diagram_spec: dict[str, Any] | None = None,
     output_path: str | None = None,
+    *,
+    docx_path: str | None = None,
+    png_path: str | None = None,
+    heading: str | None = None,
+    placeholder: str | None = None,
+    caption: str | dict[str, Any] | None = None,
+    width_cm: float | None = None,
+    height_cm: float | None = None,
+    max_height_cm: float | None = None,
 ) -> str:
     """
     Convenience wrapper to inject a diagram (image + caption + description) into a DOCX
     at a target location (placeholder or heading) with strict keepNext chaining.
 
+    Supports both positional call:
+        inject_diagram_into_docx(source_docx_path, diagram_spec, output_path)
+    and keyword call:
+        inject_diagram_into_docx(docx_path=..., png_path=..., heading=..., placeholder=..., caption=..., width_cm=...)
+
     Args:
         source_docx_path: Path to DOCX.
-        diagram_spec: Dict containing:
-            - image_path: Path to rendered PNG (required).
-            - width_cm: Image width in cm (default: 14.0).
-            - height_cm: Image height in cm (optional).
-            - placeholder: "{{DIAGRAM_NAME}}" (optional, takes precedence).
-            - target_heading: Heading text anchor (optional).
-            - caption_template: dict or str with caption & description text + styles.
+        diagram_spec: Dict containing image_path, width_cm, height_cm, placeholder, target_heading, caption_template.
         output_path: Optional output path.
     """
+    doc_target = source_docx_path or docx_path
+    if not doc_target:
+        raise ValueError("Missing required DOCX path (source_docx_path or docx_path)")
+
+    if diagram_spec is None:
+        diagram_spec = {}
+    else:
+        diagram_spec = dict(diagram_spec)
+
+    if png_path:
+        diagram_spec.setdefault("image_path", png_path)
+    if heading:
+        diagram_spec.setdefault("target_heading", heading)
+    if placeholder:
+        diagram_spec.setdefault("placeholder", placeholder)
+    if caption:
+        diagram_spec.setdefault("caption_template", caption)
+    if width_cm is not None:
+        diagram_spec.setdefault("width_cm", width_cm)
+    if height_cm is not None:
+        diagram_spec.setdefault("height_cm", height_cm)
+    elif max_height_cm is not None:
+        diagram_spec.setdefault("height_cm", max_height_cm)
+
     image_path = diagram_spec.get("image_path")
     if not image_path or not os.path.isfile(image_path):
         raise FileNotFoundError(f"Diagram image not found: {image_path}")
 
-    width_cm = diagram_spec.get("width_cm", 14.0)
-    height_cm = diagram_spec.get("height_cm")
+    width_cm_val = diagram_spec.get("width_cm", 14.0)
+    height_cm_val = diagram_spec.get("height_cm")
 
     cap_template = diagram_spec.get("caption_template")
     caption_text = ""
@@ -496,8 +528,8 @@ def inject_diagram_into_docx(
         "keep_next": has_caption or has_description,
         "images": [{
             "path": image_path,
-            "width_cm": width_cm,
-            "height_cm": height_cm,
+            "width_cm": width_cm_val,
+            "height_cm": height_cm_val,
         }],
     })
 
@@ -549,6 +581,6 @@ def inject_diagram_into_docx(
         "elements": elements,
     }
 
-    return inject_content_into_docx(source_docx_path, injection_spec, output_path)
+    return inject_content_into_docx(doc_target, injection_spec, output_path)
 
 

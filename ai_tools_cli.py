@@ -5,20 +5,23 @@ Provides structured read/write/diff operations on DOCX and XLSX files,
 outputting JSON snapshots that AI (Antigravity IDE) can read and modify.
 
 Subcommands:
-  docx-read   — Read DOCX → JSON snapshot
-  docx-write  — Write JSON snapshot → DOCX (with optional style template)
-  docx-diff   — Compare two JSON snapshots → before/after diff report
-  docx-inject — Surgically inject paragraphs, runs, and images into DOCX
-  mermaid-render — Render Mermaid code to high-res PNG and inject into DOCX
-  xlsx-read   — Read XLSX → JSON snapshot (xlwings, requires Excel)
-  xlsx-write  — Write JSON snapshot → XLSX
+  docx-read       — Read DOCX → JSON snapshot
+  docx-write      — Write JSON snapshot → DOCX (with optional style template)
+  docx-diff       — Compare two JSON snapshots → before/after diff report
+  docx-inject     — Surgically inject paragraphs, runs, and images into DOCX
+  mermaid-render  — Render Mermaid code to high-res PNG and inject into DOCX
+  plantuml-render — Render PlantUML code to high-res PNG and inject into DOCX
+  diagram-render  — Unified multi-engine dispatcher (canvas | mermaid | plantuml)
+  spec-render     — Render SVG Canvas Precision Diagram to high-res PNG
+  diagram-editor  — Interactive Canvas Editor for Precision Diagram JSON specs
+  xlsx-read       — Read XLSX → JSON snapshot (xlwings, requires Excel)
+  xlsx-write      — Write JSON snapshot → XLSX
 
 Usage examples:
-  python tool/pdf_to_docx_converter/ai_tools_cli.py docx-read file.docx -o snap.json
-  python tool/pdf_to_docx_converter/ai_tools_cli.py docx-write snap.json --template file.docx -o out.docx
-  python tool/pdf_to_docx_converter/ai_tools_cli.py docx-diff before.json after.json -o diff.json
-  python tool/pdf_to_docx_converter/ai_tools_cli.py xlsx-read file.xlsx --sheet "Sheet1" -o snap.json
-  python tool/pdf_to_docx_converter/ai_tools_cli.py xlsx-write snap.json --template file.xlsx -o out.xlsx
+  python ai_tools_cli.py diagram-render --spec spec.json -o out.png
+  python ai_tools_cli.py plantuml-render erd_spec.json -o erd.png
+  python ai_tools_cli.py docx-read file.docx -o snap.json
+  python ai_tools_cli.py docx-write snap.json --template file.docx -o out.docx
 """
 
 from __future__ import annotations
@@ -177,6 +180,142 @@ def cmd_mermaid_render(args: argparse.Namespace) -> int:
 
     if result.get("injected"):
         print(f"[OK] Injected into DOCX: {result.get('docx_path')}")
+
+    return 0
+
+
+# ---------------------------------------------------------------------------
+# plantuml-render
+# ---------------------------------------------------------------------------
+
+def cmd_plantuml_render(args: argparse.Namespace) -> int:
+    try:
+        from .plantuml_renderer import render_plantuml_to_png
+    except (ImportError, ValueError):
+        from plantuml_renderer import render_plantuml_to_png  # type: ignore
+
+    spec_path = os.path.abspath(args.spec)
+    if not os.path.isfile(spec_path):
+        print(f"[ERROR] PlantUML spec JSON not found: {spec_path}", file=sys.stderr)
+        return 1
+
+    with open(spec_path, "r", encoding="utf-8") as f:
+        spec = json.load(f)
+
+    if args.output:
+        spec["output_path"] = args.output
+    if args.inject:
+        spec["inject_into"] = args.inject
+    if args.dpi:
+        spec["dpi"] = args.dpi
+
+    base_dir = os.path.dirname(spec_path)
+    t0 = time.time()
+    try:
+        result = render_plantuml_to_png(spec, base_dir=base_dir)
+    except Exception as exc:
+        print(f"[ERROR] {exc}", file=sys.stderr)
+        return 2
+
+    elapsed = time.time() - t0
+    png_path = result["png_path"]
+    w_cm = result["width_cm"]
+    h_cm = result["height_cm"]
+    w_px, h_px = result["dimensions_px"]
+    f_size = result["file_size_bytes"]
+
+    print(f"[OK] PlantUML diagram rendered: {png_path}  ({elapsed:.2f}s)")
+    print(f"     Resolution: {w_px}x{h_px}px | Doc Layout: {w_cm}cm x {h_cm}cm | Size: {f_size} bytes")
+
+    if result.get("injected"):
+        print(f"[OK] Injected into DOCX: {result.get('docx_path')}")
+
+    return 0
+
+
+# ---------------------------------------------------------------------------
+# diagram-render (Unified Multi-Engine Technical Diagram Dispatcher)
+# ---------------------------------------------------------------------------
+
+def cmd_diagram_render(args: argparse.Namespace) -> int:
+    spec_path = os.path.abspath(args.spec)
+    if not os.path.isfile(spec_path):
+        print(f"[ERROR] Spec file not found: {spec_path}", file=sys.stderr)
+        return 1
+
+    with open(spec_path, "r", encoding="utf-8") as f:
+        spec = json.load(f)
+
+    if args.output:
+        spec["output_path"] = args.output
+    if args.inject:
+        spec["inject_into"] = args.inject
+
+    engine = str(spec.get("engine", "canvas")).strip().lower()
+    base_dir = os.path.dirname(spec_path)
+    out_png = args.output or spec.get("output_path") or os.path.splitext(spec_path)[0] + ".png"
+    out_png = os.path.abspath(out_png)
+    spec["output_path"] = out_png
+
+    t0 = time.time()
+    try:
+        if engine == "canvas":
+            try:
+                from .spec_diagram_engine import PrecisionDiagram
+            except (ImportError, ValueError):
+                from spec_diagram_engine import PrecisionDiagram  # type: ignore
+            scale = args.scale if args.scale is not None else spec.get("scale", 3)
+            diag = PrecisionDiagram.from_spec(spec)
+            result = diag.render_to_png(out_png, scale=scale)
+        elif engine == "mermaid":
+            try:
+                from .mermaid_renderer import render_mermaid_to_png
+            except (ImportError, ValueError):
+                from mermaid_renderer import render_mermaid_to_png  # type: ignore
+            result = render_mermaid_to_png(spec, base_dir=base_dir)
+        elif engine == "plantuml":
+            try:
+                from .plantuml_renderer import render_plantuml_to_png
+            except (ImportError, ValueError):
+                from plantuml_renderer import render_plantuml_to_png  # type: ignore
+            result = render_plantuml_to_png(spec, base_dir=base_dir)
+        else:
+            raise ValueError(f"Unknown diagram engine: '{engine}'. Supported: 'canvas', 'mermaid', 'plantuml'")
+    except Exception as exc:
+        print(f"[ERROR] Diagram rendering failed ({engine}): {exc}", file=sys.stderr)
+        return 2
+
+    elapsed = time.time() - t0
+    w_px, h_px = result["dimensions_px"]
+    f_size = result["file_size_bytes"]
+    print(f"[OK] {engine.upper()} diagram rendered: {result['png_path']}  ({elapsed:.2f}s)")
+    print(f"     Resolution: {w_px}x{h_px}px | Size: {f_size} bytes")
+
+    # Windows Trap 4: Sau khi render ra result["png_path"] thành công:
+    # Auto-inject vào Word nếu spec có inject_into và chưa được inject
+    docx_target = spec.get("inject_into")
+    if docx_target and not result.get("injected"):
+        if not os.path.isabs(docx_target) and base_dir:
+            docx_target = os.path.abspath(os.path.join(base_dir, docx_target))
+        if os.path.exists(docx_target):
+            try:
+                from .docx_writer import inject_diagram_into_docx
+            except (ImportError, ValueError):
+                from docx_writer import inject_diagram_into_docx  # type: ignore
+            inject_diagram_into_docx(
+                docx_path=docx_target,
+                png_path=result["png_path"],
+                heading=spec.get("target_heading"),
+                placeholder=spec.get("placeholder"),
+                caption=spec.get("caption_template") or spec.get("caption"),
+                width_cm=spec.get("width_cm", 14.0),
+                max_height_cm=spec.get("max_height_cm", 20.0),
+            )
+            print(f"[OK] Injected diagram into {docx_target}")
+        else:
+            print(f"[WARN] Target DOCX for injection not found: {docx_target}")
+    elif result.get("injected"):
+        print(f"[OK] Injected diagram into {docx_target}")
 
     return 0
 
@@ -442,6 +581,34 @@ Examples:
     p_mr.add_argument("--scale", type=int, default=None,
                       help="Override scale factor (default: 2)")
     p_mr.set_defaults(func=cmd_mermaid_render)
+
+    # --- plantuml-render ---
+    p_pr = sub.add_parser(
+        "plantuml-render",
+        help="Render PlantUML diagram from spec JSON to high-res PNG and optionally inject into DOCX",
+    )
+    p_pr.add_argument("spec", help="Path to plantuml diagram spec .json file")
+    p_pr.add_argument("-o", "--output", default=None,
+                      help="Override output PNG path")
+    p_pr.add_argument("--inject", default=None,
+                      help="Override target .docx to inject into")
+    p_pr.add_argument("--dpi", type=int, default=300,
+                      help="Override DPI (default: 300)")
+    p_pr.set_defaults(func=cmd_plantuml_render)
+
+    # --- diagram-render (Unified Dispatcher) ---
+    p_dr = sub.add_parser(
+        "diagram-render",
+        help="Unified multi-engine diagram dispatcher (reads 'engine': 'canvas' | 'mermaid' | 'plantuml')",
+    )
+    p_dr.add_argument("spec", help="Path to unified diagram spec .json file")
+    p_dr.add_argument("-o", "--output", default=None,
+                      help="Override output PNG path")
+    p_dr.add_argument("--inject", default=None,
+                      help="Override target .docx to inject into")
+    p_dr.add_argument("--scale", type=int, default=None,
+                      help="Override scale factor for canvas engine (default: 3)")
+    p_dr.set_defaults(func=cmd_diagram_render)
 
     # --- spec-render ---
     p_sr = sub.add_parser(

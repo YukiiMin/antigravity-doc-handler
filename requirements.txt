@@ -9,3 +9,8 @@ pyyaml>=6.0
 pywin32>=311; platform_system == "Windows"
 xlwings>=0.31.0; platform_system == "Windows"
 tkinterdnd2>=0.6.3; platform_system == "Windows"
+
+# Diagram Engines Prerequisites (External Runtimes):
+# - PlantUML: Java JRE/JDK >= 8 + tools/plantuml.jar (included in repo or set PLANTUML_JAR)
+# - Mermaid: Node.js + @mermaid-js/mermaid-cli (mmdc / npx)
+# - SVG Canvas: Microsoft Edge / Google Chrome (for headless 300+ DPI rasterization)

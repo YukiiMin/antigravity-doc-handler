@@ -1,42 +1,141 @@
 ---
 name: technical-diagrams
-description: Precision system architecture, Hub & Spoke, and mobile screen flow diagrams with 300+ DPI vector rendering, Manhattan orthogonal routing, and collision avoidance.
+description: Multi-engine technical architecture, ERD, C4, OOP Class, mobile screen flow, and sequence diagrams with 300+ DPI rendering, unified JSON specs, and Word/DOCX auto-injection.
 ---
 
 # Antigravity Skill: Technical Diagram Engine (`technical-diagrams`)
 
-Use this skill when designing, generating, or rendering publication-grade technical architecture diagrams, mobile application screen flows, or state machines for DEV/BA documentation, SRS reports, and Word/PDF deliverables.
+Use this skill when designing, generating, rendering, or editing publication-grade technical diagrams, database schemas, system architectures, or mobile application screen flows for DEV/BA documentation, SRS reports, and Word/PDF deliverables.
 
 ---
 
-## 🌟 Capabilities & Core Principles
+## 🌟 Multi-Engine Architecture & Core Principles
 
-1. **Declarative JSON-First Architecture**:
-   - Separate diagram data (screens, buttons, routing) from rendering logic.
-   - Author simple `.json` spec files rather than complex drawing code.
-2. **Pixel-Perfect Coordinate & Port-Based Placement**:
-   - Explicit Cartesian grid ($X, Y, W, H$).
-   - Perimeter port anchors (`top`, `bottom`, `left`, `right`) with sub-pixel offsets.
-3. **Manhattan Orthogonal L-Shaped Routing**:
-   - Clean 90-degree bend routing with custom waypoints (`[[x, y], ...]`).
-   - Prevents chaotic diagonal overlaps and messy line tangling.
-4. **Visual Hierarchy & Typography**:
-   - `primary`: 2.5px solid border, bold font (Hub / Core Dashboard screens).
-   - `standard`: 1.5px solid border, regular font (Normal sub-screens).
-   - `modal` / `toast`: 1.5px dashed border (`stroke-dasharray="4,4"`), regular font (Overlays, dialogs, ephemeral toasts).
-   - White pill text halos (`paint-order="stroke fill"` with `stroke="#ffffff"`) ensure zero collision with background grid lines.
-5. **Native Headless Chromium/Edge 300+ DPI Rasterization**:
-   - Generates pure SVG then rasterizes via Microsoft Edge or Chromium with `--force-device-scale-factor=3` to guarantee crystal clarity in Word documents without blurriness.
+The toolkit adopts a **3-Engine Architecture** unified behind a **Single Source of Truth (JSON Spec)**:
+
+```
+                  Unified JSON Spec File (.json)
+                                │
+         ┌──────────────────────┼──────────────────────┐
+         ▼                      ▼                      ▼
+  "engine": "canvas"     "engine": "mermaid"    "engine": "plantuml"
+         │                      │                      │
+  spec_diagram_engine     mermaid_renderer       plantuml_renderer
+  (Headless Chromium)       (mmdc CLI)          (Java + plantuml.jar)
+         │                      │                      │
+         └──────────────────────┼──────────────────────┘
+                                ▼
+                   PNG High-Res (scale=3 / 300+ DPI)
+                                │
+                                ▼
+               docx_writer.py (Unified Auto-Inject Pipeline)
+                 - Width: 14.0 cm (A4 Portrait standard)
+                 - Max Height: 20.0 cm
+                 - Strict keepNext chaining for Headings & Captions
+```
+
+### Core Architecture Rules:
+1. **JSON là Single Source of Truth**: Mọi sơ đồ đều bắt đầu từ file JSON spec. Trực tiếp lưu trữ, version control, và tái sử dụng.
+2. **Field `"engine"` là Dispatcher Key**: Quyết định backend (`"canvas"`, `"mermaid"`, `"plantuml"`).
+3. **Đầu ra chuẩn hóa**: Cả 3 engine đều xuất ra PNG chất lượng cao (300+ DPI / scale=3), kích thước tự động co giãn theo tỷ lệ 2D (rộng tối đa 14.0cm, cao tối đa 20.0cm) để vừa vặn hoàn hảo trên trang A4 Word.
+4. **Atomic Protection**: Nếu engine biên dịch lỗi, tiến trình dừng ngay lập tức và báo lỗi chi tiết, tuyệt đối KHÔNG can thiệp làm hỏng file Word (`.docx`).
 
 ---
 
-## 📐 Declarative JSON Spec Schema
+## 📊 Bảng Phân Loại 12 Loại Sơ Đồ & Chọn Engine Đúng
+
+| # | Loại Diagram | Người dùng chính | Engine | Cú pháp / Đặc điểm |
+|---|---|---|---|---|
+| 1 | **Screen Flow (Mobile/Web)** | Dev + BA | `canvas` | Pixel-perfect coordinate, Manhattan routing, kéo thả trên `diagram_editor.py` |
+| 2 | **Sequence Diagram** | Dev + BA | `mermaid` | `sequenceDiagram` — API call chain, luồng xác thực |
+| 3 | **Flowchart / Business Process** | BA | `mermaid` | `flowchart TD / LR` — Logic nghiệp vụ, rẽ nhánh if/else |
+| 4 | **State Diagram** | Dev | `mermaid` | `stateDiagram-v2` — Vòng đời đơn hàng, IoT device lifecycle |
+| 5 | **ERD (Entity-Relationship)** | Dev + BA | `plantuml` | `@startuml` + Crow's foot (`\|\|--o{`), PK/FK, không lag với 50+ bảng |
+| 6 | **Class Diagram (OOP)** | Dev | `plantuml` | `@startuml` + Class, visibility (`+/-/#`), Inheritance, Composition |
+| 7 | **Package / Directory Architecture** | Dev / Architect | `plantuml` | `@startuml` + `package`, `folder`, `node`, `database` |
+| 8 | **Component / Deployment** | DevOps / Architect | `plantuml` | `@startuml` + Microservices, Docker container, Cloud sprites |
+| 9 | **Activity / Swimlane** | BA | `plantuml` | `@startuml` + Phân làn partition `\|User\|`, `\|System\|`, `\|Gateway\|` |
+| 10 | **C4 Architecture** | Architect | `plantuml` | `!include <C4/C4_Context>` — Context, Container, Component layers |
+| 11 | **Use Case Diagram** | BA | `plantuml` | `@startuml` + `actor`, `usecase`, `<<include>>`, `<<extend>>` |
+| 12 | **Mind Map** | BA + Dev | `plantuml` | `@startmindmap` — Cây tính năng, phân rã yêu cầu |
+
+---
+
+## 🧠 AI Decision Tree: Chọn Engine Cho Từng Yêu Cầu
+
+```
+Khi người dùng hoặc tài liệu yêu cầu vẽ sơ đồ:
+│
+├─ Là Screen Flow của màn hình ứng dụng (App/Web UI Navigation) có tọa độ cụ thể?
+│   └─► engine: "canvas"  (spec_diagram_engine.py / diagram_editor.py)
+│
+├─ Là luồng giao tiếp theo thời gian / phân nhánh logic / máy trạng thái?
+│   ├─ Sequence Diagram (Actor, API, Message exchange) ──► engine: "mermaid"
+│   ├─ Flowchart logic / Quy trình nghiệp vụ ──────────► engine: "mermaid"
+│   └─ State Diagram (Vòng đời đơn hàng, trạng thái) ──► engine: "mermaid"
+│
+└─ Là kiến trúc tĩnh / cấu trúc dữ liệu / OOP / hạ tầng / phân vai?
+    ├─ Database Tables, PK/FK, Quan hệ 1-N, N-N ────────► engine: "plantuml" (ERD)
+    ├─ OOP Classes, Interface, Methods, Attributes ────► engine: "plantuml" (Class)
+    ├─ Thư mục dự án, Cấu trúc Module/Package ─────────► engine: "plantuml" (Package)
+    ├─ Microservices, Docker, Deployment, Cloud ───────► engine: "plantuml" (Component)
+    ├─ Quy trình đa vai trò phân làn (Swimlane) ────────► engine: "plantuml" (Activity)
+    ├─ Kiến trúc tổng thể C4 (Context / Container) ────► engine: "plantuml" (C4)
+    ├─ Actor & Use Case trong SRS ─────────────────────► engine: "plantuml" (Use Case)
+    └─ Cây tính năng / Phân rã nghiệp vụ (Mind Map) ────► engine: "plantuml" (Mindmap)
+```
+
+---
+
+## 🛡️ 4 Bẫy Kỹ Thuật PlantUML Trên Windows & Quy Tắc Khắc Phục
+
+> **BẮT BUỘC TUÂN THỦ**: Tránh treo tiến trình, vỡ font tiếng Việt hoặc cắt cụt ảnh.
+
+1. **C4 Standard Library Nội Bộ (Tuyệt đối không dùng URL Raw GitHub)**:
+   - ❌ **Cấm**: `!include https://raw.githubusercontent.com/.../C4_Context.puml` (treo máy 30-60s khi offline/mạng chặn).
+   - ✅ **Chuẩn**: Dùng thư viện C4 đóng gói sẵn trong mọi bản `plantuml.jar` hiện đại (chạy 100% offline):
+     ```plantuml
+     @startuml
+     !include <C4/C4_Context>
+     ...
+     @enduml
+     ```
+2. **Chống Vỡ Font Tiếng Việt Trên Windows (-charset UTF-8)**:
+   - Mọi subprocess gọi Java đều bắt buộc truyền cờ `-charset UTF-8` và file nguồn `.puml` phải ghi với mã hóa `utf-8`.
+3. **Nâng Trần Kích Thước Ảnh Java (-DPLANTUML_LIMIT_SIZE=16384)**:
+   - Mặc định PlantUML giới hạn 4096px. Luôn truyền cờ JVM `-DPLANTUML_LIMIT_SIZE=16384` ở đầu lệnh java để render các ERD lớn ở độ phân giải 300 DPI không bị mờ hay cắt ngang.
+4. **Auto-Inject Vào File Word Đích**:
+   - Khi spec có field `"inject_into"`, dispatcher tự động chèn diagram vào vị trí placeholder hoặc heading tương ứng, tự động căn giữa và gán caption chuẩn APA.
+
+---
+
+## 📐 Unified JSON Spec Schema
+
+### 1. Schema cho `engine: "plantuml"` hoặc `engine: "mermaid"`
 
 ```json
 {
+  "engine": "plantuml",
+  "diagram_type": "erd",
+  "code": "@startuml\n...\n@enduml",
+  "caption": "Hình 1: Sơ đồ ERD Cơ sở Dữ liệu Hệ thống",
+  "inject_into": "BAO_CAO_THIET_KE.docx",
+  "target_heading": "3.1 Thiết kế Cơ sở Dữ liệu",
+  "placeholder": "[[DIAGRAM_DATABASE_ERD]]",
+  "width_cm": 14.0,
+  "max_height_cm": 20.0
+}
+```
+
+### 2. Schema cho `engine: "canvas"` (Precision Screen Flow)
+
+```json
+{
+  "engine": "canvas",
+  "diagram_type": "screen_flow",
   "width": 1400,
   "height": 770,
-  "font_family": "Segoe UI, -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif",
+  "font_family": "Segoe UI, -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
   "font_size": 10.5,
   "bg_color": "#ffffff",
   "nodes": [
@@ -48,24 +147,6 @@ Use this skill when designing, generating, or rendering publication-grade techni
       "width": 150,
       "height": 54,
       "type": "primary"
-    },
-    {
-      "id": "home",
-      "label": "Home Dashboard",
-      "x": 480,
-      "y": 340,
-      "width": 160,
-      "height": 60,
-      "type": "primary"
-    },
-    {
-      "id": "modal_otp",
-      "label": "OTP Verification Modal",
-      "x": 480,
-      "y": 180,
-      "width": 160,
-      "height": 48,
-      "type": "modal"
     }
   ],
   "edges": [
@@ -74,64 +155,161 @@ Use this skill when designing, generating, or rendering publication-grade techni
       "target": "home",
       "source_port": "right",
       "target_port": "left",
-      "source_offset": 0,
-      "target_offset": 0,
       "label": "Click \"Đăng nhập\"",
       "line_style": "solid",
-      "waypoints": [],
-      "label_pos": 0.5,
-      "label_offset_y": -8,
-      "label_offset_x": 0
-    },
-    {
-      "source": "home",
-      "target": "login",
-      "source_port": "left",
-      "target_port": "right",
-      "source_offset": 10,
-      "target_offset": 10,
-      "line_style": "dashed",
-      "waypoints": [[450, 420], [250, 420]],
-      "label": "Click \"Đăng xuất\"",
-      "label_pos": 0.5,
-      "label_offset_y": -8
+      "waypoints": []
     }
   ]
 }
 ```
 
-### Field Reference:
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `width`, `height` | `number` | Canvas viewport size in pixels (keep ratio between 1.6:1 and 1.85:1). |
-| `font_family` | `string` | System typography stack (default: `Segoe UI, -apple-system, BlinkMacSystemFont, Roboto, sans-serif`). |
-| `font_size` | `number` | Base font size (10.5 – 11.5pt recommended). |
-| `nodes[].id` | `string` | Unique identifier referenced by edges. |
-| `nodes[].label` | `string` | Display label (supports `\n` for multi-line title + subtitle). |
-| `nodes[].type` | `string` | Visual style: `"primary"` (thick 2.5px), `"standard"` (1.5px), `"modal"` / `"toast"` (dashed). |
-| `edges[].source`, `target` | `string` | Node IDs for source and target. |
-| `edges[].source_port`, `target_port` | `string` | Port orientation: `"top"`, `"bottom"`, `"left"`, or `"right"`. |
-| `edges[].waypoints` | `number[][]` | List of `[x, y]` intermediate bend points for Manhattan orthogonal routing. |
-| `edges[].line_style` | `string` | `"solid"` for forward actions, `"dashed"` for return/cancel/auto-sync loops. |
-| `edges[].label_pos` | `number` | Position along path from 0.0 (source) to 1.0 (target), default 0.5. |
-| `edges[].label_offset_x`, `_y` | `number` | Fine-tuning offsets for label pill to prevent touching boxes or lines. |
-
 ---
 
-## 📏 A4 Document Layout & Sizing Rules
+## 📝 Mẫu Code PlantUML Chuẩn Cho Từng Loại
 
-When diagrams are destined for Word (`.docx`) or PDF documents on A4 Portrait:
+### 1. ERD (Entity-Relationship Diagram)
+```plantuml
+@startuml
+hide circle
+skinparam linetype ortho
 
-1. **Aspect Ratio Constraint (1.6:1 – 1.85:1)**:
-   - *Why*: A4 Portrait body width is limited to **14.0 cm** between standard 1-inch margins.
-   - If a diagram is too wide (e.g. 4:1), Word will scale down the whole image to fit 14.0 cm width, collapsing font size to 3–4pt and rendering text unreadable.
-   - An aspect ratio of **1.6:1 to 1.85:1** fills approximately 1/3 to 1/2 of an A4 page vertically, keeping effective rendered font size at **9.5 – 10.5pt** (100% crisp and readable without zooming).
-2. **300+ DPI Rasterization (`scale: 3`)**:
-   - Always render PNG at `scale=3`. A 1340x770 canvas becomes a **4020x2310** ultra-high-resolution image.
-3. **Word Insertion Parameters**:
-   - In Word OpenXML: set image width to exactly **14.0 cm** (`5040000 EMUs`).
-   - Calculate height dynamically: $H_{\text{cm}} = W_{\text{cm}} \times \frac{H_{\text{px}}}{W_{\text{px}}}$.
+entity "User" as user {
+  * user_id : INTEGER <<PK>>
+  --
+  username : VARCHAR(50)
+  email : VARCHAR(100)
+  created_at : TIMESTAMP
+}
+
+entity "Order" as ord {
+  * order_id : INTEGER <<PK>>
+  --
+  * user_id : INTEGER <<FK>>
+  total_price : DECIMAL(10,2)
+  status : ENUM
+  order_date : DATE
+}
+
+user ||--o{ ord : "places"
+@enduml
+```
+
+### 2. Class Diagram (OOP)
+```plantuml
+@startuml
+skinparam classAttributeIconSize 0
+
+interface IRepository<T> {
+  + getById(id: int): T
+  + save(entity: T): void
+}
+
+class UserRepository implements IRepository {
+  - dbContext: DatabaseContext
+  + getById(id: int): User
+  + save(entity: User): void
+}
+
+class User {
+  - id: int
+  - name: String
+  - email: String
+  + getId(): int
+  + getEmail(): String
+}
+
+UserRepository --> User : "manages"
+@enduml
+```
+
+### 3. C4 Architecture (Context Diagram)
+```plantuml
+@startuml
+!include <C4/C4_Context>
+
+Person(user, "Người dùng", "Khách hàng sử dụng ứng dụng di động")
+System(app, "Hệ thống SCORT", "Hệ thống sao chép đối tượng dữ liệu SAP")
+System_Ext(sap_core, "SAP S/4HANA", "Hệ thống ERP trung tâm")
+System_Ext(vnpay, "VNPay Gateway", "Cổng thanh toán điện tử")
+
+Rel(user, app, "Thao tác trên ứng dụng", "HTTPS")
+Rel(app, sap_core, "Đồng bộ dữ liệu qua", "OData V4 / RFC")
+Rel(app, vnpay, "Thanh toán qua", "REST API")
+@enduml
+```
+
+### 4. Activity Diagram với Swimlanes
+```plantuml
+@startuml
+|Khách hàng|
+start
+:Mở ứng dụng;
+:Chọn sản phẩm vào giỏ;
+:Bấm "Thanh toán";
+
+|Hệ thống|
+:Kiểm tra tồn kho;
+if (Còn hàng?) then (có)
+  :Tạo đơn hàng tạm;
+  |Cổng thanh toán|
+  :Xử lý giao dịch thẻ;
+  :Trả kết quả thành công;
+  |Hệ thống|
+  :Cập nhật trạng thái "Đã thanh toán";
+  :Gửi email xác nhận;
+  |Khách hàng|
+  :Xem thông báo thành công;
+else (hết)
+  |Hệ thống|
+  :Báo lỗi "Sản phẩm hết hàng";
+  |Khách hàng|
+  :Điều chỉnh giỏ hàng;
+endif
+stop
+@enduml
+```
+
+### 5. Use Case Diagram
+```plantuml
+@startuml
+left to right direction
+actor "Khách hàng" as customer
+actor "Quản trị viên" as admin
+
+rectangle "Hệ thống E-Commerce" {
+  usecase "Xem sản phẩm" as UC1
+  usecase "Đặt hàng" as UC2
+  usecase "Thanh toán trực tuyến" as UC3
+  usecase "Quản lý kho hàng" as UC4
+  usecase "Xem báo cáo doanh thu" as UC5
+}
+
+customer --> UC1
+customer --> UC2
+UC2 ..> UC3 : <<include>>
+admin --> UC4
+admin --> UC5
+@enduml
+```
+
+### 6. Mind Map (Cây tính năng)
+```plantuml
+@startmindmap
+* Hệ thống SCORT
+** Quản trị Đối tượng (Objects)
+*** Quản lý Local TADIR
+*** Quản lý Target Objects
+*** Đối soát Matrix (Compare)
+** Quản lý Transport Request (TR)
+*** Cây phả hệ TR (Hierarchy Tree)
+*** Tìm kiếm đối tượng trong TR
+*** Phát hành TR (Release Service)
+** Tiện ích & Trợ lý AI
+*** So sánh trực quan Monaco Diff
+*** Tối ưu & Gợi ý TR qua Gemini
+*** GZIP Compression Utility
+@endmindmap
+```
 
 ---
 
@@ -164,48 +342,20 @@ When diagrams are destined for Word (`.docx`) or PDF documents on A4 Portrait:
      - `Auto`: For System-triggered redirects and timer expirations (`Auto Redirect (3s)`).
    - **Quoted Native Button UI String**:
      - When a real UI button exists in single-language mode: `Click "Đăng nhập"`, `Tap "Xem lộ trình\n& Chỉ đường"`, `Click "Đăng xuất"`.
-   - **Interactions Without Explicit Buttons (Non-button / Gesture / System Events)**:
-     - Use 100% technical English without quotes:
-     - Card / Item selection: `Tap Item Card`, `Tap Recommendation Banner`.
-     - System events: `Auto Redirect (3s)`, `Session Expired`.
-     - Hardware & Scanners: `Press System Back`, `Scan Barcode Success`.
-
-4. **Multi-line Wrapping & Collision Avoidance (`\n`)**:
-   - When an action label exceeds 18–22 characters, break it across multiple lines using `\n` at natural whitespace breaks.
-   - Never let button labels overflow horizontally into adjacent node boxes or lines.
-   - The diagram engine calculates stacked line heights with white halo masking and automatically runs AABB collision detection to warn if any label collides with a node.
-
 
 ---
 
-## 🚫 Anti-Patterns to Avoid
-
-- ❌ **Wide 1-Row Layouts**: Do not lay out 10+ nodes horizontally in a single row. Use a 4-to-5 column grid with vertical stacking.
-- ❌ **Overlong Single-Line Labels**: Never let a 30-character label stretch across a 100px gap, overlapping adjacent nodes. Always wrap with `\n`.
-- ❌ **Vietnamese Inside Screen Boxes**: Keep screen titles in standardized English for international technical clarity.
-- ❌ **Diagonal Lines Crossing Nodes**: Always route around intervening nodes using L-shaped or U-shaped waypoints.
-- ❌ **Labels Clipped Off-Canvas**: Ensure `label_offset_x` does not push text past the canvas boundary ($x < 0$ or $x > \text{width}$).
-- ❌ **Ambiguous Ports**: Never anchor multiple outgoing arrows to the exact same port without offsetting (`source_offset`).
-
----
-
-## 💻 CLI Usage & Visual Editor
+## 💻 CLI Usage & Visual Tools
 
 ```bash
-# 1. Render directly using the precision diagram engine (scale 3 for 300+ DPI):
-python spec_diagram_engine.py --spec android_user_flow_v2_spec.json --out android_user_screen_flow_v2.png --scale 3
+# 1. Unified Dispatcher (Tự động chọn Canvas, Mermaid, hoặc PlantUML theo field "engine"):
+python ai_tools_cli.py diagram-render your_spec.json -o output.png
 
-# 2. Launch Interactive Canvas Editor for visual Drag & Drop, port tuning, and 2-way JSON sync:
-python diagram_editor.py --spec android_user_flow_v2_spec.json
+# 2. Render trực tiếp từng engine:
+python ai_tools_cli.py plantuml-render erd_spec.json -o erd.png --dpi 300
+python ai_tools_cli.py mermaid-render sequence_spec.json -o seq.png
+python ai_tools_cli.py spec-render screen_flow_spec.json -o flow.png --scale 3
 
-# Or via unified CLI:
-python -m ai_tools_cli diagram-editor android_user_flow_v2_spec.json
+# 3. Chạy Interactive Canvas Editor kéo thả cho Screen Flow:
+python ai_tools_cli.py diagram-editor screen_flow_spec.json
 ```
-
-### 🎨 Visual Canvas Editor Capabilities:
-- **Two-Way JSON Sync**: Edit visually on canvas, save directly to `.json` (Single Source of Truth).
-- **Zero-Flicker Drag**: Smooth tag-based motion (`canvas.move`) recalculating only incident edges.
-- **Node ID Rename Guard**: Duplicate ID protection ensuring references across all edges remain valid.
-- **Edge Hit-Testing**: Seamless click-to-select on orthogonal polyline connections.
-- **Deep Undo/Redo**: 30-step snapshot stack (`Ctrl+Z` / `Ctrl+Y`).
-- **Direct 300+ DPI Export**: High-resolution PNG rasterization with one click.
