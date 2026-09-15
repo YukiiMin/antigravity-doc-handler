@@ -24,6 +24,11 @@ from dataclasses import dataclass, field
 from typing import Any, Literal
 from PIL import Image
 
+if sys.platform == "win32" and hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+    if hasattr(sys.stderr, "reconfigure"):
+        sys.stderr.reconfigure(encoding="utf-8")
+
 PortType = Literal["top", "bottom", "left", "right"]
 NodeType = Literal["primary", "standard", "modal", "toast"]
 
@@ -203,6 +208,64 @@ class PrecisionDiagram:
 
         return [p_start, (tx, sy), p_end]
 
+    def _get_edge_label_coords(self, edge: Edge, pts: list[tuple[float, float]]) -> tuple[float, float]:
+        """Calculate Cartesian coordinates for an edge label along polyline points."""
+        total_len = 0.0
+        segs: list[tuple[tuple[float, float], tuple[float, float], float]] = []
+        for i in range(len(pts) - 1):
+            dx = pts[i + 1][0] - pts[i][0]
+            dy = pts[i + 1][1] - pts[i][1]
+            seg_len = (dx * dx + dy * dy) ** 0.5
+            segs.append((pts[i], pts[i + 1], seg_len))
+            total_len += seg_len
+
+        target_dist = total_len * edge.label_pos
+        accum = 0.0
+        lbl_x, lbl_y = pts[0]
+        for p1, p2, slen in segs:
+            if slen == 0:
+                continue
+            if accum + slen >= target_dist:
+                ratio = (target_dist - accum) / slen
+                lbl_x = p1[0] + (p2[0] - p1[0]) * ratio
+                lbl_y = p1[1] + (p2[1] - p1[1]) * ratio
+                break
+            accum += slen
+
+        lbl_x += edge.label_offset_x
+        lbl_y += edge.label_offset_y
+        return lbl_x, lbl_y
+
+    def check_label_node_collisions(self) -> list[str]:
+        """Detect potential bounding-box overlaps between edge labels and node boxes."""
+        warnings: list[str] = []
+        for edge in self.edges:
+            if not edge.label:
+                continue
+            pts = self._calculate_manhattan_route(edge)
+            lbl_x, lbl_y = self._get_edge_label_coords(edge, pts)
+            lines = edge.label.replace("<br/>", "\n").split("\n")
+            max_chars = max(len(l) for l in lines)
+            lbl_w = max_chars * 5.6 + 6.0
+            lbl_h = len(lines) * 11.5 + 4.0
+            l_min_x = lbl_x - lbl_w / 2.0
+            l_max_x = lbl_x + lbl_w / 2.0
+            l_min_y = lbl_y - lbl_h / 2.0
+            l_max_y = lbl_y + lbl_h / 2.0
+
+            for node in self.nodes.values():
+                overlap_x = not (l_max_x <= node.x or node.x + node.width <= l_min_x)
+                overlap_y = not (l_max_y <= node.y or node.y + node.height <= l_min_y)
+                if overlap_x and overlap_y:
+                    warn = (
+                        f"[WARN] Label collision detected: edge '{edge.source_id} -> {edge.target_id}' "
+                        f"(label={repr(edge.label)}) overlaps node '{node.id}' "
+                        f"[Label: X={l_min_x:.1f}..{l_max_x:.1f}, Y={l_min_y:.1f}..{l_max_y:.1f} vs "
+                        f"Node: X={node.x:.1f}..{node.x+node.width:.1f}, Y={node.y:.1f}..{node.y+node.height:.1f}]"
+                    )
+                    warnings.append(warn)
+        return warnings
+
     def to_svg(self) -> str:
         """Generate clean, publication-quality SVG string."""
         svg: list[str] = [
@@ -244,38 +307,27 @@ class PrecisionDiagram:
 
             # Calculate edge label position
             if edge.label:
-                # Find midpoint along polyline segments
-                total_len = 0.0
-                segs: list[tuple[tuple[float, float], tuple[float, float], float]] = []
-                for i in range(len(pts) - 1):
-                    dx = pts[i + 1][0] - pts[i][0]
-                    dy = pts[i + 1][1] - pts[i][1]
-                    seg_len = (dx * dx + dy * dy) ** 0.5
-                    segs.append((pts[i], pts[i + 1], seg_len))
-                    total_len += seg_len
+                lbl_x, lbl_y = self._get_edge_label_coords(edge, pts)
 
-                target_dist = total_len * edge.label_pos
-                accum = 0.0
-                lbl_x, lbl_y = pts[0]
-                for p1, p2, slen in segs:
-                    if slen == 0:
-                        continue
-                    if accum + slen >= target_dist:
-                        ratio = (target_dist - accum) / slen
-                        lbl_x = p1[0] + (p2[0] - p1[0]) * ratio
-                        lbl_y = p1[1] + (p2[1] - p1[1]) * ratio
-                        break
-                    accum += slen
-
-                lbl_x += edge.label_offset_x
-                lbl_y += edge.label_offset_y
-
-                escaped_label = html.escape(edge.label, quote=True)
-                edge_label_elements.append(
-                    f'    <text x="{lbl_x:.1f}" y="{lbl_y + 3.0:.1f}" font-family="{self.font_family}" '
-                    f'font-size="9px" font-weight="500" fill="#222222" text-anchor="middle" '
-                    f'stroke="#ffffff" stroke-width="4px" stroke-linejoin="round" paint-order="stroke fill">{escaped_label}</text>'
-                )
+                lines = edge.label.replace("<br/>", "\n").split("\n")
+                line_height = 11.5
+                if len(lines) == 1:
+                    escaped_label = html.escape(lines[0], quote=True)
+                    edge_label_elements.append(
+                        f'    <text x="{lbl_x:.1f}" y="{lbl_y + 3.0:.1f}" font-family="{self.font_family}" '
+                        f'font-size="9px" font-weight="500" fill="#222222" text-anchor="middle" '
+                        f'stroke="#ffffff" stroke-width="4px" stroke-linejoin="round" paint-order="stroke fill">{escaped_label}</text>'
+                    )
+                else:
+                    start_ly = lbl_y - ((len(lines) - 1) * line_height) / 2.0 + 3.0
+                    for l_idx, line in enumerate(lines):
+                        ly = start_ly + l_idx * line_height
+                        escaped_label = html.escape(line, quote=True)
+                        edge_label_elements.append(
+                            f'    <text x="{lbl_x:.1f}" y="{ly:.1f}" font-family="{self.font_family}" '
+                            f'font-size="9px" font-weight="500" fill="#222222" text-anchor="middle" '
+                            f'stroke="#ffffff" stroke-width="4px" stroke-linejoin="round" paint-order="stroke fill">{escaped_label}</text>'
+                        )
 
         # 2. Render Nodes (Render nodes BEFORE edge labels so labels stay on top)
         svg.append("  <!-- Nodes -->")
@@ -540,6 +592,11 @@ class PrecisionDiagram:
                 label_offset_y=float(e.get("label_offset_y", 0.0)),
                 label_offset_x=float(e.get("label_offset_x", 0.0)),
             )
+
+        # Label-to-Node Collision Detection
+        label_warnings = diag.check_label_node_collisions()
+        for warn in label_warnings:
+            print(warn)
 
         return diag
 
