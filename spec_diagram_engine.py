@@ -12,11 +12,13 @@ Produces pixel-perfect, publication-grade Hub & Spoke and Grid diagrams with:
 
 from __future__ import annotations
 
+import argparse
 import html
 import json
 import os
 import shutil
 import subprocess
+import sys
 import tempfile
 from dataclasses import dataclass, field
 from typing import Any, Literal
@@ -419,7 +421,8 @@ class PrecisionDiagram:
         Render the diagram to high-resolution PNG using native Chromium/Edge headless.
         Returns execution metadata dictionary.
         """
-        out_dir = os.path.dirname(os.path.abspath(output_png_path))
+        output_png_path = os.path.abspath(output_png_path)
+        out_dir = os.path.dirname(output_png_path)
         os.makedirs(out_dir, exist_ok=True)
 
         # Write SVG
@@ -465,3 +468,93 @@ class PrecisionDiagram:
             "aspect_ratio": round(w_px / h_px, 2),
             "scale": scale,
         }
+
+    @classmethod
+    def from_json_spec(cls, spec_path: str) -> PrecisionDiagram:
+        """
+        Load a diagram definition from a declarative JSON specification file.
+        Validates node existence for all edges and checks for AABB collisions.
+        """
+        if not os.path.isfile(spec_path):
+            raise FileNotFoundError(f"Spec file not found: {spec_path}")
+
+        with open(spec_path, "r", encoding="utf-8") as f:
+            spec = json.load(f)
+
+        diag = cls(
+            width=spec.get("width", 1200),
+            height=spec.get("height", 700),
+            font_family=spec.get("font_family", "Segoe UI, -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif"),
+            font_size=spec.get("font_size", 11.0),
+            bg_color=spec.get("bg_color", "#ffffff"),
+        )
+
+        for n in spec.get("nodes", []):
+            diag.add_node(
+                id=n["id"],
+                label=n["label"],
+                x=float(n["x"]),
+                y=float(n["y"]),
+                width=float(n.get("width", 140)),
+                height=float(n.get("height", 42)),
+                type=n.get("type", "standard"),
+                sublabel=n.get("sublabel"),
+            )
+
+        # Collision detection (AABB overlap warning)
+        nodes_list = list(diag.nodes.values())
+        for i in range(len(nodes_list)):
+            n1 = nodes_list[i]
+            for j in range(i + 1, len(nodes_list)):
+                n2 = nodes_list[j]
+                overlap_x = not (n1.x + n1.width <= n2.x or n2.x + n2.width <= n1.x)
+                overlap_y = not (n1.y + n1.height <= n2.y or n2.y + n2.height <= n1.y)
+                if overlap_x and overlap_y:
+                    print(
+                        f"[WARN] AABB collision detected between node '{n1.id}' (x={n1.x}, y={n1.y}, w={n1.width}, h={n1.height}) "
+                        f"and node '{n2.id}' (x={n2.x}, y={n2.y}, w={n2.width}, h={n2.height})"
+                    )
+
+        for e in spec.get("edges", []):
+            src = e["source"]
+            tgt = e["target"]
+            if src not in diag.nodes:
+                raise ValueError(f"Edge source '{src}' does not exist in diagram nodes.")
+            if tgt not in diag.nodes:
+                raise ValueError(f"Edge target '{tgt}' does not exist in diagram nodes.")
+
+            raw_waypoints = e.get("waypoints", [])
+            waypoints = [(float(pt[0]), float(pt[1])) for pt in raw_waypoints]
+
+            diag.add_edge(
+                source_id=src,
+                target_id=tgt,
+                source_port=e.get("source_port", "right"),
+                target_port=e.get("target_port", "left"),
+                source_offset=float(e.get("source_offset", 0.0)),
+                target_offset=float(e.get("target_offset", 0.0)),
+                label=e.get("label"),
+                line_style=e.get("line_style", "solid"),
+                waypoints=waypoints,
+                label_pos=float(e.get("label_pos", 0.5)),
+                label_offset_y=float(e.get("label_offset_y", 0.0)),
+                label_offset_x=float(e.get("label_offset_x", 0.0)),
+            )
+
+        return diag
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Precision Technical Diagram Engine CLI")
+    parser.add_argument("--spec", type=str, required=True, help="Path to diagram JSON spec file")
+    parser.add_argument("--out", type=str, required=True, help="Path to output rendered PNG file")
+    parser.add_argument("--scale", type=int, default=3, help="Render scale factor (default: 3 for 300+ DPI)")
+
+    args = parser.parse_args()
+
+    print(f"Loading diagram specification from: {args.spec}")
+    diagram = PrecisionDiagram.from_json_spec(args.spec)
+    print(f"Loaded {len(diagram.nodes)} nodes and {len(diagram.edges)} edges.")
+    print(f"Rendering to PNG at scale={args.scale}...")
+    result = diagram.render_to_png(args.out, scale=args.scale)
+    print(f"Render complete: {result['png_path']} ({result['dimensions_px'][0]}x{result['dimensions_px'][1]}px, {result['file_size_bytes']} bytes)")
