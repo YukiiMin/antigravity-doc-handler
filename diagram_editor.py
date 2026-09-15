@@ -376,7 +376,7 @@ class DiagramCanvas(tk.Frame):
 
     def __init__(
         self,
-        parent: tk.Widget,
+        parent: tk.Misc,
         state: DiagramState,
         on_selection_changed: Optional[Callable[[], None]] = None,
         on_state_modified: Optional[Callable[[], None]] = None,
@@ -1068,13 +1068,13 @@ class PropertiesPanel(ttk.Frame):
 
     def __init__(
         self,
-        parent: tk.Widget,
+        parent: tk.Misc,
         state: DiagramState,
         canvas_widget: DiagramCanvas,
     ) -> None:
         super().__init__(parent, padding=10, width=310)
         self.pack_propagate(False)
-        self.state = state
+        self.diagram_state = state
         self.canvas_widget = canvas_widget
 
         self._updating: bool = False
@@ -1128,7 +1128,7 @@ class PropertiesPanel(ttk.Frame):
     # --------------------------------------------------------------------------
 
     def _render_node_properties(self, node_id: str) -> None:
-        node = self.state.nodes.get(node_id)
+        node = self.diagram_state.nodes.get(node_id)
         if not node:
             self.canvas_widget.clear_selection()
             return
@@ -1153,7 +1153,7 @@ class PropertiesPanel(ttk.Frame):
             if new_id == node.id:
                 err_label.config(text="")
                 return
-            ok, msg = self.state.rename_node(node.id, new_id)
+            ok, msg = self.diagram_state.rename_node(node.id, new_id)
             if not ok:
                 err_label.config(text=f"⚠️ {msg}")
                 id_entry.config(foreground="#dc2626")
@@ -1176,9 +1176,9 @@ class PropertiesPanel(ttk.Frame):
         def commit_label(*_) -> None:
             val = lbl_text.get("1.0", "end-1c").strip()
             if val != node.label:
-                self.state.push_snapshot()
+                self.diagram_state.push_snapshot()
                 node.label = val
-                self.state.is_dirty = True
+                self.diagram_state.is_dirty = True
                 self.canvas_widget.redraw_all()
 
         lbl_text.bind("<KeyRelease>", commit_label)
@@ -1194,9 +1194,9 @@ class PropertiesPanel(ttk.Frame):
         type_combo.pack(fill=tk.X, pady=(2, 6))
 
         def on_type_changed(e) -> None:
-            self.state.push_snapshot()
+            self.diagram_state.push_snapshot()
             node.type = type_var.get()  # type: ignore
-            self.state.is_dirty = True
+            self.diagram_state.is_dirty = True
             self.canvas_widget.redraw_all()
 
         type_combo.bind("<<ComboboxSelected>>", on_type_changed)
@@ -1238,7 +1238,7 @@ class PropertiesPanel(ttk.Frame):
                 node.y = float(y_var.get())
                 node.width = float(w_var.get())
                 node.height = float(h_var.get())
-                self.state.is_dirty = True
+                self.diagram_state.is_dirty = True
                 self.canvas_widget.redraw_all()
             except ValueError:
                 pass
@@ -1252,7 +1252,7 @@ class PropertiesPanel(ttk.Frame):
         conn_box.pack(fill=tk.X, pady=(4, 8))
 
         out_edges = [
-            (idx, e) for idx, e in enumerate(self.state.edges)
+            (idx, e) for idx, e in enumerate(self.diagram_state.edges)
             if e.source_id == node.id
         ]
 
@@ -1274,7 +1274,7 @@ class PropertiesPanel(ttk.Frame):
         add_conn_frame = ttk.Frame(conn_box)
         add_conn_frame.pack(fill=tk.X, pady=(6, 0))
 
-        other_nodes = [nid for nid in self.state.nodes if nid != node.id]
+        other_nodes = [nid for nid in self.diagram_state.nodes if nid != node.id]
         if other_nodes:
             ttk.Label(add_conn_frame, text="Nối đến:").grid(row=0, column=0, sticky=tk.W)
             target_var = tk.StringVar(value=other_nodes[0])
@@ -1289,7 +1289,7 @@ class PropertiesPanel(ttk.Frame):
             def do_add_conn() -> None:
                 tgt = target_var.get()
                 clbl = conn_lbl_var.get().strip() or None
-                ok, _, _ = self.state.add_edge(
+                ok, _, _ = self.diagram_state.add_edge(
                     source_id=node.id,
                     target_id=tgt,
                     source_port="right",
@@ -1315,12 +1315,12 @@ class PropertiesPanel(ttk.Frame):
 
     def _delete_current_node(self, node_id: str) -> None:
         if messagebox.askyesno("Xác nhận xóa", f"Bạn có chắc muốn xóa node '{node_id}' cùng toàn bộ kết nối liên quan?"):
-            self.state.remove_node(node_id)
+            self.diagram_state.remove_node(node_id)
             self.canvas_widget.clear_selection()
             self.canvas_widget.redraw_all()
 
     def _delete_edge_idx(self, edge_idx: int) -> None:
-        self.state.remove_edge(edge_idx)
+        self.diagram_state.remove_edge(edge_idx)
         self.canvas_widget.redraw_all()
         self.refresh()
 
@@ -1329,11 +1329,11 @@ class PropertiesPanel(ttk.Frame):
     # --------------------------------------------------------------------------
 
     def _render_edge_properties(self, edge_idx: int) -> None:
-        if not (0 <= edge_idx < len(self.state.edges)):
+        if not (0 <= edge_idx < len(self.diagram_state.edges)):
             self.canvas_widget.clear_selection()
             return
 
-        edge = self.state.edges[edge_idx]
+        edge = self.diagram_state.edges[edge_idx]
         f = self.body_frame
 
         # Title
@@ -1349,9 +1349,9 @@ class PropertiesPanel(ttk.Frame):
         def commit_edge_label(*_) -> None:
             new_val = lbl_var.get().strip() or None
             if new_val != edge.label:
-                self.state.push_snapshot()
+                self.diagram_state.push_snapshot()
                 edge.label = new_val
-                self.state.is_dirty = True
+                self.diagram_state.is_dirty = True
                 self.canvas_widget.redraw_all()
 
         lbl_entry.bind("<KeyRelease>", commit_edge_label)
@@ -1371,10 +1371,10 @@ class PropertiesPanel(ttk.Frame):
         combo_tp.grid(row=1, column=1, padx=2, pady=2)
 
         def on_ports_changed(e) -> None:
-            self.state.push_snapshot()
+            self.diagram_state.push_snapshot()
             edge.source_port = src_port_var.get()  # type: ignore
             edge.target_port = tgt_port_var.get()  # type: ignore
-            self.state.is_dirty = True
+            self.diagram_state.is_dirty = True
             self.canvas_widget.redraw_all()
 
         combo_sp.bind("<<ComboboxSelected>>", on_ports_changed)
@@ -1387,9 +1387,9 @@ class PropertiesPanel(ttk.Frame):
         combo_style.pack(fill=tk.X, pady=(2, 6))
 
         def on_style_changed(e) -> None:
-            self.state.push_snapshot()
+            self.diagram_state.push_snapshot()
             edge.line_style = style_var.get()  # type: ignore
-            self.state.is_dirty = True
+            self.diagram_state.is_dirty = True
             self.canvas_widget.redraw_all()
 
         combo_style.bind("<<ComboboxSelected>>", on_style_changed)
@@ -1402,11 +1402,11 @@ class PropertiesPanel(ttk.Frame):
 
         def on_pos_changed(e) -> None:
             edge.label_pos = round(pos_var.get(), 2)
-            self.state.is_dirty = True
+            self.diagram_state.is_dirty = True
             self.canvas_widget.redraw_all()
 
         slider_pos.bind("<B1-Motion>", on_pos_changed)
-        slider_pos.bind("<ButtonRelease-1>", lambda e: self.state.push_snapshot())
+        slider_pos.bind("<ButtonRelease-1>", lambda e: self.diagram_state.push_snapshot())
 
         # Offsets
         off_box = ttk.Frame(f)
@@ -1426,7 +1426,7 @@ class PropertiesPanel(ttk.Frame):
             try:
                 edge.label_offset_x = float(ox_var.get())
                 edge.label_offset_y = float(oy_var.get())
-                self.state.is_dirty = True
+                self.diagram_state.is_dirty = True
                 self.canvas_widget.redraw_all()
             except ValueError:
                 pass
@@ -1460,21 +1460,21 @@ class PropertiesPanel(ttk.Frame):
         dim_box.pack(fill=tk.X, pady=4)
 
         ttk.Label(dim_box, text="Chiều rộng (W):").grid(row=0, column=0, sticky=tk.W)
-        w_var = tk.DoubleVar(value=self.state.width)
+        w_var = tk.DoubleVar(value=self.diagram_state.width)
         w_spin = ttk.Spinbox(dim_box, textvariable=w_var, from_=400, to=5000, increment=50, width=8)
         w_spin.grid(row=0, column=1, padx=4, pady=2)
 
         ttk.Label(dim_box, text="Chiều cao (H):").grid(row=1, column=0, sticky=tk.W)
-        h_var = tk.DoubleVar(value=self.state.height)
+        h_var = tk.DoubleVar(value=self.diagram_state.height)
         h_spin = ttk.Spinbox(dim_box, textvariable=h_var, from_=300, to=5000, increment=50, width=8)
         h_spin.grid(row=1, column=1, padx=4, pady=2)
 
         def commit_dim(*_) -> None:
             try:
-                self.state.push_snapshot()
-                self.state.width = float(w_var.get())
-                self.state.height = float(h_var.get())
-                self.state.is_dirty = True
+                self.diagram_state.push_snapshot()
+                self.diagram_state.width = float(w_var.get())
+                self.diagram_state.height = float(h_var.get())
+                self.diagram_state.is_dirty = True
                 self.canvas_widget.redraw_all()
             except ValueError:
                 pass
@@ -1488,8 +1488,8 @@ class PropertiesPanel(ttk.Frame):
         stat_box = ttk.LabelFrame(f, text="Thống kê sơ đồ", padding=6)
         stat_box.pack(fill=tk.X, pady=8)
 
-        ttk.Label(stat_box, text=f"• Tổng số Node (Màn hình): {len(self.state.nodes)}").pack(anchor=tk.W)
-        ttk.Label(stat_box, text=f"• Tổng số Edge (Luồng chuyển): {len(self.state.edges)}").pack(anchor=tk.W)
+        ttk.Label(stat_box, text=f"• Tổng số Node (Màn hình): {len(self.diagram_state.nodes)}").pack(anchor=tk.W)
+        ttk.Label(stat_box, text=f"• Tổng số Edge (Luồng chuyển): {len(self.diagram_state.edges)}").pack(anchor=tk.W)
         ttk.Label(stat_box, text=f"• Snap Grid: {DiagramCanvas.GRID_SIZE:.0f}px").pack(anchor=tk.W)
 
         # Quick Tips

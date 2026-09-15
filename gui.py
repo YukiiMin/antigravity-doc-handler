@@ -307,8 +307,12 @@ class UniversalDocStudioApp:
         if not HAS_DND:
             return
         try:
-            self.root.drop_target_register(DND_FILES)
-            self.root.dnd_bind("<<Drop>>", self._handle_drop)
+            register_fn = getattr(self.root, "drop_target_register", None)
+            bind_fn = getattr(self.root, "dnd_bind", None)
+            if callable(register_fn):
+                register_fn(DND_FILES)
+            if callable(bind_fn):
+                bind_fn("<<Drop>>", self._handle_drop)
         except Exception as err:
             self.log(f"[WARN] DND Warning: {err}")
 

@@ -175,8 +175,9 @@ def test_canvas_headless_instantiation() -> None:
         assert len(group_items) > 0, f"Node {nid} must have tagged items under node_group_{nid}"
 
     # Verify Trap #2: Space key on canvas vs other widget
-    class DummyEvent:
-        def __init__(self, widget):
+    class DummyEvent(tk.Event):
+        def __init__(self, widget: tk.Misc) -> None:
+            super().__init__()
             self.widget = widget
 
     # Event on Canvas -> activates
@@ -184,13 +185,13 @@ def test_canvas_headless_instantiation() -> None:
     canvas_widget._on_space_down(canvas_event)
     assert canvas_widget._space_pressed is True, "Space on canvas must set _space_pressed to True"
     canvas_widget._on_space_up(canvas_event)
-    assert canvas_widget._space_pressed is False
+    assert not canvas_widget._space_pressed
 
     # Event on other widget (e.g. entry) -> does NOT activate pan
     dummy_entry = tk.Entry(root)
     entry_event = DummyEvent(dummy_entry)
     canvas_widget._on_space_down(entry_event)
-    assert canvas_widget._space_pressed is False, "Space on Entry widget must NOT trigger canvas pan!"
+    assert not canvas_widget._space_pressed, "Space on Entry widget must NOT trigger canvas pan!"
 
     # Clean up
     root.destroy()
@@ -239,8 +240,9 @@ def test_interactive_drag_and_edge_selection() -> None:
     # Calculate screen center of this node
     sx, sy = canvas_widget.world_to_screen(initial_x + first_node.width / 2.0, initial_y + first_node.height / 2.0)
 
-    class MockEvent:
-        def __init__(self, x, y, widget):
+    class MockEvent(tk.Event):
+        def __init__(self, x: int, y: int, widget: tk.Misc) -> None:
+            super().__init__()
             self.x = int(x)
             self.y = int(y)
             self.widget = widget
