@@ -68,18 +68,26 @@ antigravity-doc-handler/
 
 ### Diagram Engine Selection Rules (MANDATORY):
 1. **Always Read `"engine"` Field First**: Dispatch to `"canvas"`, `"mermaid"`, or `"plantuml"`.
-2. **Never Use Mermaid For Complex Static/OOP/Architecture Diagrams**:
-   - ERD (PK/FK Crow's foot) → **PlantUML**
-   - Class Diagram (OOP attributes, methods, inheritance) → **PlantUML**
-   - Package / Directory Architecture → **PlantUML**
-   - Component / Cloud / Deployment → **PlantUML**
-   - Activity with Swimlanes → **PlantUML**
-   - C4 Architecture → **PlantUML**
-   - Use Case Diagram → **PlantUML**
+2. **Tuân Thủ Chuẩn Phân Loại 12 Loại Sơ Đồ Kỹ Thuật**:
+   - **`canvas` Engine** (1):
+     - Screen Flow (Interactive) — Tọa độ pixel-perfect, kéo thả trên `diagram_editor.py`.
+   - **`mermaid` Engine** (5):
+     - ERD (Database Schema) — Nền phẳng pastel hiện đại, gọn gàng cho phân hệ 3–15 bảng.
+     - Sequence Diagram — Chuỗi gọi API thanh thoát, đánh số tự động `autonumber`.
+     - Flowchart / Process — Bẻ nhánh if/else tự do, đổi màu khối nhanh bằng CSS/style.
+     - State Diagram — Trạng thái bo góc tròn, màu sắc hiện đại.
+     - Mind Map — Phân rã tính năng nhanh, màu pastel chia nhánh trực quan.
+   - **`plantuml` Engine** (6):
+     - Use Case Diagram — Actor người que, quan hệ `<<include>>`, `<<extend>>` chuẩn UML.
+     - C4 Architecture — Thư viện C4 chuẩn quốc tế (`<C4/C4_Context>`), không vỡ dây container.
+     - Component / Deployment — Đúng hình khối 3D `node`, `database`, `component`.
+     - Activity Swimlane — Phân làn cột (`|Partition|`) thẳng đứng tuyệt đối, không đè dây.
+     - Class Diagram — Hỗ trợ trọn vẹn OOP (`+`, `-`, `#`, generics `<T>`, composition).
+     - Package Diagram — Hỗ trợ stereotype `<<Folder>>` trực quan cho cấu trúc thư mục.
 3. **Tuân thủ 4 Bẫy Kỹ Thuật Windows Cho PlantUML**:
    - C4: Luôn dùng `!include <C4/C4_Context>` Standard Library nội bộ, tuyệt đối KHÔNG dùng URL Raw GitHub.
    - Font: Ghi file UTF-8 và truyền cờ JVM `-charset UTF-8` để tiếng Việt không bị vỡ.
-   - Limit: Luôn truyền `-DPLANTUML_LIMIT_SIZE=16384` để ảnh ERD/Kiến trúc lớn không bị mờ hoặc cắt cụt.
+   - Limit: Luôn truyền `-DPLANTUML_LIMIT_SIZE=16384` để ảnh kiến trúc/sơ đồ lớn không bị mờ hoặc cắt cụt.
    - Auto-Inject: Luôn kiểm tra `inject_into` để tự động nhúng vào DOCX sau khi render PNG.
 4. **Table Invariants**: Whenever modifying Word `.docx` tables, ensure `<w:cantSplit/>`, `<w:tblHeader/>`, and `<w:vAlign w:val="center"/>` are present.
 5. **Diagram Aspect Ratio**: Keep technical diagrams within the $1.6:1 - 1.85:1$ aspect ratio (e.g. $1400 \times 770\text{px}$ or $1360 \times 720\text{px}$) to perfectly fit standard portrait A4 margins ($14\text{cm}$ print width) without font shrinkage.

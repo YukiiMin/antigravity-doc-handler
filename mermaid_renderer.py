@@ -118,9 +118,9 @@ def render_mermaid_to_png(
             - injected: bool
             - docx_path: str | None
     """
-    mermaid_code = spec.get("mermaid_code")
+    mermaid_code = spec.get("mermaid_code") or spec.get("code")
     if not mermaid_code or not mermaid_code.strip():
-        raise ValueError("Field 'mermaid_code' is missing or empty in spec")
+        raise ValueError("Field 'code' or 'mermaid_code' is missing or empty in spec")
 
     diagram_name = spec.get("diagram_name", "diagram")
     scale_factor = str(spec.get("scale", 2))

@@ -27,25 +27,25 @@ It bridges the gap between raw document conversion, OpenXML Word standard compli
 ### 1. 📐 Triple Core Diagram Architecture
 `antigravity-doc-handler` unites **3 rendering engines** behind a declarative **JSON Single Source of Truth**:
 - **Canvas Engine (`spec_diagram_engine.py`)**: Pixel-perfect Cartesian coordinates, orthogonal Manhattan routing, and white-halo collision avoidance for complex screen flows.
-- **PlantUML Engine (`plantuml_renderer.py`)**: Industry-standard UML for ERD (Crow's foot PK/FK), Class OOP, C4 Architecture, Swimlane Activity, and Mind Maps using bundled `plantuml.jar` and Java runtime.
-- **Mermaid Engine (`mermaid_renderer.py`)**: Fast dynamic text-based rendering for Sequence diagrams, Flowcharts, and State machines.
+- **PlantUML Engine (`plantuml_renderer.py`)**: Industry-standard UML for Use Case, C4 Architecture, Component/Deployment, Activity Swimlane, Class OOP, and Package diagrams using bundled `plantuml.jar` and Java runtime.
+- **Mermaid Engine (`mermaid_renderer.py`)**: Fast dynamic text-based rendering for ERD (Database Schema 3–15 tables), Sequence diagrams, Flowcharts, State machines, and Mind Maps.
 
 #### 📊 12 Supported Diagram Types & Engine Mapping
 
-| # | Loại Diagram | Người dùng | Engine | Ghi chú & Cú pháp |
+| # | Loại Diagram | Engine đã chốt | Vai trò chính | Lý do thực tế |
 |---|---|---|---|---|
-| 1 | **Screen Flow (Mobile/Web)** | Dev + BA | `canvas` | Pixel-perfect coordinate, kéo thả trên `diagram_editor.py` |
-| 2 | **Sequence Diagram** | Dev + BA | `mermaid` | API call chain, luồng xác thực |
-| 3 | **Flowchart / Business Process** | BA | `mermaid` | Logic nghiệp vụ, rẽ nhánh if/else |
-| 4 | **State Diagram** | Dev | `mermaid` | Vòng đời đơn hàng, trạng thái hệ thống |
-| 5 | **ERD (Entity-Relationship)** | Dev + BA | `plantuml` | Crow's foot (`||--o{`), PK/FK, render 50+ bảng |
-| 6 | **Class Diagram (OOP)** | Dev | `plantuml` | Class, visibility (`+/-/#`), kế thừa, composition |
-| 7 | **Package / Directory Architecture** | Dev / Architect | `plantuml` | Cấu trúc thư mục module, namespace |
-| 8 | **Component / Deployment** | DevOps / Architect | `plantuml` | Microservices, Docker container, Cloud |
-| 9 | **Activity / Swimlane** | BA | `plantuml` | Phân làn nghiệp vụ (`|User|`, `|System|`) |
-| 10 | **C4 Architecture** | Architect | `plantuml` | Context, Container, Component (`!include <C4/C4_Context>`) |
-| 11 | **Use Case Diagram** | BA | `plantuml` | Actor, usecase, `<<include>>`, `<<extend>>` |
-| 12 | **Mind Map** | BA + Dev | `plantuml` | Phân rã tính năng (`@startmindmap`) |
+| 1 | **Use Case Diagram** | `plantuml` | BA | Actor người que, quan hệ `<<include>>`, `<<extend>>` chuẩn UML |
+| 2 | **C4 Architecture** | `plantuml` | Architect | Thư viện C4 chuẩn quốc tế (`<C4/C4_Context>`), không vỡ dây container |
+| 3 | **Component / Deployment** | `plantuml` | Dev / DevOps | Đúng hình khối 3D `node`, `database`, `component` chuẩn kiến trúc |
+| 4 | **Activity Swimlane** | `plantuml` | BA | Phân làn cột (`\|Partition\|`) thẳng đứng tuyệt đối, không đè dây |
+| 5 | **Class Diagram** | `plantuml` | Dev | Hỗ trợ trọn vẹn OOP (`+`, `-`, `#`, generics `<T>`, composition) |
+| 6 | **Package Diagram** | `plantuml` | Dev / Architect | Hỗ trợ stereotype `<<Folder>>` trực quan cho cấu trúc thư mục |
+| 7 | **ERD (Database Schema)** | `mermaid` | Dev + BA | Nền phẳng pastel hiện đại, gọn gàng cho phân hệ 3–15 bảng |
+| 8 | **Sequence Diagram** | `mermaid` | Dev + BA | Chuỗi gọi API thanh thoát, đánh số tự động `autonumber` |
+| 9 | **Flowchart / Process** | `mermaid` | BA | Bẻ nhánh if/else tự do, đổi màu khối nhanh bằng CSS/style |
+| 10 | **State Diagram** | `mermaid` | Dev | Trạng thái bo góc tròn, màu sắc hiện đại hơn nét vẽ thô |
+| 11 | **Mind Map** | `mermaid` | BA + Dev | Phân rã tính năng nhanh, màu pastel chia nhánh trực quan |
+| 12 | **Screen Flow (Interactive)** | `canvas` | Dev + BA | Định vị X,Y pixel-perfect, kéo thả trên `diagram_editor.py` |
 
 ### 2. 🛡️ Windows Production Invariants for PlantUML
 1. **C4 Standard Library**: Uses internal `<C4/C4_Context>` (100% offline, never depends on raw github URLs).

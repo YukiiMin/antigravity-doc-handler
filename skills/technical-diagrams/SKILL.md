@@ -44,45 +44,45 @@ The toolkit adopts a **3-Engine Architecture** unified behind a **Single Source 
 
 ## 📊 Bảng Phân Loại 12 Loại Sơ Đồ & Chọn Engine Đúng
 
-| # | Loại Diagram | Người dùng chính | Engine | Cú pháp / Đặc điểm |
+| # | Loại Diagram | Engine đã chốt | Vai trò chính | Lý do thực tế |
 |---|---|---|---|---|
-| 1 | **Screen Flow (Mobile/Web)** | Dev + BA | `canvas` | Pixel-perfect coordinate, Manhattan routing, kéo thả trên `diagram_editor.py` |
-| 2 | **Sequence Diagram** | Dev + BA | `mermaid` | `sequenceDiagram` — API call chain, luồng xác thực |
-| 3 | **Flowchart / Business Process** | BA | `mermaid` | `flowchart TD / LR` — Logic nghiệp vụ, rẽ nhánh if/else |
-| 4 | **State Diagram** | Dev | `mermaid` | `stateDiagram-v2` — Vòng đời đơn hàng, IoT device lifecycle |
-| 5 | **ERD (Entity-Relationship)** | Dev + BA | `plantuml` | `@startuml` + Crow's foot (`\|\|--o{`), PK/FK, không lag với 50+ bảng |
-| 6 | **Class Diagram (OOP)** | Dev | `plantuml` | `@startuml` + Class, visibility (`+/-/#`), Inheritance, Composition |
-| 7 | **Package / Directory Architecture** | Dev / Architect | `plantuml` | `@startuml` + `package`, `folder`, `node`, `database` |
-| 8 | **Component / Deployment** | DevOps / Architect | `plantuml` | `@startuml` + Microservices, Docker container, Cloud sprites |
-| 9 | **Activity / Swimlane** | BA | `plantuml` | `@startuml` + Phân làn partition `\|User\|`, `\|System\|`, `\|Gateway\|` |
-| 10 | **C4 Architecture** | Architect | `plantuml` | `!include <C4/C4_Context>` — Context, Container, Component layers |
-| 11 | **Use Case Diagram** | BA | `plantuml` | `@startuml` + `actor`, `usecase`, `<<include>>`, `<<extend>>` |
-| 12 | **Mind Map** | BA + Dev | `plantuml` | `@startmindmap` — Cây tính năng, phân rã yêu cầu |
+| 1 | **Use Case Diagram** | `plantuml` | BA | Actor người que, quan hệ `<<include>>`, `<<extend>>` chuẩn UML |
+| 2 | **C4 Architecture** | `plantuml` | Architect | Thư viện C4 chuẩn quốc tế (`<C4/C4_Context>`), không vỡ dây container |
+| 3 | **Component / Deployment** | `plantuml` | Dev / DevOps | Đúng hình khối 3D `node`, `database`, `component` chuẩn kiến trúc |
+| 4 | **Activity Swimlane** | `plantuml` | BA | Phân làn cột (`\|Partition\|`) thẳng đứng tuyệt đối, không đè dây |
+| 5 | **Class Diagram** | `plantuml` | Dev | Hỗ trợ trọn vẹn OOP (`+`, `-`, `#`, generics `<T>`, composition) |
+| 6 | **Package Diagram** | `plantuml` | Dev / Architect | Hỗ trợ stereotype `<<Folder>>` trực quan cho cấu trúc thư mục |
+| 7 | **ERD (Database Schema)** | `mermaid` | Dev + BA | Nền phẳng pastel hiện đại, gọn gàng cho phân hệ 3–15 bảng |
+| 8 | **Sequence Diagram** | `mermaid` | Dev + BA | Chuỗi gọi API thanh thoát, đánh số tự động `autonumber` |
+| 9 | **Flowchart / Process** | `mermaid` | BA | Bẻ nhánh if/else tự do, đổi màu khối nhanh bằng CSS/style |
+| 10 | **State Diagram** | `mermaid` | Dev | Trạng thái bo góc tròn, màu sắc hiện đại hơn nét vẽ thô |
+| 11 | **Mind Map** | `mermaid` | BA + Dev | Phân rã tính năng nhanh, màu pastel chia nhánh trực quan |
+| 12 | **Screen Flow (Interactive)** | `canvas` | Dev + BA | Định vị X,Y pixel-perfect, kéo thả trên `diagram_editor.py` |
 
 ---
 
 ## 🧠 AI Decision Tree: Chọn Engine Cho Từng Yêu Cầu
 
 ```
-Khi người dùng hoặc tài liệu yêu cầu vẽ sơ đồ:
+Khi người dùng hoặc tài liệu yêu cầu vẽ sơ đồ kỹ thuật:
 │
-├─ Là Screen Flow của màn hình ứng dụng (App/Web UI Navigation) có tọa độ cụ thể?
+├─ Là Screen Flow có tọa độ pixel-perfect, dev/BA cần kéo thả trực tiếp?
 │   └─► engine: "canvas"  (spec_diagram_engine.py / diagram_editor.py)
 │
-├─ Là luồng giao tiếp theo thời gian / phân nhánh logic / máy trạng thái?
-│   ├─ Sequence Diagram (Actor, API, Message exchange) ──► engine: "mermaid"
-│   ├─ Flowchart logic / Quy trình nghiệp vụ ──────────► engine: "mermaid"
-│   └─ State Diagram (Vòng đời đơn hàng, trạng thái) ──► engine: "mermaid"
+├─ Là sơ đồ động, phân rã ý tưởng, hoặc dữ liệu nền phẳng pastel (Mermaid)?
+│   ├─ ERD / Database Schema (3–15 bảng, nền phẳng pastel hiện đại) ──► engine: "mermaid"
+│   ├─ Sequence Diagram (Chuỗi gọi API, autonumber thanh thoát) ────► engine: "mermaid"
+│   ├─ Flowchart / Quy trình nghiệp vụ (Rẽ nhánh if/else, CSS style) ──► engine: "mermaid"
+│   ├─ State Diagram (Máy trạng thái, bo góc tròn hiện đại) ─────────► engine: "mermaid"
+│   └─ Mind Map (Phân rã tính năng nhanh, pastel chia nhánh) ────────► engine: "mermaid"
 │
-└─ Là kiến trúc tĩnh / cấu trúc dữ liệu / OOP / hạ tầng / phân vai?
-    ├─ Database Tables, PK/FK, Quan hệ 1-N, N-N ────────► engine: "plantuml" (ERD)
-    ├─ OOP Classes, Interface, Methods, Attributes ────► engine: "plantuml" (Class)
-    ├─ Thư mục dự án, Cấu trúc Module/Package ─────────► engine: "plantuml" (Package)
-    ├─ Microservices, Docker, Deployment, Cloud ───────► engine: "plantuml" (Component)
-    ├─ Quy trình đa vai trò phân làn (Swimlane) ────────► engine: "plantuml" (Activity)
-    ├─ Kiến trúc tổng thể C4 (Context / Container) ────► engine: "plantuml" (C4)
-    ├─ Actor & Use Case trong SRS ─────────────────────► engine: "plantuml" (Use Case)
-    └─ Cây tính năng / Phân rã nghiệp vụ (Mind Map) ────► engine: "plantuml" (Mindmap)
+└─ Là sơ đồ cấu trúc nghiêm ngặt, phân làn, chuẩn UML hoặc C4 (PlantUML)?
+    ├─ Use Case Diagram (Actor người que, <<include>>, <<extend>>) ──► engine: "plantuml"
+    ├─ C4 Architecture (Thư viện C4 chuẩn quốc tế, Context/Container) ─► engine: "plantuml"
+    ├─ Component / Deployment Diagram (Khối 3D node, database) ─────► engine: "plantuml"
+    ├─ Activity Swimlane (Phân làn cột |Partition| thẳng đứng) ──────► engine: "plantuml"
+    ├─ Class Diagram (OOP đầy đủ: +, -, #, <T>, composition) ───────► engine: "plantuml"
+    └─ Package Diagram (Stereotype <<Folder>> trực quan thư mục) ────► engine: "plantuml"
 ```
 
 ---
@@ -165,36 +165,187 @@ Khi người dùng hoặc tài liệu yêu cầu vẽ sơ đồ:
 
 ---
 
-## 📝 Mẫu Code PlantUML Chuẩn Cho Từng Loại
+## 📝 Mẫu Code Chuẩn Cho Từng Engine
 
-### 1. ERD (Entity-Relationship Diagram)
+### A. Nhóm MERMAID (Pastel, trực quan, thanh thoát)
+
+#### 1. ERD (Database Schema — 3 đến 15 bảng)
+```mermaid
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ ORDER_ITEM : contains
+    PRODUCT ||--o{ ORDER_ITEM : ordered_in
+
+    CUSTOMER {
+        int customer_id PK
+        string full_name
+        string email
+        timestamp created_at
+    }
+    ORDER {
+        int order_id PK
+        int customer_id FK
+        decimal total_amount
+        string status
+        date order_date
+    }
+    ORDER_ITEM {
+        int item_id PK
+        int order_id FK
+        int product_id FK
+        int quantity
+        decimal unit_price
+    }
+    PRODUCT {
+        int product_id PK
+        string product_name
+        decimal price
+        int stock_qty
+    }
+```
+
+#### 2. Mind Map (Phân rã tính năng nhanh, màu pastel)
+```mermaid
+mindmap
+  root((SCORT System))
+    DB Core
+      CDS Views
+      Behavior Definitions
+      DDIC Tables
+    API Services
+      Service Definitions
+      Service Bindings OData V4
+    Frontend UI5
+      List Report
+      Object Page
+      Monaco Diff Viewer
+    AI Assistant
+      Gemini API Integration
+      TR Release Recommendation
+```
+
+#### 3. Sequence Diagram (Chuỗi gọi API thanh thoát)
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Dev as Lập trình viên
+    participant UI as SAP Fiori UI5
+    participant API as OData V4 Service
+    participant Engine as SCORT Core Engine
+    participant Target as Target SAP System
+
+    Dev->>UI: Bấm "So sánh Đối tượng"
+    UI->>API: GET /sap/opu/odata4/UI_SCORT_OBJ_SEARCH_O4
+    API->>Engine: Gọi ZCL_SCORT_MATRIX_QUERY (Merge-Sort)
+    Engine-->>API: Trả về danh sách đối soát BOTH / LOCAL / TARGET
+    API-->>UI: 200 OK + JSON Payload
+    UI->>Dev: Hiển thị bảng Matrix so sánh trực quan
+```
+
+---
+
+### B. Nhóm PLANTUML (Chuẩn mực UML, phân làn, cấu trúc nghiêm ngặt)
+
+#### 1. Use Case Diagram (Actor người que, <<include>>, <<extend>>)
 ```plantuml
 @startuml
-hide circle
-skinparam linetype ortho
+left to right direction
+actor "Khách hàng" as customer
+actor "Quản trị viên" as admin
 
-entity "User" as user {
-  * user_id : INTEGER <<PK>>
-  --
-  username : VARCHAR(50)
-  email : VARCHAR(100)
-  created_at : TIMESTAMP
+rectangle "Hệ thống Bán lẻ SCORT" {
+  usecase "Xem danh mục sản phẩm" as UC1
+  usecase "Đặt hàng trực tuyến" as UC2
+  usecase "Thanh toán qua VNPay" as UC3
+  usecase "Hủy đơn hàng" as UC4
+  usecase "Quản lý kho hàng" as UC5
+  usecase "Xem báo cáo doanh thu" as UC6
 }
 
-entity "Order" as ord {
-  * order_id : INTEGER <<PK>>
-  --
-  * user_id : INTEGER <<FK>>
-  total_price : DECIMAL(10,2)
-  status : ENUM
-  order_date : DATE
-}
-
-user ||--o{ ord : "places"
+customer --> UC1
+customer --> UC2
+UC2 ..> UC3 : <<include>>
+UC4 ..> UC2 : <<extend>>
+admin --> UC5
+admin --> UC6
 @enduml
 ```
 
-### 2. Class Diagram (OOP)
+#### 2. C4 Architecture Diagram (Context Overview — 100% Offline)
+```plantuml
+@startuml
+!include <C4/C4_Context>
+
+Person(user, "Lập trình viên ABAP", "Người sử dụng bộ công cụ SCORT")
+System(scort_app, "Hệ thống SCORT", "Sao chép và đồng bộ đối tượng SAP đa hệ thống")
+System_Ext(local_sap, "Hệ thống SAP Nguồn", "Chứa đối tượng phát triển gốc")
+System_Ext(target_sap, "Hệ thống SAP Đích", "Hệ thống nhận đối tượng sau sao chép")
+
+Rel(user, scort_app, "Thao tác trên giao diện Fiori UI5", "HTTPS")
+Rel(scort_app, local_sap, "Đọc TADIR và mã nguồn", "RFC / OData")
+Rel(scort_app, target_sap, "Triển khai đối tượng và phát hành TR", "RFC / OData")
+@enduml
+```
+
+#### 3. Component & Deployment Diagram (Hình khối 3D node, database)
+```plantuml
+@startuml
+package "Client Layer" {
+  [SAP Fiori UI5 App] as FioriApp
+  [Monaco Diff Editor] as Monaco
+}
+
+node "SAP BTP / ABAP Environment" {
+  component [RAP Service Definition] as SD
+  component [RAP Behavior Pool] as BP
+  database "SAP HANA Cloud DB" as HanaDB {
+    [Custom Tables ZA_SCORT_*] as Tables
+  }
+}
+
+cloud "External AI Services" {
+  [Google Gemini API] as Gemini
+}
+
+FioriApp --> SD : OData V4 / HTTPS
+Monaco --> SD : REST /sap/bc/zscort_ai
+SD --> BP : Execution
+BP --> Tables : OpenSQL Push-down
+BP --> Gemini : HTTPS / JSON Payload
+@enduml
+```
+
+#### 4. Activity Diagram với Swimlanes (|Partition| thẳng đứng)
+```plantuml
+@startuml
+|Khách hàng|
+start
+:Mở ứng dụng;
+:Chọn món ăn;
+:Bấm "Đặt đơn hàng";
+
+|Hệ thống|
+:Tạo đơn hàng tạm;
+:Gửi yêu cầu thanh toán;
+
+|Cổng thanh toán|
+:Xử lý thẻ ngân hàng;
+if (Thành công?) then (có)
+  :Gửi mã giao dịch;
+  |Hệ thống|
+  :Cập nhật trạng thái "Đã thanh toán";
+  |Khách hàng|
+  :Nhận hóa đơn điện tử;
+else (không)
+  :Báo lỗi thanh toán;
+  |Khách hàng|
+  :Thử lại phương thức khác;
+endif
+stop
+@enduml
+```
+
+#### 5. Class Diagram (OOP đầy đủ: +, -, #, <T>, composition)
 ```plantuml
 @startuml
 skinparam classAttributeIconSize 0
@@ -222,93 +373,34 @@ UserRepository --> User : "manages"
 @enduml
 ```
 
-### 3. C4 Architecture (Context Diagram)
+#### 6. Package Diagram (Stereotype <<Folder>> trực quan thư mục)
 ```plantuml
 @startuml
-!include <C4/C4_Context>
-
-Person(user, "Người dùng", "Khách hàng sử dụng ứng dụng di động")
-System(app, "Hệ thống SCORT", "Hệ thống sao chép đối tượng dữ liệu SAP")
-System_Ext(sap_core, "SAP S/4HANA", "Hệ thống ERP trung tâm")
-System_Ext(vnpay, "VNPay Gateway", "Cổng thanh toán điện tử")
-
-Rel(user, app, "Thao tác trên ứng dụng", "HTTPS")
-Rel(app, sap_core, "Đồng bộ dữ liệu qua", "OData V4 / RFC")
-Rel(app, vnpay, "Thanh toán qua", "REST API")
-@enduml
-```
-
-### 4. Activity Diagram với Swimlanes
-```plantuml
-@startuml
-|Khách hàng|
-start
-:Mở ứng dụng;
-:Chọn sản phẩm vào giỏ;
-:Bấm "Thanh toán";
-
-|Hệ thống|
-:Kiểm tra tồn kho;
-if (Còn hàng?) then (có)
-  :Tạo đơn hàng tạm;
-  |Cổng thanh toán|
-  :Xử lý giao dịch thẻ;
-  :Trả kết quả thành công;
-  |Hệ thống|
-  :Cập nhật trạng thái "Đã thanh toán";
-  :Gửi email xác nhận;
-  |Khách hàng|
-  :Xem thông báo thành công;
-else (hết)
-  |Hệ thống|
-  :Báo lỗi "Sản phẩm hết hàng";
-  |Khách hàng|
-  :Điều chỉnh giỏ hàng;
-endif
-stop
-@enduml
-```
-
-### 5. Use Case Diagram
-```plantuml
-@startuml
-left to right direction
-actor "Khách hàng" as customer
-actor "Quản trị viên" as admin
-
-rectangle "Hệ thống E-Commerce" {
-  usecase "Xem sản phẩm" as UC1
-  usecase "Đặt hàng" as UC2
-  usecase "Thanh toán trực tuyến" as UC3
-  usecase "Quản lý kho hàng" as UC4
-  usecase "Xem báo cáo doanh thu" as UC5
+package "DB_CORE <<Folder>>" {
+  [CDS View Entities] as CDS
+  [Behavior Definitions] as BDEF
+  [DDIC Tables & Types] as DDIC
+  [ABAP Logic Classes] as Logic
 }
 
-customer --> UC1
-customer --> UC2
-UC2 ..> UC3 : <<include>>
-admin --> UC4
-admin --> UC5
-@enduml
-```
+package "API <<Folder>>" {
+  [Projection CDS] as ProjCDS
+  [Projection BDEF] as ProjBDEF
+  [Service Definition] as ServiceDef
+  [Service Binding O4] as ServiceBind
+}
 
-### 6. Mind Map (Cây tính năng)
-```plantuml
-@startmindmap
-* Hệ thống SCORT
-** Quản trị Đối tượng (Objects)
-*** Quản lý Local TADIR
-*** Quản lý Target Objects
-*** Đối soát Matrix (Compare)
-** Quản lý Transport Request (TR)
-*** Cây phả hệ TR (Hierarchy Tree)
-*** Tìm kiếm đối tượng trong TR
-*** Phát hành TR (Release Service)
-** Tiện ích & Trợ lý AI
-*** So sánh trực quan Monaco Diff
-*** Tối ưu & Gợi ý TR qua Gemini
-*** GZIP Compression Utility
-@endmindmap
+package "FE_UI <<Folder>>" {
+  [Fiori UI5 App] as UI5
+  [i18n Resources] as I18N
+}
+
+UI5 --> ServiceBind : OData V4
+ServiceBind --> ServiceDef
+ServiceDef --> ProjCDS
+ProjCDS --> CDS
+BDEF --> Logic
+@enduml
 ```
 
 ---
