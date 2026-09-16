@@ -38,9 +38,13 @@ description: Universal standards for Database ERD schemas, high-resolution rende
      - `waypoints`: Danh sách tọa độ `[[x, y], ...]` để chủ động bẻ đường lách qua khoảng trống, tuyệt đối không cắt xuyên qua các bảng khác.
      - `corner_radius`: Bán kính bo góc mềm mại (8–14px) bằng Quadratic Bezier, loại bỏ cảm giác gãy khúc chữ L thô cứng.
 
-2. **Quy Tắc Đầu Nối Chuẩn Crow's Foot & Chống Đè Chữ (Crow's Foot & Text Clearance)**:
+2. **Quy Tắc Đầu Nối Chuẩn Crow's Foot & Bỏ Nhãn Chữ Trong Physical ERD (Crow's Foot & No Verb Labels)**:
    - **Ký hiệu Crow's Foot**: Các nhánh chân quạ bắt buộc phải **xòe mở rộng về phía biên thực thể** (apex nằm trên đường dây, 3 nhánh chạm hoặc tiến sát biên bảng), vòng tròn `O` rỗng nền trắng (`#FFFFFF`) che đường line bên dưới, vạch `|` vuông góc dứt khoát.
-   - **White Pill Badge cho nhãn quan hệ**: Mọi nhãn chữ trên đường nối (verb phrase) PHẢI được bọc bởi thẻ `<rect>` nền trắng (`#FFFFFF`), viền mờ bo góc (`rx="4"`), kích thước ôm khít văn bản để đường path không đè xuyên qua chữ (loại bỏ 100% lỗi strikethrough).
+   - **Phân biệt rõ ràng Physical ERD vs Conceptual Diagram**:
+     - Trong **Physical ERD (Database Schema)**: **Tuyệt đối KHÔNG hiển thị nhãn chữ động từ quan hệ** (`authenticates`, `holds`, `creates`, `purchases`, `configures`, v.v.). Bản chất Physical ERD đã thể hiện trọn vẹn quan hệ thông qua tên trường khóa ngoại `<<FK>>` và ký hiệu Crow's Foot. Các nhãn động từ chỉ thuộc về **Conceptual Diagram (Sơ đồ khái niệm / Nghiệp vụ)**. Việc gắn nhãn động từ vào Physical ERD là dư thừa, gây rối mắt và làm chật chội không gian các đầu nối.
+   - **Quy tắc Text Label (Khi có nhãn chữ ở các loại sơ đồ khác như Screen Flow, Conceptual)**:
+     - **Chỉ hiển thị thuần chữ (Plain Text), BỎ HẲN hộp màu (No Rect Box Background)**: Tuyệt đối không vẽ thẻ `<rect>` nền màu/trắng kèm viền xám hay đổ bóng che lên đường line vì sẽ đè bẹp các ký hiệu lân cận.
+     - Sử dụng viền chữ trắng mỏng bao quanh nét chữ (Text Halo: `paint-order="stroke fill" stroke="#FFFFFF" stroke-width="3.5px"`) để chữ đọc rõ trên nền đường dây mà không tạo khối hộp che khuất ký hiệu.
 
 3. **Cân Bằng Không Gian Layout & Phân Cụm Ẩn (Invisible Conceptual Zoning & Spatial Balance)**:
    - **Ẩn hoàn toàn Background / Viền Zone trên Canvas (`show_clusters: false`, `visible: false`)**:
@@ -48,3 +52,4 @@ description: Universal standards for Database ERD schemas, high-resolution rende
      - **Tuyệt đối KHÔNG hiển thị khung viền hình chữ nhật, background màu đệm hay tag tiêu đề phân hệ** trên ảnh xuất bản. Điều này giúp sơ đồ đạt độ tinh gọn, trang nhã, hiện đại (clean & minimalist) và không bị rối mắt bởi các khối viền hộp bao quanh.
    - **Khoảng cách tối ưu giữa các bảng**: Duy trì khoảng cách giữa 2 bảng liền kề chuẩn **90–110px**, không để bảng sát rạt (< 80px) gây đè ký hiệu, cũng không để khoảng cách quá xa (> 250px) gây lãng phí không gian.
    - **Tỷ lệ khung hình**: Bố cục các cụm theo ma trận cân đối tỷ lệ chữ nhật 1.6:1 (3840 x 2400 px), triệt tiêu hoàn toàn khoảng trống thừa.
+

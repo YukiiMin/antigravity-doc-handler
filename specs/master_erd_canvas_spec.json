@@ -85,7 +85,6 @@
   "nodes": [
     {
       "id": "ACCOUNT",
-      "label": "ACCOUNT",
       "x": 100,
       "y": 140,
       "width": 260,
@@ -123,7 +122,6 @@
     },
     {
       "id": "MEMBER",
-      "label": "MEMBER",
       "x": 480,
       "y": 140,
       "width": 270,
@@ -160,7 +158,6 @@
     },
     {
       "id": "MEMBERSHIP",
-      "label": "MEMBERSHIP",
       "x": 870,
       "y": 140,
       "width": 260,
@@ -187,7 +184,6 @@
     },
     {
       "id": "HEALTH_TAG",
-      "label": "HEALTH_TAG",
       "x": 100,
       "y": 480,
       "width": 260,
@@ -209,7 +205,6 @@
     },
     {
       "id": "MEMBERHEALTH_PREFERENCE",
-      "label": "MEMBERHEALTH_PREFERENCE",
       "x": 480,
       "y": 480,
       "width": 290,
@@ -234,7 +229,6 @@
     },
     {
       "id": "MEMBER_NOTIFICATION",
-      "label": "MEMBER_NOTIFICATION",
       "x": 870,
       "y": 480,
       "width": 270,
@@ -265,7 +259,6 @@
     },
     {
       "id": "CART",
-      "label": "CART",
       "x": 1360,
       "y": 140,
       "width": 260,
@@ -288,7 +281,6 @@
     },
     {
       "id": "CART_ITEM",
-      "label": "CART_ITEM",
       "x": 1730,
       "y": 140,
       "width": 260,
@@ -316,7 +308,6 @@
     },
     {
       "id": "MEAL_SUGGESTION",
-      "label": "MEAL_SUGGESTION",
       "x": 2110,
       "y": 140,
       "width": 280,
@@ -342,7 +333,6 @@
     },
     {
       "id": "INVOICE_HISTORY",
-      "label": "INVOICE_HISTORY",
       "x": 1360,
       "y": 460,
       "width": 260,
@@ -369,7 +359,6 @@
     },
     {
       "id": "INVOICE_HISTORY_ITEM",
-      "label": "INVOICE_HISTORY_ITEM",
       "x": 1730,
       "y": 460,
       "width": 270,
@@ -401,7 +390,6 @@
     },
     {
       "id": "MEAL_ITEM",
-      "label": "MEAL_ITEM",
       "x": 2110,
       "y": 460,
       "width": 270,
@@ -426,7 +414,6 @@
     },
     {
       "id": "CATEGORY",
-      "label": "CATEGORY",
       "x": 2630,
       "y": 140,
       "width": 240,
@@ -444,7 +431,6 @@
     },
     {
       "id": "SUBCATEGORY",
-      "label": "SUBCATEGORY",
       "x": 2980,
       "y": 140,
       "width": 250,
@@ -467,7 +453,6 @@
     },
     {
       "id": "PRODUCT_TYPE",
-      "label": "PRODUCT_TYPE",
       "x": 3340,
       "y": 140,
       "width": 250,
@@ -490,7 +475,6 @@
     },
     {
       "id": "PRODUCT",
-      "label": "PRODUCT",
       "x": 2840,
       "y": 440,
       "width": 280,
@@ -526,7 +510,6 @@
     },
     {
       "id": "PRODUCT_HEALTHTAG",
-      "label": "PRODUCT_HEALTHTAG",
       "x": 3280,
       "y": 440,
       "width": 270,
@@ -547,7 +530,6 @@
     },
     {
       "id": "FLOOR",
-      "label": "FLOOR",
       "x": 100,
       "y": 1260,
       "width": 240,
@@ -565,7 +547,6 @@
     },
     {
       "id": "ZONE",
-      "label": "ZONE",
       "x": 450,
       "y": 1260,
       "width": 250,
@@ -588,7 +569,6 @@
     },
     {
       "id": "AISLE",
-      "label": "AISLE",
       "x": 800,
       "y": 1260,
       "width": 260,
@@ -615,7 +595,6 @@
     },
     {
       "id": "SHELF",
-      "label": "SHELF",
       "x": 800,
       "y": 1560,
       "width": 260,
@@ -638,7 +617,6 @@
     },
     {
       "id": "SLOT",
-      "label": "SLOT",
       "x": 800,
       "y": 1860,
       "width": 260,
@@ -665,7 +643,6 @@
     },
     {
       "id": "PRODUCT_SLOT",
-      "label": "PRODUCT_SLOT",
       "x": 440,
       "y": 1860,
       "width": 260,
@@ -689,7 +666,6 @@
     },
     {
       "id": "MAP",
-      "label": "MAP",
       "x": 1360,
       "y": 1260,
       "width": 260,
@@ -716,7 +692,6 @@
     },
     {
       "id": "NAVIGATION_NODE",
-      "label": "NAVIGATION_NODE",
       "x": 1720,
       "y": 1260,
       "width": 280,
@@ -751,7 +726,6 @@
     },
     {
       "id": "NAVIGATION_EDGE",
-      "label": "NAVIGATION_EDGE",
       "x": 2100,
       "y": 1260,
       "width": 270,
@@ -779,7 +753,6 @@
     },
     {
       "id": "ROBOT",
-      "label": "ROBOT",
       "x": 1360,
       "y": 1580,
       "width": 260,
@@ -813,7 +786,6 @@
     },
     {
       "id": "AISLE_SCAN",
-      "label": "AISLE_SCAN",
       "x": 1720,
       "y": 1580,
       "width": 280,
@@ -849,7 +821,6 @@
     },
     {
       "id": "ROBOT_LOG",
-      "label": "ROBOT_LOG",
       "x": 1360,
       "y": 1920,
       "width": 260,
@@ -880,7 +851,6 @@
     },
     {
       "id": "SEMANTIC_OBJECT",
-      "label": "SEMANTIC_OBJECT",
       "x": 1720,
       "y": 1920,
       "width": 280,
@@ -912,7 +882,6 @@
     },
     {
       "id": "BRAND",
-      "label": "BRAND",
       "x": 2630,
       "y": 1260,
       "width": 250,
@@ -934,7 +903,6 @@
     },
     {
       "id": "AD_PACKAGE",
-      "label": "AD_PACKAGE",
       "x": 2980,
       "y": 1260,
       "width": 270,
@@ -972,7 +940,6 @@
     },
     {
       "id": "AD_CAMPAIGN",
-      "label": "AD_CAMPAIGN",
       "x": 3350,
       "y": 1260,
       "width": 280,
@@ -1018,7 +985,6 @@
     },
     {
       "id": "SPONSORED_PRODUCT",
-      "label": "SPONSORED_PRODUCT",
       "x": 2980,
       "y": 1620,
       "width": 270,
@@ -1050,7 +1016,6 @@
     },
     {
       "id": "AD_RESOURCE",
-      "label": "AD_RESOURCE",
       "x": 3350,
       "y": 1620,
       "width": 280,
@@ -1081,7 +1046,6 @@
     },
     {
       "id": "AD_CAMPAIGN_LOG",
-      "label": "AD_CAMPAIGN_LOG",
       "x": 2980,
       "y": 1940,
       "width": 280,

@@ -572,28 +572,19 @@ class PrecisionDiagram:
                 )
                 cardinality_elements.append(card_svg)
 
-            # Calculate edge label position (with solid white pill badge)
+            # Calculate edge label position (clean plain text with halo, no chunky box)
             if edge.label:
                 lbl_x, lbl_y = self._get_edge_label_coords(edge, pts)
 
                 lines = edge.label.replace("<br/>", "\n").split("\n")
                 line_height = 12.0
-                max_chars = max(len(l) for l in lines)
-                badge_w = max_chars * 6.5 + 16.0
-                badge_h = len(lines) * line_height + 8.0
-                badge_x = lbl_x - badge_w / 2.0
-                badge_y = lbl_y - badge_h / 2.0
-
-                edge_label_elements.append(
-                    f'    <rect x="{badge_x:.1f}" y="{badge_y:.1f}" width="{badge_w:.1f}" height="{badge_h:.1f}" '
-                    f'rx="4" ry="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#badge-shadow)"/>'
-                )
 
                 if len(lines) == 1:
                     escaped_label = html.escape(lines[0], quote=True)
                     edge_label_elements.append(
                         f'    <text x="{lbl_x:.1f}" y="{lbl_y + 3.8:.1f}" font-family="{self.font_family}" '
-                        f'font-size="9.5px" font-weight="600" fill="#1E293B" text-anchor="middle">{escaped_label}</text>'
+                        f'font-size="9.5px" font-weight="600" fill="#1E293B" text-anchor="middle" '
+                        f'paint-order="stroke fill" stroke="#FFFFFF" stroke-width="3.5px" stroke-linecap="round" stroke-linejoin="round">{escaped_label}</text>'
                     )
                 else:
                     start_ly = lbl_y - ((len(lines) - 1) * line_height) / 2.0 + 3.8
@@ -602,7 +593,8 @@ class PrecisionDiagram:
                         escaped_label = html.escape(line, quote=True)
                         edge_label_elements.append(
                             f'    <text x="{lbl_x:.1f}" y="{ly:.1f}" font-family="{self.font_family}" '
-                            f'font-size="9.5px" font-weight="600" fill="#1E293B" text-anchor="middle">{escaped_label}</text>'
+                            f'font-size="9.5px" font-weight="600" fill="#1E293B" text-anchor="middle" '
+                            f'paint-order="stroke fill" stroke="#FFFFFF" stroke-width="3.5px" stroke-linecap="round" stroke-linejoin="round">{escaped_label}</text>'
                         )
 
         # 2. Render Nodes

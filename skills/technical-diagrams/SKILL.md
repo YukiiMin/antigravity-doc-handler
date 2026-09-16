@@ -238,6 +238,7 @@ Khi người dùng hoặc tài liệu yêu cầu vẽ sơ đồ kỹ thuật:
 ```
 
 **Dedicated Connections Spec (`specs/master_erd_connections.json`):**
+> *Lưu ý: Trong Physical ERD (Database Schema), quan hệ được xác định rõ ràng qua tên cột Foreign Key `<<FK>>` và ký hiệu Crow's Foot. Tuyệt đối KHÔNG gán nhãn động từ (`label`) trong Physical ERD để tránh gây rối và chật chội sơ đồ. Nhãn quan hệ chỉ dùng cho Conceptual Diagram.*
 ```json
 {
   "connections": [
@@ -248,7 +249,6 @@ Khi người dùng hoặc tài liệu yêu cầu vẽ sơ đồ kỹ thuật:
       "target_port": "left",
       "cardinality_source": "||",
       "cardinality_target": "o|",
-      "label": "authenticates",
       "label_pos": 0.5,
       "corner_radius": 8.0,
       "waypoints": []
@@ -260,7 +260,6 @@ Khi người dùng hoặc tài liệu yêu cầu vẽ sơ đồ kỹ thuật:
       "target_port": "left",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "purchases",
       "corner_radius": 10.0,
       "waypoints": [[575, 400], [1270, 400], [1270, 535]]
     }
@@ -278,7 +277,7 @@ Khi người dùng hoặc tài liệu yêu cầu vẽ sơ đồ kỹ thuật:
 | `}|` / `>|` | One or many | Vạch vuông góc (`\|`) rồi đến chân quạ mở xòe về phía thực thể |
 | `o{` | Zero or many | Hình tròn rỗng (`O`) rồi đến chân quạ mở xòe về phía thực thể |
 
-*(Mọi nhãn quan hệ đều được tự động bọc bởi huy hiệu nổi nền trắng White Pill Badge để đường nối không bao giờ đè xuyên qua chữ)*
+*(Khi hiển thị nhãn chữ ở các sơ đồ khác như Screen Flow, nhãn được render dạng chữ thuần có viền trắng mỏng Text Halo chống đè dây, tuyệt đối không dùng hộp chữ nhật có màu nền/viền để không đè bẹp các ký hiệu lân cận)*
 
 ---
 

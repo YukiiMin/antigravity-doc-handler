@@ -7,7 +7,6 @@
       "target_port": "left",
       "cardinality_source": "||",
       "cardinality_target": "o|",
-      "label": "authenticates",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -18,7 +17,6 @@
       "target_port": "left",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "holds",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -29,7 +27,6 @@
       "target_port": "left",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "assigned_to",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -40,7 +37,6 @@
       "target_port": "top",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "configures",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -53,7 +49,6 @@
       "target_offset": -40.0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "receives",
       "label_pos": 0.5,
       "waypoints": [
         [
@@ -74,7 +69,6 @@
       "target_port": "top",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "creates",
       "label_pos": 0.5,
       "waypoints": [
         [
@@ -96,7 +90,6 @@
       "source_offset": -40.0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "purchases",
       "label_pos": 0.5,
       "waypoints": [
         [
@@ -121,7 +114,6 @@
       "target_port": "left",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "contains",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -132,7 +124,6 @@
       "target_port": "left",
       "cardinality_source": "||",
       "cardinality_target": "}|",
-      "label": "includes",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -143,7 +134,6 @@
       "target_port": "top",
       "cardinality_source": "||",
       "cardinality_target": "}|",
-      "label": "suggests",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -155,7 +145,6 @@
       "source_offset": 30.0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "ingredient",
       "label_pos": 0.5,
       "waypoints": [
         [
@@ -177,7 +166,6 @@
       "source_offset": -30.0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "billed",
       "label_pos": 0.5,
       "waypoints": [
         [
@@ -198,7 +186,6 @@
       "target_port": "right",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "in_cart",
       "label_pos": 0.5,
       "waypoints": [
         [
@@ -223,7 +210,6 @@
       "target_port": "left",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "divides",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -234,7 +220,6 @@
       "target_port": "left",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "classifies",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -247,7 +232,6 @@
       "target_offset": 40.0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "specifies",
       "label_pos": 0.5,
       "waypoints": [
         [
@@ -268,7 +252,6 @@
       "target_port": "left",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "has_tag",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -279,7 +262,6 @@
       "target_port": "bottom",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "applies_to",
       "label_pos": 0.5,
       "waypoints": [
         [
@@ -300,7 +282,6 @@
       "target_port": "left",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "contains",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -311,7 +292,6 @@
       "target_port": "left",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "sections",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -322,7 +302,6 @@
       "target_port": "top",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "holds",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -333,7 +312,6 @@
       "target_port": "top",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "partitions",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -344,7 +322,6 @@
       "target_port": "right",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "allocates",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -356,7 +333,6 @@
       "source_offset": -80.0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "stocked_at",
       "label_pos": 0.5,
       "waypoints": [
         [
@@ -381,7 +357,6 @@
       "target_port": "left",
       "cardinality_source": "||",
       "cardinality_target": "o|",
-      "label": "mapped_into",
       "label_pos": 0.5,
       "waypoints": [
         [
@@ -406,7 +381,6 @@
       "target_port": "left",
       "cardinality_source": "||",
       "cardinality_target": "}|",
-      "label": "defines",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -417,7 +391,6 @@
       "target_port": "left",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "connects",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -428,7 +401,6 @@
       "target_port": "top",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "records",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -439,7 +411,6 @@
       "target_port": "left",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "scanned",
       "label_pos": 0.5,
       "waypoints": [
         [
@@ -460,7 +431,6 @@
       "target_port": "left",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "patrols",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -473,7 +443,6 @@
       "target_offset": -40.0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "anchors",
       "label_pos": 0.5,
       "waypoints": [
         [
@@ -495,7 +464,6 @@
       "source_offset": -30.0,
       "cardinality_source": "||",
       "cardinality_target": "o|",
-      "label": "mapped_to",
       "label_pos": 0.5,
       "waypoints": [
         [
@@ -520,7 +488,6 @@
       "target_port": "left",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "sponsors",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -531,7 +498,6 @@
       "target_port": "left",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "configures",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -543,7 +509,6 @@
       "source_offset": -40.0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "promotes",
       "label_pos": 0.5,
       "waypoints": [
         [
@@ -565,7 +530,6 @@
       "source_offset": 40.0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "featured_in",
       "label_pos": 0.5,
       "waypoints": [
         [
@@ -590,7 +554,6 @@
       "target_port": "top",
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "presents",
       "label_pos": 0.5,
       "corner_radius": 8.0
     },
@@ -602,7 +565,6 @@
       "source_offset": 50.0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "audited_in",
       "label_pos": 0.5,
       "waypoints": [
         [
@@ -620,7 +582,6 @@
       "source_offset": -90.0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
-      "label": "displays_at",
       "label_pos": 0.5,
       "waypoints": [
         [
