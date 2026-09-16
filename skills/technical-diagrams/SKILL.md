@@ -186,6 +186,94 @@ Khi người dùng hoặc tài liệu yêu cầu vẽ sơ đồ kỹ thuật:
 }
 ```
 
+### 3. Schema cho `engine: "canvas"` (Declarative Master ERD & Modular Connections JSON)
+
+> **Khuyên dùng cho ERD quy mô lớn (≥ 20 bảng)**: Cho phép kiểm soát 100% tọa độ X, Y từng bảng, phân vùng phân hệ theo cụm (Domain Cluster Panels), và tách rời cấu hình đường nối thành file JSON riêng (`connections_file`) để tùy biến điểm uốn (`waypoints`), góc bo cong mềm mại (`corner_radius`) và đầu nối chuẩn Crow's Foot:
+
+**Master Spec (`specs/master_erd_canvas_spec.json`):**
+```json
+{
+  "engine": "canvas",
+  "width": 3840,
+  "height": 2400,
+  "scale": 1,
+  "bg_color": "#FFFFFF",
+  "output_path": "diagram_assets/master_erd_smart_mart.png",
+  "clusters": [
+    {
+      "id": "c_acc",
+      "title": "1. PHÂN HỆ TÀI KHOẢN, KHÁCH HÀNG & SỨC KHỎE",
+      "x": 60,
+      "y": 60,
+      "width": 1190,
+      "height": 990,
+      "bg_color": "#F8FAFC",
+      "border_color": "#CBD5E1",
+      "title_color": "#1E293B"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "MEMBER",
+      "label": "MEMBER",
+      "x": 480,
+      "y": 140,
+      "width": 270,
+      "columns": [
+        {"name": "MemberID", "type": "int", "is_pk": true},
+        {"name": "AccountID", "type": "int", "is_fk": true},
+        {"name": "FullName", "type": "string"},
+        {"name": "FaceVector", "type": "string", "is_nullable": true}
+      ]
+    }
+  ],
+  "connections_file": "specs/master_erd_connections.json"
+}
+```
+
+**Dedicated Connections Spec (`specs/master_erd_connections.json`):**
+```json
+{
+  "connections": [
+    {
+      "source": "ACCOUNT",
+      "target": "MEMBER",
+      "source_port": "right",
+      "target_port": "left",
+      "cardinality_source": "||",
+      "cardinality_target": "o|",
+      "label": "authenticates",
+      "label_pos": 0.5,
+      "corner_radius": 8.0,
+      "waypoints": []
+    },
+    {
+      "source": "MEMBER",
+      "target": "INVOICE_HISTORY",
+      "source_port": "bottom",
+      "target_port": "left",
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label": "purchases",
+      "corner_radius": 10.0,
+      "waypoints": [[575, 400], [1270, 400], [1270, 535]]
+    }
+  ]
+}
+```
+
+**Bảng Tra Cứu Ký Hiệu Đầu Nối Chuẩn Crow's Foot (ERD Standard Notation):**
+| Ký hiệu mã | Tên quan hệ | Hình học hiển thị (từ dây nối đến thực thể) |
+|---|---|---|
+| `one` / `1` | One | Vạch đơn vuông góc (`\|`) cạnh thực thể |
+| `many` / `*` | Many | Chân quạ 3 nhánh mở xòe rộng về phía biên thực thể |
+| `||` | One (and only one) | Hai vạch song song vuông góc (`\|\|`) |
+| `o|` | Zero or one | Hình tròn rỗng (`O`) rồi đến vạch vuông góc (`\|`) sát thực thể |
+| `}|` / `>|` | One or many | Vạch vuông góc (`\|`) rồi đến chân quạ mở xòe về phía thực thể |
+| `o{` | Zero or many | Hình tròn rỗng (`O`) rồi đến chân quạ mở xòe về phía thực thể |
+
+*(Mọi nhãn quan hệ đều được tự động bọc bởi huy hiệu nổi nền trắng White Pill Badge để đường nối không bao giờ đè xuyên qua chữ)*
+
 ---
 
 ## 📝 Mẫu Code Chuẩn Cho Từng Engine

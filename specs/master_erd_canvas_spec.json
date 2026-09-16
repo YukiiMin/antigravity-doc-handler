@@ -1,0 +1,1124 @@
+{
+  "engine": "canvas",
+  "width": 3840,
+  "height": 2400,
+  "scale": 1,
+  "font_family": "Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif",
+  "font_size": 11.5,
+  "bg_color": "#FFFFFF",
+  "output_path": "diagram_assets/master_erd_smart_mart.png",
+  "clusters": [
+    {
+      "id": "c_acc",
+      "title": "1. PHÂN HỆ TÀI KHOẢN, KHÁCH HÀNG & SỨC KHỎE",
+      "x": 60,
+      "y": 60,
+      "width": 1190,
+      "height": 990,
+      "bg_color": "#F8FAFC",
+      "border_color": "#CBD5E1",
+      "title_color": "#1E293B"
+    },
+    {
+      "id": "c_cart",
+      "title": "2. PHÂN HỆ GIỎ HÀNG, HÓA ĐƠN & GỢI Ý MÓN ĂN",
+      "x": 1310,
+      "y": 60,
+      "width": 1210,
+      "height": 990,
+      "bg_color": "#F0FDF4",
+      "border_color": "#BBF7D0",
+      "title_color": "#166534"
+    },
+    {
+      "id": "c_prod",
+      "title": "3. PHÂN HỆ DANH MỤC & THÔNG TIN SẢN PHẨM",
+      "x": 2580,
+      "y": 60,
+      "width": 1190,
+      "height": 990,
+      "bg_color": "#EFF6FF",
+      "border_color": "#BFDBFE",
+      "title_color": "#1E40AF"
+    },
+    {
+      "id": "c_store",
+      "title": "4. PHÂN HỆ BỐ TRÍ MẶT BẰNG & VỊ TRÍ KỆ HÀNG",
+      "x": 60,
+      "y": 1180,
+      "width": 1190,
+      "height": 1150,
+      "bg_color": "#FFFBEB",
+      "border_color": "#FDE68A",
+      "title_color": "#92400E"
+    },
+    {
+      "id": "c_slam",
+      "title": "5. PHÂN HỆ ĐIỀU HƯỚNG ROBOT & QUÉT BẢN ĐỒ SLAM",
+      "x": 1310,
+      "y": 1180,
+      "width": 1210,
+      "height": 1150,
+      "bg_color": "#FDF4FF",
+      "border_color": "#F0ABFC",
+      "title_color": "#86198F"
+    },
+    {
+      "id": "c_mkt",
+      "title": "6. PHÂN HỆ QUẢNG CÁO & TIẾP THỊ THƯƠNG HIỆU",
+      "x": 2580,
+      "y": 1180,
+      "width": 1190,
+      "height": 1150,
+      "bg_color": "#FFF1F2",
+      "border_color": "#FECDD3",
+      "title_color": "#9F1239"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ACCOUNT",
+      "label": "ACCOUNT",
+      "x": 100,
+      "y": 140,
+      "width": 260,
+      "columns": [
+        {
+          "name": "AccountID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "Username",
+          "type": "string"
+        },
+        {
+          "name": "PasswordHash",
+          "type": "string"
+        },
+        {
+          "name": "Email",
+          "type": "string"
+        },
+        {
+          "name": "FullName",
+          "type": "string"
+        },
+        {
+          "name": "Role",
+          "type": "string"
+        },
+        {
+          "name": "Status",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "MEMBER",
+      "label": "MEMBER",
+      "x": 480,
+      "y": 140,
+      "width": 270,
+      "columns": [
+        {
+          "name": "MemberID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "AccountID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "FullName",
+          "type": "string"
+        },
+        {
+          "name": "FaceVector",
+          "type": "string",
+          "is_nullable": true
+        },
+        {
+          "name": "SpendingLimit",
+          "type": "decimal",
+          "is_nullable": true
+        },
+        {
+          "name": "TotalPoints",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "id": "MEMBERSHIP",
+      "label": "MEMBERSHIP",
+      "x": 870,
+      "y": 140,
+      "width": 260,
+      "columns": [
+        {
+          "name": "MembershipID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "MemberID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "TierName",
+          "type": "string"
+        },
+        {
+          "name": "Status",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "HEALTH_TAG",
+      "label": "HEALTH_TAG",
+      "x": 100,
+      "y": 480,
+      "width": 260,
+      "columns": [
+        {
+          "name": "HealthTagID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "TagName",
+          "type": "string"
+        },
+        {
+          "name": "TagType",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "MEMBERHEALTH_PREFERENCE",
+      "label": "MEMBERHEALTH_PREFERENCE",
+      "x": 480,
+      "y": 480,
+      "width": 290,
+      "columns": [
+        {
+          "name": "MemberID",
+          "type": "int",
+          "is_pk": true,
+          "is_fk": true
+        },
+        {
+          "name": "HealthTagID",
+          "type": "int",
+          "is_pk": true,
+          "is_fk": true
+        },
+        {
+          "name": "status",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "MEMBER_NOTIFICATION",
+      "label": "MEMBER_NOTIFICATION",
+      "x": 870,
+      "y": 480,
+      "width": 270,
+      "columns": [
+        {
+          "name": "NotificationID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "MemberID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "NotifType",
+          "type": "string"
+        },
+        {
+          "name": "Title",
+          "type": "string"
+        },
+        {
+          "name": "IsRead",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "id": "CART",
+      "label": "CART",
+      "x": 1360,
+      "y": 140,
+      "width": 260,
+      "columns": [
+        {
+          "name": "CartID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "MemberID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "CreatedAt",
+          "type": "datetime"
+        }
+      ]
+    },
+    {
+      "id": "CART_ITEM",
+      "label": "CART_ITEM",
+      "x": 1730,
+      "y": 140,
+      "width": 260,
+      "columns": [
+        {
+          "name": "CartItemID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "CartID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "ProductID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "Quantity",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "id": "MEAL_SUGGESTION",
+      "label": "MEAL_SUGGESTION",
+      "x": 2110,
+      "y": 140,
+      "width": 280,
+      "columns": [
+        {
+          "name": "MealSuggestionID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "MealName",
+          "type": "string"
+        },
+        {
+          "name": "Calories",
+          "type": "int"
+        },
+        {
+          "name": "healthy_score",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "id": "INVOICE_HISTORY",
+      "label": "INVOICE_HISTORY",
+      "x": 1360,
+      "y": 460,
+      "width": 260,
+      "columns": [
+        {
+          "name": "InvoiceHistoryID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "MemberID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "PurchaseDate",
+          "type": "datetime"
+        },
+        {
+          "name": "TotalPrice",
+          "type": "decimal"
+        }
+      ]
+    },
+    {
+      "id": "INVOICE_HISTORY_ITEM",
+      "label": "INVOICE_HISTORY_ITEM",
+      "x": 1730,
+      "y": 460,
+      "width": 270,
+      "columns": [
+        {
+          "name": "InvoiceHistoryItemID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "InvoiceHistoryID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "ProductID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "Quantity",
+          "type": "int"
+        },
+        {
+          "name": "UnitPrice",
+          "type": "decimal"
+        }
+      ]
+    },
+    {
+      "id": "MEAL_ITEM",
+      "label": "MEAL_ITEM",
+      "x": 2110,
+      "y": 460,
+      "width": 270,
+      "columns": [
+        {
+          "name": "MealSuggestionID",
+          "type": "int",
+          "is_pk": true,
+          "is_fk": true
+        },
+        {
+          "name": "ProductID",
+          "type": "int",
+          "is_pk": true,
+          "is_fk": true
+        },
+        {
+          "name": "QuantityRequired",
+          "type": "decimal"
+        }
+      ]
+    },
+    {
+      "id": "CATEGORY",
+      "label": "CATEGORY",
+      "x": 2630,
+      "y": 140,
+      "width": 240,
+      "columns": [
+        {
+          "name": "CategoryID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "CategoryName",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "SUBCATEGORY",
+      "label": "SUBCATEGORY",
+      "x": 2980,
+      "y": 140,
+      "width": 250,
+      "columns": [
+        {
+          "name": "SubcategoryID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "CategoryID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "SubcategoryName",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "PRODUCT_TYPE",
+      "label": "PRODUCT_TYPE",
+      "x": 3340,
+      "y": 140,
+      "width": 250,
+      "columns": [
+        {
+          "name": "ProductTypeID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "SubcategoryID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "TypeName",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "PRODUCT",
+      "label": "PRODUCT",
+      "x": 2840,
+      "y": 440,
+      "width": 280,
+      "columns": [
+        {
+          "name": "ProductID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "ProductTypeID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "ProductName",
+          "type": "string"
+        },
+        {
+          "name": "UnitPrice",
+          "type": "decimal"
+        },
+        {
+          "name": "PromotionPrice",
+          "type": "decimal",
+          "is_nullable": true
+        },
+        {
+          "name": "Status",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "PRODUCT_HEALTHTAG",
+      "label": "PRODUCT_HEALTHTAG",
+      "x": 3280,
+      "y": 440,
+      "width": 270,
+      "columns": [
+        {
+          "name": "ProductID",
+          "type": "int",
+          "is_pk": true,
+          "is_fk": true
+        },
+        {
+          "name": "HealthTagID",
+          "type": "int",
+          "is_pk": true,
+          "is_fk": true
+        }
+      ]
+    },
+    {
+      "id": "FLOOR",
+      "label": "FLOOR",
+      "x": 100,
+      "y": 1260,
+      "width": 240,
+      "columns": [
+        {
+          "name": "FloorID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "FloorNumber",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "id": "ZONE",
+      "label": "ZONE",
+      "x": 450,
+      "y": 1260,
+      "width": 250,
+      "columns": [
+        {
+          "name": "ZoneID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "FloorID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "ZoneName",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "AISLE",
+      "label": "AISLE",
+      "x": 800,
+      "y": 1260,
+      "width": 260,
+      "columns": [
+        {
+          "name": "AisleID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "ZoneID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "AisleCode",
+          "type": "string"
+        },
+        {
+          "name": "AisleName",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "SHELF",
+      "label": "SHELF",
+      "x": 800,
+      "y": 1560,
+      "width": 260,
+      "columns": [
+        {
+          "name": "ShelfID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "AisleID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "LevelNumber",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "id": "SLOT",
+      "label": "SLOT",
+      "x": 800,
+      "y": 1860,
+      "width": 260,
+      "columns": [
+        {
+          "name": "SlotID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "ShelfID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "SlotCode",
+          "type": "string"
+        },
+        {
+          "name": "Quantity",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "id": "PRODUCT_SLOT",
+      "label": "PRODUCT_SLOT",
+      "x": 440,
+      "y": 1860,
+      "width": 260,
+      "columns": [
+        {
+          "name": "ProductSlotID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "SlotID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "ProductID",
+          "type": "int",
+          "is_fk": true
+        }
+      ]
+    },
+    {
+      "id": "MAP",
+      "label": "MAP",
+      "x": 1360,
+      "y": 1260,
+      "width": 260,
+      "columns": [
+        {
+          "name": "MapID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "FloorID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "MapName",
+          "type": "string"
+        },
+        {
+          "name": "MapData",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "NAVIGATION_NODE",
+      "label": "NAVIGATION_NODE",
+      "x": 1720,
+      "y": 1260,
+      "width": 280,
+      "columns": [
+        {
+          "name": "NodeID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "MapID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "NodeName",
+          "type": "string"
+        },
+        {
+          "name": "XCoord",
+          "type": "float"
+        },
+        {
+          "name": "YCoord",
+          "type": "float"
+        },
+        {
+          "name": "NodeType",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "NAVIGATION_EDGE",
+      "label": "NAVIGATION_EDGE",
+      "x": 2100,
+      "y": 1260,
+      "width": 270,
+      "columns": [
+        {
+          "name": "EdgeID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "FromNodeID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "ToNodeID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "Distance",
+          "type": "float"
+        }
+      ]
+    },
+    {
+      "id": "ROBOT",
+      "label": "ROBOT",
+      "x": 1360,
+      "y": 1580,
+      "width": 260,
+      "columns": [
+        {
+          "name": "RobotID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "RobotName",
+          "type": "string"
+        },
+        {
+          "name": "RobotCode",
+          "type": "string"
+        },
+        {
+          "name": "BatteryPct",
+          "type": "int"
+        },
+        {
+          "name": "Mode",
+          "type": "string"
+        },
+        {
+          "name": "Status",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "AISLE_SCAN",
+      "label": "AISLE_SCAN",
+      "x": 1720,
+      "y": 1580,
+      "width": 280,
+      "columns": [
+        {
+          "name": "ScanID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "AisleID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "RobotID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "EmptyPercentage",
+          "type": "decimal"
+        },
+        {
+          "name": "DensityPercentage",
+          "type": "decimal"
+        },
+        {
+          "name": "NeedsRestock",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "id": "ROBOT_LOG",
+      "label": "ROBOT_LOG",
+      "x": 1360,
+      "y": 1920,
+      "width": 260,
+      "columns": [
+        {
+          "name": "LogID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "RobotID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "Battery",
+          "type": "int"
+        },
+        {
+          "name": "Location",
+          "type": "string"
+        },
+        {
+          "name": "Status",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "SEMANTIC_OBJECT",
+      "label": "SEMANTIC_OBJECT",
+      "x": 1720,
+      "y": 1920,
+      "width": 280,
+      "columns": [
+        {
+          "name": "ObjectID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "MapID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "ObjectType",
+          "type": "string"
+        },
+        {
+          "name": "ProductID",
+          "type": "int",
+          "is_nullable": true
+        },
+        {
+          "name": "Label",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "BRAND",
+      "label": "BRAND",
+      "x": 2630,
+      "y": 1260,
+      "width": 250,
+      "columns": [
+        {
+          "name": "BrandID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "BrandName",
+          "type": "string"
+        },
+        {
+          "name": "IsSystemBrand",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "id": "AD_PACKAGE",
+      "label": "AD_PACKAGE",
+      "x": 2980,
+      "y": 1260,
+      "width": 270,
+      "columns": [
+        {
+          "name": "PackageID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "PackageName",
+          "type": "string"
+        },
+        {
+          "name": "Budget",
+          "type": "decimal"
+        },
+        {
+          "name": "ZoneFee",
+          "type": "decimal"
+        },
+        {
+          "name": "ShelfFee",
+          "type": "decimal"
+        },
+        {
+          "name": "DurationDays",
+          "type": "int"
+        },
+        {
+          "name": "Status",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "AD_CAMPAIGN",
+      "label": "AD_CAMPAIGN",
+      "x": 3350,
+      "y": 1260,
+      "width": 280,
+      "columns": [
+        {
+          "name": "AdCampaignID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "PackageID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "BrandID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "SemanticObjectID",
+          "type": "int",
+          "is_fk": true,
+          "is_nullable": true
+        },
+        {
+          "name": "CampaignName",
+          "type": "string"
+        },
+        {
+          "name": "StartDate",
+          "type": "datetime"
+        },
+        {
+          "name": "EndDate",
+          "type": "datetime"
+        },
+        {
+          "name": "Status",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "SPONSORED_PRODUCT",
+      "label": "SPONSORED_PRODUCT",
+      "x": 2980,
+      "y": 1620,
+      "width": 270,
+      "columns": [
+        {
+          "name": "SponsoredID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "AdCampaignID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "ProductID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "Priority",
+          "type": "int"
+        },
+        {
+          "name": "status",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "AD_RESOURCE",
+      "label": "AD_RESOURCE",
+      "x": 3350,
+      "y": 1620,
+      "width": 280,
+      "columns": [
+        {
+          "name": "ResourceID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "AdCampaignID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "ResourceType",
+          "type": "string"
+        },
+        {
+          "name": "ResourceURL",
+          "type": "string"
+        },
+        {
+          "name": "Status",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "AD_CAMPAIGN_LOG",
+      "label": "AD_CAMPAIGN_LOG",
+      "x": 2980,
+      "y": 1940,
+      "width": 280,
+      "columns": [
+        {
+          "name": "LogID",
+          "type": "int",
+          "is_pk": true
+        },
+        {
+          "name": "AdCampaignID",
+          "type": "int",
+          "is_fk": true
+        },
+        {
+          "name": "ActionType",
+          "type": "string"
+        },
+        {
+          "name": "ChargedAmount",
+          "type": "decimal"
+        },
+        {
+          "name": "ProductID",
+          "type": "int",
+          "is_nullable": true
+        },
+        {
+          "name": "RobotID",
+          "type": "int",
+          "is_nullable": true
+        },
+        {
+          "name": "ZoneID",
+          "type": "int",
+          "is_nullable": true
+        },
+        {
+          "name": "MemberID",
+          "type": "int",
+          "is_nullable": true
+        }
+      ]
+    }
+  ],
+  "connections_file": "specs/master_erd_connections.json"
+}

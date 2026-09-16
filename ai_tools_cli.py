@@ -265,7 +265,7 @@ def cmd_diagram_render(args: argparse.Namespace) -> int:
             except (ImportError, ValueError):
                 from spec_diagram_engine import PrecisionDiagram  # type: ignore
             scale = args.scale if args.scale is not None else spec.get("scale", 3)
-            diag = PrecisionDiagram.from_spec(spec)
+            diag = PrecisionDiagram.from_spec(spec, base_dir=base_dir)
             result = diag.render_to_png(out_png, scale=scale)
         elif engine == "mermaid":
             try:
