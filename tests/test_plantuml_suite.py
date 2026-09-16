@@ -21,8 +21,14 @@ import os
 import shutil
 import tempfile
 import argparse
+import sys
 from docx import Document
 from docx.oxml.ns import qn
+
+TESTS_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.abspath(os.path.join(TESTS_DIR, ".."))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
 
 from plantuml_renderer import (
     calculate_aspect_dimensions,

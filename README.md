@@ -152,7 +152,7 @@ python -m ai_tools_cli insert-diagram document.docx screen_flow.png \
 Launch the visual two-way editor for real-time drag-and-drop node manipulation, connection routing, and 300+ DPI PNG export:
 ```bash
 # Open editor with an existing diagram spec:
-python diagram_editor.py --spec android_user_flow_v2_spec.json
+python diagram_editor.py --spec specs/flow_android_user_v2_spec.json
 
 # Or open a blank canvas:
 python diagram_editor.py
@@ -178,7 +178,7 @@ This repository is built natively for AI Agents operating in **Google Antigravit
 - `AGENTS.md`: Full AI agent operational guide.
 
 ### Sample AI Prompt:
-> *"Using the technical-diagrams skill in antigravity-doc-handler, create a declarative JSON spec for our Authentication and Payment flow, then run spec-render to generate a 300 DPI PNG at 1.8:1 aspect ratio."*
+> *"Extract the Android User Screen Flow diagram from page 322 of Report3.docx, reverse-engineer its topology into specs/flow_android_user_v2_spec.json, render a 300+ DPI high-resolution PNG, and re-inject it back under Section 3.1.2 with proper APA captioning."*
 
 ---
 
@@ -233,28 +233,39 @@ Below is a minimal sample of the JSON schema used by `spec_diagram_engine.py`:
 
 ---
 
-## 📁 Repository Structure
+## 📁 Project Structure
 
 ```
-antigravity-doc-handler/
-├── .agents/
-│   ├── rules/
-│   │   └── rule_decoupled_document_converter.md # Core OpenXML & Diagram Rules
-│   └── skills/
-│       ├── doc-handler/SKILL.md                 # Document Processing Skill
-│       └── technical-diagrams/SKILL.md          # Technical Diagramming Skill
+tool/pdf_to_docx_converter/
+├── .agents/                                     # Antigravity Agent Configuration
+│   ├── rules/                                   # Universal Engineering Rules
+│   └── skills/                                  # Agent Workflow Skills
+├── specs/                                       # Declarative Diagram Specifications
+│   ├── flow_*.json                              # Screen Flow JSON Specs
+│   ├── master_erd_*.json                        # Master ERD Canvas & Connections Specs
+│   └── sub_erd_*.json                           # Domain Sub-ERD Specs
+├── tools/                                       # Generator & Document Patcher Scripts
+│   ├── gen_canvas_erd.py                        # Master 4K ERD Generator
+│   ├── gen_hub_spoke_flow.py                    # 25-Node Hub & Spoke Flow Generator
+│   ├── patch_docx_*.py                          # Document Update & Diagram Injection Scripts
+│   └── plantuml.jar                             # Local PlantUML Runtime
+├── tests/                                       # Test Suites
+│   ├── test_diagram_editor.py                   # Canvas Visual Editor Tests
+│   ├── test_mermaid_suite.py                    # Mermaid Engine Tests
+│   ├── test_plantuml_suite.py                   # PlantUML Engine & Dispatcher Tests
+│   ├── test_edge_render.py                      # Headless Vector Rendering Tests
+│   └── test_cardinality.py                      # Crow's Foot Geometry Tests
+├── diagram_assets/                              # Rendered PNG & SVG Output Artifacts
 ├── ai_tools_cli.py                              # Unified CLI for Terminal & AI
 ├── spec_diagram_engine.py                       # Precision SVG + Chromium Engine
 ├── diagram_editor.py                            # Interactive Canvas Diagram Editor
-├── test_diagram_editor.py                       # Automated Test Suite (7 Suites)
+├── mermaid_renderer.py                          # Mermaid CLI Wrapper & Themes
+├── plantuml_renderer.py                         # PlantUML Engine & C4 Standard Library
 ├── smart_post_processor.py                      # OpenXML Word Table & TOC Repair
 ├── converter_engine.py                          # Multi-Format Pipeline Coordinator
 ├── markdown_converter.py                        # Decoupled MD + Style YAML Engine
 ├── docx_reader.py / docx_writer.py              # Low-Level OpenXML Word Handlers
 ├── xlsx_reader.py / xlsx_writer.py              # Excel Worksheet Utilities
-├── mermaid_renderer.py                          # Mermaid CLI Wrapper & Themes
-├── generate_perfect_hub_spoke.py                # Reference Script: 25-Node Hub & Spoke
-├── android_screen_flow_hub_spoke_spec.json     # Reference JSON Spec
 ├── gui.py / main.py                             # Desktop GUI Application
 ├── requirements.txt                             # Python Dependencies
 ├── pyproject.toml                               # Packaging Configuration

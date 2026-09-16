@@ -1,7 +1,10 @@
 import sys
 import os
 import json
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
 
 from spec_diagram_engine import PrecisionDiagram
 
@@ -176,7 +179,7 @@ if __name__ == "__main__":
     # 3. Export to JSON spec
     spec = diag.to_spec()
     spec["scale"] = 3
-    json_path = r"d:\Minh\For_myself\ZSCORT_GSU26_SAP05\tool\pdf_to_docx_converter\android_screen_flow_hub_spoke_spec.json"
+    json_path = os.path.join(ROOT_DIR, "specs", "flow_android_hub_spoke_spec.json")
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(spec, f, indent=2, ensure_ascii=False)
     print("Updated JSON spec at:", json_path)

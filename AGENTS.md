@@ -49,15 +49,19 @@ antigravity-doc-handler/
 ├── diagram_editor.py           # Interactive Canvas Editor (Drag & Drop, 2-Way JSON Sync)
 ├── plantuml_renderer.py        # PlantUML Engine (ERD, Class, C4, Swimlane, Use Case, Mindmap)
 ├── mermaid_renderer.py         # Mermaid Engine (Sequence, Flowchart, State)
-├── tools/
+├── specs/                      # Declarative Diagram Specs (flow_*.json, master_erd_*.json)
+├── tools/                      # Generator & Patcher Scripts + plantuml.jar
+│   ├── gen_canvas_erd.py       # Master 4K ERD Generator
+│   ├── gen_hub_spoke_flow.py   # Hub & Spoke Flow Generator
+│   ├── patch_docx_*.py         # Document Patcher Scripts
 │   └── plantuml.jar            # Local PlantUML JAR (v1.2026+, bundled C4 standard library)
+├── tests/                      # Test Suites (tests/test_*.py)
+├── diagram_assets/             # High-Res Rendered PNG / SVG Artifacts
 ├── ai_tools_cli.py              # Unified CLI Dispatcher for AI Agents & Terminal Users
 ├── smart_post_processor.py      # OpenXML Post-Processor (TOC tab stops, table invariants)
 ├── converter_engine.py          # Unified Multi-Format Conversion Engine
 ├── markdown_converter.py        # Decoupled Markdown + Style YAML Parser/Serializer
 ├── docx_reader.py / docx_writer.py # Low-level Word OpenXML Handlers & Auto-Inject Pipeline
-├── android_user_flow_v2_spec.json  # Reference 19-Node User Flow Spec (Zero Collision)
-├── android_staff_flow_spec.json    # Reference 10-Node Staff Flow Spec (Zero Collision)
 └── skills/
     └── technical-diagrams/     # Skill: Multi-Engine Technical Diagrams & Classification
 ```

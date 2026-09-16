@@ -18,14 +18,17 @@ import sys
 import tempfile
 import tkinter as tk
 
-# Ensure current directory is in path
-CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-if CURRENT_DIR not in sys.path:
-    sys.path.insert(0, CURRENT_DIR)
+# Ensure project root directory is in sys.path
+TESTS_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.abspath(os.path.join(TESTS_DIR, ".."))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
+SPEC_PATH = os.path.join(ROOT_DIR, "specs", "flow_android_user_v2_spec.json")
 
 try:
-    from .diagram_editor import DiagramState, DiagramCanvas, DiagramEditorApp
-    from .spec_diagram_engine import PrecisionDiagram
+    from diagram_editor import DiagramState, DiagramCanvas, DiagramEditorApp
+    from spec_diagram_engine import PrecisionDiagram
 except (ImportError, ValueError):
     from diagram_editor import DiagramState, DiagramCanvas, DiagramEditorApp  # type: ignore
     from spec_diagram_engine import PrecisionDiagram  # type: ignore
@@ -33,7 +36,7 @@ except (ImportError, ValueError):
 
 def test_diagram_state_basics() -> None:
     print("[1/6] Testing DiagramState loading & schema...")
-    spec_path = os.path.join(CURRENT_DIR, "android_user_flow_v2_spec.json")
+    spec_path = SPEC_PATH
     state = DiagramState(spec_path)
 
     assert len(state.nodes) > 0, "Nodes should not be empty"
@@ -50,7 +53,7 @@ def test_diagram_state_basics() -> None:
 
 def test_node_id_collision_guard() -> None:
     print("[2/6] Testing Node ID Collision Guard (Trap #4)...")
-    spec_path = os.path.join(CURRENT_DIR, "android_user_flow_v2_spec.json")
+    spec_path = SPEC_PATH
     state = DiagramState(spec_path)
 
     node_ids = list(state.nodes.keys())
@@ -129,7 +132,7 @@ def test_undo_redo_stack() -> None:
 
 def test_file_save_and_reload() -> None:
     print("[4/6] Testing File Save and Reload roundtrip...")
-    spec_path = os.path.join(CURRENT_DIR, "android_user_flow_v2_spec.json")
+    spec_path = SPEC_PATH
     state = DiagramState(spec_path)
 
     with tempfile.NamedTemporaryFile(suffix=".json", delete=False) as tmp:
@@ -158,7 +161,7 @@ def test_canvas_headless_instantiation() -> None:
     root = tk.Tk()
     root.withdraw()  # Headless test
 
-    spec_path = os.path.join(CURRENT_DIR, "android_user_flow_v2_spec.json")
+    spec_path = SPEC_PATH
     state = DiagramState(spec_path)
     canvas_widget = DiagramCanvas(root, state)
 
@@ -200,7 +203,7 @@ def test_canvas_headless_instantiation() -> None:
 
 def test_png_export_pipeline() -> None:
     print("[6/6] Testing PNG export pipeline with Chromium / Edge...")
-    spec_path = os.path.join(CURRENT_DIR, "android_user_flow_v2_spec.json")
+    spec_path = SPEC_PATH
     state = DiagramState(spec_path)
 
     with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tmp:
@@ -226,7 +229,7 @@ def test_interactive_drag_and_edge_selection() -> None:
     root = tk.Tk()
     root.withdraw()
 
-    spec_path = os.path.join(CURRENT_DIR, "android_user_flow_v2_spec.json")
+    spec_path = SPEC_PATH
     state = DiagramState(spec_path)
     canvas_widget = DiagramCanvas(root, state)
     root.update_idletasks()

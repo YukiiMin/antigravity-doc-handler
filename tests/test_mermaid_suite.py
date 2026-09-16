@@ -16,14 +16,26 @@ from __future__ import annotations
 import os
 import shutil
 import tempfile
+import sys
 from docx import Document
 from docx.oxml.ns import qn
 from PIL import Image
 
-from tool.pdf_to_docx_converter.mermaid_renderer import (
-    calculate_aspect_dimensions,
-    render_mermaid_to_png,
-)
+TESTS_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.abspath(os.path.join(TESTS_DIR, ".."))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
+try:
+    from mermaid_renderer import (
+        calculate_aspect_dimensions,
+        render_mermaid_to_png,
+    )
+except ImportError:
+    from tool.pdf_to_docx_converter.mermaid_renderer import (  # type: ignore
+        calculate_aspect_dimensions,
+        render_mermaid_to_png,
+    )
 
 
 def run_tests() -> bool:
