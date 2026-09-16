@@ -81,6 +81,7 @@ class ClusterDef:
     bg_color: str = "#F8FAFC"
     border_color: str = "#E2E8F0"
     title_color: str = "#475569"
+    visible: bool = True
 
 
 @dataclass
@@ -270,6 +271,7 @@ class PrecisionDiagram:
         self.nodes: dict[str, Node] = {}
         self.edges: list[Edge] = []
         self.clusters: list[ClusterDef] = []
+        self.show_clusters: bool = True
 
     def add_cluster(
         self,
@@ -282,6 +284,7 @@ class PrecisionDiagram:
         bg_color: str = "#F8FAFC",
         border_color: str = "#E2E8F0",
         title_color: str = "#475569",
+        visible: bool = True,
     ) -> ClusterDef:
         c = ClusterDef(
             id=id,
@@ -293,6 +296,7 @@ class PrecisionDiagram:
             bg_color=bg_color,
             border_color=border_color,
             title_color=title_color,
+            visible=visible,
         )
         self.clusters.append(c)
         return c
@@ -498,9 +502,11 @@ class PrecisionDiagram:
   </defs>""")
 
         # 0. Render Cluster Panels (background boundary pillows with category titles)
-        if self.clusters:
+        if self.show_clusters and self.clusters:
             svg.append("  <!-- Cluster Panels -->")
             for c in self.clusters:
+                if not getattr(c, "visible", True):
+                    continue
                 svg.append(f'  <g id="cluster-{c.id}">')
                 svg.append(
                     f'    <rect x="{c.x:.1f}" y="{c.y:.1f}" width="{c.width:.1f}" height="{c.height:.1f}" '
@@ -756,6 +762,8 @@ class PrecisionDiagram:
             bg_color=spec.get("bg_color", "#ffffff"),
         )
 
+        diag.show_clusters = bool(spec.get("show_clusters", True))
+
         for c in spec.get("clusters", []):
             diag.add_cluster(
                 id=c["id"],
@@ -767,6 +775,7 @@ class PrecisionDiagram:
                 bg_color=c.get("bg_color", "#F8FAFC"),
                 border_color=c.get("border_color", "#E2E8F0"),
                 title_color=c.get("title_color", "#475569"),
+                visible=c.get("visible", True),
             )
 
         for n in spec.get("nodes", []):

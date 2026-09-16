@@ -19,6 +19,7 @@ clusters = [
         "bg_color": "#F8FAFC",
         "border_color": "#CBD5E1",
         "title_color": "#1E293B",
+        "visible": False,
     },
     {
         "id": "c_cart",
@@ -30,6 +31,7 @@ clusters = [
         "bg_color": "#F0FDF4",
         "border_color": "#BBF7D0",
         "title_color": "#166534",
+        "visible": False,
     },
     {
         "id": "c_prod",
@@ -41,6 +43,7 @@ clusters = [
         "bg_color": "#EFF6FF",
         "border_color": "#BFDBFE",
         "title_color": "#1E40AF",
+        "visible": False,
     },
     {
         "id": "c_store",
@@ -52,6 +55,7 @@ clusters = [
         "bg_color": "#FFFBEB",
         "border_color": "#FDE68A",
         "title_color": "#92400E",
+        "visible": False,
     },
     {
         "id": "c_slam",
@@ -63,6 +67,7 @@ clusters = [
         "bg_color": "#FDF4FF",
         "border_color": "#F0ABFC",
         "title_color": "#86198F",
+        "visible": False,
     },
     {
         "id": "c_mkt",
@@ -74,6 +79,7 @@ clusters = [
         "bg_color": "#FFF1F2",
         "border_color": "#FECDD3",
         "title_color": "#9F1239",
+        "visible": False,
     },
 ]
 
@@ -1072,6 +1078,7 @@ canvas_spec = {
     "font_size": 11.5,
     "bg_color": "#FFFFFF",
     "output_path": "diagram_assets/master_erd_smart_mart.png",
+    "show_clusters": False,
     "clusters": clusters,
     "nodes": nodes,
     "connections_file": "specs/master_erd_connections.json",

@@ -129,6 +129,10 @@ Khi người dùng hoặc tài liệu yêu cầu vẽ sơ đồ kỹ thuật:
    - **Foreign Key (FK)**: Gắn nhãn `<<FK>>` và đường quan hệ trỏ thẳng tới bảng cha.
 4. **Style High-Contrast Classic**:
    - Nền trắng `#FFFFFF`, Header bảng `#F1F5F9`, viền `#1E293B` (1.5px), mũi tên `#1E293B` (2.0px).
+5. **Phân Cụm Ẩn & Cân Bằng Không Gian (Invisible Conceptual Zoning)**:
+   - **Quy hoạch tọa độ theo cụm phân hệ**: Nhóm các bảng liên quan theo từng cụm nghiệp vụ, duy trì hành lang giao thông 100–120px giữa các cụm giúp đường nối chạy thông suốt, không cắt ngang thực thể.
+   - **Khoảng cách tối ưu 90–110px**: Giữ cự ly thoáng mắt giữa các bảng liền kề, không để sát rạt (< 80px) làm đè ký hiệu quan hệ, không để khoảng cách quá rộng (> 250px) gây lãng phí không gian.
+   - **Ẩn hoàn toàn Background / Viền Zone (`show_clusters: false`, `visible: false`)**: Layout vẫn phân cụm theo ma trận logic nhưng ẩn triệt để khung bao và tiêu đề zone trên canvas xuất bản để đạt phong cách thiết kế tối giản (minimalist), thanh thoát, không gây rối mắt.
 
 ---
 
@@ -188,7 +192,7 @@ Khi người dùng hoặc tài liệu yêu cầu vẽ sơ đồ kỹ thuật:
 
 ### 3. Schema cho `engine: "canvas"` (Declarative Master ERD & Modular Connections JSON)
 
-> **Khuyên dùng cho ERD quy mô lớn (≥ 20 bảng)**: Cho phép kiểm soát 100% tọa độ X, Y từng bảng, phân vùng phân hệ theo cụm (Domain Cluster Panels), và tách rời cấu hình đường nối thành file JSON riêng (`connections_file`) để tùy biến điểm uốn (`waypoints`), góc bo cong mềm mại (`corner_radius`) và đầu nối chuẩn Crow's Foot:
+> **Khuyên dùng cho ERD quy mô lớn (≥ 20 bảng)**: Cho phép kiểm soát 100% tọa độ X, Y từng bảng, quy hoạch không gian theo cụm phân hệ (Invisible Conceptual Zoning: ẩn khung viền `show_clusters: false` để giữ canvas trắng tối giản, thanh lịch), và tách rời cấu hình đường nối thành file JSON riêng (`connections_file`) để tùy biến điểm uốn (`waypoints`), góc bo cong mềm mại (`corner_radius`) và đầu nối chuẩn Crow's Foot:
 
 **Master Spec (`specs/master_erd_canvas_spec.json`):**
 ```json
@@ -199,6 +203,7 @@ Khi người dùng hoặc tài liệu yêu cầu vẽ sơ đồ kỹ thuật:
   "scale": 1,
   "bg_color": "#FFFFFF",
   "output_path": "diagram_assets/master_erd_smart_mart.png",
+  "show_clusters": false,
   "clusters": [
     {
       "id": "c_acc",
@@ -209,7 +214,8 @@ Khi người dùng hoặc tài liệu yêu cầu vẽ sơ đồ kỹ thuật:
       "height": 990,
       "bg_color": "#F8FAFC",
       "border_color": "#CBD5E1",
-      "title_color": "#1E293B"
+      "title_color": "#1E293B",
+      "visible": false
     }
   ],
   "nodes": [
