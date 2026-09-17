@@ -163,6 +163,63 @@ def _write_paragraph(doc: Document, para_data: dict[str, Any]) -> None:
         para.add_run(para_data["text"])
 
 
+def _set_cell_shading(tc_elem, hex_color: str | None) -> None:
+    """Apply XML shading <w:shd> to a table cell."""
+    if not hex_color:
+        return
+    h = hex_color.lstrip("#").upper()
+    if len(h) != 6:
+        return
+    tcPr = tc_elem.get_or_add_tcPr()
+    # Remove existing shd if any
+    for existing in tcPr.findall(qn("w:shd")):
+        tcPr.remove(existing)
+    shd = OxmlElement("w:shd")
+    shd.set(qn("w:val"), "clear")
+    shd.set(qn("w:color"), "auto")
+    shd.set(qn("w:fill"), h)
+    tcPr.append(shd)
+
+
+def _set_cell_margins(tc_elem, top: int = 120, bottom: int = 120, left: int = 150, right: int = 150) -> None:
+    """Set cell padding/margins via <w:tcMar> in dxa (1 pt = 20 dxa)."""
+    tcPr = tc_elem.get_or_add_tcPr()
+    for existing in tcPr.findall(qn("w:tcMar")):
+        tcPr.remove(existing)
+    tcMar = OxmlElement("w:tcMar")
+    for side, val in (("top", top), ("bottom", bottom), ("left", left), ("right", right)):
+        node = OxmlElement(f"w:{side}")
+        node.set(qn("w:w"), str(val))
+        node.set(qn("w:type"), "dxa")
+        tcMar.append(node)
+    tcPr.append(tcMar)
+
+
+def _set_cell_borders(tc_elem, color_hex: str = "CBD5E1", sz: str = "4") -> None:
+    """Set subtle cell borders via <w:tcBorders>."""
+    tcPr = tc_elem.get_or_add_tcPr()
+    for existing in tcPr.findall(qn("w:tcBorders")):
+        tcPr.remove(existing)
+    tcBorders = OxmlElement("w:tcBorders")
+    for side in ("top", "left", "bottom", "right"):
+        b_elem = OxmlElement(f"w:{side}")
+        b_elem.set(qn("w:val"), "single")
+        b_elem.set(qn("w:sz"), sz)
+        b_elem.set(qn("w:space"), "0")
+        b_elem.set(qn("w:color"), color_hex.lstrip("#"))
+        tcBorders.append(b_elem)
+    tcPr.append(tcBorders)
+
+
+def _set_row_flags(tr_elem, is_header: bool = False, cant_split: bool = True) -> None:
+    """Set <w:tblHeader> and <w:cantSplit> in <w:trPr>."""
+    trPr = tr_elem.get_or_add_trPr()
+    if cant_split and trPr.find(qn("w:cantSplit")) is None:
+        trPr.append(OxmlElement("w:cantSplit"))
+    if is_header and trPr.find(qn("w:tblHeader")) is None:
+        trPr.append(OxmlElement("w:tblHeader"))
+
+
 def _write_table(doc: Document, table_data: dict[str, Any]) -> None:
     rows = table_data.get("rows", 1)
     cols = table_data.get("cols", 1)
@@ -170,18 +227,33 @@ def _write_table(doc: Document, table_data: dict[str, Any]) -> None:
     table.style = "Table Grid"
 
     cells_flat = table_data.get("cells", [])
-    for row_cells in cells_flat:
-        for cell_data in row_cells:
-            r_idx = cell_data.get("row", 0)
-            c_idx = cell_data.get("col", 0)
+    for r_idx, row_cells in enumerate(cells_flat):
+        if r_idx >= rows:
+            break
+        row = table.rows[r_idx]
+        is_header_row = (r_idx == 0) or any(c.get("is_header") for c in row_cells)
+        _set_row_flags(row._tr, is_header=is_header_row, cant_split=True)
 
-            # Guard bounds
-            if r_idx >= rows or c_idx >= cols:
+        for cell_data in row_cells:
+            c_idx = cell_data.get("col", 0)
+            if c_idx >= cols:
                 continue
 
             cell = table.cell(r_idx, c_idx)
-            # Clear default empty paragraph using XML
             tc = cell._tc
+
+            # Apply cell margins & borders
+            _set_cell_margins(tc, top=120, bottom=120, left=150, right=150)
+            _set_cell_borders(tc, color_hex="CBD5E1", sz="4")
+
+            # Apply fill / shading
+            fill_color = cell_data.get("fill_color")
+            if not fill_color and is_header_row:
+                fill_color = "#1F4E78"  # Default navy header fill
+            if fill_color:
+                _set_cell_shading(tc, fill_color)
+
+            # Clear default empty paragraph using XML
             for p_elem in tc.findall(qn("w:p")):
                 tc.remove(p_elem)
 
@@ -190,11 +262,21 @@ def _write_table(doc: Document, table_data: dict[str, Any]) -> None:
                 style = _resolve_style(doc, style_name)
                 para = cell.add_paragraph(style=style)
                 _apply_paragraph_format(para, para_data)
+
                 for run_data in para_data.get("runs", []):
                     run = para.add_run(run_data.get("text", ""))
                     _apply_run_format(run, run_data)
+                    # For header rows with dark background, ensure white text if not explicitly set
+                    if is_header_row and fill_color in ("#1F4E78", "#2C3E50", "#000080", "#333399"):
+                        if not run_data.get("font_color"):
+                            run.font.color.rgb = RGBColor(0xFF, 0xFF, 0xFF)
+                            run.bold = True
+
                 if not para_data.get("runs") and para_data.get("text"):
-                    para.add_run(para_data["text"])
+                    run = para.add_run(para_data["text"])
+                    if is_header_row and fill_color in ("#1F4E78", "#2C3E50", "#000080", "#333399"):
+                        run.font.color.rgb = RGBColor(0xFF, 0xFF, 0xFF)
+                        run.bold = True
 
 
 def _write_image_placeholder(doc: Document, img_data: dict[str, Any]) -> None:

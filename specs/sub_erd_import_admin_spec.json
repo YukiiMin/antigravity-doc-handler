@@ -1,0 +1,10 @@
+{
+  "engine": "mermaid",
+  "diagram_type": "erd",
+  "diagram_name": "sub_erd_import_admin",
+  "title": "Phân hệ 8: Quản trị Dữ liệu & Lịch sử Nhập liệu (Physical ERD)",
+  "theme_preset": "erd_pastel",
+  "scale": 3,
+  "output_path": "diagram_assets/sub_erd_import_admin.png",
+  "code": "erDiagram\n    IMPORT_HISTORY {\n        int ImportID PK\n        varchar ImportType\n        varchar FileName\n        int TotalRows\n        int SuccessCount\n        int ErrorCount\n        int DuplicateCount\n        varchar Status\n        text ErrorDetailsJson\n        varchar ImportedBy\n        datetime ImportedAt\n    }\n\n"
+}

@@ -140,7 +140,10 @@ def cmd_docx_inject(args: argparse.Namespace) -> int:
 # ---------------------------------------------------------------------------
 
 def cmd_mermaid_render(args: argparse.Namespace) -> int:
-    from .mermaid_renderer import render_mermaid_to_png
+    try:
+        from .mermaid_renderer import render_mermaid_to_png
+    except (ImportError, ValueError):
+        from mermaid_renderer import render_mermaid_to_png  # type: ignore
 
     spec_path = os.path.abspath(args.spec)
     if not os.path.isfile(spec_path):

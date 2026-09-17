@@ -5,595 +5,1466 @@
       "target": "MEMBER",
       "source_port": "right",
       "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 0,
       "cardinality_source": "||",
-      "cardinality_target": "o|",
+      "cardinality_target": "o{",
       "label_pos": 0.5,
-      "corner_radius": 8.0
+      "corner_radius": 10.0,
+      "waypoints": []
     },
     {
       "source": "MEMBER",
       "target": "MEMBERSHIP",
       "source_port": "right",
       "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
-      "corner_radius": 8.0
+      "corner_radius": 10.0,
+      "waypoints": []
+    },
+    {
+      "source": "MEMBER",
+      "target": "MEMBERHEALTH_PREFERENCE",
+      "source_port": "bottom",
+      "target_port": "top",
+      "source_offset": 0,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": []
     },
     {
       "source": "HEALTH_TAG",
       "target": "MEMBERHEALTH_PREFERENCE",
       "source_port": "right",
       "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
-      "corner_radius": 8.0
+      "corner_radius": 10.0,
+      "waypoints": []
     },
     {
-      "source": "MEMBER",
-      "target": "MEMBERHEALTH_PREFERENCE",
+      "source": "HEALTH_TAG",
+      "target": "HEALTH_TAG_CONFLICT",
       "source_port": "bottom",
-      "target_port": "top",
+      "target_port": "bottom",
+      "source_offset": 0,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
-      "corner_radius": 8.0
-    },
-    {
-      "source": "MEMBER",
-      "target": "MEMBER_NOTIFICATION",
-      "source_port": "bottom",
-      "target_port": "top",
-      "source_offset": 50.0,
-      "target_offset": -40.0,
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
+      "corner_radius": 10.0,
       "waypoints": [
         [
-          665,
-          380
+          215,
+          800
         ],
         [
-          965,
-          380
+          800,
+          800
         ]
-      ],
-      "corner_radius": 10.0
-    },
-    {
-      "source": "MEMBER",
-      "target": "CART",
-      "source_port": "top",
-      "target_port": "top",
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
-      "waypoints": [
-        [
-          615,
-          95
-        ],
-        [
-          1490,
-          95
-        ]
-      ],
-      "corner_radius": 12.0
-    },
-    {
-      "source": "MEMBER",
-      "target": "INVOICE_HISTORY",
-      "source_port": "bottom",
-      "target_port": "left",
-      "source_offset": -40.0,
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
-      "waypoints": [
-        [
-          575,
-          400
-        ],
-        [
-          1270,
-          400
-        ],
-        [
-          1270,
-          535
-        ]
-      ],
-      "corner_radius": 10.0
-    },
-    {
-      "source": "CART",
-      "target": "CART_ITEM",
-      "source_port": "right",
-      "target_port": "left",
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
-      "corner_radius": 8.0
-    },
-    {
-      "source": "INVOICE_HISTORY",
-      "target": "INVOICE_HISTORY_ITEM",
-      "source_port": "right",
-      "target_port": "left",
-      "cardinality_source": "||",
-      "cardinality_target": "}|",
-      "label_pos": 0.5,
-      "corner_radius": 8.0
-    },
-    {
-      "source": "MEAL_SUGGESTION",
-      "target": "MEAL_ITEM",
-      "source_port": "bottom",
-      "target_port": "top",
-      "cardinality_source": "||",
-      "cardinality_target": "}|",
-      "label_pos": 0.5,
-      "corner_radius": 8.0
-    },
-    {
-      "source": "PRODUCT",
-      "target": "MEAL_ITEM",
-      "source_port": "left",
-      "target_port": "right",
-      "source_offset": 30.0,
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
-      "waypoints": [
-        [
-          2500,
-          570
-        ],
-        [
-          2500,
-          525
-        ]
-      ],
-      "corner_radius": 10.0
-    },
-    {
-      "source": "PRODUCT",
-      "target": "INVOICE_HISTORY_ITEM",
-      "source_port": "left",
-      "target_port": "right",
-      "source_offset": -30.0,
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
-      "waypoints": [
-        [
-          2500,
-          510
-        ],
-        [
-          2500,
-          545
-        ]
-      ],
-      "corner_radius": 10.0
-    },
-    {
-      "source": "PRODUCT",
-      "target": "CART_ITEM",
-      "source_port": "top",
-      "target_port": "right",
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
-      "waypoints": [
-        [
-          2980,
-          390
-        ],
-        [
-          2050,
-          390
-        ],
-        [
-          2050,
-          215
-        ]
-      ],
-      "corner_radius": 12.0
+      ]
     },
     {
       "source": "CATEGORY",
       "target": "SUBCATEGORY",
       "source_port": "right",
       "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
-      "corner_radius": 8.0
+      "corner_radius": 10.0,
+      "waypoints": []
     },
     {
       "source": "SUBCATEGORY",
       "target": "PRODUCT_TYPE",
       "source_port": "right",
       "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
-      "corner_radius": 8.0
+      "corner_radius": 10.0,
+      "waypoints": []
     },
     {
       "source": "PRODUCT_TYPE",
       "target": "PRODUCT",
       "source_port": "bottom",
       "target_port": "top",
-      "source_offset": -30.0,
-      "target_offset": 40.0,
+      "source_offset": 0,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
+      "corner_radius": 10.0,
       "waypoints": [
         [
-          3435,
+          1740,
           360
         ],
         [
-          3020,
+          1350,
           360
         ]
-      ],
-      "corner_radius": 10.0
+      ]
     },
     {
       "source": "PRODUCT",
       "target": "PRODUCT_HEALTHTAG",
       "source_port": "right",
       "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
-      "corner_radius": 8.0
+      "corner_radius": 10.0,
+      "waypoints": []
     },
     {
       "source": "HEALTH_TAG",
       "target": "PRODUCT_HEALTHTAG",
       "source_port": "bottom",
       "target_port": "bottom",
+      "source_offset": 0,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
+      "corner_radius": 10.0,
       "waypoints": [
         [
-          230,
-          980
+          215,
+          860
         ],
         [
-          3415,
-          980
+          1715,
+          860
         ]
-      ],
-      "corner_radius": 14.0
+      ]
+    },
+    {
+      "source": "PRODUCT",
+      "target": "PRODUCT",
+      "source_port": "right",
+      "target_port": "bottom",
+      "source_offset": 40,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          1540,
+          679
+        ],
+        [
+          1540,
+          840
+        ],
+        [
+          1350,
+          840
+        ]
+      ]
+    },
+    {
+      "source": "MEMBER",
+      "target": "CART",
+      "source_port": "top",
+      "target_port": "top",
+      "source_offset": -20,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          495,
+          80
+        ],
+        [
+          2105,
+          80
+        ]
+      ]
+    },
+    {
+      "source": "CART",
+      "target": "CART_ITEM",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": []
+    },
+    {
+      "source": "PRODUCT",
+      "target": "CART_ITEM",
+      "source_port": "top",
+      "target_port": "bottom",
+      "source_offset": -40,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          1310,
+          340
+        ],
+        [
+          2385,
+          340
+        ]
+      ]
+    },
+    {
+      "source": "MEMBER",
+      "target": "INVOICE_HISTORY",
+      "source_port": "top",
+      "target_port": "top",
+      "source_offset": 20,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          535,
+          60
+        ],
+        [
+          2665,
+          60
+        ]
+      ]
+    },
+    {
+      "source": "INVOICE_HISTORY",
+      "target": "INVOICE_HISTORY_ITEM",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": []
+    },
+    {
+      "source": "PRODUCT",
+      "target": "INVOICE_HISTORY_ITEM",
+      "source_port": "top",
+      "target_port": "bottom",
+      "source_offset": 40,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          1390,
+          320
+        ],
+        [
+          2930,
+          320
+        ]
+      ]
+    },
+    {
+      "source": "MEAL_SUGGESTION",
+      "target": "MEAL_ITEM",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": []
+    },
+    {
+      "source": "PRODUCT",
+      "target": "MEAL_ITEM",
+      "source_port": "bottom",
+      "target_port": "bottom",
+      "source_offset": 40,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          1390,
+          880
+        ],
+        [
+          2665,
+          880
+        ]
+      ]
     },
     {
       "source": "FLOOR",
       "target": "ZONE",
       "source_port": "right",
       "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
-      "corner_radius": 8.0
+      "corner_radius": 10.0,
+      "waypoints": []
     },
     {
       "source": "ZONE",
       "target": "AISLE",
       "source_port": "right",
       "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
-      "corner_radius": 8.0
+      "corner_radius": 10.0,
+      "waypoints": []
     },
     {
       "source": "AISLE",
       "target": "SHELF",
       "source_port": "bottom",
       "target_port": "top",
+      "source_offset": 0,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
-      "corner_radius": 8.0
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          770,
+          1450
+        ],
+        [
+          770,
+          1550
+        ]
+      ]
     },
     {
       "source": "SHELF",
       "target": "SLOT",
-      "source_port": "bottom",
-      "target_port": "top",
+      "source_port": "left",
+      "target_port": "right",
+      "source_offset": 0,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
-      "corner_radius": 8.0
+      "corner_radius": 10.0,
+      "waypoints": []
     },
     {
       "source": "SLOT",
       "target": "PRODUCT_SLOT",
       "source_port": "left",
       "target_port": "right",
+      "source_offset": 0,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
-      "corner_radius": 8.0
+      "corner_radius": 10.0,
+      "waypoints": []
     },
     {
       "source": "PRODUCT",
       "target": "PRODUCT_SLOT",
       "source_port": "bottom",
-      "target_port": "bottom",
-      "source_offset": -80.0,
+      "target_port": "left",
+      "source_offset": -100,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
+      "corner_radius": 10.0,
       "waypoints": [
         [
-          2860,
-          1110
+          1250,
+          920
         ],
         [
-          570,
-          1110
+          50,
+          920
         ],
         [
-          570,
-          2040
+          50,
+          1659
         ]
-      ],
-      "corner_radius": 14.0
+      ]
     },
     {
       "source": "FLOOR",
       "target": "MAP",
       "source_port": "top",
-      "target_port": "left",
+      "target_port": "top",
+      "source_offset": 0,
+      "target_offset": 0,
       "cardinality_source": "||",
-      "cardinality_target": "o|",
+      "cardinality_target": "o{",
       "label_pos": 0.5,
+      "corner_radius": 10.0,
       "waypoints": [
         [
-          220,
-          1220
+          200,
+          1120
         ],
         [
-          1300,
-          1220
-        ],
-        [
-          1300,
-          1335
+          1165,
+          1120
         ]
-      ],
-      "corner_radius": 12.0
+      ]
     },
     {
       "source": "MAP",
       "target": "NAVIGATION_NODE",
       "source_port": "right",
       "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 0,
       "cardinality_source": "||",
-      "cardinality_target": "}|",
+      "cardinality_target": "o{",
       "label_pos": 0.5,
-      "corner_radius": 8.0
+      "corner_radius": 10.0,
+      "waypoints": []
     },
     {
       "source": "NAVIGATION_NODE",
       "target": "NAVIGATION_EDGE",
       "source_port": "right",
       "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
-      "corner_radius": 8.0
+      "corner_radius": 10.0,
+      "waypoints": []
     },
     {
-      "source": "ROBOT",
-      "target": "ROBOT_LOG",
-      "source_port": "bottom",
+      "source": "NAVIGATION_NODE",
+      "target": "SHELF",
+      "source_port": "top",
       "target_port": "top",
+      "source_offset": -30,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
-      "corner_radius": 8.0
-    },
-    {
-      "source": "AISLE",
-      "target": "AISLE_SCAN",
-      "source_port": "right",
-      "target_port": "left",
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
+      "corner_radius": 10.0,
       "waypoints": [
         [
-          1130,
-          1335
+          1435,
+          1180
         ],
         [
-          1130,
-          1670
+          950,
+          1180
+        ],
+        [
+          950,
+          1500
+        ],
+        [
+          770,
+          1500
         ]
-      ],
-      "corner_radius": 10.0
+      ]
     },
     {
-      "source": "ROBOT",
-      "target": "AISLE_SCAN",
-      "source_port": "right",
-      "target_port": "left",
+      "source": "NAVIGATION_NODE",
+      "target": "SHELF_SCAN",
+      "source_port": "bottom",
+      "target_port": "top",
+      "source_offset": 30,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
-      "corner_radius": 8.0
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          1495,
+          1600
+        ],
+        [
+          1760,
+          1600
+        ]
+      ]
     },
     {
       "source": "MAP",
       "target": "SEMANTIC_OBJECT",
-      "source_port": "bottom",
-      "target_port": "top",
-      "source_offset": 50.0,
-      "target_offset": -40.0,
+      "source_port": "left",
+      "target_port": "left",
+      "source_offset": 50,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
+      "corner_radius": 10.0,
       "waypoints": [
         [
-          1540,
-          1780
+          980,
+          1515
         ],
         [
-          1820,
-          1780
+          980,
+          2287
         ]
-      ],
-      "corner_radius": 10.0
+      ]
     },
     {
-      "source": "PRODUCT",
+      "source": "PRODUCT_TYPE",
       "target": "SEMANTIC_OBJECT",
       "source_port": "bottom",
-      "target_port": "bottom",
-      "source_offset": -30.0,
+      "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 40,
       "cardinality_source": "||",
-      "cardinality_target": "o|",
+      "cardinality_target": "o{",
       "label_pos": 0.5,
+      "corner_radius": 10.0,
       "waypoints": [
         [
-          2950,
-          1140
+          1740,
+          300
         ],
         [
-          1950,
-          1140
+          1940,
+          300
         ],
         [
-          1950,
-          2120
+          1940,
+          960
+        ],
+        [
+          960,
+          960
+        ],
+        [
+          960,
+          2327
         ]
-      ],
-      "corner_radius": 14.0
+      ]
+    },
+    {
+      "source": "ROBOT",
+      "target": "ROBOT_LOG",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": []
+    },
+    {
+      "source": "ROBOT",
+      "target": "SHELF_SCAN",
+      "source_port": "left",
+      "target_port": "bottom",
+      "source_offset": 0,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          980,
+          1919
+        ],
+        [
+          980,
+          2520
+        ],
+        [
+          1760,
+          2520
+        ]
+      ]
+    },
+    {
+      "source": "SHELF",
+      "target": "SHELF_SCAN",
+      "source_port": "right",
+      "target_port": "top",
+      "source_offset": 0,
+      "target_offset": -60,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          900,
+          1683
+        ],
+        [
+          980,
+          1683
+        ],
+        [
+          980,
+          1740
+        ],
+        [
+          1700,
+          1740
+        ]
+      ]
+    },
+    {
+      "source": "ROBOT",
+      "target": "ROBOT_ROUTE",
+      "source_port": "left",
+      "target_port": "left",
+      "source_offset": -20,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          970,
+          1899
+        ],
+        [
+          970,
+          2560
+        ],
+        [
+          2900,
+          2560
+        ],
+        [
+          2900,
+          1369
+        ]
+      ]
+    },
+    {
+      "source": "MAP",
+      "target": "ROBOT_ROUTE",
+      "source_port": "top",
+      "target_port": "top",
+      "source_offset": 0,
+      "target_offset": -40,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          1165,
+          1140
+        ],
+        [
+          3030,
+          1140
+        ]
+      ]
+    },
+    {
+      "source": "ZONE",
+      "target": "ROBOT_ROUTE",
+      "source_port": "top",
+      "target_port": "top",
+      "source_offset": 0,
+      "target_offset": -20,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          480,
+          1160
+        ],
+        [
+          3050,
+          1160
+        ]
+      ]
+    },
+    {
+      "source": "ROBOT_ROUTE",
+      "target": "ROUTE_NODE_MAPPING",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": []
+    },
+    {
+      "source": "NAVIGATION_NODE",
+      "target": "ROUTE_NODE_MAPPING",
+      "source_port": "top",
+      "target_port": "top",
+      "source_offset": 0,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          1465,
+          1100
+        ],
+        [
+          3360,
+          1100
+        ]
+      ]
+    },
+    {
+      "source": "ROBOT_ROUTE",
+      "target": "ROUTE_ASSIGNMENT",
+      "source_port": "top",
+      "target_port": "top",
+      "source_offset": 40,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          3110,
+          1200
+        ],
+        [
+          3650,
+          1200
+        ]
+      ]
+    },
+    {
+      "source": "ROBOT",
+      "target": "ROUTE_ASSIGNMENT",
+      "source_port": "left",
+      "target_port": "right",
+      "source_offset": 20,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          960,
+          1939
+        ],
+        [
+          960,
+          2580
+        ],
+        [
+          3820,
+          2580
+        ],
+        [
+          3820,
+          1333
+        ]
+      ]
     },
     {
       "source": "BRAND",
-      "target": "AD_PACKAGE",
-      "source_port": "right",
-      "target_port": "left",
+      "target": "AD_CAMPAIGN",
+      "source_port": "top",
+      "target_port": "top",
+      "source_offset": 0,
+      "target_offset": -40,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
-      "corner_radius": 8.0
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          2110,
+          1210
+        ],
+        [
+          2670,
+          1210
+        ]
+      ]
     },
     {
       "source": "AD_PACKAGE",
       "target": "AD_CAMPAIGN",
       "source_port": "right",
       "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
-      "corner_radius": 8.0
-    },
-    {
-      "source": "AD_CAMPAIGN",
-      "target": "SPONSORED_PRODUCT",
-      "source_port": "bottom",
-      "target_port": "top",
-      "source_offset": -40.0,
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
-      "waypoints": [
-        [
-          3450,
-          1530
-        ],
-        [
-          3115,
-          1530
-        ]
-      ],
-      "corner_radius": 10.0
-    },
-    {
-      "source": "PRODUCT",
-      "target": "SPONSORED_PRODUCT",
-      "source_port": "bottom",
-      "target_port": "top",
-      "source_offset": 40.0,
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
-      "waypoints": [
-        [
-          3020,
-          1170
-        ],
-        [
-          3200,
-          1170
-        ],
-        [
-          3200,
-          1580
-        ]
-      ],
-      "corner_radius": 12.0
+      "corner_radius": 10.0,
+      "waypoints": []
     },
     {
       "source": "AD_CAMPAIGN",
       "target": "AD_RESOURCE",
       "source_port": "bottom",
       "target_port": "top",
+      "source_offset": -60,
+      "target_offset": 0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
-      "corner_radius": 8.0
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          2650,
+          1640
+        ],
+        [
+          2110,
+          1640
+        ]
+      ]
+    },
+    {
+      "source": "AD_CAMPAIGN",
+      "target": "SPONSORED_PRODUCT",
+      "source_port": "bottom",
+      "target_port": "top",
+      "source_offset": -20,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          2690,
+          1640
+        ],
+        [
+          2400,
+          1640
+        ]
+      ]
+    },
+    {
+      "source": "PRODUCT",
+      "target": "SPONSORED_PRODUCT",
+      "source_port": "bottom",
+      "target_port": "top",
+      "source_offset": 60,
+      "target_offset": 40,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          1410,
+          1040
+        ],
+        [
+          2555,
+          1040
+        ],
+        [
+          2555,
+          1650
+        ],
+        [
+          2440,
+          1650
+        ]
+      ]
+    },
+    {
+      "source": "AD_CAMPAIGN",
+      "target": "AD_CAMPAIGN_ZONE",
+      "source_port": "bottom",
+      "target_port": "top",
+      "source_offset": 0,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": []
+    },
+    {
+      "source": "ZONE",
+      "target": "AD_CAMPAIGN_ZONE",
+      "source_port": "bottom",
+      "target_port": "bottom",
+      "source_offset": 0,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          480,
+          1450
+        ],
+        [
+          950,
+          1450
+        ],
+        [
+          950,
+          2540
+        ],
+        [
+          2700,
+          2540
+        ]
+      ]
+    },
+    {
+      "source": "AD_CAMPAIGN",
+      "target": "AD_CAMPAIGN_SHELF",
+      "source_port": "bottom",
+      "target_port": "left",
+      "source_offset": -80,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          2630,
+          1650
+        ],
+        [
+          1950,
+          1650
+        ],
+        [
+          1950,
+          2071
+        ]
+      ]
+    },
+    {
+      "source": "SHELF",
+      "target": "AD_CAMPAIGN_SHELF",
+      "source_port": "bottom",
+      "target_port": "bottom",
+      "source_offset": 0,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          770,
+          1800
+        ],
+        [
+          940,
+          1800
+        ],
+        [
+          940,
+          2520
+        ],
+        [
+          2110,
+          2520
+        ]
+      ]
+    },
+    {
+      "source": "AD_CAMPAIGN",
+      "target": "AD_CAMPAIGN_ROUTE",
+      "source_port": "bottom",
+      "target_port": "left",
+      "source_offset": 60,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          2770,
+          1635
+        ],
+        [
+          2900,
+          1635
+        ],
+        [
+          2900,
+          1721
+        ]
+      ]
+    },
+    {
+      "source": "ROBOT_ROUTE",
+      "target": "AD_CAMPAIGN_ROUTE",
+      "source_port": "bottom",
+      "target_port": "top",
+      "source_offset": 0,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": []
+    },
+    {
+      "source": "AD_ROUTE",
+      "target": "AD_ROUTE_CAMPAIGN",
+      "source_port": "right",
+      "target_port": "left",
+      "source_offset": 0,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": []
+    },
+    {
+      "source": "AD_CAMPAIGN",
+      "target": "AD_ROUTE_CAMPAIGN",
+      "source_port": "bottom",
+      "target_port": "top",
+      "source_offset": 80,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          2790,
+          1620
+        ],
+        [
+          3650,
+          1620
+        ]
+      ]
+    },
+    {
+      "source": "AD_ROUTE",
+      "target": "AdRouteNodes",
+      "source_port": "bottom",
+      "target_port": "top",
+      "source_offset": -40,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          3320,
+          1920
+        ],
+        [
+          3070,
+          1920
+        ]
+      ]
+    },
+    {
+      "source": "NAVIGATION_NODE",
+      "target": "AdRouteNodes",
+      "source_port": "top",
+      "target_port": "bottom",
+      "source_offset": 40,
+      "target_offset": -40,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          1505,
+          1060
+        ],
+        [
+          1930,
+          1060
+        ],
+        [
+          1930,
+          2500
+        ],
+        [
+          3030,
+          2500
+        ]
+      ]
+    },
+    {
+      "source": "ZONE",
+      "target": "AdRouteNodes",
+      "source_port": "bottom",
+      "target_port": "bottom",
+      "source_offset": 20,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          500,
+          1460
+        ],
+        [
+          930,
+          1460
+        ],
+        [
+          930,
+          2520
+        ],
+        [
+          3070,
+          2520
+        ]
+      ]
+    },
+    {
+      "source": "SHELF",
+      "target": "AdRouteNodes",
+      "source_port": "bottom",
+      "target_port": "bottom",
+      "source_offset": 20,
+      "target_offset": 40,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          790,
+          1820
+        ],
+        [
+          920,
+          1820
+        ],
+        [
+          920,
+          2540
+        ],
+        [
+          3110,
+          2540
+        ]
+      ]
+    },
+    {
+      "source": "AD_ROUTE",
+      "target": "ROBOT_AD_ROUTE_ASSIGNMENT",
+      "source_port": "bottom",
+      "target_port": "top",
+      "source_offset": 0,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": []
+    },
+    {
+      "source": "ROBOT",
+      "target": "ROBOT_AD_ROUTE_ASSIGNMENT",
+      "source_port": "left",
+      "target_port": "bottom",
+      "source_offset": 40,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          950,
+          1959
+        ],
+        [
+          950,
+          2600
+        ],
+        [
+          3370,
+          2600
+        ]
+      ]
     },
     {
       "source": "AD_CAMPAIGN",
       "target": "AD_CAMPAIGN_LOG",
       "source_port": "bottom",
       "target_port": "right",
-      "source_offset": 50.0,
+      "source_offset": 40,
+      "target_offset": -100,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
+      "corner_radius": 10.0,
       "waypoints": [
         [
-          3540,
-          2050
+          2750,
+          1645
+        ],
+        [
+          2880,
+          1645
+        ],
+        [
+          2880,
+          2077
         ]
-      ],
-      "corner_radius": 10.0
+      ]
+    },
+    {
+      "source": "SPONSORED_PRODUCT",
+      "target": "AD_CAMPAIGN_LOG",
+      "source_port": "bottom",
+      "target_port": "top",
+      "source_offset": 0,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": []
+    },
+    {
+      "source": "PRODUCT",
+      "target": "AD_CAMPAIGN_LOG",
+      "source_port": "bottom",
+      "target_port": "left",
+      "source_offset": 20,
+      "target_offset": 3,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          1370,
+          1020
+        ],
+        [
+          1950,
+          1020
+        ],
+        [
+          1950,
+          2180
+        ]
+      ]
+    },
+    {
+      "source": "ROBOT",
+      "target": "AD_CAMPAIGN_LOG",
+      "source_port": "left",
+      "target_port": "bottom",
+      "source_offset": -30,
+      "target_offset": -60,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          940,
+          1889
+        ],
+        [
+          940,
+          2480
+        ],
+        [
+          2360,
+          2480
+        ]
+      ]
+    },
+    {
+      "source": "SHELF",
+      "target": "AD_CAMPAIGN_LOG",
+      "source_port": "bottom",
+      "target_port": "left",
+      "source_offset": -20,
+      "target_offset": 43,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          750,
+          1810
+        ],
+        [
+          970,
+          1810
+        ],
+        [
+          970,
+          2460
+        ],
+        [
+          2200,
+          2460
+        ],
+        [
+          2200,
+          2220
+        ]
+      ]
+    },
+    {
+      "source": "ZONE",
+      "target": "AD_CAMPAIGN_LOG",
+      "source_port": "bottom",
+      "target_port": "bottom",
+      "source_offset": -20,
+      "target_offset": -40,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          460,
+          1440
+        ],
+        [
+          960,
+          1440
+        ],
+        [
+          960,
+          2470
+        ],
+        [
+          2380,
+          2470
+        ]
+      ]
+    },
+    {
+      "source": "SLOT",
+      "target": "AD_CAMPAIGN_LOG",
+      "source_port": "bottom",
+      "target_port": "bottom",
+      "source_offset": 0,
+      "target_offset": 0,
+      "cardinality_source": "||",
+      "cardinality_target": "o{",
+      "label_pos": 0.5,
+      "corner_radius": 10.0,
+      "waypoints": [
+        [
+          480,
+          1780
+        ],
+        [
+          970,
+          1780
+        ],
+        [
+          970,
+          2490
+        ],
+        [
+          2420,
+          2490
+        ]
+      ]
     },
     {
       "source": "MEMBER",
       "target": "AD_CAMPAIGN_LOG",
       "source_port": "bottom",
       "target_port": "bottom",
-      "source_offset": -90.0,
+      "source_offset": 0,
+      "target_offset": 60,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
+      "corner_radius": 10.0,
       "waypoints": [
         [
-          520,
-          2270
+          515,
+          400
         ],
         [
-          3120,
-          2270
+          990,
+          400
+        ],
+        [
+          990,
+          2510
+        ],
+        [
+          2480,
+          2510
         ]
-      ],
-      "corner_radius": 14.0
+      ]
     }
   ]
 }

@@ -169,6 +169,19 @@ def _serialise_paragraph(paragraph, element_index: int) -> dict[str, Any]:
 # Table serialisation
 # ---------------------------------------------------------------------------
 
+def _get_cell_shading(tc_element) -> str | None:
+    """Return hex fill color from <w:tcPr>/<w:shd> or None."""
+    tcPr = tc_element.find(qn("w:tcPr"))
+    if tcPr is None:
+        return None
+    shd = tcPr.find(qn("w:shd"))
+    if shd is not None:
+        fill = shd.get(qn("w:fill"))
+        if fill and fill.lower() not in ("auto", "none", "transparent"):
+            return f"#{fill.upper()}"
+    return None
+
+
 def _get_cell_span(tc_element) -> tuple[int, int]:
     """Return (colspan, rowspan) from raw <w:tc> XML."""
     tcPr = tc_element.find(qn("w:tcPr"))
@@ -192,9 +205,14 @@ def _serialise_table(table, element_index: int) -> dict[str, Any]:
     rows_data = []
     for r_idx, row in enumerate(table.rows):
         cells_data = []
+        # Check if row has tblHeader flag
+        trPr = row._tr.find(qn("w:trPr"))
+        is_tbl_header = (trPr is not None and trPr.find(qn("w:tblHeader")) is not None) or (r_idx == 0)
+
         for c_idx, cell in enumerate(row.cells):
             tc = cell._tc
             colspan, rowspan = _get_cell_span(tc)
+            shading = _get_cell_shading(tc)
             paras = []
             for p_idx, p in enumerate(cell.paragraphs):
                 pd = _serialise_paragraph(p, p_idx)
@@ -206,6 +224,8 @@ def _serialise_table(table, element_index: int) -> dict[str, Any]:
                 "col": c_idx,
                 "colspan": colspan,
                 "rowspan": rowspan,
+                "fill_color": shading,
+                "is_header": is_tbl_header,
                 "text": cell.text,
                 "paragraphs": paras,
             })
