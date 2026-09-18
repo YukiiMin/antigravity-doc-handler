@@ -14,6 +14,15 @@
 | **E3** | **Live Dynamic Cross-Sheet Formulas** | Hardcoded numbers in Summary/Statistics/Dashboard sheets (`Passed: 3`). | All KPI/summary cells MUST be live formulas: `='Sheet'!Cell`, `=COUNTIF(...)`, `=SUM(...)`, `=IF(...)`. |
 | **E4** | **Chronological & Domain-Relevant Mock Data** | Retaining obsolete placeholder years (`2000`, `2007`, `2009`) from legacy template skeletons. | Inject mock data aligned to the project's current operational era and technology domain. |
 | **E5** | **Sibling Structural Symmetry** | Parallel tabs sharing the same schema having inconsistent column widths, row heights, freeze panes, or styling. | Sibling sheets must have 100% matched geometry and style rules — derived from the same reference sheet. |
+| **E6** | **Automated Format Diff Before Delivery** | Declaring "SUCCESS" or delivering output based solely on `exit code 0` without verifying format attributes. | ALWAYS run a programmatic diff (cell-by-cell: font, fill, border, alignment, col width, row height, merges, DVs) across all 12 Quality Gates between the generated sheet and the reference sheet BEFORE presenting output to user. Workflow: `generate → diff → fix → diff → (clean) → deliver`. Forbidden: `generate → exit 0 → deliver`. |
+| **E7** | **Multi-Column Unified Box Geometry** | Calling cell style setters only on populated cells, leaving empty cells unstyled or creating internal vertical divider lines between columns that visually form a single box. | Initialize the full multi-column block (e.g. cols B-C-D) across EVERY data row before populating text: B (left=thin, right=None), C (left=None, right=None, horizontal borders only), D (left=None, right=thin), all filled solid white (`FFFFFFFF`). |
+| **E8** | **Strict Group-Detail Hierarchy** | Repeating the group header name on subsequent child rows (e.g. 'Precondition' in row 10 and row 11). | Group titles must strictly appear ONLY in the first row of that group (Col B). All subordinate sibling rows MUST leave Col B empty and place descriptions in Col D. |
+| **E9** | **Cross-Zone Token Isolation** | Reusing a sub-item style token (e.g. B34 `list ` with `bold=True, align=right`) for Result footer labels (B45..B48) or summary labels. | Extract tokens strictly on a per-zone basis directly from the exact corresponding row of the reference sheet (`ws_ref.cell(r, c)`). Never generalize a sub-item style across different structural blocks. |
+| **E10** | **Multi-Tier Hierarchy Preservation** | Collapsing input parameters directly under Precondition or omitting the Level-2 parameter group header in Col B when mapping from flat test specification data. | Preserve the full 3-tier hierarchy: Level 1 (`Precondition` in B10), Level 2 (`Input Parameters` / `ParamName` in Col B), Level 3 (Concrete values in Col D). |
+| **E11** | **Untrusted Input Style Isolation** | Copying font family, font size, or colors from input data sheets (e.g. input using Arial 8.5pt shrinks summary tables). | Raw input files are **UNTRUSTED** for style. Extract ONLY raw values (`cell.value`). 100% of format tokens (fonts, sizes, fills, borders, alignments) MUST be sampled from the Template. |
+| **E12** | **Dynamic Chart Re-Anchoring & Relinking** | Cloning template sheets containing charts without updating static series formulas (`numRef.f`) or repositioning chart anchors when row counts change. | OpenPyXL does NOT auto-rewrite chart formula strings. Script must explicitly relink `chart.series[].val.numRef.f` to the new Subtotal row and reposition `chart.anchor._from.row` below all summary tables. |
+| **E13** | **UX Dynamic Text Auto-Scaling** | Using fixed row heights for multi-line description cells causing text clipping, overflow into adjacent matrix columns, or truncation. | Apply dynamic row height calculation: `Row Height = max(min_h, total_lines * line_h)` based on character length and `\n` linebreaks, with `wrap_text=True` enabled on all descriptive text blocks. |
+| **E14** | **Summary & Subtotal Regional Parity** | Painting solid accent color across entire subtotal row or omitting ratio KPI metrics present in the template. | Respect regional subtotal styling: dark accent fills for labels and grand total columns; transparent/white fill with standard text font for aggregate value cells. Preserve 100% of template ratio KPI rows. |
 
 ---
 
@@ -109,3 +118,156 @@ N/A/B:    =COUNTIF(<TypeRow_range>, "N")  /  "A"  /  "B"
 =SUM(<DetailRow_range>)               # Subtotal
 =IF(<Total>=0, 0, <Pass>/<Total>*100) # KPI ratio (division-by-zero guarded)
 ```
+
+---
+
+## 5. Mandatory Pre-Delivery Format Diff Protocol (E6)
+
+**Invariant E6**: After ANY Excel generation or mutation task, AI MUST run automated format validation before declaring output ready. `exit code 0` alone is NOT sufficient proof of format correctness.
+
+### When to trigger
+- After any `wb.save()` that produces a new or modified sheet with format requirements.
+- After copying a reference/template sheet and injecting new data.
+- After running any Excel generation script.
+
+### The 12 Mandatory Quality Gates
+
+| # | Quality Gate | Verification Protocol |
+|---|---|---|
+| **1** | **Header Block (Rows 2–8)** | Cell-by-cell `font`, `size`, `bold`, `fill`, `alignment`, `border`, `number_format` across A2..T8. |
+| **2** | **Row 7 KPI Formulas** | Dynamic formulas (`=COUNTIF`, `=SUM`, `=COUNTA`) on A7, C7, F7, L7, M7, N7, O7. No hardcoded numbers. |
+| **3** | **Row 9 TC Headers** | Col A navy+double border; Cols B-E navy+border top; Cols F+ rotated 180°, double border top, TC IDs. |
+| **4** | **Col A Continuous Navy Fill** | Unbroken `FF000080` navy fill across all data rows (no gaps) + `border_left='double'`. |
+| **5** | **Col B-C-D Unified Box** | 3-column unified box per row: B (`left=thin, right=None`), C (`left=None, right=None`), D (`left=None, right=thin`), solid white fill `FFFFFFFF`. |
+| **6** | **Duplicate Header Detection** | Automated alert if Col B duplicates header text on consecutive rows. |
+| **7** | **Matrix Grid & O-Marks** | Grid borders (`thin`) on all matrix cells; O-marks with correct font/bold/alignment. |
+| **8** | **Result Section Typography** | Courier non-bold 8pt for Type/PF; Tahoma 8pt `textRotation=255` & `mm/dd` numfmt for Executed Date. |
+| **9** | **Merged Cells Validation** | Exact Header merges (`A2:B2`, `C2:E2`, `F2:K2`, `L2:T2`) and Result footer merges (`B:D`). |
+| **10** | **Section Closing Borders** | Double bottom border on Condition last row (`Side(style='double')`) and Result last row. |
+| **11** | **Data Validations** | Dropdowns for `"O"` on matrix, `"N,A,B"` on Type row, `"P,F"` on PF row. |
+| **12** | **Geometry & Overflow Guards** | Exact col widths & row heights (R9=45.0, data=13.5) + Col D text overflow guard. |
+
+### Mandatory workflow
+```
+generate_output() → run_format_diff() → if diffs_found → fix() → run_format_diff() → if clean → deliver_to_user()
+```
+
+### FORBIDDEN anti-pattern
+```
+generate_output() → exit_code == 0 → "SUCCESS" → deliver_to_user()  ← WRONG
+```
+
+---
+
+## 6. Multi-Column Unified Box & Hierarchy Code Patterns (E7, E8)
+
+### Row Initialization for Unified 3-Column Boxes
+```python
+# Condition block initialization
+for r in range(COND_START, CONF_START):
+    is_last = (r == CONF_START - 1)
+    b_side = Side(style='double') if is_last else Side(style='thin')
+    
+    # Col B: Left border only, NO right vertical divider
+    apply(ws.cell(r, 2), font=t['b_top_font'], fill=t['b_top_fill'], align=t['b_top_align'],
+          border=Border(left=Side(style='thin'), top=Side(style='thin'), bottom=b_side))
+    # Col C: Internal cell, horizontal borders only
+    apply(ws.cell(r, 3), font=t['b_top_font'], fill=t['b_top_fill'], align=t['b_top_align'],
+          border=Border(top=Side(style='thin'), bottom=b_side))
+    # Col D: Right border only, NO left vertical divider
+    apply(ws.cell(r, 4), font=t['d_top_font'], fill=t['d_top_fill'], align=t['d_top_align'],
+          border=Border(right=Side(style='thin'), top=Side(style='thin'), bottom=b_side))
+```
+
+### Strict Group-Detail Data Population
+```python
+# Group header row (Row 10): Name in Col B, Col D empty
+ws.cell(10, 2).value = 'Precondition'
+ws.cell(10, 4).value = None
+
+# Detail sub-rows (Rows 11-13): Col B empty, descriptions in Col D
+ws.cell(11, 2).value = None
+ws.cell(11, 4).value = 'User is authenticated (valid JWT token)'
+
+ws.cell(12, 2).value = None
+ws.cell(12, 4).value = 'Product catalog is loaded (>0 items)'
+```
+
+---
+
+## 7. Untrusted Input Style Isolation (E11)
+
+**Principle**: Raw input files provided by users or external systems are strictly for **data ingestion only**. They frequently contain corrupted font sizes (e.g. Arial 8.5pt), inconsistent fills, broken merges, or lost number formats.
+
+```python
+# BAD: Cloning cell style from input data
+ws_target.cell(r, c).font = copy(ws_input.cell(r, c).font)  # NEVER do this!
+
+# GOOD: Read ONLY values from input, apply styles from Template Tokens
+raw_val = ws_input.cell(r, c).value
+ws_target.cell(r, c).value = raw_val
+apply(ws_target.cell(r, c), font=template_tokens['data_font'], fill=template_tokens['data_fill'])
+```
+
+---
+
+## 8. Dynamic Chart Re-Anchoring & Series Relinking in OpenPyXL (E12)
+
+**Principle**: OpenPyXL does NOT automatically update chart formula strings (`numRef.f`, `strRef.f`) when table rows are inserted, deleted, or expanded. Any script modifying table bounds MUST relink charts explicitly.
+
+```python
+# Relink charts to dynamic subtotal row
+for chart in ws.charts:
+    for s in chart.series:
+        if s.val and s.val.numRef:
+            f_str = s.val.numRef.f or ''
+            if 'F' in f_str:
+                s.val.numRef.f = f"{sheet_name}!$F${SUB_ROW}:$H${SUB_ROW}"
+                if s.cat and s.cat.strRef:
+                    s.cat.strRef.f = f"{sheet_name}!$F$11:$H$11"
+            elif 'C' in f_str:
+                s.val.numRef.f = f"{sheet_name}!$C${SUB_ROW}:$E${SUB_ROW}"
+                if s.cat and s.cat.strRef:
+                    s.cat.strRef.f = f"{sheet_name}!$C$11:$E$11"
+
+    # Reposition chart anchor below summary tables
+    if hasattr(chart.anchor, '_from'):
+        chart.anchor._from.row = SUB_ROW + 8
+```
+
+---
+
+## 9. UX Dynamic Text Auto-Scaling & Row Height Heuristics (E13)
+
+**Principle**: Fixed row heights cause multi-line descriptions or requirement names to clip or vanish in Excel. Calculate row heights dynamically while ensuring wrap text is enabled.
+
+```python
+# Dynamic Auto-scaling formula for multi-line text cells
+desc_text = str(ws.cell(r, col_idx).value or '')
+lines_explicit = len(desc_text.split('\n'))
+lines_wrapped = max(1, int(len(desc_text) / char_limit_per_line))
+total_lines = max(lines_explicit, lines_wrapped)
+
+# Set dynamic row height
+ws.row_dimensions[r].height = max(min_height, total_lines * line_height_pt)
+
+# Ensure wrap_text is enabled
+ws.cell(r, col_idx).alignment = Alignment(horizontal='left', vertical='center', wrap_text=True)
+```
+
+---
+
+## 10. Summary & Subtotal Regional Parity Protocol (E14)
+
+**Principle**: Subtotal rows are not monochromatic. Preserve exact regional fill patterns:
+
+1. **Endpoints & Labels** (Cols A..B, Col Total): Navy / Accent fill (`FF000080`), bold white text.
+2. **Intermediate Aggregate Cells** (Cols C..H): Transparent / white background (`fill=None`), regular black text.
+3. **Full Ratio Suite**: Always populate all 5 ratio KPIs:
+   - `Test coverage`: `=IF(Total=0,0,(Passed+Failed)*100/Total)`
+   - `Test successful coverage`: `=IF(Passed+Failed=0,0,Passed*100/(Passed+Failed))`
+   - `Normal case`: `=IF(Total=0,0,N*100/Total)`
+   - `Abnormal case`: `=IF(Total=0,0,A*100/Total)`
+   - `Boundary case`: `=IF(Total=0,0,B*100/Total)`
+
+

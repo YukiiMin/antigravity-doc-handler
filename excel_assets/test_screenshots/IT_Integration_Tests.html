@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    margin: 0;
+    padding: 24px;
+    background: #FFFFFF;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: inline-block;
+  }
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1F4E78;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 12px;
+    color: #595959;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  table {
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid #D9D9D9;
+    background: #FFFFFF;
+  }
+  th {
+    background-color: #1F4E78;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: center;
+    border: 1px solid #1F4E78;
+    white-space: nowrap;
+  }
+  td {
+    padding: 8px 12px;
+    font-size: 11px;
+    color: #262626;
+    border: 1px solid #E5E5E5;
+    vertical-align: middle;
+  }
+  tr:nth-child(even) {
+    background-color: #F8FAFC;
+  }
+  tr:hover {
+    background-color: #EDF2F7;
+  }
+  .badge-passed {
+    background-color: #C6EFCE;
+    color: #006100;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-critical {
+    background-color: #FFC7CE;
+    color: #9C0006;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-high {
+    background-color: #FFEB9C;
+    color: #9C6500;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-medium {
+    background-color: #E0E7FF;
+    color: #3730A3;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-left {
+    text-align: left;
+  }
+  .font-bold {
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <div class="title">SUPERMARKETBOT — INTEGRATION TEST SUITE (IT)</div>
+  <div class="subtitle">REST Endpoints, SignalR Hubs, MQTT Broker & AI Microservice</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Test ID</th><th>Subsystem / Interface</th><th>Test Scenario / Objective</th><th>Preconditions</th><th>Test Steps</th><th>Expected Result</th><th>Actual Result</th><th>Status</th><th>Severity</th><th>Tester</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="text-center font-bold">IT_AUTH_001</td><td class="text-left">BE Auth API</td><td class="text-left">Verify user login with valid credentials returns JWT token and user claims</td><td class="text-left">User account exists in DB with role 'Staff'</td><td class="text-left">1. POST /api/v1/auth/login with valid JSON<br>2. Inspect response body and headers</td><td class="text-left">HTTP 200 OK, returns access_token, refresh_token, and role='Staff'</td><td class="text-left">HTTP 200 OK, valid JWT token with claims received</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-critical">Critical</span></td><td class="text-left">Nguyễn Anh Hùng</td></tr>
+<tr><td class="text-center font-bold">IT_AUTH_002</td><td class="text-left">BE Auth API</td><td class="text-left">Verify accessing protected endpoint without JWT returns HTTP 401 Unauthorized</td><td class="text-left">Protected endpoint /api/v1/robots exists</td><td class="text-left">1. GET /api/v1/robots without Authorization header</td><td class="text-left">HTTP 401 Unauthorized</td><td class="text-left">HTTP 401 Unauthorized with standard error response</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-critical">Critical</span></td><td class="text-left">Nguyễn Anh Hùng</td></tr>
+<tr><td class="text-center font-bold">IT_FACE_001</td><td class="text-left">BE &lt;-&gt; AI Service</td><td class="text-left">Verify member face check-in calls FastAPI face engine and matches member ID</td><td class="text-left">Member 'Nguyen Van A' registered with face embedding</td><td class="text-left">1. POST /api/v1/members/face-checkin with base64 image</td><td class="text-left">BE forwards frame to AI service; AI returns similarity 0.85; BE returns member profile</td><td class="text-left">Member profile Nguyen Van A returned with loyalty points</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-high">High</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">IT_NAV_001</td><td class="text-left">BE &lt;-&gt; Dijkstra &lt;-&gt; MQTT</td><td class="text-left">Verify navigation request computes shortest path and publishes waypoints to MQTT</td><td class="text-left">Robot 'RB001' online; Node 1 to 4 reachable</td><td class="text-left">1. POST /api/v1/navigation/navigate {robotCode:'RB001', startNode:1, endNode:4}<br>2. Listen on MQTT topic robot/RB001/command</td><td class="text-left">Returns HTTP 200 OK with route info; MQTT receives NAVIGATE_WAYPOINTS payload with node coordinates</td><td class="text-left">Route [1,2,3,4] computed; MQTT received waypoints in 45ms</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-critical">Critical</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">IT_NAV_002</td><td class="text-left">BE &lt;-&gt; MQTT</td><td class="text-left">Verify autonomous patrol command dispatches all 6 shelf waypoints as photo capture stops</td><td class="text-left">6 shelves mapped to Nodes 1..6</td><td class="text-left">1. POST /api/v1/navigation/dispatch-autonomous {flowType:'AutonomousPatrol'}<br>2. Check MQTT payload</td><td class="text-left">MQTT receives sequence of 6 waypoints with IsPhotoCapture=true and zero playlist stops</td><td class="text-left">All 6 waypoints configured as photo capture stops</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-high">High</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">IT_NAV_003</td><td class="text-left">BE &lt;-&gt; Navigation</td><td class="text-left">Verify path planning between disconnected nodes rejects command before MQTT</td><td class="text-left">Target node is physically isolated / blocked</td><td class="text-left">1. POST /api/v1/navigation/navigate with unreachable target node</td><td class="text-left">Returns HTTP 400 Bad Request; NO message is published to MQTT broker</td><td class="text-left">HTTP 400 returned, 0 MQTT messages published</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-high">High</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">IT_SCAN_001</td><td class="text-left">Robot &lt;-&gt; BE &lt;-&gt; AI</td><td class="text-left">Verify camera frame upload from robot triggers AI shelf scanning and saves record</td><td class="text-left">Robot at Node 2 (Shelf 2)</td><td class="text-left">1. POST /api/shelf-scans/scan-with-photo with base64 JPEG from Shelf 2 camera</td><td class="text-left">HTTP 200 OK; Image processed by AI; Detected products &amp; density saved to SHELF_SCAN table</td><td class="text-left">Shelf scan recorded in DB with 85% density, 0 empty slots</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-critical">Critical</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">IT_SCAN_002</td><td class="text-left">BE &lt;-&gt; SignalR (Staff)</td><td class="text-left">Verify empty slot detection triggers real-time out-of-stock alert to StaffHub</td><td class="text-left">Shelf 2 has slot K2_T1_2 empty; Staff app connected to SignalR</td><td class="text-left">1. Upload photo of Shelf 2 with missing items at slot K2_T1_2<br>2. Monitor StaffHub event 'ReceiveShelfAlert'</td><td class="text-left">SignalR client receives 'ReceiveShelfAlert' event with ShelfID=2, Slot='K2_T1_2', Severity='Critical'</td><td class="text-left">StaffHub broadcast event received within 68ms</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-critical">Critical</span></td><td class="text-left">Nguyễn Anh Hùng</td></tr>
+<tr><td class="text-center font-bold">IT_TEL_001</td><td class="text-left">Robot &lt;-&gt; BE &lt;-&gt; SignalR</td><td class="text-left">Verify robot telemetry update broadcasts live coordinates to Web Admin via RobotHub</td><td class="text-left">Admin dashboard connected to RobotHub</td><td class="text-left">1. PUT /api/v1/robots/RB001/status {battery:88, x:2.5, y:3.0, status:'Moving'}</td><td class="text-left">HTTP 200 OK; RobotHub broadcasts 'ReceiveRobotTelemetry' to admin clients</td><td class="text-left">Admin UI receives updated X=2.5, Y=3.0, Battery=88%</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-high">High</span></td><td class="text-left">Nguyễn Anh Hùng</td></tr>
+<tr><td class="text-center font-bold">IT_ADS_001</td><td class="text-left">BE &lt;-&gt; Brand Wallet</td><td class="text-left">Verify ad campaign activation deducts package cost from Brand wallet atomically</td><td class="text-left">Brand 'Coca-Cola' wallet balance = 5,000,000 VND; Ad Package cost = 2,000,000 VND</td><td class="text-left">1. POST /api/v1/advertisements/campaigns/{id}/activate</td><td class="text-left">Campaign status becomes 'Active'; Brand wallet balance becomes 3,000,000 VND; Transaction logged</td><td class="text-left">Wallet deducted to exactly 3,000,000 VND, transaction persisted</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-critical">Critical</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">IT_ADS_002</td><td class="text-left">BE &lt;-&gt; Brand Wallet</td><td class="text-left">Verify campaign activation fails if brand wallet balance is insufficient</td><td class="text-left">Brand wallet balance = 500,000 VND; Package cost = 2,000,000 VND</td><td class="text-left">1. POST /api/v1/advertisements/campaigns/{id}/activate</td><td class="text-left">HTTP 400 Bad Request 'Insufficient wallet balance'; Campaign remains in 'Pending' status</td><td class="text-left">HTTP 400 returned, campaign not activated, 0 funds deducted</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-high">High</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">IT_ADS_003</td><td class="text-left">BE &lt;-&gt; Robot Ads</td><td class="text-left">Verify robot route matches active campaigns targeted to Zone A and delivers video ad payload</td><td class="text-left">Active campaign targeting Zone A; Robot route entering Zone A</td><td class="text-left">1. GET /api/v1/navigation/robot-playlist?zoneId=1</td><td class="text-left">Returns JSON playlist containing campaign media URL, duration, and brand sponsor name</td><td class="text-left">Playlist with Coca-Cola video URL and 15s duration returned</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-high">High</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">IT_CART_001</td><td class="text-left">BE &lt;-&gt; Gemini AI</td><td class="text-left">Verify AI recipe recommendation ingredients can be added to member cart in batch</td><td class="text-left">Recipe 'Canh Chua' has 4 ingredients</td><td class="text-left">1. POST /api/v1/cart/batch-add with 4 ingredient product IDs</td><td class="text-left">All 4 products added to member cart; Subtotal updated; Out-of-stock items flagged</td><td class="text-left">4 items added to cart, total price matches sum of items</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-high">High</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">IT_CART_002</td><td class="text-left">BE &lt;-&gt; Dijkstra Cart</td><td class="text-left">Verify CartGuidePlanner optimizes route sequence grouped by shelf ID</td><td class="text-left">Cart contains products on Shelf 1, Shelf 3, and Shelf 1</td><td class="text-left">1. POST /api/v1/cart/optimize-route with cart ID</td><td class="text-left">Produces route visiting Shelf 1 once for both items, then Shelf 3, minimizing traversal</td><td class="text-left">Route grouped Shelf 1 items into single waypoint stop</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-high">High</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">IT_IMP_001</td><td class="text-left">BE &lt;-&gt; SQL Server</td><td class="text-left">Verify product import transaction rolls back on database failure</td><td class="text-left">Invalid foreign key in category row</td><td class="text-left">1. Upload malformed Excel import file</td><td class="text-left">Transaction rolled back; Zero dirty rows inserted into PRODUCT table</td><td class="text-left">Zero rows inserted, error report returned with line error</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-medium">Medium</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+    </tbody>
+  </table>
+</body>
+</html>

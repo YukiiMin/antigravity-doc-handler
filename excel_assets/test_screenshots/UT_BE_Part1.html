@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    margin: 0;
+    padding: 24px;
+    background: #FFFFFF;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: inline-block;
+  }
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1F4E78;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 12px;
+    color: #595959;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  table {
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid #D9D9D9;
+    background: #FFFFFF;
+  }
+  th {
+    background-color: #1F4E78;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: center;
+    border: 1px solid #1F4E78;
+    white-space: nowrap;
+  }
+  td {
+    padding: 8px 12px;
+    font-size: 11px;
+    color: #262626;
+    border: 1px solid #E5E5E5;
+    vertical-align: middle;
+  }
+  tr:nth-child(even) {
+    background-color: #F8FAFC;
+  }
+  tr:hover {
+    background-color: #EDF2F7;
+  }
+  .badge-passed {
+    background-color: #C6EFCE;
+    color: #006100;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-critical {
+    background-color: #FFC7CE;
+    color: #9C0006;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-high {
+    background-color: #FFEB9C;
+    color: #9C6500;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-medium {
+    background-color: #E0E7FF;
+    color: #3730A3;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-left {
+    text-align: left;
+  }
+  .font-bold {
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <div class="title">SUPERMARKETBOT — BACKEND UNIT TEST SPECIFICATION (Part 1 / 2)</div>
+  <div class="subtitle">Controllers, HealthChecks, Realtime Contracts, Bulk Import & Cart Services</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Test ID</th><th>Test Class / Suite</th><th>Test Method Name</th><th>Module</th><th>Test Type</th><th>Test Objective / Description</th><th>Test Inputs & Mocks</th><th>Expected Result</th><th>Status</th><th>Tester In-Charge</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="text-center font-bold">UT_BE_001</td><td class="text-left">MealSuggestionsControllerTests</td><td class="text-left">GetAiMenuAssistant_ShouldReturnBadRequest_WhenRecipeIdIsZero</td><td class="text-left">Controllers</td><td class="text-center font-bold">Fact</td><td class="text-left">Validate recipe ID parameter validation in meal suggestion controller</td><td class="text-left">RecipeId = 0</td><td class="text-left">Returns HTTP 400 Bad Request with error detail</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_BE_002</td><td class="text-left">MealSuggestionsControllerTests</td><td class="text-left">GetAiMenuAssistant_ShouldReturnBadRequest_WhenServiceReturnsNull</td><td class="text-left">Controllers</td><td class="text-center font-bold">Fact</td><td class="text-left">Validate controller behavior when AI meal suggestion service returns null</td><td class="text-left">Mock service returning null</td><td class="text-left">Returns HTTP 400 Bad Request</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_BE_003</td><td class="text-left">MealSuggestionsControllerTests</td><td class="text-left">GetAiMenuAssistant_ShouldReturnOk_WhenServiceReturnsValidData</td><td class="text-left">Controllers</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify successful retrieval of AI meal suggestion payload</td><td class="text-left">Valid RecipeId = 1, valid response DTO</td><td class="text-left">Returns HTTP 200 OK with populated suggestion list</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_BE_004</td><td class="text-left">NavigationControllerDemoTests</td><td class="text-left">DemoRoute_MissingSafeZone_MustRejectBeforePublishingMqtt</td><td class="text-left">Controllers</td><td class="text-center font-bold">Fact</td><td class="text-left">Ensure navigation demo route rejects dispatch when Safe Zone is missing</td><td class="text-left">Route request without configured SafeZone</td><td class="text-left">Rejects dispatch before MQTT publish, throws validation error</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_005</td><td class="text-left">NavigationControllerDemoTests</td><td class="text-left">FullMapAdvertising_MustPublishExactlyOneAdStopPerZone</td><td class="text-left">Controllers</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify advertising route generator emits exactly one ad waypoint per configured supermarket zone</td><td class="text-left">FullMapAdvertising request with 3 zones</td><td class="text-left">Emits exactly 3 stop waypoints, 1 per zone</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_006</td><td class="text-left">NavigationControllerDemoTests</td><td class="text-left">FullMapPatrol_MustMarkEveryShelfWaypointAsPhotoWithoutPlaylist</td><td class="text-left">Controllers</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify autonomous patrol assigns photo capture flag to all shelf waypoints without ad playlist</td><td class="text-left">FullMapPatrol request for Shelf 1..6</td><td class="text-left">All 6 shelf waypoints have IsPhotoCapture=true, Playlist=null</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_007</td><td class="text-left">NavigationControllerDemoTests</td><td class="text-left">FullMapAdvertising_MissingPlaylistMustRejectBeforeMqtt</td><td class="text-left">Controllers</td><td class="text-center font-bold">Fact</td><td class="text-left">Ensure advertising route generation rejects execution if no valid active ad playlist is found</td><td class="text-left">Empty ad playlist in database</td><td class="text-left">Operation rejected before MQTT dispatch with HTTP 400/422</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_008</td><td class="text-left">NavigationControllerDemoTests</td><td class="text-left">FullMapAdvertising_MqttUnavailableMustReturn503AndReleaseMission</td><td class="text-left">Controllers</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify graceful error handling and mission release when MQTT broker connection fails</td><td class="text-left">MQTT client throwing SocketException</td><td class="text-left">Returns HTTP 503 Service Unavailable, mission lock released in registry</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Anh Hùng</td></tr>
+<tr><td class="text-center font-bold">UT_BE_009</td><td class="text-left">DatabaseHealthCheckTests</td><td class="text-left">CheckHealthAsync_InMemoryDatabase_ShouldReturnHealthyStatus</td><td class="text-left">HealthChecks</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify EF Core database health check returns Healthy status on responsive context</td><td class="text-left">InMemory AppDbContext instance</td><td class="text-left">HealthCheckResult.Status equals HealthStatus.Healthy</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Anh Hùng</td></tr>
+<tr><td class="text-center font-bold">UT_BE_010</td><td class="text-left">RobotNavigationStatusContractTests</td><td class="text-left">SignalRContract_ShouldKeepMissionPlaylistAndDwellFields</td><td class="text-center font-bold">Realtime</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify SignalR contract serialization preserves mission playlist and dwell time fields for frontend clients</td><td class="text-left">RobotNavigationStatus payload with playlist and dwell seconds</td><td class="text-left">Serialized payload retains Playlist and DwellTimeSeconds without truncation</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Anh Hùng</td></tr>
+<tr><td class="text-center font-bold">UT_BE_011</td><td class="text-left">BrandImportTests</td><td class="text-left">ImportBrands_WithDuplicatesAndInvalidFields_ReturnsAccurateReportAndInsertsValidRows</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Validate Excel bulk import of Brands with duplicate names and invalid wallet amounts</td><td class="text-left">Excel file with 2 valid brands, 1 duplicate, 1 negative wallet</td><td class="text-left">Inserts 2 valid brands, returns error report with row indices for failed rows</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_012</td><td class="text-left">CampaignImportTests</td><td class="text-left">GenerateTestFileForLiveImport</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify generation of template Excel workbook for live campaign import</td><td class="text-left">Valid campaign template parameters</td><td class="text-left">Generates valid .xlsx stream with correct column headers</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_013</td><td class="text-left">CampaignImportTests</td><td class="text-left">ImportCampaigns_WithVariousValidAndInvalidRows_ReturnsAccurateReportAndLogsHistory</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Validate campaign bulk import with date format errors, invalid budget, and valid rows</td><td class="text-left">Excel with valid and invalid campaign rows</td><td class="text-left">Valid campaigns imported, import history logged with audit status</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_014</td><td class="text-left">CartGuidePlannerTests</td><td class="text-left">PlanAsync_GroupsProductsOnSameShelfAndOrdersNearestStops</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify shopping cart path optimizer groups items on the same shelf and orders stops using nearest neighbor Dijkstra</td><td class="text-left">Cart with 5 items on Shelf 1, 2, and 1</td><td class="text-left">Groups Shelf 1 items into single stop, outputs optimal visit sequence</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_015</td><td class="text-left">CartServiceTests</td><td class="text-left">AddItemToCartAsync_NewItem_ShouldAddToCartAndReturnUpdatedCart</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify adding a new product to an empty cart creates cart item with quantity 1</td><td class="text-left">MemberId = 1, ProductId = 10, Quantity = 1</td><td class="text-left">Cart item created, total quantity = 1, total price calculated correctly</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_016</td><td class="text-left">CartServiceTests</td><td class="text-left">AddItemToCartAsync_ExistingItem_ShouldIncrementQuantity</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify adding an already existing product increments its quantity</td><td class="text-left">MemberId = 1, ProductId = 10, Quantity = 2 (existing Qty = 1)</td><td class="text-left">Item quantity incremented to 3</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_017</td><td class="text-left">CartServiceTests</td><td class="text-left">AddItemToCartAsync_NonExistentProduct_ShouldThrowKeyNotFoundException</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify adding non-existent product ID throws KeyNotFoundException</td><td class="text-left">MemberId = 1, ProductId = 999999</td><td class="text-left">Throws KeyNotFoundException with message 'Product not found'</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_018</td><td class="text-left">GeminiServiceTests</td><td class="text-left">GenerateAiMealSuggestionAsync_ShouldParseJsonCorrectly</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify AI meal suggestion parses Gemini structured JSON into recipe DTOs</td><td class="text-left">Mock Gemini response containing 'Canh Chua Ca Loc' recipe JSON</td><td class="text-left">Parses successfully into RecipeDto with ingredient lists and preparation steps</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_BE_019</td><td class="text-left">GeminiServiceTests</td><td class="text-left">RecommendIngredientsAsync_ShouldParseOverBudgetAndAltNameCorrectly</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify ingredient recommendation parses over-budget warnings and alternative product substitutions</td><td class="text-left">Gemini response with alternative ingredient suggestions</td><td class="text-left">Identifies over-budget items and maps alternative product names accurately</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_BE_020</td><td class="text-left">GeminiServiceTests</td><td class="text-left">RecommendIngredientsAsync_LiveOpenRouter_ShouldKeepOriginalIngredientAndTagBudget</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify OpenRouter API integration fallback preserves original ingredients while tagging budget status</td><td class="text-left">Live API prompt with constrained shopping budget</td><td class="text-left">Tags ingredients exceeding budget and retains original recipe items</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_BE_021</td><td class="text-left">GeminiServiceTests</td><td class="text-left">AnalyzeShelfNodeAsync_MissingApiKeyMustNotReturnMockResult</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Ensure missing API key fails explicitly without returning fabricated mock vision results</td><td class="text-left">ApiKey = null / empty</td><td class="text-left">Throws InvalidOperationException, refuses to fabricate mock scan result</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_BE_022</td><td class="text-left">HealthTagImportTests</td><td class="text-left">ImportHealthTags_WithDuplicatesAndInvalidFields_ReturnsAccurateReportAndInsertsValidRows</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Validate HealthTag import handles duplicate tag codes and empty descriptions</td><td class="text-left">Excel containing 'LOW_SUGAR', 'ORGANIC', duplicate 'LOW_SUGAR'</td><td class="text-left">Inserts unique tags, flags duplicate row in report</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_BE_023</td><td class="text-left">MealSuggestionServiceTests</td><td class="text-left">GetAllAsync_ShouldReturnAllRecipes</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify retrieval of all seeded meal recipes from database</td><td class="text-left">Seeded recipes table</td><td class="text-left">Returns full list of available meal suggestions with ingredient count</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_BE_024</td><td class="text-left">MealSuggestionServiceTests</td><td class="text-left">GetAiMenuAssistantAsync_ShouldReturnNull_WhenRecipeNotFound</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify meal menu assistant returns null when queried recipe ID does not exist</td><td class="text-left">RecipeId = 9999</td><td class="text-left">Returns null</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_BE_025</td><td class="text-left">MealSuggestionServiceTests</td><td class="text-left">GetAiMenuAssistantAsync_ShouldReturnResult_WhenValid</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify meal menu assistant returns enriched ingredients for valid recipe</td><td class="text-left">Valid RecipeId = 1</td><td class="text-left">Returns valid AiMenuAssistantDto with mapped store products</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+    </tbody>
+  </table>
+</body>
+</html>

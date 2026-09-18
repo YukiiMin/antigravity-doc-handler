@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    margin: 0;
+    padding: 24px;
+    background: #FFFFFF;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: inline-block;
+  }
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1F4E78;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 12px;
+    color: #595959;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  table {
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid #D9D9D9;
+    background: #FFFFFF;
+  }
+  th {
+    background-color: #1F4E78;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: center;
+    border: 1px solid #1F4E78;
+    white-space: nowrap;
+  }
+  td {
+    padding: 8px 12px;
+    font-size: 11px;
+    color: #262626;
+    border: 1px solid #E5E5E5;
+    vertical-align: middle;
+  }
+  tr:nth-child(even) {
+    background-color: #F8FAFC;
+  }
+  tr:hover {
+    background-color: #EDF2F7;
+  }
+  .badge-passed {
+    background-color: #C6EFCE;
+    color: #006100;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-critical {
+    background-color: #FFC7CE;
+    color: #9C0006;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-high {
+    background-color: #FFEB9C;
+    color: #9C6500;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-medium {
+    background-color: #E0E7FF;
+    color: #3730A3;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-left {
+    text-align: left;
+  }
+  .font-bold {
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <div class="title">SUPERMARKETBOT — USER ACCEPTANCE TEST SCENARIOS (AT)</div>
+  <div class="subtitle">End-to-End Customer Journey, Inventory Restock Loop & Robotic Advertising</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Scenario ID</th><th>User Persona</th><th>Business Journey Description</th><th>Acceptance Criteria</th><th>Execution Summary & Outcome</th><th>Sign-Off Status</th><th>Stakeholder</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="text-center font-bold">AT_SCE_001</td><td class="text-left">Supermarket Customer</td><td class="text-left">Smart Shopping &amp; Robot Escort Journey: Customer enters store, performs contactless face check-in, selects an AI-curated recipe, adds missing ingredients to smart cart, and is guided by Robot RB001 directly to the product shelf.</td><td class="text-left">1. Face check-in completes in &lt; 2 seconds.<br>2. AI generates balanced ingredients within budget.<br>3. Robot escorts customer without collision along optimal Dijkstra path.</td><td class="text-left">Customer verified in 650ms; Recipe suggested with 4 items; Robot navigated from Entrance to Shelf 2 smoothly with voice assistance.</td><td class="text-center"><span class="badge-passed">Accepted</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">AT_SCE_002</td><td class="text-left">Supermarket Staff &amp; Store Manager</td><td class="text-left">Automated Inventory Auditing &amp; Rapid Restocking: Robot executes scheduled autonomous shelf patrol, AI computer vision detects depleted stock at Shelf 2 Slot 1, Staff receives real-time SignalR push notification and replenishes stock.</td><td class="text-left">1. AI achieves &gt;= 90% accuracy detecting empty slots.<br>2. Notification received on staff device within 2 seconds of robot capture.<br>3. Staff confirmation clears alert and updates inventory DB.</td><td class="text-left">Robot completed 6-shelf scan; Detected out-of-stock slot; Staff app received notification in 68ms; Replenishment confirmed and verified.</td><td class="text-center"><span class="badge-passed">Accepted</span></td><td class="text-left">Nguyễn Anh Hùng</td></tr>
+<tr><td class="text-center font-bold">AT_SCE_003</td><td class="text-left">Brand Sponsor (Advertiser)</td><td class="text-left">Location-Based Smart Advertising Campaign: Brand purchases an advertising package via Web Portal, configures high-impact video ad targeted to Zone A, and verifies that the robot broadcasts the ad whenever entering Zone A.</td><td class="text-left">1. Package fee deducted accurately from brand wallet.<br>2. Robot triggers ad playback precisely within designated spatial zone.<br>3. Real-time impression logs and analytics visible on Brand Dashboard.</td><td class="text-left">Wallet deducted 2,000,000 VND; Robot played commercial in Zone A; 14 impressions recorded and displayed on Brand Analytics dashboard.</td><td class="text-center"><span class="badge-passed">Accepted</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+    </tbody>
+  </table>
+</body>
+</html>

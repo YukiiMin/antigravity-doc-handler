@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    margin: 0;
+    padding: 24px;
+    background: #FFFFFF;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: inline-block;
+  }
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1F4E78;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 12px;
+    color: #595959;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  table {
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid #D9D9D9;
+    background: #FFFFFF;
+  }
+  th {
+    background-color: #1F4E78;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: center;
+    border: 1px solid #1F4E78;
+    white-space: nowrap;
+  }
+  td {
+    padding: 8px 12px;
+    font-size: 11px;
+    color: #262626;
+    border: 1px solid #E5E5E5;
+    vertical-align: middle;
+  }
+  tr:nth-child(even) {
+    background-color: #F8FAFC;
+  }
+  tr:hover {
+    background-color: #EDF2F7;
+  }
+  .badge-passed {
+    background-color: #C6EFCE;
+    color: #006100;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-critical {
+    background-color: #FFC7CE;
+    color: #9C0006;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-high {
+    background-color: #FFEB9C;
+    color: #9C6500;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-medium {
+    background-color: #E0E7FF;
+    color: #3730A3;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-left {
+    text-align: left;
+  }
+  .font-bold {
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <div class="title">SUPERMARKETBOT — TEST SUMMARY & DEFECT LOG</div>
+  <div class="subtitle">Consolidated Test Metrics & Resolved Integration Defects</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Test Level</th><th>Total Test Cases</th><th>Passed</th><th>Failed</th><th>Blocked</th><th>Pass Rate (%)</th><th>None</th><th>None</th><th>None</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="text-center font-bold">Unit Testing (BE xUnit)</td><td class="text-center font-bold">50</td><td class="text-center font-bold">50</td><td class="text-center font-bold"></td><td class="text-center font-bold"></td><td class="text-center font-bold">100.0%</td><td class="text-center font-bold"></td><td class="text-center font-bold"></td><td class="text-center font-bold"></td></tr>
+<tr><td class="text-center font-bold">Unit Testing (AI Engine)</td><td class="text-center font-bold">12</td><td class="text-center font-bold">12</td><td class="text-center font-bold"></td><td class="text-center font-bold"></td><td class="text-center font-bold">100.0%</td><td class="text-center font-bold"></td><td class="text-center font-bold"></td><td class="text-center font-bold"></td></tr>
+<tr><td class="text-center font-bold">Integration Testing (IT)</td><td class="text-center font-bold">15</td><td class="text-center font-bold">15</td><td class="text-center font-bold"></td><td class="text-center font-bold"></td><td class="text-center font-bold">100.0%</td><td class="text-center font-bold"></td><td class="text-center font-bold"></td><td class="text-center font-bold"></td></tr>
+<tr><td class="text-center font-bold">System Testing (ST)</td><td class="text-center font-bold">17</td><td class="text-center font-bold">17</td><td class="text-center font-bold"></td><td class="text-center font-bold"></td><td class="text-center font-bold">100.0%</td><td class="text-center font-bold"></td><td class="text-center font-bold"></td><td class="text-center font-bold"></td></tr>
+<tr><td class="text-center font-bold">Acceptance Testing (AT)</td><td class="text-center font-bold">3</td><td class="text-center font-bold">3</td><td class="text-center font-bold"></td><td class="text-center font-bold"></td><td class="text-center font-bold">100.0%</td><td class="text-center font-bold"></td><td class="text-center font-bold"></td><td class="text-center font-bold"></td></tr>
+<tr><td class="text-center font-bold">TOTAL SYSTEM TEST SUITE</td><td class="text-center font-bold">97</td><td class="text-center font-bold">97</td><td class="text-center font-bold"></td><td class="text-center font-bold"></td><td class="text-center font-bold">100.0%</td><td class="text-center font-bold"></td><td class="text-center font-bold"></td><td class="text-center font-bold"></td></tr>
+<tr><td class="text-center font-bold">2. RESOLVED DEFECT TRACKING LOG</td><td class="text-center font-bold"></td><td class="text-center font-bold"></td><td class="text-center font-bold"></td><td class="text-center font-bold"></td><td class="text-center font-bold"></td><td class="text-center font-bold"></td><td class="text-center font-bold"></td><td class="text-center font-bold"></td></tr>
+<tr><td class="text-center font-bold">Defect ID</td><td class="text-center font-bold">Subsystem</td><td class="text-left">Defect Summary / Root Cause</td><td class="text-center font-bold">Severity</td><td class="text-left">Reported Date</td><td class="text-left">Resolved Date</td><td class="text-left">Resolution Details</td><td class="text-center font-bold">Status</td><td class="text-center font-bold">Resolver</td></tr>
+<tr><td class="text-center font-bold">BUG_001</td><td class="text-left">Backend / Kestrel</td><td class="text-left">HTTP 500 timeout when uploading high-res camera frames over ngrok proxy due to Kestrel MinRequestBodyDataRate check</td><td class="text-center"><span class="badge-critical">Critical</span></td><td class="text-center font-bold">18/07/2026</td><td class="text-center font-bold">20/07/2026</td><td class="text-left">Disabled MinRequestBodyDataRate in Program.cs and GlobalExceptionMiddleware for multipart/json frame endpoints.</td><td class="text-center"><span class="badge-passed">Resolved</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">BUG_002</td><td class="text-left">AI Service (FastAPI)</td><td class="text-left">Python process memory leaked OpenCV Mat buffers during continuous shelf patrol camera ingestion</td><td class="text-center"><span class="badge-critical">Critical</span></td><td class="text-center font-bold">26/07/2026</td><td class="text-center font-bold">28/07/2026</td><td class="text-left">Added explicit cv2 buffer release and memory guard in face_engine.py &amp; shelf_vision.py.</td><td class="text-center"><span class="badge-passed">Resolved</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">BUG_003</td><td class="text-left">Backend Navigation</td><td class="text-left">Dijkstra route planner occasionally included navigation nodes belonging to an inactive floor/map layout</td><td class="text-center"><span class="badge-high">High</span></td><td class="text-center font-bold">05/08/2026</td><td class="text-center font-bold">07/08/2026</td><td class="text-left">Added FloorId filter guard in NavigationService.PlanRouteAsync to strictly isolate map subgraphs.</td><td class="text-center"><span class="badge-passed">Resolved</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">BUG_004</td><td class="text-left">AI Service / Models</td><td class="text-left">Shelf Vision misclassified Bia Nobilis as plastic water bottle on Shelf 2 due to outdated reference crops</td><td class="text-center"><span class="badge-high">High</span></td><td class="text-center font-bold">12/08/2026</td><td class="text-center font-bold">13/08/2026</td><td class="text-left">Extracted 21 calibrated reference crops and retrained MobileNetV3 Re-ID embeddings for Shelf 2.</td><td class="text-center"><span class="badge-passed">Resolved</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">BUG_005</td><td class="text-left">Backend / Product</td><td class="text-left">Excel product bulk import threw unhandled SqlException when encountering duplicate SKU/barcode</td><td class="text-center"><span class="badge-medium">Medium</span></td><td class="text-center font-bold">20/08/2026</td><td class="text-center font-bold">22/08/2026</td><td class="text-left">Wrapped import in transaction with pre-validation check; Returns structured report with line-specific errors.</td><td class="text-center"><span class="badge-passed">Resolved</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">BUG_006</td><td class="text-left">Realtime SignalR</td><td class="text-left">Robot navigation telemetry payload omitted mission playlist and dwell time fields over SignalR bridge</td><td class="text-center"><span class="badge-medium">Medium</span></td><td class="text-center font-bold">28/08/2026</td><td class="text-center font-bold">30/08/2026</td><td class="text-left">Synchronized RobotNavigationStatusDto properties across Domain, Application, and SignalR contracts.</td><td class="text-center"><span class="badge-passed">Resolved</span></td><td class="text-left">Nguyễn Anh Hùng</td></tr>
+    </tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    margin: 0;
+    padding: 24px;
+    background: #FFFFFF;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: inline-block;
+  }
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1F4E78;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 12px;
+    color: #595959;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  table {
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid #D9D9D9;
+    background: #FFFFFF;
+  }
+  th {
+    background-color: #1F4E78;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: center;
+    border: 1px solid #1F4E78;
+    white-space: nowrap;
+  }
+  td {
+    padding: 8px 12px;
+    font-size: 11px;
+    color: #262626;
+    border: 1px solid #E5E5E5;
+    vertical-align: middle;
+  }
+  tr:nth-child(even) {
+    background-color: #F8FAFC;
+  }
+  tr:hover {
+    background-color: #EDF2F7;
+  }
+  .badge-passed {
+    background-color: #C6EFCE;
+    color: #006100;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-critical {
+    background-color: #FFC7CE;
+    color: #9C0006;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-high {
+    background-color: #FFEB9C;
+    color: #9C6500;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-medium {
+    background-color: #E0E7FF;
+    color: #3730A3;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-left {
+    text-align: left;
+  }
+  .font-bold {
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <div class="title">SUPERMARKETBOT — BACKEND UNIT TEST SPECIFICATION (Part 2 / 2)</div>
+  <div class="subtitle">Gemini AI, Dijkstra Navigation, Shelf Patrol & Token Services</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Test ID</th><th>Test Class / Suite</th><th>Test Method Name</th><th>Module</th><th>Test Type</th><th>Test Objective / Description</th><th>Test Inputs & Mocks</th><th>Expected Result</th><th>Status</th><th>Tester In-Charge</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="text-center font-bold">UT_BE_026</td><td class="text-left">MemberServiceTests</td><td class="text-left">SetShoppingBudgetAsync_ValidMember_ShouldUpdateSpendingLimit</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify updating member shopping budget limit persists in database</td><td class="text-left">MemberId = 1, Budget = 500,000 VND</td><td class="text-left">Member.ShoppingBudget updated to 500,000 VND</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Anh Hùng</td></tr>
+<tr><td class="text-center font-bold">UT_BE_027</td><td class="text-left">MemberServiceTests</td><td class="text-left">SetShoppingBudgetAsync_NonExistentMember_ShouldThrowKeyNotFoundException</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify updating budget for non-existent member throws KeyNotFoundException</td><td class="text-left">MemberId = 9999, Budget = 100,000 VND</td><td class="text-left">Throws KeyNotFoundException</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Anh Hùng</td></tr>
+<tr><td class="text-center font-bold">UT_BE_028</td><td class="text-left">NavigationCommandServiceTests</td><td class="text-left">SendNavigationAsync_DefaultMode_ShouldPublishOnlyDestinationWaypoint</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify default navigation command mode publishes only destination waypoint to save bandwidth</td><td class="text-left">StartNode = 1, EndNode = 4, Default mode</td><td class="text-left">Publishes MQTT payload containing only final destination waypoint</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_029</td><td class="text-left">NavigationCommandServiceTests</td><td class="text-left">SendNavigationAsync_SendOnlyDestinationFalse_ShouldPublishAllWaypoints</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify full path mode publishes complete sequence of waypoints calculated by Dijkstra</td><td class="text-left">StartNode = 1, EndNode = 4, SendOnlyDestination = false</td><td class="text-left">Publishes full array of waypoints [Node 1, Node 2, Node 3, Node 4]</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_030</td><td class="text-left">NavigationCommandServiceTests</td><td class="text-left">SendNavigationAsync_NoRouteFound_ShouldThrowInvalidOperationException</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify navigation command throws InvalidOperationException when no valid route exists between nodes</td><td class="text-left">Disconnected graph nodes</td><td class="text-left">Throws InvalidOperationException with 'No route found'</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_031</td><td class="text-left">NavigationServiceTests</td><td class="text-left">PlanRouteAsync_ValidNodes_ShouldReturnCorrectShortestPath</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify Dijkstra pathfinding returns exact shortest path and total distance across 8 nodes</td><td class="text-left">StartNode = 1, EndNode = 6</td><td class="text-left">Returns exact sequence [1, 2, 4, 6] with minimum Euclidean distance</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_032</td><td class="text-left">NavigationServiceTests</td><td class="text-left">PlanRouteAsync_NonExistentNode_ShouldThrowInvalidOperationException</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify route planning throws exception when start or end node does not exist in graph</td><td class="text-left">StartNode = 999, EndNode = 1</td><td class="text-left">Throws InvalidOperationException with 'Node does not exist'</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_033</td><td class="text-left">NavigationServiceTests</td><td class="text-left">PlanRouteAsync_BlockedStartNode_ShouldThrowInvalidOperationException</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify route planning rejects start node marked as blocked/inactive</td><td class="text-left">StartNode marked IsActive = false</td><td class="text-left">Throws InvalidOperationException</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_034</td><td class="text-left">NavigationServiceTests</td><td class="text-left">PlanRouteAsync_UnreachableDestination_ShouldReturnZeroDistanceAndEmptyNodes</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify pathfinding between isolated graph partitions returns empty node list and 0 distance</td><td class="text-left">Start in Graph A, End in Graph B (no connecting edge)</td><td class="text-left">Returns PathResult with TotalDistance = 0 and Nodes = empty</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_035</td><td class="text-left">NavigationServiceTests</td><td class="text-left">PlanRouteAsync_WithFloor_ShouldIgnoreNodesAndEdgesFromAnotherMap</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify multi-floor/map isolation ignores nodes belonging to other floor IDs</td><td class="text-left">FloorId = 1, query nodes on FloorId = 2</td><td class="text-left">Ignores other floor nodes, calculates path strictly within Floor 1</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_036</td><td class="text-left">ProductDestinationResolverTests</td><td class="text-left">ResolveAsync_SelectsNearestReachableInStockShelfOnActiveMap</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify destination resolver chooses the closest in-stock shelf slot when product is on multiple shelves</td><td class="text-left">ProductId = 5 present on Shelf 1 and Shelf 4; Robot at Node 1</td><td class="text-left">Resolves to Shelf 1 slot (closer Euclidean distance to Node 1)</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_037</td><td class="text-left">ProductDestinationResolverTests</td><td class="text-left">ResolveAsync_RejectsProductWhenProductIsNotAvailable</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify destination resolver rejects product when stock quantity is 0 across all slots</td><td class="text-left">ProductId with StockQuantity = 0</td><td class="text-left">Returns null / throws ProductUnavailableException</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Lê Trọng Hiếu</td></tr>
+<tr><td class="text-center font-bold">UT_BE_038</td><td class="text-left">ProductImportTests</td><td class="text-left">ImportProducts_WithDuplicatesAndInvalidFields_ReturnsAccurateReportAndInsertsValidRows</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Validate product Excel import with duplicate barcode, negative price, and valid product</td><td class="text-left">Excel file with 1 valid row, 1 duplicate barcode, 1 invalid price</td><td class="text-left">Inserts valid product, returns report with failed rows</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_BE_039</td><td class="text-left">ProductImportTests</td><td class="text-left">ImportProducts_WithSkuAndSlotCodes_AssignsSlotsAndSkuCorrectly</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify importing products with slot codes (e.g. 'K2_T1_1') automatically binds product to target slot</td><td class="text-left">Excel with SlotCode = 'K2_T1_1', SKU = 'BEER-NOB-250'</td><td class="text-left">Binds product to Slot K2_T1_1 and sets SKU correctly in DB</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_BE_040</td><td class="text-left">ProductTypeImportTests</td><td class="text-left">ImportProductTypes_WithDuplicatesAndInvalidFields_ReturnsAccurateReportAndInsertsValidRows</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Validate category/product type import with duplicates and empty names</td><td class="text-left">Excel with duplicate category names</td><td class="text-left">Inserts unique product types, logs duplicate error details</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_BE_041</td><td class="text-left">RobotMissionRegistryTests</td><td class="text-left">TryStart_BlocksSecondMissionUntilMatchingMissionCompletes</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify mission registry enforces concurrency lock preventing two missions on same robot</td><td class="text-left">Robot RB001 starting Mission 2 while Mission 1 is running</td><td class="text-left">TryStart returns false, second mission blocked</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Anh Hùng</td></tr>
+<tr><td class="text-center font-bold">UT_BE_042</td><td class="text-left">RobotMissionRegistryTests</td><td class="text-left">TryStart_StoresWaypointCountForMultiStopMission</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify mission registry correctly tracks total waypoint count for multi-stop missions</td><td class="text-left">Multi-stop mission with 6 waypoints</td><td class="text-left">Registry snapshot records WaypointCount = 6</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Anh Hùng</td></tr>
+<tr><td class="text-center font-bold">UT_BE_043</td><td class="text-left">RobotMissionRegistryTests</td><td class="text-left">MissionSnapshot_TracksRouteWaypointsAndLatestStatus</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify mission snapshot tracks active waypoint index and latest execution status</td><td class="text-left">Update mission progress to Waypoint 3, Status = Moving</td><td class="text-left">Snapshot reflects CurrentIndex = 3, Status = 'Moving'</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Anh Hùng</td></tr>
+<tr><td class="text-center font-bold">UT_BE_044</td><td class="text-left">RobotMissionRegistryTests</td><td class="text-left">DeviceHeartbeat_IsOnlineAndPreservesCapabilities</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify robot heartbeat updates last-seen timestamp and preserves online state</td><td class="text-left">Heartbeat received within 30s threshold</td><td class="text-left">Robot status = Online, capabilities bitmask preserved</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Anh Hùng</td></tr>
+<tr><td class="text-center font-bold">UT_BE_045</td><td class="text-left">SeedTofuTest</td><td class="text-left">SeedTofuProduct_ToDatabase</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify database seeder properly creates Tofu product entity with valid category and health tags</td><td class="text-left">Seed script execution</td><td class="text-left">Tofu product present in AppDbContext with correct properties</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_BE_046</td><td class="text-left">ShelfScanServicePatrolTests</td><td class="text-left">AnalyzeNodeAsync_MustPersistAlertAndIgnoreDuplicateWaypoint</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify shelf patrol service persists low-stock alert and ignores duplicate scans of same waypoint in same mission</td><td class="text-left">Two consecutive scan payloads for Node 2 with low stock</td><td class="text-left">Persists first alert, ignores duplicate payload</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_BE_047</td><td class="text-left">TokenServiceTests</td><td class="text-left">CreateAccessToken_ValidAccount_ShouldReturnValidJwtTokenAndExpiration</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify JWT creation generates valid signed token containing username, role, and valid expiration date</td><td class="text-left">Account with Role = Admin</td><td class="text-left">Returns valid JWT token, claims contain Role=Admin, ExpiresIn=7 days</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Anh Hùng</td></tr>
+<tr><td class="text-center font-bold">UT_BE_048</td><td class="text-left">TokenServiceTests</td><td class="text-left">GenerateRefreshToken_ShouldReturnUniqueNonEmptyBase64String</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify refresh token generator produces cryptographically secure, unique Base64 string</td><td class="text-left">Generate 2 consecutive tokens</td><td class="text-left">Both tokens are non-empty, 64-byte base64, and mutually distinct</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Anh Hùng</td></tr>
+<tr><td class="text-center font-bold">UT_BE_049</td><td class="text-left">TokenServiceTests</td><td class="text-left">GetUserIdFromExpiredToken_ValidTokenFormat_ShouldExtractUserId</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify extracting user ID claim from expired JWT token without validating token lifetime</td><td class="text-left">Expired JWT token containing UserId = 42</td><td class="text-left">Successfully extracts UserId = 42</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Anh Hùng</td></tr>
+<tr><td class="text-center font-bold">UT_BE_050</td><td class="text-left">TokenServiceTests</td><td class="text-left">GetUserIdFromExpiredToken_InvalidToken_ShouldReturnNull</td><td class="text-center font-bold">Services</td><td class="text-center font-bold">Fact</td><td class="text-left">Verify extracting user ID from malformed JWT string returns null without throwing unhandled exception</td><td class="text-left">Malformed string 'abc.def.ghi'</td><td class="text-left">Returns null cleanly</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Anh Hùng</td></tr>
+    </tbody>
+  </table>
+</body>
+</html>

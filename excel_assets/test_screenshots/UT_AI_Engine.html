@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    margin: 0;
+    padding: 24px;
+    background: #FFFFFF;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: inline-block;
+  }
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1F4E78;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 12px;
+    color: #595959;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  table {
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid #D9D9D9;
+    background: #FFFFFF;
+  }
+  th {
+    background-color: #1F4E78;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: center;
+    border: 1px solid #1F4E78;
+    white-space: nowrap;
+  }
+  td {
+    padding: 8px 12px;
+    font-size: 11px;
+    color: #262626;
+    border: 1px solid #E5E5E5;
+    vertical-align: middle;
+  }
+  tr:nth-child(even) {
+    background-color: #F8FAFC;
+  }
+  tr:hover {
+    background-color: #EDF2F7;
+  }
+  .badge-passed {
+    background-color: #C6EFCE;
+    color: #006100;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-critical {
+    background-color: #FFC7CE;
+    color: #9C0006;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-high {
+    background-color: #FFEB9C;
+    color: #9C6500;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-medium {
+    background-color: #E0E7FF;
+    color: #3730A3;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-left {
+    text-align: left;
+  }
+  .font-bold {
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <div class="title">SUPERMARKETBOT — AI MICROSERVICE UNIT TESTS</div>
+  <div class="subtitle">FastAPI Microservice: YuNet Face Detection, SFace Re-ID, YOLOv8 Shelf Vision & MobileNetV3</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Test ID</th><th>AI Subsystem</th><th>Test Function / Method</th><th>Test Objective</th><th>Input Data / Dimensions</th><th>Expected Metric / Threshold</th><th>Actual Metric</th><th>Status</th><th>Tester In-Charge</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="text-center font-bold">UT_AI_001</td><td class="text-left">Face Engine (YuNet)</td><td class="text-left">detect_faces()</td><td class="text-left">Verify face landmark detection on resized 640px input</td><td class="text-left">640x480 RGB frame with frontal face</td><td class="text-left">Confidence score &gt;= 0.85, 5 landmarks</td><td class="text-left">Conf: 0.94, 5 landmarks detected</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_AI_002</td><td class="text-left">Face Engine (YuNet)</td><td class="text-left">detect_faces()</td><td class="text-left">Verify non-detection on images without human faces</td><td class="text-left">640x480 RGB frame of empty aisle</td><td class="text-left">0 face detections returned</td><td class="text-left">0 faces detected (empty array)</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_AI_003</td><td class="text-left">Face Engine (SFace)</td><td class="text-left">extract_embedding()</td><td class="text-left">Verify SFace extracts normalized 128-D feature vector</td><td class="text-left">Cropped aligned face patch 112x112</td><td class="text-left">Vector length = 128, L2 norm = 1.0</td><td class="text-left">Vector len: 128, L2 norm: 0.9999</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_AI_004</td><td class="text-left">Face Engine (SFace)</td><td class="text-left">match_face()</td><td class="text-left">Verify cosine similarity separates same person vs different person</td><td class="text-left">Pair of same person crops vs different person</td><td class="text-left">Cosine sim &gt; 0.363 for same, &lt; 0.363 for different</td><td class="text-left">Same: 0.782, Different: 0.145</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_AI_005</td><td class="text-left">Shelf Vision (YOLO)</td><td class="text-left">detect_aruco()</td><td class="text-left">Verify ArUco marker detection and ID extraction (#1 to #6)</td><td class="text-left">Shelf frame containing ArUco Tag #2</td><td class="text-left">Tag ID = 2 detected with corner coordinates</td><td class="text-left">Tag ID: 2, Corners: [[120,45]...]</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_AI_006</td><td class="text-left">Shelf Vision (YOLO)</td><td class="text-left">filter_shelf_bounds()</td><td class="text-left">Verify shelf boundary guard filters background objects</td><td class="text-left">Detections at tag_x - 50 and tag_x + tag_w * 10</td><td class="text-left">Detections outside bounds filtered out</td><td class="text-left">Filtered 2 floor objects outside shelf ROI</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_AI_007</td><td class="text-left">Shelf Vision (YOLO)</td><td class="text-left">detect_products()</td><td class="text-left">Verify class-agnostic product bounding box detection</td><td class="text-left">Shelf 2 frame with beer cans and plastic bottles</td><td class="text-left">Recall &gt;= 90%, IoU threshold = 0.5</td><td class="text-left">Detected 14/14 items on shelf (100%)</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_AI_008</td><td class="text-left">Shelf Vision (YOLO)</td><td class="text-left">detect_empty_slots()</td><td class="text-left">Verify empty slot detection when stock is depleted</td><td class="text-left">Shelf 2 slot K2_T1_2 with zero items</td><td class="text-left">Identifies empty region with empty_slot class</td><td class="text-left">Empty slot detected at K2_T1_2 (conf: 0.88)</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_AI_009</td><td class="text-left">Re-ID Matcher</td><td class="text-left">extract_features()</td><td class="text-left">Verify MobileNetV3 extracts 1024-D feature vector</td><td class="text-left">Cropped product bounding box</td><td class="text-left">Feature dimension = 1024</td><td class="text-left">Feature dim: 1024</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_AI_010</td><td class="text-left">Re-ID Matcher</td><td class="text-left">match_product()</td><td class="text-left">Verify cosine similarity matching for Bia Nobilis on Shelf 2</td><td class="text-left">Cropped Bia Nobilis can vs shelf_2 reference crops</td><td class="text-left">Cosine similarity &gt;= 0.75 for bia_nobilis</td><td class="text-left">Cosine similarity: 0.894 (bia_nobilis)</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_AI_011</td><td class="text-left">Re-ID Matcher</td><td class="text-left">match_product()</td><td class="text-left">Verify Heineken Silver match on Shelf 2 Tier 2</td><td class="text-left">Cropped Heineken can vs shelf_2 reference crops</td><td class="text-left">Cosine similarity &gt;= 0.75 for heineken</td><td class="text-left">Cosine similarity: 0.921 (heineken)</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+<tr><td class="text-center font-bold">UT_AI_012</td><td class="text-left">Re-ID Matcher</td><td class="text-left">compute_density()</td><td class="text-left">Verify slot stock density calculation percentage</td><td class="text-left">Slot with 4 detected items out of 5 max capacity</td><td class="text-left">Stock density = 80%</td><td class="text-left">Calculated density: 80.0%</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-left">Nguyễn Quang Huy</td></tr>
+    </tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    margin: 0;
+    padding: 24px;
+    background: #FFFFFF;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: inline-block;
+  }
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1F4E78;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 12px;
+    color: #595959;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  table {
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid #D9D9D9;
+    background: #FFFFFF;
+  }
+  th {
+    background-color: #1F4E78;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: center;
+    border: 1px solid #1F4E78;
+    white-space: nowrap;
+  }
+  td {
+    padding: 8px 12px;
+    font-size: 11px;
+    color: #262626;
+    border: 1px solid #E5E5E5;
+    vertical-align: middle;
+  }
+  tr:nth-child(even) {
+    background-color: #F8FAFC;
+  }
+  tr:hover {
+    background-color: #EDF2F7;
+  }
+  .badge-passed {
+    background-color: #C6EFCE;
+    color: #006100;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-critical {
+    background-color: #FFC7CE;
+    color: #9C0006;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-high {
+    background-color: #FFEB9C;
+    color: #9C6500;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .badge-medium {
+    background-color: #E0E7FF;
+    color: #3730A3;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-left {
+    text-align: left;
+  }
+  .font-bold {
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <div class="title">SUPERMARKETBOT — SYSTEM TEST SUITE (ST)</div>
+  <div class="subtitle">End-to-End Validation: Web Admin, Staff App, Customer Mobile & Robot Android Apps</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Test ID</th><th>Application Client</th><th>Test Scenario / Feature</th><th>Preconditions</th><th>User Action / Test Steps</th><th>Expected System Behavior</th><th>Actual Result</th><th>Status</th><th>Severity</th><th>Tester</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="text-center font-bold">ST_ADM_001</td><td class="text-left">Web Admin (Vite)</td><td class="text-left">Admin login and dashboard statistics visualization</td><td class="text-left">Admin account seeded in database</td><td class="text-left">1. Open http://localhost:5173/login<br>2. Enter admin credentials<br>3. Click Login</td><td class="text-left">Redirects to Dashboard; Displays active campaigns, robot fleet status, and revenue cards</td><td class="text-left">Dashboard loaded with accurate statistics cards and graphs</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-critical">Critical</span></td><td class="text-left">Trần Nguyễn Nhật Khoa</td></tr>
+<tr><td class="text-center font-bold">ST_ADM_002</td><td class="text-left">Web Admin (Vite)</td><td class="text-left">Brand wallet top-up and balance verification</td><td class="text-left">Brand manager logged in</td><td class="text-left">1. Navigate to Brand Wallet<br>2. Enter top-up amount: 10,000,000 VND<br>3. Confirm payment simulation</td><td class="text-left">Wallet balance increases by 10,000,000 VND; New transaction recorded in history table</td><td class="text-left">Balance updated instantly, transaction logged with timestamp</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-high">High</span></td><td class="text-left">Trần Nguyễn Nhật Khoa</td></tr>
+<tr><td class="text-center font-bold">ST_ADM_003</td><td class="text-left">Web Admin (Vite)</td><td class="text-left">Create targeted Ad Campaign with Zone selection</td><td class="text-left">Brand has sufficient wallet balance</td><td class="text-left">1. Open Ad Campaign wizard<br>2. Upload banner image<br>3. Select Target Zone: A01<br>4. Submit</td><td class="text-left">Campaign created in 'Pending' status; Displays in Campaign List with Zone A01 badge</td><td class="text-left">Campaign created successfully with targeting Zone A01</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-high">High</span></td><td class="text-left">Trần Nguyễn Nhật Khoa</td></tr>
+<tr><td class="text-center font-bold">ST_ADM_004</td><td class="text-left">Web Admin (Vite)</td><td class="text-left">Realtime 2D/3D Robot Fleet Monitoring with Three.js</td><td class="text-left">Robot RB001 connected and publishing telemetry</td><td class="text-left">1. Open /robot-monitoring page<br>2. Observe Three.js viewport and telemetry sidebar</td><td class="text-left">Robot 3D model moves in real-time matching MQTT coordinates; Battery and speed update live</td><td class="text-left">Robot model smoothly navigates to coordinates (2.5, 3.0)</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-high">High</span></td><td class="text-left">Trần Nguyễn Nhật Khoa</td></tr>
+<tr><td class="text-center font-bold">ST_ADM_005</td><td class="text-left">Web Admin (Vite)</td><td class="text-left">Shelf management visual layout and slot product assignment</td><td class="text-left">6 shelves configured in database</td><td class="text-left">1. Open /shelf-management<br>2. Select Shelf 2<br>3. Assign 'Bia Nobilis' to Slot K2_T1_2</td><td class="text-left">Slot K2_T1_2 displays updated product image and title; Changes persisted to backend</td><td class="text-left">Slot assigned to Bia Nobilis, verified via API</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-medium">Medium</span></td><td class="text-left">Trần Nguyễn Nhật Khoa</td></tr>
+<tr><td class="text-center font-bold">ST_STF_001</td><td class="text-left">Staff App (Expo)</td><td class="text-left">Staff authentication and session persistence across app restarts</td><td class="text-left">Staff account active</td><td class="text-left">1. Open Staff App<br>2. Enter staff credentials<br>3. Restart application</td><td class="text-left">Logs in successfully; On restart, SecureStore restores token without re-login prompt</td><td class="text-left">Auto-login restored staff session seamlessly</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-critical">Critical</span></td><td class="text-left">Trần Nguyễn Nhật Khoa</td></tr>
+<tr><td class="text-center font-bold">ST_STF_002</td><td class="text-left">Staff App (Expo)</td><td class="text-left">Real-time supermarket arena map display with robot marker</td><td class="text-left">Staff logged in; 3.0m x 3.0m arena configured</td><td class="text-left">1. Open Map tab on Staff App<br>2. Verify 6 shelves, checkout, and dock rendering</td><td class="text-left">Map renders 6 shelves, cash register, and charging dock with zero path lines (clean map)</td><td class="text-left">Clean digital map rendered with correct shelf positions</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-high">High</span></td><td class="text-left">Trần Nguyễn Nhật Khoa</td></tr>
+<tr><td class="text-center font-bold">ST_STF_003</td><td class="text-left">Staff App (Expo)</td><td class="text-left">Receive real-time out-of-stock push notification from robot scan</td><td class="text-left">Robot triggers low stock on Shelf 2 Slot 1</td><td class="text-left">1. Keep Staff App active in foreground<br>2. Robot uploads shelf scan with empty slot</td><td class="text-left">Push notification banner appears: 'Alert: Shelf 2 Slot 1 is empty!'; Restock task added to list</td><td class="text-left">Notification banner popped up, restock task badge incremented</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-critical">Critical</span></td><td class="text-left">Trần Nguyễn Nhật Khoa</td></tr>
+<tr><td class="text-center font-bold">ST_STF_004</td><td class="text-left">Staff App (Expo)</td><td class="text-left">Confirm restock completion and resolve shelf alert</td><td class="text-left">Pending restock task exists in Staff task list</td><td class="text-left">1. Tap on restock task<br>2. Physically restock slot<br>3. Tap 'Confirm Restocked'</td><td class="text-left">Task marked completed; Backend updates slot status to 'Full'; Alert cleared from map</td><td class="text-left">Task cleared, slot status updated to In-Stock</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-high">High</span></td><td class="text-left">Trần Nguyễn Nhật Khoa</td></tr>
+<tr><td class="text-center font-bold">ST_CUS_001</td><td class="text-left">Customer App (Android)</td><td class="text-left">Face recognition check-in on mobile device front camera</td><td class="text-left">Customer face registered in system</td><td class="text-left">1. Open Customer App<br>2. Tap 'Face Check-in'<br>3. Hold face before camera</td><td class="text-left">Camera captures face; AI service authenticates member in &lt; 1s; Welcome screen appears</td><td class="text-left">Authenticated as 'Nguyen Van A' in 620ms, loyalty points shown</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-critical">Critical</span></td><td class="text-left">Nguyễn Hoàng Trường Duy</td></tr>
+<tr><td class="text-center font-bold">ST_CUS_002</td><td class="text-left">Customer App (Android)</td><td class="text-left">Product catalog search and category filtering</td><td class="text-left">50+ products seeded</td><td class="text-left">1. Open catalog<br>2. Search 'Bia'<br>3. Filter by category 'Beverages'</td><td class="text-left">Displays filtered list: Heineken Silver, Bia Nobilis; Shows unit prices and stock status</td><td class="text-left">Filtered list displayed accurately with correct images</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-high">High</span></td><td class="text-left">Nguyễn Hoàng Trường Duy</td></tr>
+<tr><td class="text-center font-bold">ST_CUS_003</td><td class="text-left">Customer App (Android)</td><td class="text-left">AI Meal Planner recipe generation and batch cart addition</td><td class="text-left">Gemini API key active</td><td class="text-left">1. Open Meal Planner<br>2. Select 'Vietnamese Sour Soup (Canh Chua)'<br>3. Tap 'Add all to Cart'</td><td class="text-left">Gemini suggests ingredients with estimated price; 4 ingredients added to shopping cart</td><td class="text-left">Ingredients added to cart with calculated total budget</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-high">High</span></td><td class="text-left">Nguyễn Hoàng Trường Duy</td></tr>
+<tr><td class="text-center font-bold">ST_CUS_004</td><td class="text-left">Customer App (Android)</td><td class="text-left">Indoor navigation route guidance to product shelf</td><td class="text-left">User selects Bia Nobilis on Shelf 2</td><td class="text-left">1. In cart, tap 'Guide Me to Product'<br>2. Inspect 2D map screen</td><td class="text-left">Interactive map highlights path from current entrance to Shelf 2 with step-by-step cue</td><td class="text-left">Path to Shelf 2 highlighted with arrival notification</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-high">High</span></td><td class="text-left">Nguyễn Hoàng Trường Duy</td></tr>
+<tr><td class="text-center font-bold">ST_ROB_001</td><td class="text-left">Robot App (Android)</td><td class="text-left">Robot startup, ROS2 bridge connection, and MQTT command listener</td><td class="text-left">Robot hardware powered on; ROS2 navigation node active</td><td class="text-left">1. Launch Robot Android app<br>2. Check connection indicator</td><td class="text-left">ROS2 bridge connects; MQTT topic robot/RB001/command subscribed; Green status indicator</td><td class="text-left">Bridge connected, MQTT subscribed with zero packet loss</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-critical">Critical</span></td><td class="text-left">Nguyễn Hoàng Trường Duy</td></tr>
+<tr><td class="text-center font-bold">ST_ROB_002</td><td class="text-left">Robot App (Android)</td><td class="text-left">Customer interaction mode: Touch destination and escort guidance</td><td class="text-left">Robot idle in interaction zone</td><td class="text-left">1. Customer selects 'Shelf 2: Beverages' on touchscreen<br>2. Tap 'Start Escort'</td><td class="text-left">Robot speaks TTS greeting: 'Please follow me to Shelf 2'; Emits ROS2 move goal; Screen shows escort HUD</td><td class="text-left">Robot executed escort flow with voice TTS prompt</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-critical">Critical</span></td><td class="text-left">Nguyễn Hoàng Trường Duy</td></tr>
+<tr><td class="text-center font-bold">ST_ROB_003</td><td class="text-left">Robot App (Android)</td><td class="text-left">Autonomous shelf patrol mode: Sequential waypoints and camera upload</td><td class="text-left">Patrol mission dispatched from backend</td><td class="text-left">1. Robot moves sequentially to Shelves 1..6<br>2. At each shelf, pauses and captures photo</td><td class="text-left">Pauses at each shelf; Captures photo; Uploads base64 to /api/shelf-scans; Continues to next node</td><td class="text-left">Successfully completed patrol across all 6 shelves in 115s</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-critical">Critical</span></td><td class="text-left">Nguyễn Hoàng Trường Duy</td></tr>
+<tr><td class="text-center font-bold">ST_ROB_004</td><td class="text-left">Robot App (Android)</td><td class="text-left">Targeted video advertisement playback during navigation</td><td class="text-left">Active video campaign assigned to Zone B</td><td class="text-left">1. Robot navigates through Zone B waypoints<br>2. Observe screen playback</td><td class="text-left">Switches screen to video ad player; Plays sponsored 15s commercial; Resumes navigation HUD</td><td class="text-left">Video ad played with clear audio; Resumed HUD upon completion</td><td class="text-center"><span class="badge-passed">Passed</span></td><td class="text-center"><span class="badge-high">High</span></td><td class="text-left">Nguyễn Hoàng Trường Duy</td></tr>
+    </tbody>
+  </table>
+</body>
+</html>
