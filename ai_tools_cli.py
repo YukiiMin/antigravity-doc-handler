@@ -136,6 +136,133 @@ def cmd_docx_inject(args: argparse.Namespace) -> int:
 
 
 # ---------------------------------------------------------------------------
+# docx-page-numbers
+# ---------------------------------------------------------------------------
+
+def cmd_docx_page_numbers(args: argparse.Namespace) -> int:
+    import docx
+    try:
+        from .docx_advanced_engine import inject_dynamic_page_numbers, safe_save_docx
+    except (ImportError, ValueError):
+        from docx_advanced_engine import inject_dynamic_page_numbers, safe_save_docx  # type: ignore
+
+    src = os.path.abspath(args.file)
+    if not os.path.isfile(src):
+        print(f"[ERROR] Source DOCX not found: {src}", file=sys.stderr)
+        return 1
+
+    out_path = os.path.abspath(args.output) if args.output else src
+    try:
+        doc = docx.Document(src)
+        inject_dynamic_page_numbers(doc, font_name=args.font, font_size_pt=args.size)
+        saved = safe_save_docx(doc, out_path)
+        print(f"[OK] Dynamic page numbers injected into: {saved}")
+        return 0
+    except Exception as exc:
+        print(f"[ERROR] {exc}", file=sys.stderr)
+        return 2
+
+
+# ---------------------------------------------------------------------------
+# docx-caption-fix
+# ---------------------------------------------------------------------------
+
+def cmd_docx_caption_fix(args: argparse.Namespace) -> int:
+    import docx
+    try:
+        from .docx_advanced_engine import format_figure_captions, safe_save_docx
+    except (ImportError, ValueError):
+        from docx_advanced_engine import format_figure_captions, safe_save_docx  # type: ignore
+
+    src = os.path.abspath(args.file)
+    if not os.path.isfile(src):
+        print(f"[ERROR] Source DOCX not found: {src}", file=sys.stderr)
+        return 1
+
+    out_path = os.path.abspath(args.output) if args.output else src
+    try:
+        doc = docx.Document(src)
+        count = format_figure_captions(doc, font_name=args.font, font_size_pt=args.size)
+        saved = safe_save_docx(doc, out_path)
+        print(f"[OK] Standardized {count} captions in: {saved}")
+        return 0
+    except Exception as exc:
+        print(f"[ERROR] {exc}", file=sys.stderr)
+        return 2
+
+
+# ---------------------------------------------------------------------------
+# docx-sanitize-icons
+# ---------------------------------------------------------------------------
+
+def cmd_docx_sanitize_icons(args: argparse.Namespace) -> int:
+    import docx
+    try:
+        from .docx_advanced_engine import sanitize_emojis_and_symbols, safe_save_docx
+    except (ImportError, ValueError):
+        from docx_advanced_engine import sanitize_emojis_and_symbols, safe_save_docx  # type: ignore
+
+    src = os.path.abspath(args.file)
+    if not os.path.isfile(src):
+        print(f"[ERROR] Source DOCX not found: {src}", file=sys.stderr)
+        return 1
+
+    out_path = os.path.abspath(args.output) if args.output else src
+    try:
+        doc = docx.Document(src)
+        count = sanitize_emojis_and_symbols(doc)
+        saved = safe_save_docx(doc, out_path)
+        print(f"[OK] Sanitized {count} elements (emojis/icons) in: {saved}")
+        return 0
+    except Exception as exc:
+        print(f"[ERROR] {exc}", file=sys.stderr)
+        return 2
+
+
+# ---------------------------------------------------------------------------
+# docx-translate
+# ---------------------------------------------------------------------------
+
+def cmd_docx_translate(args: argparse.Namespace) -> int:
+    import docx
+    try:
+        from .docx_advanced_engine import translate_vn_to_en_protected, safe_save_docx
+    except (ImportError, ValueError):
+        from docx_advanced_engine import translate_vn_to_en_protected, safe_save_docx  # type: ignore
+
+    src = os.path.abspath(args.file)
+    if not os.path.isfile(src):
+        print(f"[ERROR] Source DOCX not found: {src}", file=sys.stderr)
+        return 1
+
+    out_path = os.path.abspath(args.output) if args.output else src
+    try:
+        doc = docx.Document(src)
+        translated_count = 0
+        for p in doc.paragraphs:
+            old_t = p.text
+            new_t = translate_vn_to_en_protected(old_t)
+            if new_t != old_t:
+                p.text = new_t
+                translated_count += 1
+        for tbl in doc.tables:
+            for row in tbl.rows:
+                for cell in row.cells:
+                    for p in cell.paragraphs:
+                        old_t = p.text
+                        new_t = translate_vn_to_en_protected(old_t)
+                        if new_t != old_t:
+                            p.text = new_t
+                            translated_count += 1
+        saved = safe_save_docx(doc, out_path)
+        print(f"[OK] Translated {translated_count} blocks in: {saved}")
+        return 0
+    except Exception as exc:
+        print(f"[ERROR] {exc}", file=sys.stderr)
+        return 2
+
+
+# ---------------------------------------------------------------------------
 # mermaid-render
 # ---------------------------------------------------------------------------
 
@@ -254,7 +381,7 @@ def cmd_diagram_render(args: argparse.Namespace) -> int:
     if args.inject:
         spec["inject_into"] = args.inject
 
-    engine = str(spec.get("engine", "canvas")).strip().lower()
+    engine = str(spec.get("engine", "mxgraph")).strip().lower()
     base_dir = os.path.dirname(spec_path)
     out_png = args.output or spec.get("output_path") or os.path.splitext(spec_path)[0] + ".png"
     out_png = os.path.abspath(out_png)
@@ -262,7 +389,15 @@ def cmd_diagram_render(args: argparse.Namespace) -> int:
 
     t0 = time.time()
     try:
-        if engine == "canvas":
+        if engine in ("mxgraph", "drawio"):
+            try:
+                from .mxgraph_engine import render_diagram
+            except (ImportError, ValueError):
+                from mxgraph_engine import render_diagram  # type: ignore
+            if args.scale is not None:
+                spec["scale"] = args.scale
+            result = render_diagram(spec, base_dir=base_dir)
+        elif engine == "canvas":
             try:
                 from .spec_diagram_engine import PrecisionDiagram
             except (ImportError, ValueError):
@@ -283,7 +418,7 @@ def cmd_diagram_render(args: argparse.Namespace) -> int:
                 from plantuml_renderer import render_plantuml_to_png  # type: ignore
             result = render_plantuml_to_png(spec, base_dir=base_dir)
         else:
-            raise ValueError(f"Unknown diagram engine: '{engine}'. Supported: 'canvas', 'mermaid', 'plantuml'")
+            raise ValueError(f"Unknown diagram engine: '{engine}'. Supported: 'mxgraph', 'drawio', 'canvas', 'mermaid', 'plantuml'")
     except Exception as exc:
         print(f"[ERROR] Diagram rendering failed ({engine}): {exc}", file=sys.stderr)
         return 2
@@ -633,6 +768,36 @@ Examples:
     p_de.add_argument("spec", nargs="?", default=None, help="Path to precision diagram spec .json file (optional)")
     p_de.set_defaults(func=cmd_diagram_editor)
 
+
+    # --- docx-page-numbers ---
+    p_dpn = sub.add_parser("docx-page-numbers", help="Inject dynamic OpenXML page numbering into footers")
+    p_dpn.add_argument("file", help="Path to .docx file")
+    p_dpn.add_argument("-o", "--output", default=None, help="Output .docx path (default: in-place safe save)")
+    p_dpn.add_argument("--font", default="Times New Roman", help="Font family (default: Times New Roman)")
+    p_dpn.add_argument("--size", type=float, default=10.0, help="Font size in pt (default: 10.0)")
+    p_dpn.set_defaults(func=cmd_docx_page_numbers)
+
+    # --- docx-caption-fix ---
+    p_dcf = sub.add_parser("docx-caption-fix", help="Normalize figure/table captions with En-dash and styling")
+    p_dcf.add_argument("file", help="Path to .docx file")
+    p_dcf.add_argument("-o", "--output", default=None, help="Output .docx path (default: in-place safe save)")
+    p_dcf.add_argument("--font", default="Times New Roman", help="Font family (default: Times New Roman)")
+    p_dcf.add_argument("--size", type=float, default=10.5, help="Font size in pt (default: 10.5)")
+    p_dcf.set_defaults(func=cmd_docx_caption_fix)
+
+    # --- docx-sanitize-icons ---
+    p_dsi = sub.add_parser("docx-sanitize-icons", help="Remove emojis and special symbols from Word docx")
+    p_dsi.add_argument("file", help="Path to .docx file")
+    p_dsi.add_argument("-o", "--output", default=None, help="Output .docx path (default: in-place safe save)")
+    p_dsi.set_defaults(func=cmd_docx_sanitize_icons)
+
+    # --- docx-translate ---
+    p_dt = sub.add_parser("docx-translate", help="Translate document while strictly protecting quoted terms")
+    p_dt.add_argument("file", help="Path to .docx file")
+    p_dt.add_argument("-o", "--output", default=None, help="Output .docx path (default: in-place safe save)")
+    p_dt.add_argument("--sl", default="vi", help="Source language (default: vi)")
+    p_dt.add_argument("--tl", default="en", help="Target language (default: en)")
+    p_dt.set_defaults(func=cmd_docx_translate)
 
     # --- docx-diff ---
     p_dd = sub.add_parser("docx-diff", help="Compare two JSON snapshots → diff report")

@@ -33,6 +33,7 @@ Khi bắt đầu làm bất kỳ tác vụ nào thuộc domain dưới đây, **
 | TR Tree, CTS hierarchy, SE09, TADIR object resolution | `rule_sap_cts_tr_hierarchy.md` |
 | Search screen, empty query validation | `rule_search_validation.md` |
 | Technical diagram, ERD, DB schema | `rule_technical_diagram_standards.md` + `rule_database_erd_standards.md` |
+| Draw.io, mxGraphModel, .drawio, XML diagram, diagram rendering | `rule_mxgraph_drawio_diagram_standards.md` |
 | Document converter, PDF export | `rule_decoupled_document_converter.md` |
 | Excel Template, openpyxl, Spreadsheet Data Injection, Matrix UX | `rule_excel_template_preservation_and_ux.md` |
 | Docx/Excel QA, unified_qa_diagnostic, OpenXML, DrawingML, Table borders | `rule_enterprise_document_and_spreadsheet_qa.md` |
@@ -150,6 +151,33 @@ Khi bắt đầu làm bất kỳ tác vụ nào thuộc domain dưới đây, **
 | `ERR_DIAG_002` | **Zero-Template 60-30-10** | Vẽ không có mẫu: 60% nền trung tính, 30% thẻ slate/trắng, 10% màu nhấn. Khoảng cách $\ge$ 40px. |
 | `ERR_CONV_004` | **Zombie Lock Files Cleanup** | Tự động quét và thu gom sạch file rác `.~lock.*` và `~$*` trước/sau khi chạy. |
 | `CLI Exit` | **CI/CD Exit Codes** | `0` = Clean 100%; `1` = Warning (Aesthetic); `2` = Critical (Corrupt XML / Break). |
+
+---
+
+## Draw.io & mxGraphModel Critical Invariants (MX_INV_01–20)
+
+| Mã Lỗi | Tên Bất Biến | Nguyên Tắc Bắt Buộc |
+|---|---|---|
+| `MX_INV_01` | **Pure Native Hierarchy** | Cấm `<UserObject mermaidData/plantUmlData>`. Mọi table và edge phải là `<mxCell>` trực tiếp dưới `parent="1"`. |
+| `MX_INV_02` | **Minimalist & Well-Formed XML** | Xóa metadata rác (`mermaidBaseStyle`, `mermaidId`, `alternateBounds`). File < 300KB, đủ 100% thẻ đóng. |
+| `MX_INV_03` | **Container-Level Docking** | Edge chỉ nối từ `table_X` sang `table_Y`, nghiêm cấm nối vào cell con (`tableRow`/`partialRectangle`). |
+| `MX_INV_04` | **Orthogonal Perimeter Routing** | `edgeStyle=orthogonalEdgeStyle;` + cổng viền chuẩn (`exitX, exitY, entryX, entryY` là `0.0`, `0.5`, `1.0`). |
+| `MX_INV_05` | **Dynamic Geometry Scaling** | Chiều cao $H = 43 \times (N_{\text{fields}} + 1)$, hành lang giao thông an toàn giữa các bảng $\ge 60$px. |
+| `MX_INV_06` | **Dual Delivery / Target Packaging** | Xuất theo định dạng người dùng yêu cầu (.drawio hoặc .xml độc lập, tránh tạo file rác trùng lặp). |
+| `MX_INV_07` | **Monochrome Academic Line-Art** | Mọi sơ đồ học thuật & kỹ thuật ưu tiên Monochrome: `#ffffff` fill, `#000000` text/viền/mũi tên, nét đứt `#888888` cho optional. |
+| `MX_INV_08` | **Collision-Free Labels & Masks** | Text nhãn trên line bắt buộc có `labelBackgroundColor=#ffffff;` chống đè chữ; hành lang chạy line $\ge 40$px. |
+| `MX_INV_09` | **Multi-Page Single-File Capability** | Hỗ trợ đóng gói đa sơ đồ trong 1 file `.drawio` duy nhất với nhiều tab `<diagram name="...">`. |
+| `MX_INV_10` | **Schematic Direct Taps & No Text Clutter** | Dây nguồn màu (+12V Red, +5V Orange, +3V3 Blue, GND Black) đi thẳng từ rail vào IC/MCU. Không gắn ô text thừa trên dây nguồn; logic MCU-IC đi ngang thẳng hàng, pull-up bên phải. |
+| `MX_INV_11` | **Fractional Perimeter Port Anchoring** | Nối Hub sang vệ tinh dùng toạ độ vi phân chu vi (`exitY = 0.05..1.0`) khớp $y_{\text{center}}$ đích để tạo đường ngang phẳng 100% (Zero-Zigzag). |
+| `MX_INV_12` | **Discrete Highway Corridors & HTML Wrap** | Bus song song đi qua các trục toạ độ rời rạc cách $\ge 30$–$50$px. Nhãn dài bọc `<div>...</div>` vuông vắn chống tràn. |
+| `MX_INV_13` | **Schematic Horizontal Strip & Multi-Rail Direct Taps** | Schematic: Module chính xếp dải ngang 1 hàng (L-to-R), Rails nguồn trên đỉnh, GND dưới đáy cắm thẳng đứng. GPIO đi qua bus tầng dưới. |
+| `MX_INV_14` | **DFD 5-Column Orthogonal Flow & Label Offsets** | DFD tuân thủ 5 cột ($C_1$ External $\rightarrow$ $C_2$ Ingestion $\rightarrow$ $C_3$ Processing/Store $\rightarrow$ $C_4$ Comm $\rightarrow$ $C_5$ Cloud). Nhãn dùng `connectable="0"` + `offset` mask trắng. |
+| `MX_INV_15` | **Dynamic Edge Label Width** | Cấm `\n`/`<br>` trong label; bắt buộc `labelWidth=<W>;html=1;whiteSpace=wrap;labelBackgroundColor=#FFFFFF;` để Draw.io auto-wrap. |
+| `MX_INV_16` | **4-Tier Stroke Depth Hierarchy** | Tier 1 (Khung lớn/Rail: 2.5–3.0px) > Tier 2 (MCU/IC: 1.8–2.0px, `#F8F9FA`) > Tier 3 (Ngoại vi: 1.2px) > Tier 4 (Line dây: 1.0px). |
+| `MX_INV_17` | **Dedicated Rail Header Legend & Clean Bus Tapping** | Sơ đồ Schematic nhiều rail: text tên rail tách thành cột Header riêng ($x < x_{\text{first\_ic}}$). Thân rail ($x \ge 290$) để `value=""` chống dây nguồn cắt đè lên chữ. |
+| `MX_INV_18` | **MCU Egress Waterfall & Zero Component Piercing** | Tuyến bus GPIO từ MCU trung tâm không đâm xuyên hộp linh kiện phụ; xuất phát từ mép phải (`exitX=1.0`), đi vào hành lang dọc riêng ($\ge 80\text{px}$) rồi đổ waterfall xuống tầng bus $y \ge 475$. |
+| `MX_INV_19` | **Complete 4-Sided Data Store Enclosure** | Đối tượng Kho Dữ Liệu (D1, D2) trong DFD bắt buộc có đủ 4 cạnh viền (`top=1;bottom=1;left=1;right=1;` hoặc `shape=rectangle;`) chống mất viền trái/phải trên Draw.io. |
+| `MX_INV_20` | **Dynamic Proportional Label Width & Snug Mask Bounding** | CẤM gán cứng `labelWidth` lớn cho nhãn ngắn. `labelWidth` phải tính động theo độ dài text để lớp mask trắng `labelBackgroundColor` ôm khít chữ, không che lấp dây lân cận. |
 
 ---
 

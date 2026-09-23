@@ -34,6 +34,10 @@
 * **`ERR_DOCX_005` (Inline Shapes Aspect Ratio & Margin Overflow)**: Khóa tỉ lệ ảnh và giới hạn chiều rộng hình ảnh không vượt quá vùng in khả dụng:
   $$\text{Max Image Width} = \text{page\_width} - \text{left\_margin} - \text{right\_margin}$$
 * **`ERR_DOCX_006` (Template Style Inheritance)**: Ưu tiên kế thừa Table Style có sẵn trong `styles.xml` của template (`table.style = '...'`) thay vì inject XML thô tràn lan.
+* **`ERR_DOCX_007` (Dynamic Page Numbering Field Injection)**: Sử dụng trường OpenXML động `<w:fldSimple w:instr="PAGE"/>` trên toàn bộ footer thay vì hardcode số trang tĩnh.
+* **`ERR_DOCX_008` (Standard Figure Captions & En-Dash Hierarchy)**: Caption hình ảnh/sơ đồ bắt buộc dùng format `Figure X.Y – <Tên>` (Times New Roman 10.5pt, căn giữa, En-dash `–`, space before 4pt / after 12pt).
+* **`ERR_DOCX_009` (Quoted Entity Translation Protection)**: Khi dịch thuật văn bản kỹ thuật, bắt buộc bọc các thuật ngữ/nút bấm UI trong `"..."` bằng token placeholder `__QUOTED_N__` để bảo toàn 100% tiếng gốc.
+* **`ERR_DOCX_010` (Windows File Lock Resilience & Staged Fallback)**: Khi lưu file DOCX bị khóa bởi Microsoft Word (`PermissionError: [Errno 13]`), tự động lưu bản hoàn chỉnh ra `[name]_updated.docx` để chống crash hoặc mất dữ liệu.
 
 ### C. Domain DIAGRAMS & CHARTS — Chế độ Kép (Template vs Zero-Template)
 * **`ERR_DIAG_001` (Template-Driven Token Drift)**: Khi có template, trích xuất 100% token kiểu dáng (kích thước, màu sắc, font chữ, viền) làm căn cứ duy nhất.

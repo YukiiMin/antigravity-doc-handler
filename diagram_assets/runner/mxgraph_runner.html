@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>mxGraph Offline Canvas HD Runner</title>
+  <script>
+    window.mxBasePath = '.';
+    window.mxLoadResources = false;
+    window.mxLoadStylesheets = false;
+  </script>
+  <script src="mxClient.min.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 20px;
+      background: #ffffff;
+      overflow: visible;
+    }
+    #graphContainer {
+      background: #ffffff;
+      overflow: visible;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div id="graphContainer"></div>
+  <script id="diagram-script">
+    window.renderDiagramXml = function(xmlString, customWidth, customHeight) {
+      try {
+        var container = document.getElementById('graphContainer');
+        container.innerHTML = '';
+        
+        var w = customWidth || 4000;
+        var h = customHeight || 2500;
+        container.style.width = w + 'px';
+        container.style.height = h + 'px';
+        document.body.style.width = w + 'px';
+        document.body.style.height = h + 'px';
+
+        var graph = new mxGraph(container);
+        graph.setEnabled(false);
+        graph.setPanning(false);
+        graph.setTooltips(false);
+        graph.setHtmlLabels(true);
+
+        var xmlDoc = mxUtils.parseXml(xmlString);
+        var decoder = new mxCodec(xmlDoc);
+        decoder.decode(xmlDoc.documentElement, graph.getModel());
+
+        window._mxRenderDone = true;
+        document.title = 'RENDER_COMPLETE';
+      } catch (err) {
+        window._mxRenderDone = false;
+        window._mxRenderError = err.message || String(err);
+        document.title = 'RENDER_ERROR: ' + window._mxRenderError;
+      }
+    };
+  </script>
+</body>
+</html>

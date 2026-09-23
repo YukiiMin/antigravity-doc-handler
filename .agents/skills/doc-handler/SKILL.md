@@ -118,5 +118,9 @@ When drafting or updating any diagram `.json` specification, you MUST follow the
 | **Convert PDF $\to$ DOCX** | `python -m ai_tools_cli convert <input.pdf> -o <output.docx>` |
 | **Decouple DOCX $\to$ MD** | `python -m ai_tools_cli convert <doc.docx> -t md` |
 | **Compile MD $\to$ DOCX** | `python -m ai_tools_cli convert <doc.md> -t docx --style <doc.style.yaml>` |
+| **Dynamic Page Numbers** | `python ai_tools_cli.py docx-page-numbers <doc.docx> [-o <out.docx>]` |
+| **Standardize Captions** | `python ai_tools_cli.py docx-caption-fix <doc.docx> [-o <out.docx>]` |
+| **Sanitize Icons/Emojis** | `python ai_tools_cli.py docx-sanitize-icons <doc.docx> [-o <out.docx>]` |
+| **Protected Translation** | `python ai_tools_cli.py docx-translate <doc.docx> [--sl vi --tl en]` |
 | **Inspect Document Structure** | `python -m ai_tools_cli inspect-doc <document.docx>` |
 | **Insert Image into Section** | `python -m ai_tools_cli insert-diagram <doc.docx> <img.png> -s "<Heading>" -w 14.0` |
