@@ -167,8 +167,7 @@ LAYOUT_OFFSETS: dict[str, tuple[float, float, float]] = {
     "CART_ITEM": (2260, 130, 250),
     "INVOICE_HISTORY": (2540, 130, 250),
     "INVOICE_HISTORY_ITEM": (2810, 130, 240),
-    "MEAL_SUGGESTION": (2130, 480, 290),
-    "MEAL_ITEM": (2530, 480, 270),
+    "MEAL_SUGGESTION": (2300, 480, 290),
 
     # --- Cluster 8: Import Admin ---
     "IMPORT_HISTORY": (3200, 130, 310),
@@ -188,7 +187,6 @@ LAYOUT_OFFSETS: dict[str, tuple[float, float, float]] = {
     "ROBOT": (1030, 1800, 260),
     "ROBOT_LOG": (1330, 1800, 260),
     "SHELF_SCAN": (1620, 1800, 280),
-    "SEMANTIC_OBJECT": (1030, 2120, 280),
 
     # --- Cluster 6: Marketing & Ads ---
     "BRAND": (1980, 1250, 260),
@@ -203,12 +201,8 @@ LAYOUT_OFFSETS: dict[str, tuple[float, float, float]] = {
     # --- Cluster 7: Route Ads ---
     "ROBOT_ROUTE": (2940, 1250, 260),
     "ROUTE_NODE_MAPPING": (3230, 1250, 260),
-    "ROUTE_ASSIGNMENT": (3520, 1250, 260),
-    "AD_CAMPAIGN_ROUTE": (2940, 1650, 260),
-    "AD_ROUTE": (3230, 1650, 260),
-    "AD_ROUTE_CAMPAIGN": (3520, 1650, 260),
-    "AdRouteNodes": (2940, 2000, 260),
-    "ROBOT_AD_ROUTE_ASSIGNMENT": (3230, 2000, 280),
+    "ROUTE_ASSIGNMENT": (2940, 1650, 260),
+    "AD_CAMPAIGN_ROUTE": (3230, 1650, 260),
 }
 
 nodes = []
@@ -393,7 +387,7 @@ def main():
         "engine": "canvas",
         "diagram_type": "erd",
         "diagram_name": "master_erd_smart_mart",
-        "title": "Smart Mart 47-Table Master Architecture Physical ERD (Canvas Precision UHD)",
+        "title": "Smart Mart 40-Table Master Architecture Physical ERD (Canvas Precision UHD)",
         "width": CANVAS_W,
         "height": CANVAS_H,
         "scale": 2,

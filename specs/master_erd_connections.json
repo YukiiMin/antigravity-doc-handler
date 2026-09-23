@@ -298,39 +298,17 @@
       ]
     },
     {
-      "source": "MEAL_SUGGESTION",
-      "target": "MEAL_ITEM",
+      "source": "PRODUCT",
+      "target": "MEAL_SUGGESTION",
       "source_port": "right",
       "target_port": "left",
-      "source_offset": 0,
-      "target_offset": 0,
+      "source_offset": 0.0,
+      "target_offset": 0.0,
       "cardinality_source": "||",
       "cardinality_target": "o{",
       "label_pos": 0.5,
       "corner_radius": 10.0,
       "waypoints": []
-    },
-    {
-      "source": "PRODUCT",
-      "target": "MEAL_ITEM",
-      "source_port": "bottom",
-      "target_port": "bottom",
-      "source_offset": 40,
-      "target_offset": 0,
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
-      "corner_radius": 10.0,
-      "waypoints": [
-        [
-          1390,
-          880
-        ],
-        [
-          2665,
-          880
-        ]
-      ]
     },
     {
       "source": "FLOOR",
@@ -529,62 +507,6 @@
         [
           1760,
           1600
-        ]
-      ]
-    },
-    {
-      "source": "MAP",
-      "target": "SEMANTIC_OBJECT",
-      "source_port": "left",
-      "target_port": "left",
-      "source_offset": 50,
-      "target_offset": 0,
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
-      "corner_radius": 10.0,
-      "waypoints": [
-        [
-          980,
-          1515
-        ],
-        [
-          980,
-          2287
-        ]
-      ]
-    },
-    {
-      "source": "PRODUCT_TYPE",
-      "target": "SEMANTIC_OBJECT",
-      "source_port": "bottom",
-      "target_port": "left",
-      "source_offset": 0,
-      "target_offset": 40,
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
-      "corner_radius": 10.0,
-      "waypoints": [
-        [
-          1740,
-          300
-        ],
-        [
-          1940,
-          300
-        ],
-        [
-          1940,
-          960
-        ],
-        [
-          960,
-          960
-        ],
-        [
-          960,
-          2327
         ]
       ]
     },
@@ -1064,192 +986,6 @@
       "label_pos": 0.5,
       "corner_radius": 10.0,
       "waypoints": []
-    },
-    {
-      "source": "AD_ROUTE",
-      "target": "AD_ROUTE_CAMPAIGN",
-      "source_port": "right",
-      "target_port": "left",
-      "source_offset": 0,
-      "target_offset": 0,
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
-      "corner_radius": 10.0,
-      "waypoints": []
-    },
-    {
-      "source": "AD_CAMPAIGN",
-      "target": "AD_ROUTE_CAMPAIGN",
-      "source_port": "bottom",
-      "target_port": "top",
-      "source_offset": 80,
-      "target_offset": 0,
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
-      "corner_radius": 10.0,
-      "waypoints": [
-        [
-          2790,
-          1620
-        ],
-        [
-          3650,
-          1620
-        ]
-      ]
-    },
-    {
-      "source": "AD_ROUTE",
-      "target": "AdRouteNodes",
-      "source_port": "bottom",
-      "target_port": "top",
-      "source_offset": -40,
-      "target_offset": 0,
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
-      "corner_radius": 10.0,
-      "waypoints": [
-        [
-          3320,
-          1920
-        ],
-        [
-          3070,
-          1920
-        ]
-      ]
-    },
-    {
-      "source": "NAVIGATION_NODE",
-      "target": "AdRouteNodes",
-      "source_port": "top",
-      "target_port": "bottom",
-      "source_offset": 40,
-      "target_offset": -40,
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
-      "corner_radius": 10.0,
-      "waypoints": [
-        [
-          1505,
-          1060
-        ],
-        [
-          1930,
-          1060
-        ],
-        [
-          1930,
-          2500
-        ],
-        [
-          3030,
-          2500
-        ]
-      ]
-    },
-    {
-      "source": "ZONE",
-      "target": "AdRouteNodes",
-      "source_port": "bottom",
-      "target_port": "bottom",
-      "source_offset": 20,
-      "target_offset": 0,
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
-      "corner_radius": 10.0,
-      "waypoints": [
-        [
-          500,
-          1460
-        ],
-        [
-          930,
-          1460
-        ],
-        [
-          930,
-          2520
-        ],
-        [
-          3070,
-          2520
-        ]
-      ]
-    },
-    {
-      "source": "SHELF",
-      "target": "AdRouteNodes",
-      "source_port": "bottom",
-      "target_port": "bottom",
-      "source_offset": 20,
-      "target_offset": 40,
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
-      "corner_radius": 10.0,
-      "waypoints": [
-        [
-          790,
-          1820
-        ],
-        [
-          920,
-          1820
-        ],
-        [
-          920,
-          2540
-        ],
-        [
-          3110,
-          2540
-        ]
-      ]
-    },
-    {
-      "source": "AD_ROUTE",
-      "target": "ROBOT_AD_ROUTE_ASSIGNMENT",
-      "source_port": "bottom",
-      "target_port": "top",
-      "source_offset": 0,
-      "target_offset": 0,
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
-      "corner_radius": 10.0,
-      "waypoints": []
-    },
-    {
-      "source": "ROBOT",
-      "target": "ROBOT_AD_ROUTE_ASSIGNMENT",
-      "source_port": "left",
-      "target_port": "bottom",
-      "source_offset": 40,
-      "target_offset": 0,
-      "cardinality_source": "||",
-      "cardinality_target": "o{",
-      "label_pos": 0.5,
-      "corner_radius": 10.0,
-      "waypoints": [
-        [
-          950,
-          1959
-        ],
-        [
-          950,
-          2600
-        ],
-        [
-          3370,
-          2600
-        ]
-      ]
     },
     {
       "source": "AD_CAMPAIGN",

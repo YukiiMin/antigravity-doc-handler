@@ -1,0 +1,1379 @@
+[
+  {
+    "p_idx": 1,
+    "h1": "",
+    "h2": "",
+    "h3": "",
+    "rId": "rId7",
+    "target": "media/image130.png",
+    "text": ""
+  },
+  {
+    "p_idx": 53,
+    "h1": "II. Software Requirement Specification",
+    "h2": "1. Product Overview",
+    "h3": "",
+    "rId": "rId8",
+    "target": "media/image132.png",
+    "text": ""
+  },
+  {
+    "p_idx": 62,
+    "h1": "II. Software Requirement Specification",
+    "h2": "2. User Requirements",
+    "h3": "2.2.1 Diagram(s)",
+    "rId": "rId9",
+    "target": "media/image128.png",
+    "text": ""
+  },
+  {
+    "p_idx": 69,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.1.1 Android Robot Screen Flow",
+    "rId": "rId10",
+    "target": "media/image73.png",
+    "text": ""
+  },
+  {
+    "p_idx": 71,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.1.2 Android User Screen Flow",
+    "rId": "rId11",
+    "target": "media/image92.png",
+    "text": "3.1.3 Android Staff Screen Flow"
+  },
+  {
+    "p_idx": 71,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.1.2 Android User Screen Flow",
+    "rId": "rId12",
+    "target": "media/image20.png",
+    "text": "3.1.3 Android Staff Screen Flow"
+  },
+  {
+    "p_idx": 97,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.1 System Startup & Idle Kiosk Mode",
+    "rId": "rId13",
+    "target": "media/image148.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 97,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.1 System Startup & Idle Kiosk Mode",
+    "rId": "rId14",
+    "target": "media/image25.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 124,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.2 User Onboarding & Face ID Authentication",
+    "rId": "rId15",
+    "target": "media/image60.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 124,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.2 User Onboarding & Face ID Authentication",
+    "rId": "rId16",
+    "target": "media/image58.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 124,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.2 User Onboarding & Face ID Authentication",
+    "rId": "rId17",
+    "target": "media/image29.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 124,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.2 User Onboarding & Face ID Authentication",
+    "rId": "rId18",
+    "target": "media/image31.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 150,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.3 Guest Shopping Experience & Daily Promotions",
+    "rId": "rId19",
+    "target": "media/image70.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 150,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.3 Guest Shopping Experience & Daily Promotions",
+    "rId": "rId20",
+    "target": "media/image78.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 150,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.3 Guest Shopping Experience & Daily Promotions",
+    "rId": "rId21",
+    "target": "media/image1.png",
+    "text": ""
+  },
+  {
+    "p_idx": 173,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.4 Member Personalization & Special Offers",
+    "rId": "rId22",
+    "target": "media/image37.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 173,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.4 Member Personalization & Special Offers",
+    "rId": "rId23",
+    "target": "media/image33.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 174,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.4 Member Personalization & Special Offers",
+    "rId": "rId24",
+    "target": "media/image54.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 174,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.4 Member Personalization & Special Offers",
+    "rId": "rId21",
+    "target": "media/image1.png",
+    "text": ""
+  },
+  {
+    "p_idx": 199,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.5 Smart Search & AI Voice Assistant",
+    "rId": "rId25",
+    "target": "media/image18.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 199,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.5 Smart Search & AI Voice Assistant",
+    "rId": "rId26",
+    "target": "media/image7.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 200,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.5 Smart Search & AI Voice Assistant",
+    "rId": "rId27",
+    "target": "media/image117.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 226,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.6 Product Detail & Instant Cart Operations",
+    "rId": "rId28",
+    "target": "media/image46.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 250,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.7 Smart Cart & Autonomous Robot Navigation Guide",
+    "rId": "rId29",
+    "target": "media/image97.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 250,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.7 Smart Cart & Autonomous Robot Navigation Guide",
+    "rId": "rId30",
+    "target": "media/image35.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 250,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.7 Smart Cart & Autonomous Robot Navigation Guide",
+    "rId": "rId31",
+    "target": "media/image63.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 250,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.7 Smart Cart & Autonomous Robot Navigation Guide",
+    "rId": "rId32",
+    "target": "media/image65.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 250,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.7 Smart Cart & Autonomous Robot Navigation Guide",
+    "rId": "rId33",
+    "target": "media/image61.png",
+    "text": ""
+  },
+  {
+    "p_idx": 250,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.7 Smart Cart & Autonomous Robot Navigation Guide",
+    "rId": "rId34",
+    "target": "media/image6.png",
+    "text": ""
+  },
+  {
+    "p_idx": 279,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.8 Contextual Overlays & Autonomous Advertising",
+    "rId": "rId35",
+    "target": "media/image36.png",
+    "text": ""
+  },
+  {
+    "p_idx": 279,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.8 Contextual Overlays & Autonomous Advertising",
+    "rId": "rId36",
+    "target": "media/image42.png",
+    "text": ""
+  },
+  {
+    "p_idx": 309,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.1 Login & Face ID",
+    "rId": "rId37",
+    "target": "media/image85.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 309,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.1 Login & Face ID",
+    "rId": "rId38",
+    "target": "media/image40.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 309,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.1 Login & Face ID",
+    "rId": "rId39",
+    "target": "media/image129.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 309,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.1 Login & Face ID",
+    "rId": "rId40",
+    "target": "media/image67.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 388,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.2 Register & Register Face ID",
+    "rId": "rId41",
+    "target": "media/image88.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 388,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.2 Register & Register Face ID",
+    "rId": "rId42",
+    "target": "media/image133.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 388,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.2 Register & Register Face ID",
+    "rId": "rId43",
+    "target": "media/image109.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 388,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.2 Register & Register Face ID",
+    "rId": "rId44",
+    "target": "media/image90.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 481,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.3 Homepage / Main Dashboard",
+    "rId": "rId45",
+    "target": "media/image84.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 481,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.3 Homepage / Main Dashboard",
+    "rId": "rId46",
+    "target": "media/image49.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 481,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.3 Homepage / Main Dashboard",
+    "rId": "rId47",
+    "target": "media/image59.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 481,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.3 Homepage / Main Dashboard",
+    "rId": "rId48",
+    "target": "media/image47.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 481,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.3 Homepage / Main Dashboard",
+    "rId": "rId49",
+    "target": "media/image136.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 481,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.3 Homepage / Main Dashboard",
+    "rId": "rId50",
+    "target": "media/image141.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 481,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.3 Homepage / Main Dashboard",
+    "rId": "rId51",
+    "target": "media/image57.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 583,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.4 Smart Utilities / AI Meal Recipes",
+    "rId": "rId52",
+    "target": "media/image87.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 583,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.4 Smart Utilities / AI Meal Recipes",
+    "rId": "rId53",
+    "target": "media/image151.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 676,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.5 Promotions Widget",
+    "rId": "rId54",
+    "target": "media/image12.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 676,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.5 Promotions Widget",
+    "rId": "rId55",
+    "target": "media/image119.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 753,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.6 Personalized Recommendations Grid",
+    "rId": "rId56",
+    "target": "media/image139.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 753,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.6 Personalized Recommendations Grid",
+    "rId": "rId57",
+    "target": "media/image112.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 863,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.7 Profile & Settings Overview",
+    "rId": "rId58",
+    "target": "media/image24.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 863,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.7 Profile & Settings Overview",
+    "rId": "rId59",
+    "target": "media/image150.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 943,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.8 Personal Information Screen",
+    "rId": "rId60",
+    "target": "media/image116.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 943,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.8 Personal Information Screen",
+    "rId": "rId61",
+    "target": "media/image149.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 943,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.8 Personal Information Screen",
+    "rId": "rId62",
+    "target": "media/image10.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 943,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.8 Personal Information Screen",
+    "rId": "rId63",
+    "target": "media/image101.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 943,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.8 Personal Information Screen",
+    "rId": "rId64",
+    "target": "media/image75.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1061,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.9 Personalization Settings & Shopping Preferences",
+    "rId": "rId65",
+    "target": "media/image142.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1061,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.9 Personalization Settings & Shopping Preferences",
+    "rId": "rId66",
+    "target": "media/image153.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1061,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.9 Personalization Settings & Shopping Preferences",
+    "rId": "rId67",
+    "target": "media/image100.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1136,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.10 Membership Tier & Loyalty Benefits",
+    "rId": "rId68",
+    "target": "media/image26.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1136,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.10 Membership Tier & Loyalty Benefits",
+    "rId": "rId69",
+    "target": "media/image34.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1213,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.11 Order History",
+    "rId": "rId70",
+    "target": "media/image13.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1213,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.11 Order History",
+    "rId": "rId71",
+    "target": "media/image147.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1313,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.12 Personalized Search Text",
+    "rId": "rId72",
+    "target": "media/image103.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1313,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.12 Personalized Search Text",
+    "rId": "rId73",
+    "target": "media/image146.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1313,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.12 Personalized Search Text",
+    "rId": "rId74",
+    "target": "media/image69.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1313,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.12 Personalized Search Text",
+    "rId": "rId75",
+    "target": "media/image15.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1313,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.12 Personalized Search Text",
+    "rId": "rId76",
+    "target": "media/image122.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1313,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.12 Personalized Search Text",
+    "rId": "rId77",
+    "target": "media/image62.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1313,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.12 Personalized Search Text",
+    "rId": "rId78",
+    "target": "media/image55.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1411,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.13 Personalized Search By Voice",
+    "rId": "rId79",
+    "target": "media/image44.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1411,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.13 Personalized Search By Voice",
+    "rId": "rId80",
+    "target": "media/image134.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1411,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.13 Personalized Search By Voice",
+    "rId": "rId81",
+    "target": "media/image140.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1411,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.13 Personalized Search By Voice",
+    "rId": "rId82",
+    "target": "media/image50.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1411,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.13 Personalized Search By Voice",
+    "rId": "rId83",
+    "target": "media/image83.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1506,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.14 Cart",
+    "rId": "rId84",
+    "target": "media/image89.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1506,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.14 Cart",
+    "rId": "rId85",
+    "target": "media/image120.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1506,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.14 Cart",
+    "rId": "rId86",
+    "target": "media/image82.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1506,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.14 Cart",
+    "rId": "rId87",
+    "target": "media/image56.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1618,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.15 In-Store Route Navigation from Checkout Counter",
+    "rId": "rId88",
+    "target": "media/image79.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1618,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.15 In-Store Route Navigation from Checkout Counter",
+    "rId": "rId89",
+    "target": "media/image127.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1618,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.15 In-Store Route Navigation from Checkout Counter",
+    "rId": "rId90",
+    "target": "media/image52.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1618,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.15 In-Store Route Navigation from Checkout Counter",
+    "rId": "rId91",
+    "target": "media/image121.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1618,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.15 In-Store Route Navigation from Checkout Counter",
+    "rId": "rId92",
+    "target": "media/image137.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1618,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.15 In-Store Route Navigation from Checkout Counter",
+    "rId": "rId93",
+    "target": "media/image66.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "rId": "rId94",
+    "target": "media/image144.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "rId": "rId95",
+    "target": "media/image86.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "rId": "rId96",
+    "target": "media/image32.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "rId": "rId97",
+    "target": "media/image115.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "rId": "rId98",
+    "target": "media/image98.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "rId": "rId99",
+    "target": "media/image143.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "rId": "rId100",
+    "target": "media/image27.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "rId": "rId101",
+    "target": "media/image19.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "rId": "rId102",
+    "target": "media/image81.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "rId": "rId103",
+    "target": "media/image104.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 1836,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.1 Login Admin",
+    "rId": "rId104",
+    "target": "media/image118.png",
+    "text": ""
+  },
+  {
+    "p_idx": 1907,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.2 Advertisement Campaign Management (Admin Web Dashboard)",
+    "rId": "rId105",
+    "target": "media/image111.png",
+    "text": ""
+  },
+  {
+    "p_idx": 1907,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.2 Advertisement Campaign Management (Admin Web Dashboard)",
+    "rId": "rId106",
+    "target": "media/image131.png",
+    "text": ""
+  },
+  {
+    "p_idx": 1907,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.2 Advertisement Campaign Management (Admin Web Dashboard)",
+    "rId": "rId107",
+    "target": "media/image22.png",
+    "text": ""
+  },
+  {
+    "p_idx": 1952,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.3 Create Advertisement Campaign",
+    "rId": "rId108",
+    "target": "media/image16.png",
+    "text": "3.4.3 Create Advertisement Campaign"
+  },
+  {
+    "p_idx": 2008,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.4 Ad Campaign Detail",
+    "rId": "rId109",
+    "target": "media/image45.png",
+    "text": ""
+  },
+  {
+    "p_idx": 2034,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.5 Ad Package Management",
+    "rId": "rId110",
+    "target": "media/image5.png",
+    "text": ""
+  },
+  {
+    "p_idx": 2092,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.6 Create/Edit Ad Package",
+    "rId": "rId111",
+    "target": "media/image102.png",
+    "text": ""
+  },
+  {
+    "p_idx": 2147,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.7 Ad Package Details",
+    "rId": "rId112",
+    "target": "media/image38.png",
+    "text": ""
+  },
+  {
+    "p_idx": 2210,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.8 Brand Management Dasboard",
+    "rId": "rId113",
+    "target": "media/image110.png",
+    "text": ""
+  },
+  {
+    "p_idx": 2268,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.9 Create Brand",
+    "rId": "rId114",
+    "target": "media/image124.png",
+    "text": ""
+  },
+  {
+    "p_idx": 2317,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.10 Update Brand",
+    "rId": "rId115",
+    "target": "media/image17.png",
+    "text": ""
+  },
+  {
+    "p_idx": 2371,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.11 Product Management",
+    "rId": "rId116",
+    "target": "media/image76.png",
+    "text": ""
+  },
+  {
+    "p_idx": 2454,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.12 Add New Product",
+    "rId": "rId117",
+    "target": "media/image64.png",
+    "text": ""
+  },
+  {
+    "p_idx": 2500,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.13 Product Detail",
+    "rId": "rId118",
+    "target": "media/image108.png",
+    "text": "3.4.13 Product Detail"
+  },
+  {
+    "p_idx": 2550,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.14 Edit Product",
+    "rId": "rId119",
+    "target": "media/image53.png",
+    "text": ""
+  },
+  {
+    "p_idx": 2609,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.15 Product Category Management",
+    "rId": "rId120",
+    "target": "media/image3.png",
+    "text": ""
+  },
+  {
+    "p_idx": 2663,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.16 Add Product Category",
+    "rId": "rId121",
+    "target": "media/image71.png",
+    "text": ""
+  },
+  {
+    "p_idx": 2709,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.17 Edit Product Category",
+    "rId": "rId122",
+    "target": "media/image14.png",
+    "text": ""
+  },
+  {
+    "p_idx": 2752,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.18 Health Tag Management",
+    "rId": "rId123",
+    "target": "media/image113.png",
+    "text": "3.4.18 Health Tag Management"
+  },
+  {
+    "p_idx": 2811,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.19 Add Health Tag",
+    "rId": "rId124",
+    "target": "media/image41.png",
+    "text": "3.4.19 Add Health Tag"
+  },
+  {
+    "p_idx": 2859,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.20 Edit Health Tag Modal",
+    "rId": "rId125",
+    "target": "media/image30.png",
+    "text": "3.4.20 Edit Health Tag Modal"
+  },
+  {
+    "p_idx": 2909,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.21 Supermarket Shelf & Slot Management",
+    "rId": "rId126",
+    "target": "media/image93.png",
+    "text": ""
+  },
+  {
+    "p_idx": 2967,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.22 User Account Management",
+    "rId": "rId127",
+    "target": "media/image28.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3027,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.23 Create Account",
+    "rId": "rId128",
+    "target": "media/image51.png",
+    "text": "3.4.23 Create Account"
+  },
+  {
+    "p_idx": 3078,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.24 Edit Account Modal",
+    "rId": "rId129",
+    "target": "media/image135.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3129,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.25 Robot Advertisement Management",
+    "rId": "rId130",
+    "target": "media/image94.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3130,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.25 Robot Advertisement Management",
+    "rId": "rId131",
+    "target": "media/image95.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3131,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.25 Robot Advertisement Management",
+    "rId": "rId132",
+    "target": "media/image39.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3132,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.25 Robot Advertisement Management",
+    "rId": "rId133",
+    "target": "media/image9.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3197,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.26 Robot Shelf Patrol Management",
+    "rId": "rId134",
+    "target": "media/image105.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3198,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.26 Robot Shelf Patrol Management",
+    "rId": "rId135",
+    "target": "media/image96.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3199,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.26 Robot Shelf Patrol Management",
+    "rId": "rId136",
+    "target": "media/image4.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3268,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.27 Robot Operation",
+    "rId": "rId137",
+    "target": "media/image123.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3269,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.27 Robot Operation",
+    "rId": "rId138",
+    "target": "media/image43.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3270,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.27 Robot Operation",
+    "rId": "rId139",
+    "target": "media/image72.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3331,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.28 Robot Map Management",
+    "rId": "rId140",
+    "target": "media/image138.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3332,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.28 Robot Map Management",
+    "rId": "rId141",
+    "target": "media/image74.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3436,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.29 Shelf Patrol History",
+    "rId": "rId142",
+    "target": "media/image114.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3522,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.30 Staff Shelf Patrol Management",
+    "rId": "rId143",
+    "target": "media/image48.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3523,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.30 Staff Shelf Patrol Management",
+    "rId": "rId144",
+    "target": "media/image152.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3619,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.31 Shelf Density Management",
+    "rId": "rId145",
+    "target": "media/image126.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3620,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.31 Shelf Density Management",
+    "rId": "rId146",
+    "target": "media/image99.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3621,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.31 Shelf Density Management",
+    "rId": "rId147",
+    "target": "media/image91.png",
+    "text": ""
+  },
+  {
+    "p_idx": 3707,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.1 Login",
+    "rId": "rId148",
+    "target": "media/image77.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 3778,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.2 Staff Homepage & Operational Dashboard",
+    "rId": "rId149",
+    "target": "media/image21.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 3778,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.2 Staff Homepage & Operational Dashboard",
+    "rId": "rId150",
+    "target": "media/image11.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 3778,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.2 Staff Homepage & Operational Dashboard",
+    "rId": "rId151",
+    "target": "media/image8.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 3888,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.3 In-Place Shelf Restock Confirmation",
+    "rId": "rId152",
+    "target": "media/image68.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 3888,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.3 In-Place Shelf Restock Confirmation",
+    "rId": "rId153",
+    "target": "media/image145.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 3888,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.3 In-Place Shelf Restock Confirmation",
+    "rId": "rId154",
+    "target": "media/image106.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 3960,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.4 Staff Interactive 2D Map & Realtime Robot Telemetry",
+    "rId": "rId155",
+    "target": "media/image107.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 4055,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.5 Staff Restock Notifications & Task Details",
+    "rId": "rId156",
+    "target": "media/image80.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 4055,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.5 Staff Restock Notifications & Task Details",
+    "rId": "rId157",
+    "target": "media/image23.jpg",
+    "text": ""
+  },
+  {
+    "p_idx": 4138,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.6 Staff Profile & Account Management",
+    "rId": "rId158",
+    "target": "media/image125.png",
+    "text": ""
+  }
+]

@@ -1,0 +1,58 @@
+@startuml
+skinparam linetype ortho
+skinparam monochrome true
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam defaultFontName Arial
+hide circle
+
+class StaffRealtimeContext
+class "Tasks Screen" as TasksScreen
+class "RestockLocation Screen" as RestockLocationScreen
+class RestockPingMap
+
+class StaffController
+class "SignalR ShelfPatrolNotifier" as SignalRShelfPatrolNotifier
+class StaffHub
+
+class DTOs
+class AppDbContext
+
+interface "«interface»\nIStaffService" as IStaffService
+class StaffService
+interface "«interface»\nIShelfPatrolRealtimeNotifier" as IShelfPatrolRealtimeNotifier
+interface "«interface»\nIAppDbContext" as IAppDbContext
+
+class ShelfScan
+class Slot
+class Product
+
+' Layout relationships
+StaffRealtimeContext -[hidden]down- TasksScreen
+TasksScreen -[hidden]right- RestockLocationScreen
+RestockLocationScreen -[hidden]right- RestockPingMap
+
+TasksScreen .up.> StaffRealtimeContext
+StaffRealtimeContext ..> StaffHub
+
+TasksScreen ..> StaffController
+RestockLocationScreen ..> StaffController
+RestockLocationScreen ..> RestockPingMap
+
+StaffController ..> IStaffService
+StaffController ..> DTOs
+
+StaffService .up.> DTOs
+StaffService .left.|> IStaffService
+StaffService ..> IShelfPatrolRealtimeNotifier
+StaffService ..> IAppDbContext
+
+SignalRShelfPatrolNotifier ..|> IShelfPatrolRealtimeNotifier
+SignalRShelfPatrolNotifier ..> StaffHub
+
+AppDbContext ..|> IAppDbContext
+AppDbContext ..> ShelfScan
+AppDbContext ..> Slot
+AppDbContext ..> Product
+
+@enduml

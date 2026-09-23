@@ -1,0 +1,6068 @@
+[
+  {
+    "idx": 1,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 24,
+    "style": "normal",
+    "text": "1. Product Overview\t4",
+    "has_image": false
+  },
+  {
+    "idx": 25,
+    "style": "normal",
+    "text": "2. User Requirements\t5",
+    "has_image": false
+  },
+  {
+    "idx": 26,
+    "style": "normal",
+    "text": "2.1 Actors\t5",
+    "has_image": false
+  },
+  {
+    "idx": 27,
+    "style": "normal",
+    "text": "2.2 Use Cases\t6",
+    "has_image": false
+  },
+  {
+    "idx": 28,
+    "style": "normal",
+    "text": "3. Functional Requirements\t8",
+    "has_image": false
+  },
+  {
+    "idx": 29,
+    "style": "normal",
+    "text": "3.1 System Functional Overview\t8",
+    "has_image": false
+  },
+  {
+    "idx": 30,
+    "style": "normal",
+    "text": "3.2 Authentication & Member Personalization\t10",
+    "has_image": false
+  },
+  {
+    "idx": 31,
+    "style": "normal",
+    "text": "3.3 Shopping Experience\t11",
+    "has_image": false
+  },
+  {
+    "idx": 32,
+    "style": "normal",
+    "text": "3.4 Smart Search & Guidance\t12",
+    "has_image": false
+  },
+  {
+    "idx": 33,
+    "style": "normal",
+    "text": "3.5 System Standby & Engagement\t13",
+    "has_image": false
+  },
+  {
+    "idx": 34,
+    "style": "normal",
+    "text": "3.6 Robot Fleet & Operations Management (Admin Web Dashboard)\t14",
+    "has_image": false
+  },
+  {
+    "idx": 35,
+    "style": "normal",
+    "text": "3.7 Marketing & Campaign Management (Admin Web Dashboard)\t14",
+    "has_image": false
+  },
+  {
+    "idx": 36,
+    "style": "normal",
+    "text": "3.8 Customer Mobile Experience (Customer Mobile App)\t15",
+    "has_image": false
+  },
+  {
+    "idx": 37,
+    "style": "normal",
+    "text": "4. Non-Functional Requirements\t16",
+    "has_image": false
+  },
+  {
+    "idx": 38,
+    "style": "normal",
+    "text": "4.1 External Interfaces\t16",
+    "has_image": false
+  },
+  {
+    "idx": 39,
+    "style": "normal",
+    "text": "4.2 Quality Attributes\t16",
+    "has_image": false
+  },
+  {
+    "idx": 40,
+    "style": "normal",
+    "text": "5. Requirement Appendix\t17",
+    "has_image": false
+  },
+  {
+    "idx": 41,
+    "style": "normal",
+    "text": "5.1 Business Rules\t17",
+    "has_image": false
+  },
+  {
+    "idx": 42,
+    "style": "normal",
+    "text": "5.2 Common Requirements\t17",
+    "has_image": false
+  },
+  {
+    "idx": 43,
+    "style": "normal",
+    "text": "5.3 Application Messages List\t18",
+    "has_image": false
+  },
+  {
+    "idx": 44,
+    "style": "normal",
+    "text": "5.4 Other Requirements\t18",
+    "has_image": false
+  },
+  {
+    "idx": 46,
+    "style": "Heading 1",
+    "text": "I. Record of Changes",
+    "has_image": false
+  },
+  {
+    "idx": 49,
+    "style": "Heading 1",
+    "text": "II. Software Requirement Specification",
+    "has_image": false
+  },
+  {
+    "idx": 50,
+    "style": "Heading 2",
+    "text": "1. Product Overview",
+    "has_image": false
+  },
+  {
+    "idx": 53,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 56,
+    "style": "Heading 2",
+    "text": "2. User Requirements",
+    "has_image": false
+  },
+  {
+    "idx": 57,
+    "style": "Heading 3",
+    "text": "2.1 Actors",
+    "has_image": false
+  },
+  {
+    "idx": 60,
+    "style": "Heading 3",
+    "text": "2.2 Use Cases",
+    "has_image": false
+  },
+  {
+    "idx": 61,
+    "style": "Heading 4",
+    "text": "2.2.1 Diagram(s)",
+    "has_image": false
+  },
+  {
+    "idx": 62,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 63,
+    "style": "Heading 4",
+    "text": "2.2.2 Descriptions",
+    "has_image": false
+  },
+  {
+    "idx": 66,
+    "style": "Heading 2",
+    "text": "3. Functional Requirements",
+    "has_image": false
+  },
+  {
+    "idx": 67,
+    "style": "Heading 3",
+    "text": "3.1 System Functional Overview",
+    "has_image": false
+  },
+  {
+    "idx": 68,
+    "style": "Heading 4",
+    "text": "3.1.1 Android Robot Screen Flow",
+    "has_image": false
+  },
+  {
+    "idx": 69,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 70,
+    "style": "Heading 4",
+    "text": "3.1.2 Android User Screen Flow",
+    "has_image": false
+  },
+  {
+    "idx": 71,
+    "style": "normal",
+    "text": "3.1.3 Android Staff Screen Flow",
+    "has_image": true
+  },
+  {
+    "idx": 72,
+    "style": "Heading 4",
+    "text": "3.2 Screen Descriptions",
+    "has_image": false
+  },
+  {
+    "idx": 84,
+    "style": "Heading 4",
+    "text": "3.3 Screen Authorization",
+    "has_image": false
+  },
+  {
+    "idx": 87,
+    "style": "Heading 4",
+    "text": "3.1.4 Non-Screen Functions",
+    "has_image": false
+  },
+  {
+    "idx": 90,
+    "style": "Heading 4",
+    "text": "3.1.5 Entity Relationship Diagram",
+    "has_image": false
+  },
+  {
+    "idx": 95,
+    "style": "Heading 3",
+    "text": "3.2 App for Robot",
+    "has_image": false
+  },
+  {
+    "idx": 96,
+    "style": "Heading 3",
+    "text": "3.2.1 System Startup & Idle Kiosk Mode",
+    "has_image": false
+  },
+  {
+    "idx": 97,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 99,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 102,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 105,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 110,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 113,
+    "style": "normal",
+    "text": "3. The customer views the real-time clock and central touch area.",
+    "has_image": false
+  },
+  {
+    "idx": 116,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 119,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 121,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 123,
+    "style": "Heading 3",
+    "text": "3.2.2 User Onboarding & Face ID Authentication",
+    "has_image": false
+  },
+  {
+    "idx": 124,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 125,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 127,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 129,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 134,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 135,
+    "style": "normal",
+    "text": "1. The customer selects the \"Khách hàng thành viên\" card and clicks \"QUÉT FACE ID ĐĂNG NHẬP\".",
+    "has_image": false
+  },
+  {
+    "idx": 141,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 145,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 147,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 149,
+    "style": "Heading 3",
+    "text": "3.2.3 Guest Shopping Experience & Daily Promotions",
+    "has_image": false
+  },
+  {
+    "idx": 150,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 151,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 153,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 155,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 160,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 161,
+    "style": "normal",
+    "text": "1. The guest enters Guest Home and views available shopping capabilities.",
+    "has_image": false
+  },
+  {
+    "idx": 166,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 168,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 170,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 172,
+    "style": "Heading 3",
+    "text": "3.2.4 Member Personalization & Special Offers",
+    "has_image": false
+  },
+  {
+    "idx": 173,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 174,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 176,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 178,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 180,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 185,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 186,
+    "style": "normal",
+    "text": "1. The member enters Member Home and checks their daily grocery spending budget progress.",
+    "has_image": false
+  },
+  {
+    "idx": 191,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 194,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 196,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 198,
+    "style": "Heading 3",
+    "text": "3.2.5 Smart Search & AI Voice Assistant",
+    "has_image": false
+  },
+  {
+    "idx": 199,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 200,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 202,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 204,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 206,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 211,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 212,
+    "style": "normal",
+    "text": "1. The customer clicks the microphone button from screen corner or home dashboard.",
+    "has_image": false
+  },
+  {
+    "idx": 214,
+    "style": "normal",
+    "text": "3. The customer speaks: \"Tìm cho tôi gạo hạt dài\" (Find me long-grain rice).",
+    "has_image": false
+  },
+  {
+    "idx": 215,
+    "style": "normal",
+    "text": "4. The system converts speech to text (STT) and displays the query in the search bar.",
+    "has_image": false
+  },
+  {
+    "idx": 218,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 221,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 223,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 225,
+    "style": "Heading 3",
+    "text": "3.2.6 Product Detail & Instant Cart Operations",
+    "has_image": false
+  },
+  {
+    "idx": 226,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 227,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 229,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 231,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 236,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 237,
+    "style": "normal",
+    "text": "1. The customer selects \"Quả bơ sáp Đắk Lắk\" from recommendation list.",
+    "has_image": false
+  },
+  {
+    "idx": 238,
+    "style": "normal",
+    "text": "2. The application opens Product Detail view, checking dietary alignment with customer profile.",
+    "has_image": false
+  },
+  {
+    "idx": 239,
+    "style": "normal",
+    "text": "3. The customer adjusts purchase quantity using \"+\" or \"-\" stepper buttons.",
+    "has_image": false
+  },
+  {
+    "idx": 242,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 245,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 247,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 249,
+    "style": "Heading 3",
+    "text": "3.2.7 Smart Cart & Autonomous Robot Navigation Guide",
+    "has_image": false
+  },
+  {
+    "idx": 250,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 252,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 254,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 256,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 261,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 262,
+    "style": "normal",
+    "text": "1. The customer verifies items in Cart and clicks \"Robot dẫn theo giỏ hàng\".",
+    "has_image": false
+  },
+  {
+    "idx": 266,
+    "style": "normal",
+    "text": "5. Robot travels forward (MOVING), updating progress Leg 1/1.",
+    "has_image": false
+  },
+  {
+    "idx": 270,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 274,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 276,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 278,
+    "style": "Heading 3",
+    "text": "3.2.8 Contextual Overlays & Autonomous Advertising",
+    "has_image": false
+  },
+  {
+    "idx": 279,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 280,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 281,
+    "style": "normal",
+    "text": "Trigger: Robot navigates into geographical radius of a specific merchandise zone (GeofencingContext receives zoneEntered event or navigationStatus). Or customer clicks route preview icon.",
+    "has_image": true
+  },
+  {
+    "idx": 282,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 284,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 289,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 290,
+    "style": "normal",
+    "text": "1. Robot patrols or guides customer into Shelf 3 zone (Fresh Produce aisle).",
+    "has_image": false
+  },
+  {
+    "idx": 291,
+    "style": "normal",
+    "text": "2. Geofencing event fires; system checks prioritized playlist allocated for this zone.",
+    "has_image": false
+  },
+  {
+    "idx": 293,
+    "style": "normal",
+    "text": "4. Countdown progress bar animates from 12 seconds to 0.",
+    "has_image": false
+  },
+  {
+    "idx": 294,
+    "style": "normal",
+    "text": "5. Customer can click \"Thêm vào giỏ ngay\" to instantly purchase, or click close button to dismiss.",
+    "has_image": false
+  },
+  {
+    "idx": 295,
+    "style": "normal",
+    "text": "6. Upon countdown completion, overlay smoothly slides down, restoring primary screen.",
+    "has_image": false
+  },
+  {
+    "idx": 296,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 299,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 301,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 306,
+    "style": "Heading 3",
+    "text": "3.3 Android Customer App",
+    "has_image": false
+  },
+  {
+    "idx": 307,
+    "style": "Heading 3",
+    "text": "3.3.1 Login & Face ID",
+    "has_image": false
+  },
+  {
+    "idx": 309,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 310,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 317,
+    "style": "Heading 4",
+    "text": "Timing/Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 320,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 344,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 352,
+    "style": "normal",
+    "text": "7. Ứng dụng tự động chuyển hướng người dùng vào Màn hình chính (Member Home Screen).",
+    "has_image": false
+  },
+  {
+    "idx": 360,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 371,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 373,
+    "style": "normal",
+    "text": "1. Access front-facing camera.",
+    "has_image": false
+  },
+  {
+    "idx": 374,
+    "style": "normal",
+    "text": "2. Crop face bounding box.",
+    "has_image": false
+  },
+  {
+    "idx": 375,
+    "style": "normal",
+    "text": "3. Extract 512-dimensional embedding vector (hoặc 1024-D feature vector).",
+    "has_image": false
+  },
+  {
+    "idx": 376,
+    "style": "normal",
+    "text": "4. Send extracted embedding data to Backend API along with the user profile information.",
+    "has_image": false
+  },
+  {
+    "idx": 378,
+    "style": "normal",
+    "text": "1. Scan face and extract face embedding in real-time via mobile camera.",
+    "has_image": false
+  },
+  {
+    "idx": 379,
+    "style": "normal",
+    "text": "2. Backend AI Service calculates Cosine Similarity score against stored reference vectors.",
+    "has_image": false
+  },
+  {
+    "idx": 381,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 385,
+    "style": "Heading 3",
+    "text": "3.3.2 Register & Register Face ID",
+    "has_image": false
+  },
+  {
+    "idx": 388,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 389,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 393,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 396,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 424,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 428,
+    "style": "normal",
+    "text": "4. User clicks \"Tiếp tục quét khuôn mặt\" (Continue to face scan) button.",
+    "has_image": false
+  },
+  {
+    "idx": 430,
+    "style": "normal",
+    "text": "6. System checks email uniqueness against Backend API database.",
+    "has_image": false
+  },
+  {
+    "idx": 433,
+    "style": "normal",
+    "text": "9. User positions face centered inside circular viewfinder.",
+    "has_image": false
+  },
+  {
+    "idx": 435,
+    "style": "normal",
+    "text": "11. User holds face steady inside frame for 3 seconds.",
+    "has_image": false
+  },
+  {
+    "idx": 440,
+    "style": "normal",
+    "text": "16. System renders primary action button \"Đăng nhập ngay\" (Log in now).",
+    "has_image": false
+  },
+  {
+    "idx": 441,
+    "style": "normal",
+    "text": "17. User clicks \"Đăng nhập ngay\" button.",
+    "has_image": false
+  },
+  {
+    "idx": 442,
+    "style": "normal",
+    "text": "18. System logs user into the application and navigates to Home Screen as an authenticated user.",
+    "has_image": false
+  },
+  {
+    "idx": 443,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 455,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 457,
+    "style": "normal",
+    "text": "1. User enters personal information and password credentials.",
+    "has_image": false
+  },
+  {
+    "idx": 460,
+    "style": "normal",
+    "text": "1. Access front-facing camera and render circular positioning overlay.",
+    "has_image": false
+  },
+  {
+    "idx": 462,
+    "style": "normal",
+    "text": "3. Trigger 3-second countdown to hold face position to ensure optimal image clarity.",
+    "has_image": false
+  },
+  {
+    "idx": 463,
+    "style": "normal",
+    "text": "4. Crop face bounding box and extract feature embedding vector (512-D or 1024-D embedding).",
+    "has_image": false
+  },
+  {
+    "idx": 464,
+    "style": "normal",
+    "text": "5. Package user profile data + facial feature embedding vector and send to Backend API.",
+    "has_image": false
+  },
+  {
+    "idx": 466,
+    "style": "normal",
+    "text": "7. Return success status and display \"● Đăng ký khuôn mặt thành công!\".",
+    "has_image": false
+  },
+  {
+    "idx": 467,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 479,
+    "style": "Heading 3",
+    "text": "3.3.3 Homepage / Main Dashboard",
+    "has_image": false
+  },
+  {
+    "idx": 481,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 498,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 502,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 536,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 551,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 560,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 563,
+    "style": "normal",
+    "text": "2. Query Backend Recommendation Engine to filter out all products matching user allergen IDs.",
+    "has_image": false
+  },
+  {
+    "idx": 564,
+    "style": "normal",
+    "text": "3. Score remaining products based on purchase history and dietary alignment.",
+    "has_image": false
+  },
+  {
+    "idx": 565,
+    "style": "normal",
+    "text": "4. Attach \"✨ AI Đề xuất\" badges to top-ranked personalized items.",
+    "has_image": false
+  },
+  {
+    "idx": 567,
+    "style": "normal",
+    "text": "1. Retrieve recipe ingredient list from backend database.",
+    "has_image": false
+  },
+  {
+    "idx": 568,
+    "style": "normal",
+    "text": "2. Calculate total estimated cost based on live supermarket shelf inventory prices.",
+    "has_image": false
+  },
+  {
+    "idx": 571,
+    "style": "normal",
+    "text": "1. Sum prices of all items currently in user's Cart.",
+    "has_image": false
+  },
+  {
+    "idx": 572,
+    "style": "normal",
+    "text": "2. Calculate remaining budget: Remaining = MaxBudget - CurrentSpending.",
+    "has_image": false
+  },
+  {
+    "idx": 573,
+    "style": "normal",
+    "text": "3. Render semi-circular gauge percentage: (CurrentSpending / MaxBudget) * 100%.",
+    "has_image": false
+  },
+  {
+    "idx": 574,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 579,
+    "style": "Heading 3",
+    "text": "3.3.4 Smart Utilities / AI Meal Recipes",
+    "has_image": false
+  },
+  {
+    "idx": 583,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 584,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 591,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 598,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 629,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 633,
+    "style": "normal",
+    "text": "3. User clicks \"🛒 Thêm vào giỏ\" button directly on the recipe card.",
+    "has_image": false
+  },
+  {
+    "idx": 634,
+    "style": "normal",
+    "text": "4. System packages all required recipe ingredient SKUs based on default serving size (2 portions).",
+    "has_image": false
+  },
+  {
+    "idx": 635,
+    "style": "normal",
+    "text": "5. System sends batch add-to-cart request to Backend Cart API.",
+    "has_image": false
+  },
+  {
+    "idx": 636,
+    "style": "normal",
+    "text": "6. Backend inserts ingredient SKUs into active user Cart session.",
+    "has_image": false
+  },
+  {
+    "idx": 639,
+    "style": "normal",
+    "text": "1. User clicks \"Xem trước\" button on any recipe card in the \"Tiện ích thông minh\" section.",
+    "has_image": false
+  },
+  {
+    "idx": 641,
+    "style": "normal",
+    "text": "3. System renders Serving Count Stepper ([-] 2 [+]) initialized to 2 portions.",
+    "has_image": false
+  },
+  {
+    "idx": 643,
+    "style": "normal",
+    "text": "5. User clicks [+] button on the serving stepper to adjust portion count from 2 to 4 servings.",
+    "has_image": false
+  },
+  {
+    "idx": 645,
+    "style": "normal",
+    "text": "7. User clicks \"🛒 Mua & Gom hàng\" button at the bottom of the modal.",
+    "has_image": false
+  },
+  {
+    "idx": 647,
+    "style": "normal",
+    "text": "9. User clicks \"Đóng\" button or top-right \"X\" icon to dismiss modal and return to Homepage.",
+    "has_image": false
+  },
+  {
+    "idx": 648,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 657,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 659,
+    "style": "normal",
+    "text": "1. Query Recipe API to fetch recipe details (Title, Calories, Serving Ratio, Match Percentage).",
+    "has_image": false
+  },
+  {
+    "idx": 662,
+    "style": "normal",
+    "text": "1. Base Recipe serves base portions with base ingredient quantities.",
+    "has_image": false
+  },
+  {
+    "idx": 664,
+    "style": "normal",
+    "text": "3. Total Estimated Cost = Sum of (SKU Unit Price x Calculated Package Quantity).",
+    "has_image": false
+  },
+  {
+    "idx": 666,
+    "style": "normal",
+    "text": "1. User clicks \"🛒 Thêm vào giỏ\" or \"🛒 Mua & Gom hàng\".",
+    "has_image": false
+  },
+  {
+    "idx": 667,
+    "style": "normal",
+    "text": "2. The system packages all required ingredient SKU IDs and calculated package quantities.",
+    "has_image": false
+  },
+  {
+    "idx": 668,
+    "style": "normal",
+    "text": "3. Send batch add-to-cart API request to Backend Cart Service.",
+    "has_image": false
+  },
+  {
+    "idx": 669,
+    "style": "normal",
+    "text": "4. Upon success response, trigger toast notification: \"🛒 Đã thêm 8 nguyên liệu vào giỏ hàng\".",
+    "has_image": false
+  },
+  {
+    "idx": 670,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 675,
+    "style": "Heading 3",
+    "text": "3.3.5 Promotions Widget",
+    "has_image": false
+  },
+  {
+    "idx": 676,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 679,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 685,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 688,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 715,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 717,
+    "style": "normal",
+    "text": "1. User navigates to Homepage and scrolls to the \"Khuyến mãi hệ thống & cá nhân\" section.",
+    "has_image": false
+  },
+  {
+    "idx": 719,
+    "style": "normal",
+    "text": "3. User clicks on a promotional product card (e.g., \"Dầu hào nấm hương Maggi chai 350g\").",
+    "has_image": false
+  },
+  {
+    "idx": 721,
+    "style": "normal",
+    "text": "5. User clicks \"+\" or \"-\" stepper buttons to select desired purchase quantity (e.g., 2 units).",
+    "has_image": false
+  },
+  {
+    "idx": 722,
+    "style": "normal",
+    "text": "6. User clicks \"Thêm vào giỏ\" button.",
+    "has_image": false
+  },
+  {
+    "idx": 724,
+    "style": "normal",
+    "text": "8. User clicks Back Arrow button (\"←\") to return to Homepage.",
+    "has_image": false
+  },
+  {
+    "idx": 725,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 732,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 735,
+    "style": "normal",
+    "text": "2. Compute final discounted price: FinalPrice = OriginalPrice * (1 - DiscountPercentage / 100).",
+    "has_image": false
+  },
+  {
+    "idx": 736,
+    "style": "normal",
+    "text": "3. Format strike-through original price and highlighted discounted price for UI display.",
+    "has_image": false
+  },
+  {
+    "idx": 738,
+    "style": "normal",
+    "text": "1. User taps product card -> Send Product ID to API /api/products/{id}.",
+    "has_image": false
+  },
+  {
+    "idx": 741,
+    "style": "normal",
+    "text": "1. User selects quantity N (default 1).",
+    "has_image": false
+  },
+  {
+    "idx": 742,
+    "style": "normal",
+    "text": "2. Click \"Thêm vào giỏ\" -> Send POST request to /api/cart/items with { productId, quantity: N }.",
+    "has_image": false
+  },
+  {
+    "idx": 744,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 750,
+    "style": "Heading 3",
+    "text": "3.3.6 Personalized Recommendations Grid",
+    "has_image": false
+  },
+  {
+    "idx": 753,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 754,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 769,
+    "style": "Heading 4",
+    "text": "Timing/Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 772,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 800,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 801,
+    "style": "normal",
+    "text": "1. User navigates to the Homepage Screen and scrolls to the \"Sản phẩm dành cho bạn\" section.",
+    "has_image": false
+  },
+  {
+    "idx": 805,
+    "style": "normal",
+    "text": "5. User adjusts desired quantity using stepper controls (\"-\" and \"+\") and taps \"Thêm vào giỏ\".",
+    "has_image": false
+  },
+  {
+    "idx": 806,
+    "style": "normal",
+    "text": "6. System updates active user Cart session and returns user to the previous grid view.",
+    "has_image": false
+  },
+  {
+    "idx": 807,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 815,
+    "style": "normal",
+    "text": "4. Rank top N items and append the \"⚡ AI Đề xuất\" badge.",
+    "has_image": false
+  },
+  {
+    "idx": 818,
+    "style": "normal",
+    "text": "2. Increment total cart badge count in Bottom Navigation Bar.",
+    "has_image": false
+  },
+  {
+    "idx": 819,
+    "style": "normal",
+    "text": "3. Display brief toast notification confirming item added.",
+    "has_image": false
+  },
+  {
+    "idx": 821,
+    "style": "normal",
+    "text": "1. Click product card -> Send request to API /api/products/{id}.",
+    "has_image": false
+  },
+  {
+    "idx": 824,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 829,
+    "style": "normal",
+    "text": "4. Rank top N items and append the \"⚡ AI Đề xuất\" badge.",
+    "has_image": false
+  },
+  {
+    "idx": 832,
+    "style": "normal",
+    "text": "2. Increment total cart badge count in Bottom Navigation Bar.",
+    "has_image": false
+  },
+  {
+    "idx": 833,
+    "style": "normal",
+    "text": "3. Display brief toast notification confirming item added.",
+    "has_image": false
+  },
+  {
+    "idx": 835,
+    "style": "normal",
+    "text": "1. Click product card -> Send request to API /api/products/{id}.",
+    "has_image": false
+  },
+  {
+    "idx": 837,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 861,
+    "style": "Heading 3",
+    "text": "3.3.7 Profile & Settings Overview",
+    "has_image": false
+  },
+  {
+    "idx": 863,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 864,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 877,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 880,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 900,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 907,
+    "style": "normal",
+    "text": "1. \"Thông tin cá nhân\" (Personal Info)",
+    "has_image": false
+  },
+  {
+    "idx": 908,
+    "style": "normal",
+    "text": "2. \"Thiết lập cá nhân hoá\" (Personalization Settings)",
+    "has_image": false
+  },
+  {
+    "idx": 909,
+    "style": "normal",
+    "text": "3. \"Hạng thành viên\" (Membership Tier)",
+    "has_image": false
+  },
+  {
+    "idx": 910,
+    "style": "normal",
+    "text": "4. \"Lịch sử đơn hàng\" (Order History)",
+    "has_image": false
+  },
+  {
+    "idx": 916,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 929,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 931,
+    "style": "normal",
+    "text": "1. Mobile App issues GET request to /api/members/me with JWT Authorization header.",
+    "has_image": false
+  },
+  {
+    "idx": 933,
+    "style": "normal",
+    "text": "3. Populate digital membership card and profile status UI.",
+    "has_image": false
+  },
+  {
+    "idx": 935,
+    "style": "normal",
+    "text": "1. User taps \"Đăng xuất\".",
+    "has_image": false
+  },
+  {
+    "idx": 937,
+    "style": "normal",
+    "text": "3. Redirect user back to Login Screen.",
+    "has_image": false
+  },
+  {
+    "idx": 938,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 941,
+    "style": "Heading 3",
+    "text": "3.3.8 Personal Information Screen",
+    "has_image": false
+  },
+  {
+    "idx": 943,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 948,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 961,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 964,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 991,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 1021,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 1040,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 1042,
+    "style": "normal",
+    "text": "1. User edits \"Họ tên\" or \"Số điện thoại\" -> Click \"Lưu thay đổi ->\".",
+    "has_image": false
+  },
+  {
+    "idx": 1043,
+    "style": "normal",
+    "text": "2. Validate phone number format (10-11 digits).",
+    "has_image": false
+  },
+  {
+    "idx": 1044,
+    "style": "normal",
+    "text": "3. Send PUT request to API /api/members/profile with updated profile payload.",
+    "has_image": false
+  },
+  {
+    "idx": 1045,
+    "style": "normal",
+    "text": "4. Display success toast notification upon completion.",
+    "has_image": false
+  },
+  {
+    "idx": 1047,
+    "style": "normal",
+    "text": "1. User enters \"Mật khẩu cũ\" and \"Mật khẩu mới\" -> Click \"Xác nhận\".",
+    "has_image": false
+  },
+  {
+    "idx": 1048,
+    "style": "normal",
+    "text": "2. Frontend verifies \"Mật khẩu mới\" meets complexity requirements.",
+    "has_image": false
+  },
+  {
+    "idx": 1049,
+    "style": "normal",
+    "text": "3. Send POST request to API /api/auth/change-password with { oldPassword, newPassword }.",
+    "has_image": false
+  },
+  {
+    "idx": 1052,
+    "style": "normal",
+    "text": "1. Click \"Cập nhật khuôn mặt\" -> Access front-facing camera.",
+    "has_image": false
+  },
+  {
+    "idx": 1053,
+    "style": "normal",
+    "text": "2. Capture live camera frames, extract 512-D / 1024-D facial feature embedding vector.",
+    "has_image": false
+  },
+  {
+    "idx": 1054,
+    "style": "normal",
+    "text": "3. Send POST request to API /api/auth/register-face with user ID and face vector.",
+    "has_image": false
+  },
+  {
+    "idx": 1056,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 1060,
+    "style": "Heading 3",
+    "text": "3.3.9 Personalization Settings & Shopping Preferences",
+    "has_image": false
+  },
+  {
+    "idx": 1061,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 1063,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 1070,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 1073,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 1095,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 1096,
+    "style": "normal",
+    "text": "1. User opens Profile & Settings Screen and clicks the \"Thiết lập cá nhân hoá\" list item.",
+    "has_image": false
+  },
+  {
+    "idx": 1105,
+    "style": "normal",
+    "text": "10. User clicks \"Lưu thay đổi\" button.",
+    "has_image": false
+  },
+  {
+    "idx": 1108,
+    "style": "normal",
+    "text": "13. Backend persists updated preferences into SQL Server database.",
+    "has_image": false
+  },
+  {
+    "idx": 1111,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 1118,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 1121,
+    "style": "normal",
+    "text": "2. Send request GET /api/members/profile to retrieve active user selections and budget setting.",
+    "has_image": false
+  },
+  {
+    "idx": 1124,
+    "style": "normal",
+    "text": "1. User clicks \"Lưu thay đổi\".",
+    "has_image": false
+  },
+  {
+    "idx": 1125,
+    "style": "normal",
+    "text": "2. Map selected diets to preference status 'Preferred'.",
+    "has_image": false
+  },
+  {
+    "idx": 1126,
+    "style": "normal",
+    "text": "3. Map active allergen switches to preference status 'Avoid' / 'Allergen'.",
+    "has_image": false
+  },
+  {
+    "idx": 1128,
+    "style": "normal",
+    "text": "5. Send PUT /api/members/profile with { maxSpendPerOrder }.",
+    "has_image": false
+  },
+  {
+    "idx": 1129,
+    "style": "normal",
+    "text": "6. Display success toast notification confirming AI profile updated.",
+    "has_image": false
+  },
+  {
+    "idx": 1130,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 1133,
+    "style": "Heading 3",
+    "text": "",
+    "has_image": false
+  },
+  {
+    "idx": 1135,
+    "style": "Heading 3",
+    "text": "3.3.10 Membership Tier & Loyalty Benefits",
+    "has_image": false
+  },
+  {
+    "idx": 1136,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 1137,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 1144,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 1147,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 1170,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 1172,
+    "style": "normal",
+    "text": "1. User opens Profile & Settings Screen and clicks the \"Hạng thành viên\" list item.",
+    "has_image": false
+  },
+  {
+    "idx": 1173,
+    "style": "normal",
+    "text": "2. System issues GET request to /api/members/profile with active JWT Authorization header.",
+    "has_image": false
+  },
+  {
+    "idx": 1178,
+    "style": "normal",
+    "text": "7. System renders Privileges Section (\"Đặc quyền Premium\"): Displays 4 read-only privilege cards:",
+    "has_image": false
+  },
+  {
+    "idx": 1183,
+    "style": "normal",
+    "text": "8. User clicks Back Arrow button (\"<\") to return to Profile & Settings Screen.",
+    "has_image": false
+  },
+  {
+    "idx": 1185,
+    "style": "normal",
+    "text": "1. User opens Profile & Settings Screen and clicks \"Hạng thành viên\".",
+    "has_image": false
+  },
+  {
+    "idx": 1186,
+    "style": "normal",
+    "text": "2. System fetches member profile data: membershipTier: \"Medium\", totalSpent: 4500000.",
+    "has_image": false
+  },
+  {
+    "idx": 1189,
+    "style": "normal",
+    "text": "5. System renders Progress Bar filled to 45% displaying subtitle \"Còn 5.500.000đ để đạt Premium\".",
+    "has_image": false
+  },
+  {
+    "idx": 1190,
+    "style": "normal",
+    "text": "6. User clicks Back Arrow button (\"<\") to return to Profile & Settings Screen.",
+    "has_image": false
+  },
+  {
+    "idx": 1191,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 1196,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 1198,
+    "style": "normal",
+    "text": "1. Send request GET /api/members/profile with JWT Bearer Token.",
+    "has_image": false
+  },
+  {
+    "idx": 1199,
+    "style": "normal",
+    "text": "2. Retrieve user's current membershipTier (\"Premium\" or \"Medium\"), memberId, and totalSpent.",
+    "has_image": false
+  },
+  {
+    "idx": 1201,
+    "style": "normal",
+    "text": "1. Define threshold: Premium Tier Threshold = 10.000.000 VNĐ.",
+    "has_image": false
+  },
+  {
+    "idx": 1202,
+    "style": "normal",
+    "text": "2. If user tier is \"Premium\":",
+    "has_image": false
+  },
+  {
+    "idx": 1206,
+    "style": "normal",
+    "text": "3. If user tier is \"Medium\":",
+    "has_image": false
+  },
+  {
+    "idx": 1210,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 1212,
+    "style": "Heading 3",
+    "text": "3.3.11 Order History",
+    "has_image": false
+  },
+  {
+    "idx": 1213,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 1214,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 1223,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 1226,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 1249,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 1251,
+    "style": "normal",
+    "text": "1. User opens Profile & Settings Screen and clicks the \"Lịch sử đơn hàng\" list item.",
+    "has_image": false
+  },
+  {
+    "idx": 1252,
+    "style": "normal",
+    "text": "2. System issues GET request to /api/orders/my-orders with active JWT Authorization header.",
+    "has_image": false
+  },
+  {
+    "idx": 1253,
+    "style": "normal",
+    "text": "3. Backend retrieves historical invoice records belonging to the member account.",
+    "has_image": false
+  },
+  {
+    "idx": 1258,
+    "style": "normal",
+    "text": "1. User clicks downward chevron button (\"˅\") on an order card (e.g., \"Đơn #30\").",
+    "has_image": false
+  },
+  {
+    "idx": 1262,
+    "style": "normal",
+    "text": "3. System renders full-width green primary button \"Mua lại đơn này\" with white refresh icon.",
+    "has_image": false
+  },
+  {
+    "idx": 1263,
+    "style": "normal",
+    "text": "4. User clicks \"Mua lại đơn này\" button.",
+    "has_image": false
+  },
+  {
+    "idx": 1264,
+    "style": "normal",
+    "text": "5. System validates live inventory stock for all product SKUs in the selected order.",
+    "has_image": false
+  },
+  {
+    "idx": 1266,
+    "style": "normal",
+    "text": "7. Backend batch-inserts items into active Cart session.",
+    "has_image": false
+  },
+  {
+    "idx": 1268,
+    "style": "normal",
+    "text": "9. System automatically navigates user to Cart Screen to review items and proceed to checkout.",
+    "has_image": false
+  },
+  {
+    "idx": 1269,
+    "style": "normal",
+    "text": "10. User clicks Back Arrow button (\"<\") to return to Profile & Settings Screen.",
+    "has_image": false
+  },
+  {
+    "idx": 1270,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 1277,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 1279,
+    "style": "normal",
+    "text": "1. Send request GET /api/orders/my-orders with JWT Bearer Token.",
+    "has_image": false
+  },
+  {
+    "idx": 1281,
+    "style": "normal",
+    "text": "3. Sort orders in descending chronological order (newest first).",
+    "has_image": false
+  },
+  {
+    "idx": 1283,
+    "style": "normal",
+    "text": "1. User taps chevron button (\"˅\") -> Set active order ID in expand state array.",
+    "has_image": false
+  },
+  {
+    "idx": 1284,
+    "style": "normal",
+    "text": "2. Animate card height to reveal itemized product list and \"Mua lại đơn này\" button.",
+    "has_image": false
+  },
+  {
+    "idx": 1286,
+    "style": "normal",
+    "text": "1. User taps \"Mua lại đơn này\".",
+    "has_image": false
+  },
+  {
+    "idx": 1287,
+    "style": "normal",
+    "text": "2. Extract all product SKUs and quantities from selected order record.",
+    "has_image": false
+  },
+  {
+    "idx": 1288,
+    "style": "normal",
+    "text": "3. Send request POST /api/cart/batch-add with { items: [{ productId, quantity }] }.",
+    "has_image": false
+  },
+  {
+    "idx": 1289,
+    "style": "normal",
+    "text": "4. Display toast notification \"Đã thêm 2 sản phẩm vào giỏ hàng!\" and navigate user to Cart Screen.",
+    "has_image": false
+  },
+  {
+    "idx": 1290,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 1311,
+    "style": "Heading 3",
+    "text": "3.3.12 Personalized Search Text",
+    "has_image": false
+  },
+  {
+    "idx": 1313,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 1316,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 1325,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 1328,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 1353,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 1356,
+    "style": "normal",
+    "text": "2. User presses Enter / Search button.",
+    "has_image": false
+  },
+  {
+    "idx": 1359,
+    "style": "normal",
+    "text": "5. Backend Search API retrieves matching store product SKUs.",
+    "has_image": false
+  },
+  {
+    "idx": 1361,
+    "style": "normal",
+    "text": "7. System renders Personalized Search Results Screen:",
+    "has_image": false
+  },
+  {
+    "idx": 1365,
+    "style": "normal",
+    "text": "8. System renders Bottom Floating Sticky Total Bar:",
+    "has_image": false
+  },
+  {
+    "idx": 1372,
+    "style": "normal",
+    "text": "1. User clicks '+ Thêm' button on any product result card (e.g., 'Dầu ăn thực vật 1L').",
+    "has_image": false
+  },
+  {
+    "idx": 1375,
+    "style": "normal",
+    "text": "1. User clicks 'Thêm tất cả' button on the bottom floating bar.",
+    "has_image": false
+  },
+  {
+    "idx": 1376,
+    "style": "normal",
+    "text": "2. System packages all matching safe/recommended ingredient SKUs.",
+    "has_image": false
+  },
+  {
+    "idx": 1377,
+    "style": "normal",
+    "text": "3. System issues POST request to /api/cart/batch-add.",
+    "has_image": false
+  },
+  {
+    "idx": 1378,
+    "style": "normal",
+    "text": "4. Backend batch-inserts all ingredient items into active Cart session.",
+    "has_image": false
+  },
+  {
+    "idx": 1381,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 1388,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 1390,
+    "style": "normal",
+    "text": "1. User submits query e.g., 'Tôi muốn nấu món canh chua cá'.",
+    "has_image": false
+  },
+  {
+    "idx": 1392,
+    "style": "normal",
+    "text": "3. Query Backend Inventory API for live SKUs matching ingredient categories.",
+    "has_image": false
+  },
+  {
+    "idx": 1395,
+    "style": "normal",
+    "text": "2. If product contains user allergen (e.g., Nuts) -> Attach red badge '⚠️ DỊ ỨNG CÁC LOẠI HẠT'.",
+    "has_image": false
+  },
+  {
+    "idx": 1398,
+    "style": "normal",
+    "text": "1. Calculate total cost: TotalSum = Sum(IngredientPrices).",
+    "has_image": false
+  },
+  {
+    "idx": 1400,
+    "style": "normal",
+    "text": "3. If OverBudgetAmount > 0 -> Display warning text '⚠️ Vượt ngân sách: {OverBudgetAmount}đ'.",
+    "has_image": false
+  },
+  {
+    "idx": 1402,
+    "style": "normal",
+    "text": "1. User taps 'Thêm tất cả'.",
+    "has_image": false
+  },
+  {
+    "idx": 1403,
+    "style": "normal",
+    "text": "2. Package all safe/recommended ingredient SKUs.",
+    "has_image": false
+  },
+  {
+    "idx": 1404,
+    "style": "normal",
+    "text": "3. Send POST /api/cart/batch-add -> Update Cart item count and show success toast notification.",
+    "has_image": false
+  },
+  {
+    "idx": 1405,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 1409,
+    "style": "Heading 3",
+    "text": "3.3.13 Personalized Search By Voice",
+    "has_image": false
+  },
+  {
+    "idx": 1411,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 1412,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 1417,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 1420,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 1440,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 1441,
+    "style": "normal",
+    "text": "1. User clicks Microphone icon (Icon 🎙️) from Search bar on Home Screen or Search Header.",
+    "has_image": false
+  },
+  {
+    "idx": 1442,
+    "style": "normal",
+    "text": "2. System requests RECORD_AUDIO permission from Android OS (if not yet granted).",
+    "has_image": false
+  },
+  {
+    "idx": 1443,
+    "style": "normal",
+    "text": "3. User grants Microphone access permission on system prompt.",
+    "has_image": false
+  },
+  {
+    "idx": 1444,
+    "style": "normal",
+    "text": "4. System displays Voice Recording Modal (\"Đang thu âm giọng nói...\") with green mic button.",
+    "has_image": false
+  },
+  {
+    "idx": 1446,
+    "style": "normal",
+    "text": "6. User speaks search query (e.g., \"Tôi muốn nấu món canh chua cá\") into phone microphone.",
+    "has_image": false
+  },
+  {
+    "idx": 1449,
+    "style": "normal",
+    "text": "9. User clicks \"Hoàn tất & Tìm kiếm\" button (or pauses speaking).",
+    "has_image": false
+  },
+  {
+    "idx": 1451,
+    "style": "normal",
+    "text": "11. System displays Loading state (\"Đang tìm kiếm nguyên liệu...\") with loading spinner.",
+    "has_image": false
+  },
+  {
+    "idx": 1455,
+    "style": "normal",
+    "text": "15. User views product cards with health conflict tags (\"⚠️ VI PHẠM CHẾ ĐỘ ĂN\") and item prices.",
+    "has_image": false
+  },
+  {
+    "idx": 1457,
+    "style": "normal",
+    "text": "17. User clicks \"+ Thêm\" on individual items or \"Thêm tất cả\" button.",
+    "has_image": false
+  },
+  {
+    "idx": 1458,
+    "style": "normal",
+    "text": "18. System adds items to cart and displays success toast notification.",
+    "has_image": false
+  },
+  {
+    "idx": 1459,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 1468,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 1470,
+    "style": "normal",
+    "text": "1. Captures audio via device microphone using vi-VN (Vietnamese) language encoding.",
+    "has_image": false
+  },
+  {
+    "idx": 1472,
+    "style": "normal",
+    "text": "3. Updates UI state voiceText to render real-time transcription inside the modal.",
+    "has_image": false
+  },
+  {
+    "idx": 1474,
+    "style": "normal",
+    "text": "1. Receives transcribed query text (e.g., \"Tôi muốn nấu món canh chua cá\").",
+    "has_image": false
+  },
+  {
+    "idx": 1476,
+    "style": "normal",
+    "text": "3. Queries supermarket inventory to retrieve matching product SKUs.",
+    "has_image": false
+  },
+  {
+    "idx": 1481,
+    "style": "normal",
+    "text": "1. Calculates total cost of suggested ingredients: TotalOrderAmount = Sum(UnitPrice).",
+    "has_image": false
+  },
+  {
+    "idx": 1482,
+    "style": "normal",
+    "text": "2. Compares TotalOrderAmount against user member profile's SpendingLimit.",
+    "has_image": false
+  },
+  {
+    "idx": 1484,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 1504,
+    "style": "Heading 3",
+    "text": "3.3.14 Cart",
+    "has_image": false
+  },
+  {
+    "idx": 1506,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 1509,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 1522,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 1525,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 1546,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 1548,
+    "style": "normal",
+    "text": "1. User taps Cart tab on the bottom navigation bar.",
+    "has_image": false
+  },
+  {
+    "idx": 1550,
+    "style": "normal",
+    "text": "3. System evaluates Total Order Cost against User Budget (maxSpendPerOrder):",
+    "has_image": false
+  },
+  {
+    "idx": 1555,
+    "style": "normal",
+    "text": "1. User clicks \"+\" or \"-\" stepper buttons on a cart item (e.g., \"Phi lê cá hồi Na Uy\").",
+    "has_image": false
+  },
+  {
+    "idx": 1556,
+    "style": "normal",
+    "text": "2. System issues PUT /api/Cart/items/{productId} with updated quantity.",
+    "has_image": false
+  },
+  {
+    "idx": 1557,
+    "style": "normal",
+    "text": "3. Backend updates cart state and broadcasts CartUpdate via SignalR.",
+    "has_image": false
+  },
+  {
+    "idx": 1558,
+    "style": "normal",
+    "text": "4. Cart recalculates subtotal, grand total, and budget overage immediately.",
+    "has_image": false
+  },
+  {
+    "idx": 1560,
+    "style": "normal",
+    "text": "1. User swipes item row to the left.",
+    "has_image": false
+  },
+  {
+    "idx": 1561,
+    "style": "normal",
+    "text": "2. System reveals red \"Xóa\" button (or auto-deletes if swiped past threshold limit).",
+    "has_image": false
+  },
+  {
+    "idx": 1562,
+    "style": "normal",
+    "text": "3. User taps \"Xóa\".",
+    "has_image": false
+  },
+  {
+    "idx": 1563,
+    "style": "normal",
+    "text": "4. System calls DELETE /api/Cart/items/{productId}.",
+    "has_image": false
+  },
+  {
+    "idx": 1564,
+    "style": "normal",
+    "text": "5. Item is removed with smooth collapse animation; totals update instantly.",
+    "has_image": false
+  },
+  {
+    "idx": 1567,
+    "style": "normal",
+    "text": "1. User reviews an item flagged with a budget or allergen warning (e.g., \"Mì Koreno Jumbo...\").",
+    "has_image": false
+  },
+  {
+    "idx": 1569,
+    "style": "normal",
+    "text": "3. User clicks green \"Đổi\" button.",
+    "has_image": false
+  },
+  {
+    "idx": 1573,
+    "style": "normal",
+    "text": "1. User taps \"Xem lộ trình & Chỉ đường\" button at the bottom of Cart screen.",
+    "has_image": false
+  },
+  {
+    "idx": 1577,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 1584,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 1589,
+    "style": "normal",
+    "text": "1. Fetch user maxSpendPerOrder setting from profile.",
+    "has_image": false
+  },
+  {
+    "idx": 1590,
+    "style": "normal",
+    "text": "2. Calculate overage: OverageAmount = Math.max(0, GrandTotal - maxSpendPerOrder).",
+    "has_image": false
+  },
+  {
+    "idx": 1594,
+    "style": "normal",
+    "text": "2. Map top 2 cheapest safe items into item.alternativeProducts array.",
+    "has_image": false
+  },
+  {
+    "idx": 1596,
+    "style": "normal",
+    "text": "1. Client subscribes to SignalR Hub channel MemberHub.",
+    "has_image": false
+  },
+  {
+    "idx": 1601,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 1616,
+    "style": "Heading 3",
+    "text": "3.3.15 In-Store Route Navigation from Checkout Counter",
+    "has_image": false
+  },
+  {
+    "idx": 1618,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 1621,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 1627,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 1630,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 1640,
+    "style": "normal",
+    "text": "2D Grid Supermarket Map View:",
+    "has_image": false
+  },
+  {
+    "idx": 1642,
+    "style": "normal",
+    "text": "2D Interactive Map Container: Refresh Route button (top-right).",
+    "has_image": false
+  },
+  {
+    "idx": 1660,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 1662,
+    "style": "normal",
+    "text": "1. From Cart Screen, user taps \"Xem lộ trình & Chỉ đường\".",
+    "has_image": false
+  },
+  {
+    "idx": 1663,
+    "style": "normal",
+    "text": "2. System displays \"Chọn vị trí hiện tại của bạn\" modal.",
+    "has_image": false
+  },
+  {
+    "idx": 1664,
+    "style": "normal",
+    "text": "3. User selects \"Quầy thu ngân\" (\"Bắt đầu đi từ khu vực cửa ra vào\").",
+    "has_image": false
+  },
+  {
+    "idx": 1665,
+    "style": "normal",
+    "text": "4. System assigns startNodeId = 7 (Cashier Counter / Entrance).",
+    "has_image": false
+  },
+  {
+    "idx": 1666,
+    "style": "normal",
+    "text": "5. System issues POST request to /api/Cart/checkout with startNodeId: 7 and cart product IDs.",
+    "has_image": false
+  },
+  {
+    "idx": 1668,
+    "style": "normal",
+    "text": "7. System navigates to Store Map Screen and renders 2D route overlay.",
+    "has_image": false
+  },
+  {
+    "idx": 1670,
+    "style": "normal",
+    "text": "1. User views 2D map overlay displaying route originating at green \"Bắt đầu & Kết thúc\" node.",
+    "has_image": false
+  },
+  {
+    "idx": 1671,
+    "style": "normal",
+    "text": "2. User taps Kệ 1 marker on 2D map.",
+    "has_image": false
+  },
+  {
+    "idx": 1673,
+    "style": "normal",
+    "text": "4. User taps \"Đóng\".",
+    "has_image": false
+  },
+  {
+    "idx": 1674,
+    "style": "normal",
+    "text": "5. User taps Kệ 2 marker on 2D map.",
+    "has_image": false
+  },
+  {
+    "idx": 1676,
+    "style": "normal",
+    "text": "7. User taps \"Đóng\".",
+    "has_image": false
+  },
+  {
+    "idx": 1678,
+    "style": "normal",
+    "text": "1. User reviews \"Hướng dẫn Lộ trình từng bước\" timeline list (4 steps).",
+    "has_image": false
+  },
+  {
+    "idx": 1679,
+    "style": "normal",
+    "text": "2. User follows instructions in sequence:",
+    "has_image": false
+  },
+  {
+    "idx": 1684,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 1688,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 1710,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 1715,
+    "style": "Heading 3",
+    "text": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "has_image": false
+  },
+  {
+    "idx": 1717,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 1720,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 1739,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 1743,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 1761,
+    "style": "normal",
+    "text": "2D Supermarket Map (Originating at Shelf 5):",
+    "has_image": false
+  },
+  {
+    "idx": 1763,
+    "style": "normal",
+    "text": "2D Map Container:",
+    "has_image": false
+  },
+  {
+    "idx": 1777,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 1779,
+    "style": "normal",
+    "text": "1. From Cart Screen, user clicks \"Xem lộ trình & Chỉ đường\".",
+    "has_image": false
+  },
+  {
+    "idx": 1780,
+    "style": "normal",
+    "text": "2. From Location Modal, user selects \"Chụp ảnh tem Kệ\".",
+    "has_image": false
+  },
+  {
+    "idx": 1781,
+    "style": "normal",
+    "text": "3. Camera Viewfinder opens. User points camera at sticker tag at Shelf 5 (\"ARUCO ID: 5\").",
+    "has_image": false
+  },
+  {
+    "idx": 1782,
+    "style": "normal",
+    "text": "4. User clicks \"Chụp Ảnh Tem Kệ\".",
+    "has_image": false
+  },
+  {
+    "idx": 1783,
+    "style": "normal",
+    "text": "5. Button state updates to \"⏳ AI đang đọc tem Kệ...\".",
+    "has_image": false
+  },
+  {
+    "idx": 1785,
+    "style": "normal",
+    "text": "7. System displays Success Alert Modal \"Thành công - Nhận diện thành công Kệ 5!\".",
+    "has_image": false
+  },
+  {
+    "idx": 1786,
+    "style": "normal",
+    "text": "8. User clicks \"Xác nhận\".",
+    "has_image": false
+  },
+  {
+    "idx": 1790,
+    "style": "normal",
+    "text": "3. System navigates to Store Map Screen.",
+    "has_image": false
+  },
+  {
+    "idx": 1793,
+    "style": "normal",
+    "text": "1. User taps shelf markers on 2D map:",
+    "has_image": false
+  },
+  {
+    "idx": 1797,
+    "style": "normal",
+    "text": "2. User reviews \"Hướng dẫn Lộ trình từng bước\" (4-step timeline) and follows steps:",
+    "has_image": false
+  },
+  {
+    "idx": 1802,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 1810,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 1819,
+    "style": "normal",
+    "text": "1. Resolve coordinates (x, y) for Node 5.",
+    "has_image": false
+  },
+  {
+    "idx": 1820,
+    "style": "normal",
+    "text": "2. Identify target shelf nodes for remaining cart items (Node 1 - Snacks, Node 2 - Beverages).",
+    "has_image": false
+  },
+  {
+    "idx": 1821,
+    "style": "normal",
+    "text": "3. Run Dijkstra algorithm starting from Node 5 -> Node 1 -> Node 2 -> Node 7 (Cashier Counter).",
+    "has_image": false
+  },
+  {
+    "idx": 1822,
+    "style": "normal",
+    "text": "4. Return RoutePoints array and step guidance string array.",
+    "has_image": false
+  },
+  {
+    "idx": 1830,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 1834,
+    "style": "Heading 2",
+    "text": "3.4 Web Admin",
+    "has_image": false
+  },
+  {
+    "idx": 1835,
+    "style": "Heading 3",
+    "text": "3.4.1 Login Admin",
+    "has_image": false
+  },
+  {
+    "idx": 1836,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 1839,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 1844,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 1847,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 1866,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 1879,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 1883,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 1895,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 1905,
+    "style": "Heading 3",
+    "text": "3.4.2 Advertisement Campaign Management (Admin Web Dashboard)",
+    "has_image": false
+  },
+  {
+    "idx": 1907,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 1908,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 1910,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 1912,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 1932,
+    "style": "Heading 4",
+    "text": "Data Requirements",
+    "has_image": false
+  },
+  {
+    "idx": 1935,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 1940,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 1941,
+    "style": "normal",
+    "text": "1. Admin logs into Web Dashboard and navigates to 'Chiến dịch Quảng cáo' via the sidebar menu.",
+    "has_image": false
+  },
+  {
+    "idx": 1947,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 1952,
+    "style": "Heading 3",
+    "text": "3.4.3 Create Advertisement Campaign",
+    "has_image": true
+  },
+  {
+    "idx": 1953,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 1958,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 1961,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 1971,
+    "style": "normal",
+    "text": "4-step visual progress stepper:",
+    "has_image": false
+  },
+  {
+    "idx": 1977,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 1988,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 1993,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 2002,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 2007,
+    "style": "Heading 3",
+    "text": "3.4.4 Ad Campaign Detail",
+    "has_image": false
+  },
+  {
+    "idx": 2008,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 2009,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 2012,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 2020,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 2022,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 2025,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 2027,
+    "style": "normal",
+    "text": "2. System fetches campaign details from backend API and populates the overview dashboard.",
+    "has_image": false
+  },
+  {
+    "idx": 2030,
+    "style": "normal",
+    "text": "5. Admin clicks \"Tạm Dừng\" or \"Hủy Chiến Dịch\" if operational state adjustment is required.",
+    "has_image": false
+  },
+  {
+    "idx": 2031,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 2033,
+    "style": "Heading 3",
+    "text": "3.4.5 Ad Package Management",
+    "has_image": false
+  },
+  {
+    "idx": 2034,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 2035,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 2043,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 2057,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 2074,
+    "style": "Heading 4",
+    "text": "Package Form Fields (Create / Edit Modal):",
+    "has_image": false
+  },
+  {
+    "idx": 2076,
+    "style": "Heading 4",
+    "text": "Business Rules:",
+    "has_image": false
+  },
+  {
+    "idx": 2080,
+    "style": "Heading 4",
+    "text": "Normal Flow:",
+    "has_image": false
+  },
+  {
+    "idx": 2081,
+    "style": "normal",
+    "text": "1. Admin navigates to Quản Lý Gói Quảng Cáo from the sidebar.",
+    "has_image": false
+  },
+  {
+    "idx": 2082,
+    "style": "normal",
+    "text": "2. System loads and renders all available ad packages with live campaign counters.",
+    "has_image": false
+  },
+  {
+    "idx": 2083,
+    "style": "normal",
+    "text": "3. Admin can switch between status tabs (Tất Cả / Hoạt Động / Không Hoạt Động) to filter records.",
+    "has_image": false
+  },
+  {
+    "idx": 2086,
+    "style": "Heading 4",
+    "text": "Abnormal Cases:",
+    "has_image": false
+  },
+  {
+    "idx": 2091,
+    "style": "Heading 3",
+    "text": "3.4.6 Create/Edit Ad Package",
+    "has_image": false
+  },
+  {
+    "idx": 2092,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 2093,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 2100,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 2115,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 2130,
+    "style": "Heading 4",
+    "text": "Business Rules:",
+    "has_image": false
+  },
+  {
+    "idx": 2134,
+    "style": "Heading 4",
+    "text": "Normal Flow:",
+    "has_image": false
+  },
+  {
+    "idx": 2141,
+    "style": "Heading 4",
+    "text": "Abnormal Cases:",
+    "has_image": false
+  },
+  {
+    "idx": 2146,
+    "style": "Heading 3",
+    "text": "3.4.7 Ad Package Details",
+    "has_image": false
+  },
+  {
+    "idx": 2147,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 2148,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 2153,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 2156,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 2171,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 2193,
+    "style": "Heading 4",
+    "text": "Business Rules:",
+    "has_image": false
+  },
+  {
+    "idx": 2197,
+    "style": "Heading 4",
+    "text": "Normal Flow:",
+    "has_image": false
+  },
+  {
+    "idx": 2202,
+    "style": "Heading 4",
+    "text": "Abnormal Cases:",
+    "has_image": false
+  },
+  {
+    "idx": 2209,
+    "style": "Heading 3",
+    "text": "3.4.8 Brand Management Dasboard",
+    "has_image": false
+  },
+  {
+    "idx": 2210,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 2211,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 2216,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 2219,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 2233,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 2249,
+    "style": "Heading 4",
+    "text": "Business Rules:",
+    "has_image": false
+  },
+  {
+    "idx": 2253,
+    "style": "Heading 4",
+    "text": "Normal Flow:",
+    "has_image": false
+  },
+  {
+    "idx": 2254,
+    "style": "normal",
+    "text": "1. Admin clicks \"Quản Lý Nhãn Hàng\" from the sidebar.",
+    "has_image": false
+  },
+  {
+    "idx": 2256,
+    "style": "normal",
+    "text": "3. System displays the list of brand partners with their current advertising engagement.",
+    "has_image": false
+  },
+  {
+    "idx": 2257,
+    "style": "normal",
+    "text": "4. Admin can:",
+    "has_image": false
+  },
+  {
+    "idx": 2262,
+    "style": "Heading 4",
+    "text": "Abnormal Cases:",
+    "has_image": false
+  },
+  {
+    "idx": 2267,
+    "style": "Heading 3",
+    "text": "3.4.9 Create Brand",
+    "has_image": false
+  },
+  {
+    "idx": 2268,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 2269,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 2274,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 2276,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 2290,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 2299,
+    "style": "Heading 4",
+    "text": "Business Rules:",
+    "has_image": false
+  },
+  {
+    "idx": 2303,
+    "style": "Heading 4",
+    "text": "Normal Flow:",
+    "has_image": false
+  },
+  {
+    "idx": 2304,
+    "style": "normal",
+    "text": "1. Admin clicks \"+ Thêm Nhãn Hàng\" from the brand dashboard.",
+    "has_image": false
+  },
+  {
+    "idx": 2305,
+    "style": "normal",
+    "text": "2. System renders the brand creation form with character counters initialized at 0/100 and 0/500.",
+    "has_image": false
+  },
+  {
+    "idx": 2306,
+    "style": "normal",
+    "text": "3. Admin inputs the brand name and optional company description.",
+    "has_image": false
+  },
+  {
+    "idx": 2307,
+    "style": "normal",
+    "text": "4. Admin clicks \"+ Tạo Nhãn Hàng\".",
+    "has_image": false
+  },
+  {
+    "idx": 2308,
+    "style": "normal",
+    "text": "5. System validates the form, calls POST /api/brands, and saves the new brand.",
+    "has_image": false
+  },
+  {
+    "idx": 2309,
+    "style": "normal",
+    "text": "6. System redirects back to /brand and refreshes the brand roster table.",
+    "has_image": false
+  },
+  {
+    "idx": 2310,
+    "style": "Heading 4",
+    "text": "Abnormal Cases:",
+    "has_image": false
+  },
+  {
+    "idx": 2316,
+    "style": "Heading 3",
+    "text": "3.4.10 Update Brand",
+    "has_image": false
+  },
+  {
+    "idx": 2317,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 2318,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 2323,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 2325,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 2341,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 2353,
+    "style": "Heading 4",
+    "text": "Business Rules:",
+    "has_image": false
+  },
+  {
+    "idx": 2357,
+    "style": "Heading 4",
+    "text": "Normal Flow:",
+    "has_image": false
+  },
+  {
+    "idx": 2358,
+    "style": "normal",
+    "text": "1. Admin clicks the pencil icon on a brand row in the Brand Dashboard",
+    "has_image": false
+  },
+  {
+    "idx": 2359,
+    "style": "normal",
+    "text": "2. System fetches brand details by ID and pre-populates the form along with character counters",
+    "has_image": false
+  },
+  {
+    "idx": 2360,
+    "style": "normal",
+    "text": "3. System displays the live \"Chiến Dịch Đang Chạy\" metric card",
+    "has_image": false
+  },
+  {
+    "idx": 2361,
+    "style": "normal",
+    "text": "4. Admin updates the brand name or corporate description",
+    "has_image": false
+  },
+  {
+    "idx": 2362,
+    "style": "normal",
+    "text": "5. Admin clicks \"💾 Lưu Cập Nhật\"",
+    "has_image": false
+  },
+  {
+    "idx": 2363,
+    "style": "normal",
+    "text": "6. System validates inputs, dispatches PUT /api/brands/:id, and persists changes to the database",
+    "has_image": false
+  },
+  {
+    "idx": 2364,
+    "style": "normal",
+    "text": "7. System displays a success toast notification and updates the header subtitle",
+    "has_image": false
+  },
+  {
+    "idx": 2365,
+    "style": "Heading 4",
+    "text": "Abnormal Cases:",
+    "has_image": false
+  },
+  {
+    "idx": 2370,
+    "style": "Heading 3",
+    "text": "3.4.11 Product Management",
+    "has_image": false
+  },
+  {
+    "idx": 2371,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 2372,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 2374,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 2376,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 2379,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 2381,
+    "style": "Heading 4",
+    "text": "Business Rules:",
+    "has_image": false
+  },
+  {
+    "idx": 2385,
+    "style": "Heading 4",
+    "text": "Normal Flow:",
+    "has_image": false
+  },
+  {
+    "idx": 2386,
+    "style": "normal",
+    "text": "1. Admin navigates to 'Quản Lý Sản Phẩm' from the sidebar menu.",
+    "has_image": false
+  },
+  {
+    "idx": 2388,
+    "style": "normal",
+    "text": "3. Admin can add, edit, or update product information as needed.",
+    "has_image": false
+  },
+  {
+    "idx": 2389,
+    "style": "normal",
+    "text": "4. System validates inputs and saves changes to database.",
+    "has_image": false
+  },
+  {
+    "idx": 2390,
+    "style": "Heading 4",
+    "text": "Abnormal Cases:",
+    "has_image": false
+  },
+  {
+    "idx": 2437,
+    "style": "normal",
+    "text": "1. Admin navigates to Quản Lý Sản Phẩm from the sidebar.",
+    "has_image": false
+  },
+  {
+    "idx": 2438,
+    "style": "normal",
+    "text": "2. System loads inventory statistics and renders the 4 top KPI cards.",
+    "has_image": false
+  },
+  {
+    "idx": 2439,
+    "style": "normal",
+    "text": "3. System renders the product catalog table with thumbnail images and pricing.",
+    "has_image": false
+  },
+  {
+    "idx": 2440,
+    "style": "normal",
+    "text": "4. Admin can:",
+    "has_image": false
+  },
+  {
+    "idx": 2453,
+    "style": "Heading 3",
+    "text": "3.4.12 Add New Product",
+    "has_image": false
+  },
+  {
+    "idx": 2454,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 2455,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 2458,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 2460,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 2471,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 2486,
+    "style": "Heading 4",
+    "text": "Business Rules:",
+    "has_image": false
+  },
+  {
+    "idx": 2490,
+    "style": "Heading 4",
+    "text": "Normal Flow:",
+    "has_image": false
+  },
+  {
+    "idx": 2491,
+    "style": "normal",
+    "text": "1. Admin clicks \"+ Thêm Sản Phẩm\" on the Product Management screen.",
+    "has_image": false
+  },
+  {
+    "idx": 2492,
+    "style": "normal",
+    "text": "2. System displays \"Thêm Sản Phẩm Mới\" modal.",
+    "has_image": false
+  },
+  {
+    "idx": 2493,
+    "style": "normal",
+    "text": "3. Admin inputs product name, category, price, uploads image, and selects applicable health tags.",
+    "has_image": false
+  },
+  {
+    "idx": 2494,
+    "style": "normal",
+    "text": "4. Admin clicks \"Tạo Sản Phẩm\".",
+    "has_image": false
+  },
+  {
+    "idx": 2496,
+    "style": "Heading 4",
+    "text": "Abnormal Cases:",
+    "has_image": false
+  },
+  {
+    "idx": 2500,
+    "style": "Heading 4",
+    "text": "3.4.13 Product Detail",
+    "has_image": true
+  },
+  {
+    "idx": 2501,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 2506,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 2509,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 2523,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 2535,
+    "style": "Heading 4",
+    "text": "Business Rules:",
+    "has_image": false
+  },
+  {
+    "idx": 2539,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 2545,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 2549,
+    "style": "Heading 3",
+    "text": "3.4.14 Edit Product",
+    "has_image": false
+  },
+  {
+    "idx": 2550,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 2551,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 2555,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 2558,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 2575,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 2591,
+    "style": "Heading 4",
+    "text": "Business Rules:",
+    "has_image": false
+  },
+  {
+    "idx": 2595,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 2596,
+    "style": "normal",
+    "text": "1. Admin clicks \"Sửa sản phẩm\" on a product row in the catalog.",
+    "has_image": false
+  },
+  {
+    "idx": 2598,
+    "style": "normal",
+    "text": "3. Admin adjusts prices, modifies category, or selects new Health Tags.",
+    "has_image": false
+  },
+  {
+    "idx": 2599,
+    "style": "normal",
+    "text": "4. Admin clicks \"Lưu Thay Đổi\".",
+    "has_image": false
+  },
+  {
+    "idx": 2600,
+    "style": "normal",
+    "text": "5. System validates data, processes any new media uploads, and executes PUT /api/products/:id.",
+    "has_image": false
+  },
+  {
+    "idx": 2601,
+    "style": "normal",
+    "text": "6. System closes modal, updates table row data, and displays a success toast notification.",
+    "has_image": false
+  },
+  {
+    "idx": 2602,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 2608,
+    "style": "Heading 3",
+    "text": "3.4.15 Product Category Management",
+    "has_image": false
+  },
+  {
+    "idx": 2609,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 2610,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 2615,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 2618,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 2633,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 2643,
+    "style": "Heading 4",
+    "text": "Business Rules:",
+    "has_image": false
+  },
+  {
+    "idx": 2647,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 2648,
+    "style": "normal",
+    "text": "1. Admin navigates to Quản Lý Loại Sản Phẩm from the sidebar.",
+    "has_image": false
+  },
+  {
+    "idx": 2649,
+    "style": "normal",
+    "text": "2. System loads all product types alongside their parent subcategory relationships.",
+    "has_image": false
+  },
+  {
+    "idx": 2650,
+    "style": "normal",
+    "text": "3. Admin can:",
+    "has_image": false
+  },
+  {
+    "idx": 2656,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 2662,
+    "style": "Heading 3",
+    "text": "3.4.16 Add Product Category",
+    "has_image": false
+  },
+  {
+    "idx": 2663,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 2664,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 2668,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 2670,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 2683,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 2691,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 2695,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 2696,
+    "style": "normal",
+    "text": "1. Admin clicks \"+ Thêm Loại\" on the Product Category Management screen.",
+    "has_image": false
+  },
+  {
+    "idx": 2697,
+    "style": "normal",
+    "text": "2. System opens the modal with empty fields and pre-loaded subcategory options.",
+    "has_image": false
+  },
+  {
+    "idx": 2699,
+    "style": "normal",
+    "text": "4. Admin clicks \"Lưu Lại\".",
+    "has_image": false
+  },
+  {
+    "idx": 2700,
+    "style": "normal",
+    "text": "5. System validates the form, dispatches POST /api/admin/product-types, and inserts the record.",
+    "has_image": false
+  },
+  {
+    "idx": 2701,
+    "style": "normal",
+    "text": "6. System closes the modal, refreshes the category table, and displays a success notification.",
+    "has_image": false
+  },
+  {
+    "idx": 2702,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 2708,
+    "style": "Heading 3",
+    "text": "3.4.17 Edit Product Category",
+    "has_image": false
+  },
+  {
+    "idx": 2709,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 2710,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 2714,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 2716,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 2729,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 2737,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 2741,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 2742,
+    "style": "normal",
+    "text": "1. Admin clicks the pencil icon on a product type row (e.g., #16 - Phô mai Mozzarella).",
+    "has_image": false
+  },
+  {
+    "idx": 2743,
+    "style": "normal",
+    "text": "2. System displays the \"Chỉnh Sửa Loại Sản Phẩm\" modal with current values pre-filled.",
+    "has_image": false
+  },
+  {
+    "idx": 2744,
+    "style": "normal",
+    "text": "3. Admin updates the category name or selects a new parent subcategory.",
+    "has_image": false
+  },
+  {
+    "idx": 2745,
+    "style": "normal",
+    "text": "4. Admin clicks \"Lưu Lại\".",
+    "has_image": false
+  },
+  {
+    "idx": 2746,
+    "style": "normal",
+    "text": "5. System validates inputs, dispatches PUT /api/admin/product-types/:id, and persists updates.",
+    "has_image": false
+  },
+  {
+    "idx": 2747,
+    "style": "normal",
+    "text": "6. System closes the modal, refreshes the category table, and displays a success notification.",
+    "has_image": false
+  },
+  {
+    "idx": 2748,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 2752,
+    "style": "Heading 3",
+    "text": "3.4.18 Health Tag Management",
+    "has_image": true
+  },
+  {
+    "idx": 2753,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 2758,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 2761,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 2776,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 2792,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 2796,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 2797,
+    "style": "normal",
+    "text": "1. Admin navigates to Quản Lý Health Tag from the sidebar.",
+    "has_image": false
+  },
+  {
+    "idx": 2798,
+    "style": "normal",
+    "text": "2. System loads tag totals and renders the 4 KPI summary cards.",
+    "has_image": false
+  },
+  {
+    "idx": 2799,
+    "style": "normal",
+    "text": "3. System renders the health tag table categorized by allergens and dietary regimes.",
+    "has_image": false
+  },
+  {
+    "idx": 2800,
+    "style": "normal",
+    "text": "4. Admin can:",
+    "has_image": false
+  },
+  {
+    "idx": 2805,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 2811,
+    "style": "Heading 4",
+    "text": "3.4.19 Add Health Tag",
+    "has_image": true
+  },
+  {
+    "idx": 2812,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 2816,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 2818,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 2835,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 2844,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 2848,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 2849,
+    "style": "normal",
+    "text": "1. Admin clicks \"+ Thêm Tag\" on the Health Tag Management screen.",
+    "has_image": false
+  },
+  {
+    "idx": 2850,
+    "style": "normal",
+    "text": "2. System opens the modal with default classification set to \"Chế độ ăn\".",
+    "has_image": false
+  },
+  {
+    "idx": 2851,
+    "style": "normal",
+    "text": "3. Admin inputs the tag name and selects the appropriate classification type.",
+    "has_image": false
+  },
+  {
+    "idx": 2852,
+    "style": "normal",
+    "text": "4. Admin clicks \"Tạo Tag\".",
+    "has_image": false
+  },
+  {
+    "idx": 2853,
+    "style": "normal",
+    "text": "5. System validates inputs, dispatches POST /api/admin/health-tags, and stores the record.",
+    "has_image": false
+  },
+  {
+    "idx": 2854,
+    "style": "normal",
+    "text": "6. System closes the modal, refreshes the health tag table, and displays a success notification.",
+    "has_image": false
+  },
+  {
+    "idx": 2855,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 2859,
+    "style": "Heading 3",
+    "text": "3.4.20 Edit Health Tag Modal",
+    "has_image": true
+  },
+  {
+    "idx": 2860,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 2864,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 2866,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 2883,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 2892,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 2896,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 2897,
+    "style": "normal",
+    "text": "1. Admin clicks the three-dot menu on a tag row (e.g., \"Cá\") and selects \"Sửa\".",
+    "has_image": false
+  },
+  {
+    "idx": 2898,
+    "style": "normal",
+    "text": "2. System displays the \"Sửa Health Tag\" modal pre-populated with current name and classification.",
+    "has_image": false
+  },
+  {
+    "idx": 2899,
+    "style": "normal",
+    "text": "3. Admin edits the tag label or selects a new classification type from the dropdown.",
+    "has_image": false
+  },
+  {
+    "idx": 2900,
+    "style": "normal",
+    "text": "4. Admin clicks \"Lưu Thay Đổi\".",
+    "has_image": false
+  },
+  {
+    "idx": 2901,
+    "style": "normal",
+    "text": "5. System validates the form, dispatches PUT /api/admin/health-tags/:id, and updates the record.",
+    "has_image": false
+  },
+  {
+    "idx": 2902,
+    "style": "normal",
+    "text": "6. System closes the modal, refreshes the tag table, and presents a success notification.",
+    "has_image": false
+  },
+  {
+    "idx": 2903,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 2908,
+    "style": "Heading 3",
+    "text": "3.4.21 Supermarket Shelf & Slot Management",
+    "has_image": false
+  },
+  {
+    "idx": 2909,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 2910,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 2914,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 2917,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 2929,
+    "style": "normal",
+    "text": "3-column cascading layout:",
+    "has_image": false
+  },
+  {
+    "idx": 2933,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 2936,
+    "style": "normal",
+    "text": "3 Khu Vực (Zone): Total active supermarket zones",
+    "has_image": false
+  },
+  {
+    "idx": 2937,
+    "style": "normal",
+    "text": "1 Dãy Kệ (Aisle): Aisles in selected zone (e.g., A01)",
+    "has_image": false
+  },
+  {
+    "idx": 2938,
+    "style": "normal",
+    "text": "2 Kệ Hàng (Shelf): Shelves in selected aisle",
+    "has_image": false
+  },
+  {
+    "idx": 2951,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 2955,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 2956,
+    "style": "normal",
+    "text": "1. Admin navigates to Quản Lý Kệ Hàng from the sidebar",
+    "has_image": false
+  },
+  {
+    "idx": 2957,
+    "style": "normal",
+    "text": "2. System renders the 3-column layout defaulting to Zone 1 and Shelf 1",
+    "has_image": false
+  },
+  {
+    "idx": 2958,
+    "style": "normal",
+    "text": "3. Admin clicks on a specific Zone (Col 1) to inspect its aisles and shelves (Col 2)",
+    "has_image": false
+  },
+  {
+    "idx": 2959,
+    "style": "normal",
+    "text": "4. Admin clicks on a Shelf to reveal its individual slots and assigned products (Col 3)",
+    "has_image": false
+  },
+  {
+    "idx": 2960,
+    "style": "normal",
+    "text": "5. Admin clicks the link icon on any slot row to assign or change the product occupant",
+    "has_image": false
+  },
+  {
+    "idx": 2961,
+    "style": "normal",
+    "text": "6. System updates the slot-product assignment and syncs with the robot shelf patrol database",
+    "has_image": false
+  },
+  {
+    "idx": 2962,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 2966,
+    "style": "Heading 4",
+    "text": "3.4.22 User Account Management",
+    "has_image": false
+  },
+  {
+    "idx": 2967,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 2968,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 2973,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 2976,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 2995,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 3010,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 3014,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 3015,
+    "style": "normal",
+    "text": "1. Admin navigates to Quản Lý Tài Khoản from the sidebar",
+    "has_image": false
+  },
+  {
+    "idx": 3016,
+    "style": "normal",
+    "text": "2. System computes user statistics and displays the 4 role breakdown metric cards",
+    "has_image": false
+  },
+  {
+    "idx": 3017,
+    "style": "normal",
+    "text": "3. System renders the user accounts roster with active filter chips",
+    "has_image": false
+  },
+  {
+    "idx": 3018,
+    "style": "normal",
+    "text": "4. Admin can:",
+    "has_image": false
+  },
+  {
+    "idx": 3023,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 3027,
+    "style": "Heading 3",
+    "text": "3.4.23 Create Account",
+    "has_image": true
+  },
+  {
+    "idx": 3028,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 3032,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 3034,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 3046,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 3060,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 3064,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 3065,
+    "style": "normal",
+    "text": "1. Admin clicks \"+ Thêm Tài Khoản\" on the Account Management screen",
+    "has_image": false
+  },
+  {
+    "idx": 3066,
+    "style": "normal",
+    "text": "2. System opens the modal with default role \"Member\" and default status \"Hoạt động\"",
+    "has_image": false
+  },
+  {
+    "idx": 3067,
+    "style": "normal",
+    "text": "3. Admin fills in email, password, full name, phone number, and selects the desired role",
+    "has_image": false
+  },
+  {
+    "idx": 3068,
+    "style": "normal",
+    "text": "4. Admin clicks \"Tạo Tài Khoản\"",
+    "has_image": false
+  },
+  {
+    "idx": 3070,
+    "style": "normal",
+    "text": "6. System closes the modal, refreshes the account list, and displays a success notification",
+    "has_image": false
+  },
+  {
+    "idx": 3071,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 3077,
+    "style": "Heading 3",
+    "text": "3.4.24 Edit Account Modal",
+    "has_image": false
+  },
+  {
+    "idx": 3078,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3079,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 3083,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 3085,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 3101,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 3113,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 3117,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 3118,
+    "style": "normal",
+    "text": "1. Admin clicks \"Sửa tài khoản\" on a user row in the account management table.",
+    "has_image": false
+  },
+  {
+    "idx": 3119,
+    "style": "normal",
+    "text": "2. System opens the modal with the user's current identity, contact, role, and status pre-filled.",
+    "has_image": false
+  },
+  {
+    "idx": 3120,
+    "style": "normal",
+    "text": "3. Admin updates phone number, modifies full name, or changes system role/status.",
+    "has_image": false
+  },
+  {
+    "idx": 3121,
+    "style": "normal",
+    "text": "4. Admin clicks \"Lưu Thay Đổi\".",
+    "has_image": false
+  },
+  {
+    "idx": 3122,
+    "style": "normal",
+    "text": "5. System validates data, dispatches PUT /api/admin/users/:id, and persists updates.",
+    "has_image": false
+  },
+  {
+    "idx": 3123,
+    "style": "normal",
+    "text": "6. System closes the modal, refreshes the account table, and presents a success notification.",
+    "has_image": false
+  },
+  {
+    "idx": 3124,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 3128,
+    "style": "Heading 3",
+    "text": "3.4.25 Robot Advertisement Management",
+    "has_image": false
+  },
+  {
+    "idx": 3129,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3130,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3131,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3132,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3133,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 3139,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 3142,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 3165,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 3177,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 3182,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 3189,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 3196,
+    "style": "Heading 3",
+    "text": "3.4.26 Robot Shelf Patrol Management",
+    "has_image": false
+  },
+  {
+    "idx": 3197,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3198,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3199,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3200,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 3206,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 3209,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 3233,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 3246,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 3251,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 3260,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 3267,
+    "style": "Heading 3",
+    "text": "3.4.27 Robot Operation",
+    "has_image": false
+  },
+  {
+    "idx": 3268,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3269,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3270,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3273,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 3279,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 3281,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 3300,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 3312,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 3317,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 3318,
+    "style": "normal",
+    "text": "1. Admin navigates to /robots and selects target robot (e.g., RB0001).",
+    "has_image": false
+  },
+  {
+    "idx": 3320,
+    "style": "normal",
+    "text": "3. System dynamically computes and displays estimated duration and dwell time breakdown.",
+    "has_image": false
+  },
+  {
+    "idx": 3321,
+    "style": "normal",
+    "text": "4. Admin clicks \"Bắt Đầu Quảng Cáo\" (or \"Phát Lệnh Quảng Cáo Tự Do\").",
+    "has_image": false
+  },
+  {
+    "idx": 3322,
+    "style": "normal",
+    "text": "5. System validates robot readiness and dispatches POST /api/v1/navigation/dispatch-autonomous.",
+    "has_image": false
+  },
+  {
+    "idx": 3324,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 3330,
+    "style": "Heading 3",
+    "text": "3.4.28 Robot Map Management",
+    "has_image": false
+  },
+  {
+    "idx": 3331,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3332,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3337,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 3342,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 3344,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 3372,
+    "style": "normal",
+    "text": "4-button quick intervention grid:",
+    "has_image": false
+  },
+  {
+    "idx": 3377,
+    "style": "normal",
+    "text": "2-button auto-homing row:",
+    "has_image": false
+  },
+  {
+    "idx": 3393,
+    "style": "normal",
+    "text": "3x3 directional button grid: \"Tiến (W)\", \"Trái (A)\", \"DỪNG (Space)\", \"Phải (D)\", \"Lùi (S)\"",
+    "has_image": false
+  },
+  {
+    "idx": 3399,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 3415,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 3417,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 3418,
+    "style": "normal",
+    "text": "1. Admin navigates to /robots and selects target robot (e.g., RB0001) from the top dropdown.",
+    "has_image": false
+  },
+  {
+    "idx": 3419,
+    "style": "normal",
+    "text": "2. Admin switches to the tab \"Trạng Thái & Can Thiệp\".",
+    "has_image": false
+  },
+  {
+    "idx": 3420,
+    "style": "normal",
+    "text": "3. Admin clicks \"Kích Hoạt Dẫn Đường\" to initialize the Nav2/AMCL navigation stack on the robot.",
+    "has_image": false
+  },
+  {
+    "idx": 3421,
+    "style": "normal",
+    "text": "4. Admin clicks \"Kích Hoạt Kết Nối Robot\" to open the live WebSocket telemetry stream.",
+    "has_image": false
+  },
+  {
+    "idx": 3428,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 3435,
+    "style": "Heading 3",
+    "text": "3.4.29 Shelf Patrol History",
+    "has_image": false
+  },
+  {
+    "idx": 3436,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3437,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 3442,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 3445,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 3452,
+    "style": "normal",
+    "text": "Store photographic evidence of physical merchandise arrangements for proof-of-stock, planogram compliance, and staff restocking verification",
+    "has_image": true
+  },
+  {
+    "idx": 3485,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 3502,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 3504,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 3505,
+    "style": "normal",
+    "text": "1. User accesses /patrol-management and defaults to the tab \"Lịch Sử Quét Kệ & Ảnh AI\".",
+    "has_image": false
+  },
+  {
+    "idx": 3507,
+    "style": "normal",
+    "text": "3. The system maps each record to shelf metadata and formats timestamps to Vietnam timezone.",
+    "has_image": false
+  },
+  {
+    "idx": 3508,
+    "style": "normal",
+    "text": "4. Table displays recent inspection logs with density progress bars, ArUco tags, and status pills.",
+    "has_image": false
+  },
+  {
+    "idx": 3510,
+    "style": "normal",
+    "text": "6. The table reactively updates to show only matching scan entries.",
+    "has_image": false
+  },
+  {
+    "idx": 3511,
+    "style": "normal",
+    "text": "7. User clicks a thumbnail in the \"Ảnh Camera\" column.",
+    "has_image": false
+  },
+  {
+    "idx": 3512,
+    "style": "normal",
+    "text": "8. The Lightbox Modal opens, displaying the high-resolution photo captured by the robot.",
+    "has_image": false
+  },
+  {
+    "idx": 3513,
+    "style": "normal",
+    "text": "9. User clicks \"✕\" or outside the modal backdrop to close the photo view.",
+    "has_image": false
+  },
+  {
+    "idx": 3514,
+    "style": "normal",
+    "text": "10. (Optional) User clicks \"Làm mới\" to reload the latest scan entries from the backend.",
+    "has_image": false
+  },
+  {
+    "idx": 3515,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 3521,
+    "style": "Heading 3",
+    "text": "3.4.30 Staff Shelf Patrol Management",
+    "has_image": false
+  },
+  {
+    "idx": 3522,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3523,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3524,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 3530,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 3534,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 3582,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 3599,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 3601,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 3602,
+    "style": "normal",
+    "text": "1. User navigates to /patrol-management and clicks the tab \"Nhiệm Vụ Bổ Sung Hàng (Staff)\".",
+    "has_image": false
+  },
+  {
+    "idx": 3608,
+    "style": "normal",
+    "text": "7. System sends POST /api/staff/tasks/complete with aisle and node IDs.",
+    "has_image": false
+  },
+  {
+    "idx": 3612,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 3618,
+    "style": "Heading 3",
+    "text": "3.4.31 Shelf Density Management",
+    "has_image": false
+  },
+  {
+    "idx": 3619,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3620,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3621,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3623,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 3628,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 3631,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 3670,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 3687,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 3689,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 3690,
+    "style": "normal",
+    "text": "1. User navigates to /patrol-management and clicks the tab \"Mật Độ 6 Kệ Hàng\".",
+    "has_image": false
+  },
+  {
+    "idx": 3691,
+    "style": "normal",
+    "text": "2. Frontend sends GET /api/staff/shelves/density to retrieve the density metrics of all 6 shelves.",
+    "has_image": false
+  },
+  {
+    "idx": 3694,
+    "style": "normal",
+    "text": "5. User clicks the button \"Tuần tra ngay kệ này\" at the bottom of the card.",
+    "has_image": false
+  },
+  {
+    "idx": 3696,
+    "style": "normal",
+    "text": "7. User clicks \"OK\".",
+    "has_image": false
+  },
+  {
+    "idx": 3700,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 3705,
+    "style": "Heading 3",
+    "text": "3.5 Staff Mobile Experience (Staff Mobile App)",
+    "has_image": false
+  },
+  {
+    "idx": 3706,
+    "style": "Heading 3",
+    "text": "3.5.1 Login",
+    "has_image": false
+  },
+  {
+    "idx": 3707,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3708,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 3713,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 3716,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 3730,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 3732,
+    "style": "normal",
+    "text": "1. Staff member opens the SmartMarket Staff app.",
+    "has_image": false
+  },
+  {
+    "idx": 3733,
+    "style": "normal",
+    "text": "2. System checks Expo SecureStore -> No active token found -> Navigates to Login Screen (/login).",
+    "has_image": false
+  },
+  {
+    "idx": 3734,
+    "style": "normal",
+    "text": "3. Staff enters Email: staff@smartmarket.local and Password: Admin@123.",
+    "has_image": false
+  },
+  {
+    "idx": 3735,
+    "style": "normal",
+    "text": "4. Staff taps \"Đăng nhập\".",
+    "has_image": false
+  },
+  {
+    "idx": 3736,
+    "style": "normal",
+    "text": "5. System displays ActivityIndicator spinner on the button and disables input fields.",
+    "has_image": false
+  },
+  {
+    "idx": 3737,
+    "style": "normal",
+    "text": "6. App sends POST request to /api/auth/login with body { email, password }.",
+    "has_image": false
+  },
+  {
+    "idx": 3739,
+    "style": "normal",
+    "text": "8. App securely stores tokens in Expo SecureStore and sets AuthContext status to authenticated.",
+    "has_image": false
+  },
+  {
+    "idx": 3740,
+    "style": "normal",
+    "text": "9. System automatically routes staff member to the main staff operational dashboard (/staff).",
+    "has_image": false
+  },
+  {
+    "idx": 3742,
+    "style": "normal",
+    "text": "1. Staff member re-opens the Staff Mobile App.",
+    "has_image": false
+  },
+  {
+    "idx": 3743,
+    "style": "normal",
+    "text": "2. Initial state is status = \"loading\".",
+    "has_image": false
+  },
+  {
+    "idx": 3744,
+    "style": "normal",
+    "text": "3. System reads stored tokens from Expo SecureStore.",
+    "has_image": false
+  },
+  {
+    "idx": 3745,
+    "style": "normal",
+    "text": "4. If Refresh Token is present -> Calls AuthApi.refresh().",
+    "has_image": false
+  },
+  {
+    "idx": 3746,
+    "style": "normal",
+    "text": "5. Backend validates Refresh Token and issues a fresh Access Token.",
+    "has_image": false
+  },
+  {
+    "idx": 3748,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 3753,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 3758,
+    "style": "normal",
+    "text": "1. AuthApi.login() -> Encrypts and writes accessToken and refreshToken into SecureStore.",
+    "has_image": false
+  },
+  {
+    "idx": 3759,
+    "style": "normal",
+    "text": "2. Attaches Authorization: Bearer <accessToken> header to all subsequent API communications.",
+    "has_image": false
+  },
+  {
+    "idx": 3760,
+    "style": "normal",
+    "text": "3. AuthApi.logout() -> Revokes tokens on server and purges local SecureStore keys.",
+    "has_image": false
+  },
+  {
+    "idx": 3761,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 3776,
+    "style": "Heading 3",
+    "text": "3.5.2 Staff Homepage & Operational Dashboard",
+    "has_image": false
+  },
+  {
+    "idx": 3778,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3782,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 3789,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 3793,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 3806,
+    "style": "normal",
+    "text": "6 Shelf Item Cards List (Shelves #1 to #6):",
+    "has_image": false
+  },
+  {
+    "idx": 3816,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 3818,
+    "style": "normal",
+    "text": "1. Staff member opens Homepage upon logging in.",
+    "has_image": false
+  },
+  {
+    "idx": 3820,
+    "style": "normal",
+    "text": "3. Summary cards display total restock tasks (0) and available operational robots (1).",
+    "has_image": false
+  },
+  {
+    "idx": 3824,
+    "style": "normal",
+    "text": "1. Staff taps \"Dãy C01\" filter pill tab.",
+    "has_image": false
+  },
+  {
+    "idx": 3825,
+    "style": "normal",
+    "text": "2. Card list narrows down to display only shelves in Aisle C01 (Shelf 5 and Shelf 6).",
+    "has_image": false
+  },
+  {
+    "idx": 3826,
+    "style": "normal",
+    "text": "3. Staff observes Shelf 5 exhibiting 73% density with an orange action button \" Bổ sung thêm\".",
+    "has_image": false
+  },
+  {
+    "idx": 3827,
+    "style": "normal",
+    "text": "4. Staff physically restocks Shelf 5 in the supermarket, then taps \"Bổ sung thêm\" in the app.",
+    "has_image": false
+  },
+  {
+    "idx": 3828,
+    "style": "normal",
+    "text": "5. Confirmation modal pops up: \"Xác nhận nhân viên đã châm đầy 100% hàng cho Kệ 5?\".",
+    "has_image": false
+  },
+  {
+    "idx": 3829,
+    "style": "normal",
+    "text": "6. Staff taps \"Xác nhận\".",
+    "has_image": false
+  },
+  {
+    "idx": 3831,
+    "style": "normal",
+    "text": "8. App displays toast message: \" Đã xác nhận Fill đầy Kệ 5 (100%) thành công!\".",
+    "has_image": false
+  },
+  {
+    "idx": 3833,
+    "style": "normal",
+    "text": "1. Staff reviews the Live Robot Status Card for SmartMarketBot 01 (RB0001).",
+    "has_image": false
+  },
+  {
+    "idx": 3834,
+    "style": "normal",
+    "text": "2. Card displays battery level 100%, mode IDLE (Ready), and live coordinates (1.5, 1.5).",
+    "has_image": false
+  },
+  {
+    "idx": 3835,
+    "style": "normal",
+    "text": "3. Staff taps \"Theo dõi trên bản đồ →\".",
+    "has_image": false
+  },
+  {
+    "idx": 3836,
+    "style": "normal",
+    "text": "4. System routes staff to the Supermarket Map & Robot Fleet Screen (/staff/map).",
+    "has_image": false
+  },
+  {
+    "idx": 3837,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 3842,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 3860,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 3886,
+    "style": "Heading 3",
+    "text": "3.5.3 In-Place Shelf Restock Confirmation",
+    "has_image": false
+  },
+  {
+    "idx": 3888,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3891,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 3896,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 3899,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 3912,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 3915,
+    "style": "normal",
+    "text": "2. Staff retrieves products from inventory and physically restocks Shelf 5 in the supermarket.",
+    "has_image": false
+  },
+  {
+    "idx": 3916,
+    "style": "normal",
+    "text": "3. Staff taps \"Bổ sung thêm\" on the mobile app.",
+    "has_image": false
+  },
+  {
+    "idx": 3918,
+    "style": "normal",
+    "text": "5. Staff taps the green \" Xác nhận đã Fill xong\" button.",
+    "has_image": false
+  },
+  {
+    "idx": 3920,
+    "style": "normal",
+    "text": "7. App sends background API completeRestockTask to the server to close active restock alerts.",
+    "has_image": false
+  },
+  {
+    "idx": 3922,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 3925,
+    "style": "Heading 4",
+    "text": "Data Processing (Data Attribute Specification)",
+    "has_image": false
+  },
+  {
+    "idx": 3935,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 3958,
+    "style": "Heading 3",
+    "text": "3.5.4 Staff Interactive 2D Map & Realtime Robot Telemetry",
+    "has_image": false
+  },
+  {
+    "idx": 3960,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 3961,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 3976,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 3979,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 3994,
+    "style": "normal",
+    "text": "2D Supermarket Arena Canvas (3.0m x 3.0m Grid Layout):",
+    "has_image": false
+  },
+  {
+    "idx": 4000,
+    "style": "normal",
+    "text": "6 Interactive Supermarket Shelves (Shelves #1 to #6):",
+    "has_image": false
+  },
+  {
+    "idx": 4016,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 4018,
+    "style": "normal",
+    "text": "1. Staff member opens the Supermarket Map Screen from the bottom tab bar or Homepage.",
+    "has_image": false
+  },
+  {
+    "idx": 4019,
+    "style": "normal",
+    "text": "2. System initializes WebSocket MQTT connection (wss://...:8884/mqtt).",
+    "has_image": false
+  },
+  {
+    "idx": 4020,
+    "style": "normal",
+    "text": "3. Connection status indicator turns green: \" MQTT Live (HiveMQ Cloud WSS:8884)\".",
+    "has_image": false
+  },
+  {
+    "idx": 4025,
+    "style": "normal",
+    "text": "1. Staff toggles \"Hiển thị % Mật độ\" switch to ON.",
+    "has_image": false
+  },
+  {
+    "idx": 4026,
+    "style": "normal",
+    "text": "2. All 6 shelf containers render overlay density percentage pills (e.g., 100%).",
+    "has_image": false
+  },
+  {
+    "idx": 4027,
+    "style": "normal",
+    "text": "3. Staff taps Shelf 5 card on the 2D grid canvas.",
+    "has_image": false
+  },
+  {
+    "idx": 4030,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 4034,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 4049,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 4054,
+    "style": "Heading 3",
+    "text": "3.5.5 Staff Restock Notifications & Task Details",
+    "has_image": false
+  },
+  {
+    "idx": 4055,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 4060,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 4066,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 4070,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 4097,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 4099,
+    "style": "normal",
+    "text": "1. Staff member opens the Staff Mobile App and taps the \"Thông báo\" tab (indicated by red badge 1).",
+    "has_image": false
+  },
+  {
+    "idx": 4101,
+    "style": "normal",
+    "text": "3. System fetches active restock task queue from backend API (listRestockTasks).",
+    "has_image": false
+  },
+  {
+    "idx": 4103,
+    "style": "normal",
+    "text": "5. Staff filters alerts by tapping \"Khẩn cấp\" or \"Dãy B01\" pills to prioritize tasks nearby.",
+    "has_image": false
+  },
+  {
+    "idx": 4106,
+    "style": "normal",
+    "text": "2. System routes staff to the \"Chi tiết bổ sung hàng\" screen (/staff/notification-detail?id=X).",
+    "has_image": false
+  },
+  {
+    "idx": 4109,
+    "style": "normal",
+    "text": "5. Staff taps the green button \"Xác nhận đã châm đầy hàng (Restocked)\".",
+    "has_image": false
+  },
+  {
+    "idx": 4110,
+    "style": "normal",
+    "text": "6. App displays ActivityIndicator spinner and posts completeRestockTask request to backend.",
+    "has_image": false
+  },
+  {
+    "idx": 4113,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 4117,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 4133,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 4137,
+    "style": "Heading 3",
+    "text": "3.5.6 Staff Profile & Account Management",
+    "has_image": false
+  },
+  {
+    "idx": 4138,
+    "style": "normal",
+    "text": "",
+    "has_image": true
+  },
+  {
+    "idx": 4141,
+    "style": "Heading 4",
+    "text": "Function Trigger",
+    "has_image": false
+  },
+  {
+    "idx": 4144,
+    "style": "Heading 4",
+    "text": "Timing / Frequency",
+    "has_image": false
+  },
+  {
+    "idx": 4147,
+    "style": "Heading 4",
+    "text": "Function Description",
+    "has_image": false
+  },
+  {
+    "idx": 4162,
+    "style": "Heading 4",
+    "text": "Normal Flow",
+    "has_image": false
+  },
+  {
+    "idx": 4164,
+    "style": "normal",
+    "text": "1. Staff member taps the \"Tài khoản\" tab on the bottom navigation bar.",
+    "has_image": false
+  },
+  {
+    "idx": 4165,
+    "style": "normal",
+    "text": "2. Application retrieves user credentials from the useAuth() hook.",
+    "has_image": false
+  },
+  {
+    "idx": 4168,
+    "style": "normal",
+    "text": "1. Staff member taps the red \"Đăng xuất\" button at the bottom of the screen.",
+    "has_image": false
+  },
+  {
+    "idx": 4169,
+    "style": "normal",
+    "text": "2. Button triggers AnimatedButton tactile feedback and invokes handleLogout().",
+    "has_image": false
+  },
+  {
+    "idx": 4170,
+    "style": "normal",
+    "text": "3. System clears all local authentication session tokens and cached credentials via logout().",
+    "has_image": false
+  },
+  {
+    "idx": 4172,
+    "style": "Heading 4",
+    "text": "Abnormal Cases",
+    "has_image": false
+  },
+  {
+    "idx": 4175,
+    "style": "Heading 4",
+    "text": "Data Processing",
+    "has_image": false
+  },
+  {
+    "idx": 4184,
+    "style": "Heading 4",
+    "text": "Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 4190,
+    "style": "Heading 1",
+    "text": "4. Non-Functional Requirements",
+    "has_image": false
+  },
+  {
+    "idx": 4191,
+    "style": "Heading 2",
+    "text": "4.1 External Interfaces",
+    "has_image": false
+  },
+  {
+    "idx": 4205,
+    "style": "Heading 2",
+    "text": "4.2 Quality Attributes",
+    "has_image": false
+  },
+  {
+    "idx": 4206,
+    "style": "Heading 4",
+    "text": "4.2.1 Usability",
+    "has_image": false
+  },
+  {
+    "idx": 4212,
+    "style": "Heading 4",
+    "text": "4.2.2 Reliability",
+    "has_image": false
+  },
+  {
+    "idx": 4219,
+    "style": "Heading 4",
+    "text": "4.2.3 Performance",
+    "has_image": false
+  },
+  {
+    "idx": 4226,
+    "style": "Heading 4",
+    "text": "4.2.4 Safety",
+    "has_image": false
+  },
+  {
+    "idx": 4234,
+    "style": "Heading 4",
+    "text": "4.2.5 Security",
+    "has_image": false
+  },
+  {
+    "idx": 4243,
+    "style": "Heading 2",
+    "text": "5. Requirement Appendix",
+    "has_image": false
+  },
+  {
+    "idx": 4244,
+    "style": "Heading 3",
+    "text": "5.1 Business Rules",
+    "has_image": false
+  },
+  {
+    "idx": 4249,
+    "style": "Heading 3",
+    "text": "5.2 Common Requirements",
+    "has_image": false
+  },
+  {
+    "idx": 4254,
+    "style": "Heading 3",
+    "text": "5.3 Application Messages List",
+    "has_image": false
+  },
+  {
+    "idx": 4256,
+    "style": "Heading 3",
+    "text": "",
+    "has_image": false
+  },
+  {
+    "idx": 4257,
+    "style": "Heading 3",
+    "text": "5.4 Other Requirements",
+    "has_image": false
+  },
+  {
+    "idx": 4260,
+    "style": "Heading 3",
+    "text": "",
+    "has_image": false
+  }
+]

@@ -28,8 +28,7 @@
   <path d="M 535.0 130.0 L 535.0 70.0 Q 535.0 60.0 545.0 60.0 L 2655.0 60.0 Q 2665.0 60.0 2665.0 70.0 L 2665.0 130.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 2790.0 201.0 L 2795.0 201.0 Q 2800.0 201.0 2800.0 206.0 L 2800.0 208.0 Q 2800.0 213.0 2805.0 213.0 L 2810.0 213.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 1390.0 460.0 L 1390.0 330.0 Q 1390.0 320.0 1400.0 320.0 L 2920.0 320.0 Q 2930.0 320.0 2930.0 310.0 L 2930.0 296.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
-  <path d="M 2420.0 599.0 L 2465.0 599.0 Q 2475.0 599.0 2475.0 589.0 L 2475.0 561.0 Q 2475.0 551.0 2485.0 551.0 L 2530.0 551.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
-  <path d="M 1390.0 818.0 L 1390.0 870.0 Q 1390.0 880.0 1400.0 880.0 L 2655.0 880.0 Q 2665.0 880.0 2665.0 870.0 L 2665.0 622.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M 1520.0 639.0 L 1900.0 639.0 Q 1910.0 639.0 1910.0 629.0 L 1910.0 609.0 Q 1910.0 599.0 1920.0 599.0 L 2300.0 599.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 320.0 1297.0 L 327.5 1297.0 Q 335.0 1297.0 335.0 1304.5 L 335.0 1313.5 Q 335.0 1321.0 342.5 1321.0 L 350.0 1321.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 610.0 1321.0 L 625.0 1321.0 L 625.0 1321.0 L 640.0 1321.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 770.0 1392.0 L 770.0 1440.0 Q 770.0 1450.0 770.0 1460.0 L 770.0 1540.0 Q 770.0 1550.0 770.0 1560.0 L 770.0 1600.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
@@ -41,8 +40,6 @@
   <path d="M 1600.0 1381.0 L 1607.5 1381.0 Q 1615.0 1381.0 1615.0 1373.5 L 1615.0 1340.5 Q 1615.0 1333.0 1622.5 1333.0 L 1630.0 1333.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 1435.0 1250.0 L 1435.0 1190.0 Q 1435.0 1180.0 1425.0 1180.0 L 960.0 1180.0 Q 950.0 1180.0 950.0 1190.0 L 950.0 1490.0 Q 950.0 1500.0 940.0 1500.0 L 780.0 1500.0 Q 770.0 1500.0 770.0 1510.0 L 770.0 1600.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 1495.0 1512.0 L 1495.0 1590.0 Q 1495.0 1600.0 1505.0 1600.0 L 1750.0 1600.0 Q 1760.0 1600.0 1760.0 1610.0 L 1760.0 1800.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
-  <path d="M 1030.0 1515.0 L 990.0 1515.0 Q 980.0 1515.0 980.0 1525.0 L 980.0 2277.0 Q 980.0 2287.0 990.0 2287.0 L 1030.0 2287.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
-  <path d="M 1740.0 248.0 L 1740.0 290.0 Q 1740.0 300.0 1750.0 300.0 L 1930.0 300.0 Q 1940.0 300.0 1940.0 310.0 L 1940.0 950.0 Q 1940.0 960.0 1930.0 960.0 L 970.0 960.0 Q 960.0 960.0 960.0 970.0 L 960.0 2317.0 Q 960.0 2327.0 970.0 2327.0 L 1030.0 2327.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 1290.0 1919.0 L 1300.0 1919.0 Q 1310.0 1919.0 1310.0 1929.0 L 1310.0 1933.0 Q 1310.0 1943.0 1320.0 1943.0 L 1330.0 1943.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 1030.0 1919.0 L 990.0 1919.0 Q 980.0 1919.0 980.0 1929.0 L 980.0 2510.0 Q 980.0 2520.0 990.0 2520.0 L 1750.0 2520.0 Q 1760.0 2520.0 1760.0 2510.0 L 1760.0 2206.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 900.0 1683.0 L 900.0 1683.0 L 970.0 1683.0 Q 980.0 1683.0 980.0 1693.0 L 980.0 1730.0 Q 980.0 1740.0 990.0 1740.0 L 1690.0 1740.0 Q 1700.0 1740.0 1700.0 1750.0 L 1700.0 1800.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
@@ -51,8 +48,8 @@
   <path d="M 480.0 1250.0 L 480.0 1170.0 Q 480.0 1160.0 490.0 1160.0 L 3040.0 1160.0 Q 3050.0 1160.0 3050.0 1170.0 L 3050.0 1250.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 3200.0 1369.0 L 3207.5 1369.0 Q 3215.0 1369.0 3215.0 1361.5 L 3215.0 1340.5 Q 3215.0 1333.0 3222.5 1333.0 L 3230.0 1333.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 1465.0 1250.0 L 1465.0 1110.0 Q 1465.0 1100.0 1475.0 1100.0 L 3350.0 1100.0 Q 3360.0 1100.0 3360.0 1110.0 L 3360.0 1250.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
-  <path d="M 3110.0 1250.0 L 3110.0 1210.0 Q 3110.0 1200.0 3120.0 1200.0 L 3640.0 1200.0 Q 3650.0 1200.0 3650.0 1210.0 L 3650.0 1250.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
-  <path d="M 1030.0 1939.0 L 970.0 1939.0 Q 960.0 1939.0 960.0 1949.0 L 960.0 2570.0 Q 960.0 2580.0 970.0 2580.0 L 3810.0 2580.0 Q 3820.0 2580.0 3820.0 2570.0 L 3820.0 1343.0 Q 3820.0 1333.0 3810.0 1333.0 L 3780.0 1333.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M 3110.0 1250.0 L 3110.0 1210.0 Q 3110.0 1200.0 3120.0 1200.0 L 3640.0 1200.0 Q 3650.0 1200.0 3642.1 1206.1 L 3070.0 1650.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M 1030.0 1939.0 L 970.0 1939.0 Q 960.0 1939.0 960.0 1949.0 L 960.0 2570.0 Q 960.0 2580.0 970.0 2580.0 L 3810.0 2580.0 Q 3820.0 2580.0 3820.0 2570.0 L 3820.0 1343.0 Q 3820.0 1333.0 3811.6 1338.4 L 3200.0 1733.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 2110.0 1250.0 L 2110.0 1220.0 Q 2110.0 1210.0 2120.0 1210.0 L 2660.0 1210.0 Q 2670.0 1210.0 2670.0 1220.0 L 2670.0 1250.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 2540.0 1429.0 L 2555.0 1429.0 L 2555.0 1429.0 L 2570.0 1429.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 2650.0 1608.0 L 2650.0 1630.0 Q 2650.0 1640.0 2640.0 1640.0 L 2120.0 1640.0 Q 2110.0 1640.0 2110.0 1650.0 L 2110.0 1680.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
@@ -62,16 +59,8 @@
   <path d="M 480.0 1392.0 L 480.0 1440.0 Q 480.0 1450.0 490.0 1450.0 L 940.0 1450.0 Q 950.0 1450.0 950.0 1460.0 L 950.0 2530.0 Q 950.0 2540.0 960.0 2540.0 L 2690.0 2540.0 Q 2700.0 2540.0 2700.0 2530.0 L 2700.0 1822.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 2630.0 1608.0 L 2630.0 1640.0 Q 2630.0 1650.0 2620.0 1650.0 L 1960.0 1650.0 Q 1950.0 1650.0 1950.0 1660.0 L 1950.0 2061.0 Q 1950.0 2071.0 1960.0 2071.0 L 1980.0 2071.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 770.0 1766.0 L 770.0 1790.0 Q 770.0 1800.0 780.0 1800.0 L 930.0 1800.0 Q 940.0 1800.0 940.0 1810.0 L 940.0 2510.0 Q 940.0 2520.0 950.0 2520.0 L 2100.0 2520.0 Q 2110.0 2520.0 2110.0 2510.0 L 2110.0 2142.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
-  <path d="M 2770.0 1608.0 L 2770.0 1625.0 Q 2770.0 1635.0 2780.0 1635.0 L 2890.0 1635.0 Q 2900.0 1635.0 2900.0 1645.0 L 2900.0 1711.0 Q 2900.0 1721.0 2910.0 1721.0 L 2940.0 1721.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
-  <path d="M 3070.0 1488.0 L 3070.0 1569.0 L 3070.0 1569.0 L 3070.0 1650.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
-  <path d="M 3490.0 1745.0 L 3497.5 1745.0 Q 3505.0 1745.0 3505.0 1737.5 L 3505.0 1704.5 Q 3505.0 1697.0 3512.5 1697.0 L 3520.0 1697.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
-  <path d="M 2790.0 1608.0 L 2790.0 1614.0 Q 2790.0 1620.0 2796.0 1620.0 L 3640.0 1620.0 Q 3650.0 1620.0 3650.0 1630.0 L 3650.0 1650.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
-  <path d="M 3320.0 1840.0 L 3320.0 1910.0 Q 3320.0 1920.0 3310.0 1920.0 L 3080.0 1920.0 Q 3070.0 1920.0 3070.0 1930.0 L 3070.0 2000.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
-  <path d="M 1505.0 1250.0 L 1505.0 1070.0 Q 1505.0 1060.0 1515.0 1060.0 L 1920.0 1060.0 Q 1930.0 1060.0 1930.0 1070.0 L 1930.0 2490.0 Q 1930.0 2500.0 1940.0 2500.0 L 3020.0 2500.0 Q 3030.0 2500.0 3030.0 2490.0 L 3030.0 2214.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
-  <path d="M 500.0 1392.0 L 500.0 1450.0 Q 500.0 1460.0 510.0 1460.0 L 920.0 1460.0 Q 930.0 1460.0 930.0 1470.0 L 930.0 2510.0 Q 930.0 2520.0 940.0 2520.0 L 3060.0 2520.0 Q 3070.0 2520.0 3070.0 2510.0 L 3070.0 2214.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
-  <path d="M 790.0 1766.0 L 790.0 1810.0 Q 790.0 1820.0 800.0 1820.0 L 910.0 1820.0 Q 920.0 1820.0 920.0 1830.0 L 920.0 2530.0 Q 920.0 2540.0 930.0 2540.0 L 3100.0 2540.0 Q 3110.0 2540.0 3110.0 2530.0 L 3110.0 2214.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
-  <path d="M 3360.0 1840.0 L 3360.0 1915.0 Q 3360.0 1920.0 3365.0 1920.0 L 3365.0 1920.0 Q 3370.0 1920.0 3370.0 1925.0 L 3370.0 2000.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
-  <path d="M 1030.0 1959.0 L 960.0 1959.0 Q 950.0 1959.0 950.0 1969.0 L 950.0 2590.0 Q 950.0 2600.0 960.0 2600.0 L 3360.0 2600.0 Q 3370.0 2600.0 3370.0 2590.0 L 3370.0 2166.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M 2770.0 1608.0 L 2770.0 1625.0 Q 2770.0 1635.0 2780.0 1635.0 L 2890.0 1635.0 Q 2900.0 1635.0 2900.0 1645.0 L 2900.0 1711.0 Q 2900.0 1721.0 2910.0 1721.0 L 3230.0 1721.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M 3070.0 1488.0 L 3070.0 1559.0 Q 3070.0 1569.0 3080.0 1569.0 L 3350.0 1569.0 Q 3360.0 1569.0 3360.0 1579.0 L 3360.0 1650.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 2750.0 1608.0 L 2750.0 1635.0 Q 2750.0 1645.0 2760.0 1645.0 L 2870.0 1645.0 Q 2880.0 1645.0 2880.0 1655.0 L 2880.0 2067.0 Q 2880.0 2077.0 2870.0 2077.0 L 2570.0 2077.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 2400.0 1846.0 L 2400.0 1888.0 Q 2400.0 1898.0 2410.0 1898.0 L 2410.0 1898.0 Q 2420.0 1898.0 2420.0 1908.0 L 2420.0 1950.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
   <path d="M 1370.0 818.0 L 1370.0 1010.0 Q 1370.0 1020.0 1380.0 1020.0 L 1940.0 1020.0 Q 1950.0 1020.0 1950.0 1030.0 L 1950.0 2170.0 Q 1950.0 2180.0 1960.0 2180.0 L 2270.0 2180.0" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linejoin="round"/>
@@ -439,55 +428,35 @@
     <text x="3038.0" y="280.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">DECIMAL(18,2)</text>
   </g>
   <g id="node-MEAL_SUGGESTION">
-    <rect x="2130.0" y="480.0" width="290.0" height="238.0" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.8" rx="5" filter="url(#badge-shadow)"/>
-    <path d="M 2130.0 485.0 A 5 5 0 0 1 2135.0 480.0 L 2415.0 480.0 A 5 5 0 0 1 2420.0 485.0 L 2420.0 516.0 L 2130.0 516.0 Z" fill="#F1F5F9"/>
-    <line x1="2130.0" y1="516.0" x2="2420.0" y2="516.0" stroke="#1E293B" stroke-width="1.5"/>
-    <text x="2275.0" y="503.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="13px" font-weight="bold" fill="#0F172A" text-anchor="middle">MEAL_SUGGESTION</text>
-    <circle cx="2144.0" cy="529.5" r="3.5" fill="#0F172A"/>
-    <g transform="translate(2156.0, 523.0) scale(0.75)"><path d="M 7 1 C 4.8 1 3 2.8 3 5 C 3 6.1 3.5 7.1 4.2 7.8 L 0 12 L 0 15 L 3 15 L 3 13 L 5 13 L 5 11 L 6.2 11 C 6.5 11 6.7 10.9 6.8 10.8 L 7.8 9.8 C 8.5 10.5 9.5 11 10.6 11 C 12.8 11 14.6 9.2 14.6 7 C 14.6 4.8 12.8 3 10.6 3 Z" fill="#D97706"/></g>
-    <text x="2174.0" y="534.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="bold" fill="#0F172A">MealSuggestionID</text>
-    <text x="2408.0" y="534.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="2144.0" cy="553.5" r="3.5" fill="#0F172A"/>
-    <text x="2156.0" y="558.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">MealName</text>
-    <text x="2408.0" y="558.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">VARCHAR(255)</text>
-    <circle cx="2144.0" cy="577.5" r="3.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
-    <text x="2156.0" y="582.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">Description</text>
-    <text x="2408.0" y="582.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">TEXT</text>
-    <circle cx="2144.0" cy="601.5" r="3.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
-    <text x="2156.0" y="606.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">YieldPortions</text>
-    <text x="2408.0" y="606.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="2144.0" cy="625.5" r="3.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
-    <text x="2156.0" y="630.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">ImageUrl</text>
-    <text x="2408.0" y="630.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">VARCHAR(500)</text>
-    <circle cx="2144.0" cy="649.5" r="3.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
-    <text x="2156.0" y="654.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">Calories</text>
-    <text x="2408.0" y="654.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="2144.0" cy="673.5" r="3.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
-    <text x="2156.0" y="678.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">healthy_score</text>
-    <text x="2408.0" y="678.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="2144.0" cy="697.5" r="3.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
-    <text x="2156.0" y="702.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">alternative_suggestion</text>
-    <text x="2408.0" y="702.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">TEXT</text>
-  </g>
-  <g id="node-MEAL_ITEM">
-    <rect x="2530.0" y="480.0" width="270.0" height="142.0" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.8" rx="5" filter="url(#badge-shadow)"/>
-    <path d="M 2530.0 485.0 A 5 5 0 0 1 2535.0 480.0 L 2795.0 480.0 A 5 5 0 0 1 2800.0 485.0 L 2800.0 516.0 L 2530.0 516.0 Z" fill="#F1F5F9"/>
-    <line x1="2530.0" y1="516.0" x2="2800.0" y2="516.0" stroke="#1E293B" stroke-width="1.5"/>
-    <text x="2665.0" y="503.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="13px" font-weight="bold" fill="#0F172A" text-anchor="middle">MEAL_ITEM</text>
-    <circle cx="2544.0" cy="529.5" r="3.5" fill="#0F172A"/>
-    <g transform="translate(2556.0, 523.0) scale(0.75)"><path d="M 7 1 C 4.8 1 3 2.8 3 5 C 3 6.1 3.5 7.1 4.2 7.8 L 0 12 L 0 15 L 3 15 L 3 13 L 5 13 L 5 11 L 6.2 11 C 6.5 11 6.7 10.9 6.8 10.8 L 7.8 9.8 C 8.5 10.5 9.5 11 10.6 11 C 12.8 11 14.6 9.2 14.6 7 C 14.6 4.8 12.8 3 10.6 3 Z" fill="#D97706"/></g>
-    <text x="2574.0" y="534.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="bold" fill="#0F172A">MealSuggestionID</text>
-    <text x="2788.0" y="534.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="2544.0" cy="553.5" r="3.5" fill="#0F172A"/>
-    <g transform="translate(2556.0, 547.0) scale(0.75)"><path d="M 7 1 C 4.8 1 3 2.8 3 5 C 3 6.1 3.5 7.1 4.2 7.8 L 0 12 L 0 15 L 3 15 L 3 13 L 5 13 L 5 11 L 6.2 11 C 6.5 11 6.7 10.9 6.8 10.8 L 7.8 9.8 C 8.5 10.5 9.5 11 10.6 11 C 12.8 11 14.6 9.2 14.6 7 C 14.6 4.8 12.8 3 10.6 3 Z" fill="#D97706"/></g>
-    <text x="2574.0" y="558.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="bold" fill="#0F172A">ProductID</text>
-    <text x="2788.0" y="558.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="2544.0" cy="577.5" r="3.5" fill="#0F172A"/>
-    <text x="2556.0" y="582.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">QuantityRequired</text>
-    <text x="2788.0" y="582.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">DECIMAL(10,2)</text>
-    <circle cx="2544.0" cy="601.5" r="3.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
-    <text x="2556.0" y="606.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">UnitOfMeasure</text>
-    <text x="2788.0" y="606.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">VARCHAR(50)</text>
+    <rect x="2300.0" y="480.0" width="290.0" height="238.0" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.8" rx="5" filter="url(#badge-shadow)"/>
+    <path d="M 2300.0 485.0 A 5 5 0 0 1 2305.0 480.0 L 2585.0 480.0 A 5 5 0 0 1 2590.0 485.0 L 2590.0 516.0 L 2300.0 516.0 Z" fill="#F1F5F9"/>
+    <line x1="2300.0" y1="516.0" x2="2590.0" y2="516.0" stroke="#1E293B" stroke-width="1.5"/>
+    <text x="2445.0" y="503.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="13px" font-weight="bold" fill="#0F172A" text-anchor="middle">MEAL_SUGGESTION</text>
+    <circle cx="2314.0" cy="529.5" r="3.5" fill="#0F172A"/>
+    <g transform="translate(2326.0, 523.0) scale(0.75)"><path d="M 7 1 C 4.8 1 3 2.8 3 5 C 3 6.1 3.5 7.1 4.2 7.8 L 0 12 L 0 15 L 3 15 L 3 13 L 5 13 L 5 11 L 6.2 11 C 6.5 11 6.7 10.9 6.8 10.8 L 7.8 9.8 C 8.5 10.5 9.5 11 10.6 11 C 12.8 11 14.6 9.2 14.6 7 C 14.6 4.8 12.8 3 10.6 3 Z" fill="#D97706"/></g>
+    <text x="2344.0" y="534.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="bold" fill="#0F172A">MealSuggestionID</text>
+    <text x="2578.0" y="534.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
+    <circle cx="2314.0" cy="553.5" r="3.5" fill="#0F172A"/>
+    <text x="2326.0" y="558.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">MealName</text>
+    <text x="2578.0" y="558.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">VARCHAR(255)</text>
+    <circle cx="2314.0" cy="577.5" r="3.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
+    <text x="2326.0" y="582.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">Description</text>
+    <text x="2578.0" y="582.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">TEXT</text>
+    <circle cx="2314.0" cy="601.5" r="3.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
+    <text x="2326.0" y="606.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">YieldPortions</text>
+    <text x="2578.0" y="606.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
+    <circle cx="2314.0" cy="625.5" r="3.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
+    <text x="2326.0" y="630.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">ImageUrl</text>
+    <text x="2578.0" y="630.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">VARCHAR(500)</text>
+    <circle cx="2314.0" cy="649.5" r="3.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
+    <text x="2326.0" y="654.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">Calories</text>
+    <text x="2578.0" y="654.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
+    <circle cx="2314.0" cy="673.5" r="3.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
+    <text x="2326.0" y="678.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">healthy_score</text>
+    <text x="2578.0" y="678.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
+    <circle cx="2314.0" cy="697.5" r="3.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
+    <text x="2326.0" y="702.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">alternative_suggestion</text>
+    <text x="2578.0" y="702.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">TEXT</text>
   </g>
   <g id="node-FLOOR">
     <rect x="80.0" y="1250.0" width="240.0" height="94.0" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.8" rx="5" filter="url(#badge-shadow)"/>
@@ -843,51 +812,6 @@
     <text x="1646.0" y="2190.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">AnalysisStatus</text>
     <text x="1888.0" y="2190.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">VARCHAR(50)</text>
   </g>
-  <g id="node-SEMANTIC_OBJECT">
-    <rect x="1030.0" y="2120.0" width="280.0" height="334.0" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.8" rx="5" filter="url(#badge-shadow)"/>
-    <path d="M 1030.0 2125.0 A 5 5 0 0 1 1035.0 2120.0 L 1305.0 2120.0 A 5 5 0 0 1 1310.0 2125.0 L 1310.0 2156.0 L 1030.0 2156.0 Z" fill="#F1F5F9"/>
-    <line x1="1030.0" y1="2156.0" x2="1310.0" y2="2156.0" stroke="#1E293B" stroke-width="1.5"/>
-    <text x="1170.0" y="2143.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="13px" font-weight="bold" fill="#0F172A" text-anchor="middle">SEMANTIC_OBJECT</text>
-    <circle cx="1044.0" cy="2169.5" r="3.5" fill="#0F172A"/>
-    <g transform="translate(1056.0, 2163.0) scale(0.75)"><path d="M 7 1 C 4.8 1 3 2.8 3 5 C 3 6.1 3.5 7.1 4.2 7.8 L 0 12 L 0 15 L 3 15 L 3 13 L 5 13 L 5 11 L 6.2 11 C 6.5 11 6.7 10.9 6.8 10.8 L 7.8 9.8 C 8.5 10.5 9.5 11 10.6 11 C 12.8 11 14.6 9.2 14.6 7 C 14.6 4.8 12.8 3 10.6 3 Z" fill="#D97706"/></g>
-    <text x="1074.0" y="2174.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="bold" fill="#0F172A">ObjectID</text>
-    <text x="1298.0" y="2174.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="1044.0" cy="2193.5" r="3.5" fill="#0F172A"/>
-    <text x="1056.0" y="2198.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="9px" font-weight="bold" fill="#2563EB">FK</text>
-    <text x="1074.0" y="2198.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">MapID</text>
-    <text x="1298.0" y="2198.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="1044.0" cy="2217.5" r="3.5" fill="#0F172A"/>
-    <text x="1056.0" y="2222.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">ObjectType</text>
-    <text x="1298.0" y="2222.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">VARCHAR(50)</text>
-    <circle cx="1044.0" cy="2241.5" r="3.5" fill="#0F172A"/>
-    <text x="1056.0" y="2246.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">XMin</text>
-    <text x="1298.0" y="2246.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">FLOAT</text>
-    <circle cx="1044.0" cy="2265.5" r="3.5" fill="#0F172A"/>
-    <text x="1056.0" y="2270.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">YMin</text>
-    <text x="1298.0" y="2270.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">FLOAT</text>
-    <circle cx="1044.0" cy="2289.5" r="3.5" fill="#0F172A"/>
-    <text x="1056.0" y="2294.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">XMax</text>
-    <text x="1298.0" y="2294.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">FLOAT</text>
-    <circle cx="1044.0" cy="2313.5" r="3.5" fill="#0F172A"/>
-    <text x="1056.0" y="2318.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">YMax</text>
-    <text x="1298.0" y="2318.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">FLOAT</text>
-    <circle cx="1044.0" cy="2337.5" r="3.5" fill="#0F172A"/>
-    <text x="1056.0" y="2342.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">Label</text>
-    <text x="1298.0" y="2342.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">VARCHAR(100)</text>
-    <circle cx="1044.0" cy="2361.5" r="3.5" fill="#0F172A"/>
-    <text x="1056.0" y="2366.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">Confidence</text>
-    <text x="1298.0" y="2366.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">FLOAT</text>
-    <circle cx="1044.0" cy="2385.5" r="3.5" fill="#0F172A"/>
-    <text x="1056.0" y="2390.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">DetectedAt</text>
-    <text x="1298.0" y="2390.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">DATETIME</text>
-    <circle cx="1044.0" cy="2409.5" r="3.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
-    <text x="1056.0" y="2414.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">ImageUrl</text>
-    <text x="1298.0" y="2414.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">VARCHAR(500)</text>
-    <circle cx="1044.0" cy="2433.5" r="3.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
-    <text x="1056.0" y="2438.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="9px" font-weight="bold" fill="#2563EB">FK</text>
-    <text x="1074.0" y="2438.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">ProductTypeID</text>
-    <text x="1298.0" y="2438.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-  </g>
   <g id="node-BRAND">
     <rect x="1980.0" y="1250.0" width="260.0" height="166.0" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.8" rx="5" filter="url(#badge-shadow)"/>
     <path d="M 1980.0 1255.0 A 5 5 0 0 1 1985.0 1250.0 L 2235.0 1250.0 A 5 5 0 0 1 2240.0 1255.0 L 2240.0 1286.0 L 1980.0 1286.0 Z" fill="#F1F5F9"/>
@@ -1222,143 +1146,48 @@
     <text x="3478.0" y="1400.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
   </g>
   <g id="node-ROUTE_ASSIGNMENT">
-    <rect x="3520.0" y="1250.0" width="260.0" height="166.0" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.8" rx="5" filter="url(#badge-shadow)"/>
-    <path d="M 3520.0 1255.0 A 5 5 0 0 1 3525.0 1250.0 L 3775.0 1250.0 A 5 5 0 0 1 3780.0 1255.0 L 3780.0 1286.0 L 3520.0 1286.0 Z" fill="#F1F5F9"/>
-    <line x1="3520.0" y1="1286.0" x2="3780.0" y2="1286.0" stroke="#1E293B" stroke-width="1.5"/>
-    <text x="3650.0" y="1273.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="13px" font-weight="bold" fill="#0F172A" text-anchor="middle">ROUTE_ASSIGNMENT</text>
-    <circle cx="3534.0" cy="1299.5" r="3.5" fill="#0F172A"/>
-    <g transform="translate(3546.0, 1293.0) scale(0.75)"><path d="M 7 1 C 4.8 1 3 2.8 3 5 C 3 6.1 3.5 7.1 4.2 7.8 L 0 12 L 0 15 L 3 15 L 3 13 L 5 13 L 5 11 L 6.2 11 C 6.5 11 6.7 10.9 6.8 10.8 L 7.8 9.8 C 8.5 10.5 9.5 11 10.6 11 C 12.8 11 14.6 9.2 14.6 7 C 14.6 4.8 12.8 3 10.6 3 Z" fill="#D97706"/></g>
-    <text x="3564.0" y="1304.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="bold" fill="#0F172A">RouteAssignmentID</text>
-    <text x="3768.0" y="1304.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="3534.0" cy="1323.5" r="3.5" fill="#0F172A"/>
-    <text x="3546.0" y="1328.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="9px" font-weight="bold" fill="#2563EB">FK</text>
-    <text x="3564.0" y="1328.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">RobotID</text>
-    <text x="3768.0" y="1328.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="3534.0" cy="1347.5" r="3.5" fill="#0F172A"/>
-    <text x="3546.0" y="1352.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="9px" font-weight="bold" fill="#2563EB">FK</text>
-    <text x="3564.0" y="1352.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">RobotRouteID</text>
-    <text x="3768.0" y="1352.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="3534.0" cy="1371.5" r="3.5" fill="#0F172A"/>
-    <text x="3546.0" y="1376.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">AssignedAt</text>
-    <text x="3768.0" y="1376.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">DATETIME</text>
-    <circle cx="3534.0" cy="1395.5" r="3.5" fill="#0F172A"/>
-    <text x="3546.0" y="1400.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">Status</text>
-    <text x="3768.0" y="1400.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">VARCHAR(50)</text>
-  </g>
-  <g id="node-AD_CAMPAIGN_ROUTE">
-    <rect x="2940.0" y="1650.0" width="260.0" height="142.0" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.8" rx="5" filter="url(#badge-shadow)"/>
+    <rect x="2940.0" y="1650.0" width="260.0" height="166.0" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.8" rx="5" filter="url(#badge-shadow)"/>
     <path d="M 2940.0 1655.0 A 5 5 0 0 1 2945.0 1650.0 L 3195.0 1650.0 A 5 5 0 0 1 3200.0 1655.0 L 3200.0 1686.0 L 2940.0 1686.0 Z" fill="#F1F5F9"/>
     <line x1="2940.0" y1="1686.0" x2="3200.0" y2="1686.0" stroke="#1E293B" stroke-width="1.5"/>
-    <text x="3070.0" y="1673.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="13px" font-weight="bold" fill="#0F172A" text-anchor="middle">AD_CAMPAIGN_ROUTE</text>
+    <text x="3070.0" y="1673.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="13px" font-weight="bold" fill="#0F172A" text-anchor="middle">ROUTE_ASSIGNMENT</text>
     <circle cx="2954.0" cy="1699.5" r="3.5" fill="#0F172A"/>
     <g transform="translate(2966.0, 1693.0) scale(0.75)"><path d="M 7 1 C 4.8 1 3 2.8 3 5 C 3 6.1 3.5 7.1 4.2 7.8 L 0 12 L 0 15 L 3 15 L 3 13 L 5 13 L 5 11 L 6.2 11 C 6.5 11 6.7 10.9 6.8 10.8 L 7.8 9.8 C 8.5 10.5 9.5 11 10.6 11 C 12.8 11 14.6 9.2 14.6 7 C 14.6 4.8 12.8 3 10.6 3 Z" fill="#D97706"/></g>
-    <text x="2984.0" y="1704.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="bold" fill="#0F172A">AdCampaignID</text>
+    <text x="2984.0" y="1704.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="bold" fill="#0F172A">RouteAssignmentID</text>
     <text x="3188.0" y="1704.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
     <circle cx="2954.0" cy="1723.5" r="3.5" fill="#0F172A"/>
-    <g transform="translate(2966.0, 1717.0) scale(0.75)"><path d="M 7 1 C 4.8 1 3 2.8 3 5 C 3 6.1 3.5 7.1 4.2 7.8 L 0 12 L 0 15 L 3 15 L 3 13 L 5 13 L 5 11 L 6.2 11 C 6.5 11 6.7 10.9 6.8 10.8 L 7.8 9.8 C 8.5 10.5 9.5 11 10.6 11 C 12.8 11 14.6 9.2 14.6 7 C 14.6 4.8 12.8 3 10.6 3 Z" fill="#D97706"/></g>
-    <text x="2984.0" y="1728.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="bold" fill="#0F172A">RobotRouteID</text>
+    <text x="2966.0" y="1728.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="9px" font-weight="bold" fill="#2563EB">FK</text>
+    <text x="2984.0" y="1728.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">RobotID</text>
     <text x="3188.0" y="1728.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
     <circle cx="2954.0" cy="1747.5" r="3.5" fill="#0F172A"/>
-    <text x="2966.0" y="1752.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">RoutePriceCharged</text>
-    <text x="3188.0" y="1752.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">DECIMAL(18,2)</text>
+    <text x="2966.0" y="1752.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="9px" font-weight="bold" fill="#2563EB">FK</text>
+    <text x="2984.0" y="1752.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">RobotRouteID</text>
+    <text x="3188.0" y="1752.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
     <circle cx="2954.0" cy="1771.5" r="3.5" fill="#0F172A"/>
-    <text x="2966.0" y="1776.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">PurchasedAt</text>
+    <text x="2966.0" y="1776.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">AssignedAt</text>
     <text x="3188.0" y="1776.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">DATETIME</text>
+    <circle cx="2954.0" cy="1795.5" r="3.5" fill="#0F172A"/>
+    <text x="2966.0" y="1800.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">Status</text>
+    <text x="3188.0" y="1800.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">VARCHAR(50)</text>
   </g>
-  <g id="node-AD_ROUTE">
-    <rect x="3230.0" y="1650.0" width="260.0" height="190.0" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.8" rx="5" filter="url(#badge-shadow)"/>
+  <g id="node-AD_CAMPAIGN_ROUTE">
+    <rect x="3230.0" y="1650.0" width="260.0" height="142.0" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.8" rx="5" filter="url(#badge-shadow)"/>
     <path d="M 3230.0 1655.0 A 5 5 0 0 1 3235.0 1650.0 L 3485.0 1650.0 A 5 5 0 0 1 3490.0 1655.0 L 3490.0 1686.0 L 3230.0 1686.0 Z" fill="#F1F5F9"/>
     <line x1="3230.0" y1="1686.0" x2="3490.0" y2="1686.0" stroke="#1E293B" stroke-width="1.5"/>
-    <text x="3360.0" y="1673.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="13px" font-weight="bold" fill="#0F172A" text-anchor="middle">AD_ROUTE</text>
+    <text x="3360.0" y="1673.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="13px" font-weight="bold" fill="#0F172A" text-anchor="middle">AD_CAMPAIGN_ROUTE</text>
     <circle cx="3244.0" cy="1699.5" r="3.5" fill="#0F172A"/>
     <g transform="translate(3256.0, 1693.0) scale(0.75)"><path d="M 7 1 C 4.8 1 3 2.8 3 5 C 3 6.1 3.5 7.1 4.2 7.8 L 0 12 L 0 15 L 3 15 L 3 13 L 5 13 L 5 11 L 6.2 11 C 6.5 11 6.7 10.9 6.8 10.8 L 7.8 9.8 C 8.5 10.5 9.5 11 10.6 11 C 12.8 11 14.6 9.2 14.6 7 C 14.6 4.8 12.8 3 10.6 3 Z" fill="#D97706"/></g>
-    <text x="3274.0" y="1704.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="bold" fill="#0F172A">AdRouteID</text>
+    <text x="3274.0" y="1704.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="bold" fill="#0F172A">AdCampaignID</text>
     <text x="3478.0" y="1704.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
     <circle cx="3244.0" cy="1723.5" r="3.5" fill="#0F172A"/>
-    <text x="3256.0" y="1728.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">RouteName</text>
-    <text x="3478.0" y="1728.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">VARCHAR(100)</text>
-    <circle cx="3244.0" cy="1747.5" r="3.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
-    <text x="3256.0" y="1752.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">Description</text>
-    <text x="3478.0" y="1752.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">VARCHAR(500)</text>
+    <g transform="translate(3256.0, 1717.0) scale(0.75)"><path d="M 7 1 C 4.8 1 3 2.8 3 5 C 3 6.1 3.5 7.1 4.2 7.8 L 0 12 L 0 15 L 3 15 L 3 13 L 5 13 L 5 11 L 6.2 11 C 6.5 11 6.7 10.9 6.8 10.8 L 7.8 9.8 C 8.5 10.5 9.5 11 10.6 11 C 12.8 11 14.6 9.2 14.6 7 C 14.6 4.8 12.8 3 10.6 3 Z" fill="#D97706"/></g>
+    <text x="3274.0" y="1728.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="bold" fill="#0F172A">RobotRouteID</text>
+    <text x="3478.0" y="1728.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
+    <circle cx="3244.0" cy="1747.5" r="3.5" fill="#0F172A"/>
+    <text x="3256.0" y="1752.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">RoutePriceCharged</text>
+    <text x="3478.0" y="1752.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">DECIMAL(18,2)</text>
     <circle cx="3244.0" cy="1771.5" r="3.5" fill="#0F172A"/>
-    <text x="3256.0" y="1776.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">IsActive</text>
-    <text x="3478.0" y="1776.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">BIT</text>
-    <circle cx="3244.0" cy="1795.5" r="3.5" fill="#0F172A"/>
-    <text x="3256.0" y="1800.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">IsAutonomous</text>
-    <text x="3478.0" y="1800.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">BIT</text>
-    <circle cx="3244.0" cy="1819.5" r="3.5" fill="#0F172A"/>
-    <text x="3256.0" y="1824.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">CreatedAt</text>
-    <text x="3478.0" y="1824.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">DATETIME</text>
-  </g>
-  <g id="node-AD_ROUTE_CAMPAIGN">
-    <rect x="3520.0" y="1650.0" width="260.0" height="94.0" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.8" rx="5" filter="url(#badge-shadow)"/>
-    <path d="M 3520.0 1655.0 A 5 5 0 0 1 3525.0 1650.0 L 3775.0 1650.0 A 5 5 0 0 1 3780.0 1655.0 L 3780.0 1686.0 L 3520.0 1686.0 Z" fill="#F1F5F9"/>
-    <line x1="3520.0" y1="1686.0" x2="3780.0" y2="1686.0" stroke="#1E293B" stroke-width="1.5"/>
-    <text x="3650.0" y="1673.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="13px" font-weight="bold" fill="#0F172A" text-anchor="middle">AD_ROUTE_CAMPAIGN</text>
-    <circle cx="3534.0" cy="1699.5" r="3.5" fill="#0F172A"/>
-    <g transform="translate(3546.0, 1693.0) scale(0.75)"><path d="M 7 1 C 4.8 1 3 2.8 3 5 C 3 6.1 3.5 7.1 4.2 7.8 L 0 12 L 0 15 L 3 15 L 3 13 L 5 13 L 5 11 L 6.2 11 C 6.5 11 6.7 10.9 6.8 10.8 L 7.8 9.8 C 8.5 10.5 9.5 11 10.6 11 C 12.8 11 14.6 9.2 14.6 7 C 14.6 4.8 12.8 3 10.6 3 Z" fill="#D97706"/></g>
-    <text x="3564.0" y="1704.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="bold" fill="#0F172A">AdRouteID</text>
-    <text x="3768.0" y="1704.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="3534.0" cy="1723.5" r="3.5" fill="#0F172A"/>
-    <g transform="translate(3546.0, 1717.0) scale(0.75)"><path d="M 7 1 C 4.8 1 3 2.8 3 5 C 3 6.1 3.5 7.1 4.2 7.8 L 0 12 L 0 15 L 3 15 L 3 13 L 5 13 L 5 11 L 6.2 11 C 6.5 11 6.7 10.9 6.8 10.8 L 7.8 9.8 C 8.5 10.5 9.5 11 10.6 11 C 12.8 11 14.6 9.2 14.6 7 C 14.6 4.8 12.8 3 10.6 3 Z" fill="#D97706"/></g>
-    <text x="3564.0" y="1728.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="bold" fill="#0F172A">AdCampaignID</text>
-    <text x="3768.0" y="1728.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-  </g>
-  <g id="node-AdRouteNodes">
-    <rect x="2940.0" y="2000.0" width="260.0" height="214.0" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.8" rx="5" filter="url(#badge-shadow)"/>
-    <path d="M 2940.0 2005.0 A 5 5 0 0 1 2945.0 2000.0 L 3195.0 2000.0 A 5 5 0 0 1 3200.0 2005.0 L 3200.0 2036.0 L 2940.0 2036.0 Z" fill="#F1F5F9"/>
-    <line x1="2940.0" y1="2036.0" x2="3200.0" y2="2036.0" stroke="#1E293B" stroke-width="1.5"/>
-    <text x="3070.0" y="2023.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="13px" font-weight="bold" fill="#0F172A" text-anchor="middle">AdRouteNodes</text>
-    <circle cx="2954.0" cy="2049.5" r="3.5" fill="#0F172A"/>
-    <g transform="translate(2966.0, 2043.0) scale(0.75)"><path d="M 7 1 C 4.8 1 3 2.8 3 5 C 3 6.1 3.5 7.1 4.2 7.8 L 0 12 L 0 15 L 3 15 L 3 13 L 5 13 L 5 11 L 6.2 11 C 6.5 11 6.7 10.9 6.8 10.8 L 7.8 9.8 C 8.5 10.5 9.5 11 10.6 11 C 12.8 11 14.6 9.2 14.6 7 C 14.6 4.8 12.8 3 10.6 3 Z" fill="#D97706"/></g>
-    <text x="2984.0" y="2054.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="bold" fill="#0F172A">AdRouteNodeID</text>
-    <text x="3188.0" y="2054.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="2954.0" cy="2073.5" r="3.5" fill="#0F172A"/>
-    <text x="2966.0" y="2078.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="9px" font-weight="bold" fill="#2563EB">FK</text>
-    <text x="2984.0" y="2078.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">AdRouteID</text>
-    <text x="3188.0" y="2078.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="2954.0" cy="2097.5" r="3.5" fill="#0F172A"/>
-    <text x="2966.0" y="2102.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="9px" font-weight="bold" fill="#2563EB">FK</text>
-    <text x="2984.0" y="2102.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">NodeID</text>
-    <text x="3188.0" y="2102.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="2954.0" cy="2121.5" r="3.5" fill="#0F172A"/>
-    <text x="2966.0" y="2126.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">SequenceOrder</text>
-    <text x="3188.0" y="2126.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="2954.0" cy="2145.5" r="3.5" fill="#0F172A"/>
-    <text x="2966.0" y="2150.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">DwellTimeSeconds</text>
-    <text x="3188.0" y="2150.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="2954.0" cy="2169.5" r="3.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
-    <text x="2966.0" y="2174.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="9px" font-weight="bold" fill="#2563EB">FK</text>
-    <text x="2984.0" y="2174.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">ZoneID</text>
-    <text x="3188.0" y="2174.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="2954.0" cy="2193.5" r="3.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
-    <text x="2966.0" y="2198.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="9px" font-weight="bold" fill="#2563EB">FK</text>
-    <text x="2984.0" y="2198.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">ShelfID</text>
-    <text x="3188.0" y="2198.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-  </g>
-  <g id="node-ROBOT_AD_ROUTE_ASSIGNMENT">
-    <rect x="3230.0" y="2000.0" width="280.0" height="166.0" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.8" rx="5" filter="url(#badge-shadow)"/>
-    <path d="M 3230.0 2005.0 A 5 5 0 0 1 3235.0 2000.0 L 3505.0 2000.0 A 5 5 0 0 1 3510.0 2005.0 L 3510.0 2036.0 L 3230.0 2036.0 Z" fill="#F1F5F9"/>
-    <line x1="3230.0" y1="2036.0" x2="3510.0" y2="2036.0" stroke="#1E293B" stroke-width="1.5"/>
-    <text x="3370.0" y="2023.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="13px" font-weight="bold" fill="#0F172A" text-anchor="middle">ROBOT_AD_ROUTE_ASSIGNMENT</text>
-    <circle cx="3244.0" cy="2049.5" r="3.5" fill="#0F172A"/>
-    <g transform="translate(3256.0, 2043.0) scale(0.75)"><path d="M 7 1 C 4.8 1 3 2.8 3 5 C 3 6.1 3.5 7.1 4.2 7.8 L 0 12 L 0 15 L 3 15 L 3 13 L 5 13 L 5 11 L 6.2 11 C 6.5 11 6.7 10.9 6.8 10.8 L 7.8 9.8 C 8.5 10.5 9.5 11 10.6 11 C 12.8 11 14.6 9.2 14.6 7 C 14.6 4.8 12.8 3 10.6 3 Z" fill="#D97706"/></g>
-    <text x="3274.0" y="2054.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="bold" fill="#0F172A">AssignmentID</text>
-    <text x="3498.0" y="2054.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="3244.0" cy="2073.5" r="3.5" fill="#0F172A"/>
-    <text x="3256.0" y="2078.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="9px" font-weight="bold" fill="#2563EB">FK</text>
-    <text x="3274.0" y="2078.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">RobotID</text>
-    <text x="3498.0" y="2078.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="3244.0" cy="2097.5" r="3.5" fill="#0F172A"/>
-    <text x="3256.0" y="2102.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="9px" font-weight="bold" fill="#2563EB">FK</text>
-    <text x="3274.0" y="2102.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">AdRouteID</text>
-    <text x="3498.0" y="2102.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">INT</text>
-    <circle cx="3244.0" cy="2121.5" r="3.5" fill="#0F172A"/>
-    <text x="3256.0" y="2126.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">AssignedAt</text>
-    <text x="3498.0" y="2126.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">DATETIME</text>
-    <circle cx="3244.0" cy="2145.5" r="3.5" fill="#0F172A"/>
-    <text x="3256.0" y="2150.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">Status</text>
-    <text x="3498.0" y="2150.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">VARCHAR(50)</text>
+    <text x="3256.0" y="1776.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5px" font-weight="normal" fill="#0F172A">PurchasedAt</text>
+    <text x="3478.0" y="1776.0" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="10.5px" font-style="italic" fill="#64748B" text-anchor="end">DATETIME</text>
   </g>
   <g id="node-IMPORT_HISTORY">
     <rect x="3200.0" y="130.0" width="310.0" height="310.0" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.8" rx="5" filter="url(#badge-shadow)"/>
@@ -1486,16 +1315,11 @@
     <line x1="2930.0" y1="309.0" x2="2923.0" y2="298.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
     <line x1="2930.0" y1="309.0" x2="2937.0" y2="298.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
     <circle cx="2930.0" cy="317.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
-    <line x1="2427.0" y1="606.0" x2="2427.0" y2="592.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="2435.0" y1="606.0" x2="2435.0" y2="592.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="2517.0" y1="551.0" x2="2528.0" y2="544.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="2517.0" y1="551.0" x2="2528.0" y2="558.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <circle cx="2509.0" cy="551.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
-    <line x1="1383.0" y1="825.0" x2="1397.0" y2="825.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="1383.0" y1="833.0" x2="1397.0" y2="833.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="2665.0" y1="635.0" x2="2658.0" y2="624.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="2665.0" y1="635.0" x2="2672.0" y2="624.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <circle cx="2665.0" cy="643.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
+    <line x1="1527.0" y1="646.0" x2="1527.0" y2="632.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
+    <line x1="1535.0" y1="646.0" x2="1535.0" y2="632.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
+    <line x1="2287.0" y1="599.0" x2="2298.0" y2="592.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
+    <line x1="2287.0" y1="599.0" x2="2298.0" y2="606.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
+    <circle cx="2279.0" cy="599.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
     <line x1="327.0" y1="1304.0" x2="327.0" y2="1290.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
     <line x1="335.0" y1="1304.0" x2="335.0" y2="1290.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
     <line x1="337.0" y1="1321.0" x2="348.0" y2="1314.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
@@ -1551,16 +1375,6 @@
     <line x1="1760.0" y1="1787.0" x2="1767.0" y2="1798.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
     <line x1="1760.0" y1="1787.0" x2="1753.0" y2="1798.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
     <circle cx="1760.0" cy="1779.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
-    <line x1="1023.0" y1="1508.0" x2="1023.0" y2="1522.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="1015.0" y1="1508.0" x2="1015.0" y2="1522.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="1017.0" y1="2287.0" x2="1028.0" y2="2280.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="1017.0" y1="2287.0" x2="1028.0" y2="2294.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <circle cx="1009.0" cy="2287.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
-    <line x1="1733.0" y1="255.0" x2="1747.0" y2="255.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="1733.0" y1="263.0" x2="1747.0" y2="263.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="1017.0" y1="2327.0" x2="1028.0" y2="2320.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="1017.0" y1="2327.0" x2="1028.0" y2="2334.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <circle cx="1009.0" cy="2327.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
     <line x1="1297.0" y1="1926.0" x2="1297.0" y2="1912.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
     <line x1="1305.0" y1="1926.0" x2="1305.0" y2="1912.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
     <line x1="1317.0" y1="1943.0" x2="1328.0" y2="1936.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
@@ -1603,14 +1417,14 @@
     <circle cx="3360.0" cy="1229.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
     <line x1="3117.0" y1="1243.0" x2="3103.0" y2="1243.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
     <line x1="3117.0" y1="1235.0" x2="3103.0" y2="1235.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3650.0" y1="1237.0" x2="3657.0" y2="1248.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3650.0" y1="1237.0" x2="3643.0" y2="1248.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <circle cx="3650.0" cy="1229.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
+    <line x1="3080.3" y1="1642.0" x2="3075.9" y2="1654.3" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
+    <line x1="3080.3" y1="1642.0" x2="3067.3" y2="1643.2" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
+    <circle cx="3086.6" cy="1637.1" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
     <line x1="1023.0" y1="1932.0" x2="1023.0" y2="1946.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
     <line x1="1015.0" y1="1932.0" x2="1015.0" y2="1946.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3793.0" y1="1333.0" x2="3782.0" y2="1340.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3793.0" y1="1333.0" x2="3782.0" y2="1326.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <circle cx="3801.0" cy="1333.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
+    <line x1="3210.9" y1="1726.0" x2="3205.5" y2="1737.8" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
+    <line x1="3210.9" y1="1726.0" x2="3197.9" y2="1726.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
+    <circle cx="3217.6" cy="1721.6" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
     <line x1="2117.0" y1="1243.0" x2="2103.0" y2="1243.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
     <line x1="2117.0" y1="1235.0" x2="2103.0" y2="1235.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
     <line x1="2670.0" y1="1237.0" x2="2677.0" y2="1248.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
@@ -1658,54 +1472,14 @@
     <circle cx="2110.0" cy="2163.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
     <line x1="2763.0" y1="1615.0" x2="2777.0" y2="1615.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
     <line x1="2763.0" y1="1623.0" x2="2777.0" y2="1623.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="2927.0" y1="1721.0" x2="2938.0" y2="1714.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="2927.0" y1="1721.0" x2="2938.0" y2="1728.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <circle cx="2919.0" cy="1721.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
+    <line x1="3217.0" y1="1721.0" x2="3228.0" y2="1714.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
+    <line x1="3217.0" y1="1721.0" x2="3228.0" y2="1728.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
+    <circle cx="3209.0" cy="1721.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
     <line x1="3063.0" y1="1495.0" x2="3077.0" y2="1495.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
     <line x1="3063.0" y1="1503.0" x2="3077.0" y2="1503.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3070.0" y1="1637.0" x2="3077.0" y2="1648.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3070.0" y1="1637.0" x2="3063.0" y2="1648.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <circle cx="3070.0" cy="1629.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
-    <line x1="3497.0" y1="1752.0" x2="3497.0" y2="1738.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3505.0" y1="1752.0" x2="3505.0" y2="1738.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3507.0" y1="1697.0" x2="3518.0" y2="1690.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3507.0" y1="1697.0" x2="3518.0" y2="1704.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <circle cx="3499.0" cy="1697.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
-    <line x1="2783.0" y1="1615.0" x2="2797.0" y2="1615.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="2783.0" y1="1623.0" x2="2797.0" y2="1623.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3650.0" y1="1637.0" x2="3657.0" y2="1648.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3650.0" y1="1637.0" x2="3643.0" y2="1648.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <circle cx="3650.0" cy="1629.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
-    <line x1="3313.0" y1="1847.0" x2="3327.0" y2="1847.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3313.0" y1="1855.0" x2="3327.0" y2="1855.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3070.0" y1="1987.0" x2="3077.0" y2="1998.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3070.0" y1="1987.0" x2="3063.0" y2="1998.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <circle cx="3070.0" cy="1979.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
-    <line x1="1512.0" y1="1243.0" x2="1498.0" y2="1243.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="1512.0" y1="1235.0" x2="1498.0" y2="1235.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3030.0" y1="2227.0" x2="3023.0" y2="2216.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3030.0" y1="2227.0" x2="3037.0" y2="2216.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <circle cx="3030.0" cy="2235.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
-    <line x1="493.0" y1="1399.0" x2="507.0" y2="1399.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="493.0" y1="1407.0" x2="507.0" y2="1407.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3070.0" y1="2227.0" x2="3063.0" y2="2216.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3070.0" y1="2227.0" x2="3077.0" y2="2216.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <circle cx="3070.0" cy="2235.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
-    <line x1="783.0" y1="1773.0" x2="797.0" y2="1773.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="783.0" y1="1781.0" x2="797.0" y2="1781.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3110.0" y1="2227.0" x2="3103.0" y2="2216.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3110.0" y1="2227.0" x2="3117.0" y2="2216.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <circle cx="3110.0" cy="2235.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
-    <line x1="3353.0" y1="1847.0" x2="3367.0" y2="1847.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3353.0" y1="1855.0" x2="3367.0" y2="1855.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3370.0" y1="1987.0" x2="3377.0" y2="1998.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3370.0" y1="1987.0" x2="3363.0" y2="1998.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <circle cx="3370.0" cy="1979.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
-    <line x1="1023.0" y1="1952.0" x2="1023.0" y2="1966.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="1015.0" y1="1952.0" x2="1015.0" y2="1966.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3370.0" y1="2179.0" x2="3363.0" y2="2168.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <line x1="3370.0" y1="2179.0" x2="3377.0" y2="2168.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
-    <circle cx="3370.0" cy="2187.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
+    <line x1="3360.0" y1="1637.0" x2="3367.0" y2="1648.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
+    <line x1="3360.0" y1="1637.0" x2="3353.0" y2="1648.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
+    <circle cx="3360.0" cy="1629.0" r="4.8" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.0"/>
     <line x1="2743.0" y1="1615.0" x2="2757.0" y2="1615.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
     <line x1="2743.0" y1="1623.0" x2="2757.0" y2="1623.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>
     <line x1="2583.0" y1="2077.0" x2="2572.0" y2="2084.0" stroke="#1E293B" stroke-width="2.0" stroke-linecap="round"/>

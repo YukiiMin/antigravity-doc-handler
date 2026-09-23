@@ -1,0 +1,500 @@
+@startuml
+hide circle
+skinparam linetype ortho
+
+entity "ACCOUNT" as ACCOUNT {
+    * AccountID : INT <<PK>>
+    --
+    * Username : VARCHAR(100)
+    * PasswordHash : VARCHAR(255)
+    * Email : VARCHAR(255)
+    Phone : VARCHAR(20)
+    * FullName : VARCHAR(255)
+    AvatarUrl : VARCHAR(500)
+    * Status : VARCHAR(50)
+    * Role : VARCHAR(50)
+    OtpCode : VARCHAR(10)
+    OtpExpiredAt : DATETIME
+    OtpType : VARCHAR(50)
+    * CreatedAt : DATETIME
+    RefreshToken : VARCHAR(500)
+    RefreshExpiry : DATETIME
+    * IsTokenRevoked : BIT
+}
+
+entity "MEMBER" as MEMBER {
+    * MemberID : INT <<PK>>
+    --
+    * AccountID : INT <<FK>>
+    * FullName : VARCHAR(255)
+    FacePath : VARCHAR(500)
+    FaceVector : TEXT
+    SpendingLimit : DECIMAL(18,2)
+    * TotalPoints : INT
+}
+
+entity "MEMBERSHIP" as MEMBERSHIP {
+    * MembershipID : INT <<PK>>
+    --
+    * MemberID : INT <<FK>>
+    * TierName : VARCHAR(50)
+    * Status : VARCHAR(50)
+}
+
+entity "HEALTH_TAG" as HEALTH_TAG {
+    * HealthTagID : INT <<PK>>
+    --
+    * TagName : VARCHAR(100)
+    * TagType : VARCHAR(50)
+    IconName : VARCHAR(100)
+}
+
+entity "MEMBERHEALTH_PREFERENCE" as MEMBERHEALTH_PREFERENCE {
+    * MemberID : INT <<PK, FK>>
+    * HealthTagID : INT <<PK, FK>>
+    --
+    * status : VARCHAR(50)
+}
+
+entity "HEALTH_TAG_CONFLICT" as HEALTH_TAG_CONFLICT {
+    * TagId1 : INT <<PK, FK>>
+    * TagId2 : INT <<PK, FK>>
+    --
+    * ErrorMessage : VARCHAR(255)
+}
+
+entity "CATEGORY" as CATEGORY {
+    * CategoryID : INT <<PK>>
+    --
+    * CategoryName : VARCHAR(255)
+    Description : VARCHAR(500)
+}
+
+entity "SUBCATEGORY" as SUBCATEGORY {
+    * SubcategoryID : INT <<PK>>
+    --
+    * CategoryID : INT <<FK>>
+    * SubcategoryName : VARCHAR(255)
+}
+
+entity "PRODUCT_TYPE" as PRODUCT_TYPE {
+    * ProductTypeID : INT <<PK>>
+    --
+    * SubcategoryID : INT <<FK>>
+    * TypeName : VARCHAR(255)
+}
+
+entity "PRODUCT" as PRODUCT {
+    * ProductID : INT <<PK>>
+    --
+    * ProductTypeID : INT <<FK>>
+    * ProductName : VARCHAR(255)
+    * UnitPrice : DECIMAL(18,2)
+    PromotionPrice : DECIMAL(18,2)
+    ExpiredDate : DATETIME
+    ImageUrl : VARCHAR(500)
+    WeightOrVolume : DECIMAL(10,2)
+    Unit : VARCHAR(50)
+    Description : TEXT
+    * Status : VARCHAR(50)
+    SubstituteProductID : INT <<FK>>
+    SKU : VARCHAR(100)
+}
+
+entity "PRODUCT_HEALTHTAG" as PRODUCT_HEALTHTAG {
+    * ProductID : INT <<PK, FK>>
+    * HealthTagID : INT <<PK, FK>>
+}
+
+entity "CART" as CART {
+    * CartID : INT <<PK>>
+    --
+    * MemberID : INT <<FK>>
+    * CreatedAt : DATETIME
+    UpdatedAt : DATETIME
+}
+
+entity "CART_ITEM" as CART_ITEM {
+    * CartItemID : INT <<PK>>
+    --
+    * CartID : INT <<FK>>
+    * ProductID : INT <<FK>>
+    * Quantity : INT
+    * AddedAt : DATETIME
+}
+
+entity "INVOICE_HISTORY" as INVOICE_HISTORY {
+    * InvoiceHistoryID : INT <<PK>>
+    --
+    * MemberID : INT <<FK>>
+    * PurchaseDate : DATETIME
+    * TotalPrice : DECIMAL(18,2)
+}
+
+entity "INVOICE_HISTORY_ITEM" as INVOICE_HISTORY_ITEM {
+    * InvoiceHistoryItemID : INT <<PK>>
+    --
+    * InvoiceHistoryID : INT <<FK>>
+    * ProductID : INT <<FK>>
+    * Quantity : INT
+    * UnitPrice : DECIMAL(18,2)
+}
+
+entity "MEAL_SUGGESTION" as MEAL_SUGGESTION {
+    * MealSuggestionID : INT <<PK>>
+    --
+    * MealName : VARCHAR(255)
+    Description : TEXT
+    YieldPortions : INT
+    ImageUrl : VARCHAR(500)
+    Calories : INT
+    healthy_score : INT
+    alternative_suggestion : TEXT
+}
+
+entity "FLOOR" as FLOOR {
+    * FloorID : INT <<PK>>
+    --
+    * FloorNumber : INT
+}
+
+entity "ZONE" as ZONE {
+    * ZoneID : INT <<PK>>
+    --
+    * FloorID : INT <<FK>>
+    * ZoneName : VARCHAR(100)
+    Description : VARCHAR(500)
+}
+
+entity "AISLE" as AISLE {
+    * AisleID : INT <<PK>>
+    --
+    * ZoneID : INT <<FK>>
+    * AisleCode : VARCHAR(50)
+    * AisleName : VARCHAR(100)
+}
+
+entity "SHELF" as SHELF {
+    * ShelfID : INT <<PK>>
+    --
+    * ShelfName : VARCHAR(100)
+    * AisleID : INT <<FK>>
+    * LevelNumber : INT
+    NodeID : INT <<FK>>
+}
+
+entity "SLOT" as SLOT {
+    * SlotID : INT <<PK>>
+    --
+    * ShelfID : INT <<FK>>
+    * SlotCode : VARCHAR(50)
+    LastScannedAt : DATETIME
+}
+
+entity "PRODUCT_SLOT" as PRODUCT_SLOT {
+    * ProductsSlotID : INT <<PK>>
+    --
+    * SlotID : INT <<FK>>
+    * ProductID : INT <<FK>>
+}
+
+entity "MAP" as MAP {
+    * MapID : INT <<PK>>
+    --
+    * FloorID : INT <<FK>>
+    * MapName : VARCHAR(100)
+    MapData : TEXT
+    FloorplanImageUrl : VARCHAR(500)
+    * WidthMeters : FLOAT
+    * HeightMeters : FLOAT
+    * Resolution : FLOAT
+    * OriginX : FLOAT
+    * OriginY : FLOAT
+    * OriginYaw : FLOAT
+    * IsActive : BIT
+    * CreatedAt : DATETIME
+    SlamDataUrl : VARCHAR(500)
+    PosegraphUrl : VARCHAR(500)
+    RawYamlContent : TEXT
+}
+
+entity "NAVIGATION_NODE" as NAVIGATION_NODE {
+    * NodeID : INT <<PK>>
+    --
+    * MapID : INT <<FK>>
+    * NodeName : VARCHAR(100)
+    * XCoord : FLOAT
+    * YCoord : FLOAT
+    * NodeType : VARCHAR(50)
+    NodeRole : VARCHAR(50)
+    * IsBlocked : BIT
+    HeadingYaw : FLOAT
+}
+
+entity "NAVIGATION_EDGE" as NAVIGATION_EDGE {
+    * EdgeID : INT <<PK>>
+    --
+    * FromNodeID : INT <<FK>>
+    * ToNodeID : INT <<FK>>
+    * Distance : FLOAT
+    * IsBidirectional : BIT
+}
+
+entity "ROBOT" as ROBOT {
+    * RobotID : INT <<PK>>
+    --
+    * RobotName : VARCHAR(100)
+    * RobotCode : VARCHAR(50)
+    * BatteryPct : INT
+    * Mode : VARCHAR(50)
+    * Status : VARCHAR(50)
+    LastSeenAt : DATETIME
+    IPAddress : VARCHAR(50)
+}
+
+entity "ROBOT_LOG" as ROBOT_LOG {
+    * LogID : INT <<PK>>
+    --
+    * RobotID : INT <<FK>>
+    * battery : INT
+    location : VARCHAR(100)
+    * status : VARCHAR(50)
+    * timestamp : DATETIME
+    XCoord : FLOAT
+    YCoord : FLOAT
+    HeadingRad : FLOAT
+    CurrentNodeId : INT
+}
+
+entity "SHELF_SCAN" as SHELF_SCAN {
+    * ScanID : INT <<PK>>
+    --
+    * ShelfID : INT <<FK>>
+    * RobotID : INT <<FK>>
+    NavigationNodeID : INT <<FK>>
+    MissionID : VARCHAR(100)
+    WaypointIndex : INT
+    * ScannedAt : DATETIME
+    * EmptyPercentage : DECIMAL(5,2)
+    * DensityPercentage : DECIMAL(5,2)
+    * NeedsRestock : BIT
+    ImageUrl : VARCHAR(500)
+    EmptySlotCount : INT
+    AiRecommendation : TEXT
+    AiRawJson : TEXT
+    AnalysisStatus : VARCHAR(50)
+}
+
+entity "BRAND" as BRAND {
+    * BrandID : INT <<PK>>
+    --
+    * BrandName : VARCHAR(255)
+    * Wallet : DECIMAL(18,2)
+    Description : VARCHAR(500)
+    * IsSystemBrand : BIT
+}
+
+entity "AD_PACKAGE" as AD_PACKAGE {
+    * PackageID : INT <<PK>>
+    --
+    * PackageName : VARCHAR(255)
+    * ClickFee : DECIMAL(18,2)
+    * RouteUnitPrice : DECIMAL(18,2)
+    * ZoneUnitPrice : DECIMAL(18,2)
+    * ShelfUnitPrice : DECIMAL(18,2)
+    * Budget : DECIMAL(18,2)
+    * AdScore : INT
+    * Status : VARCHAR(50)
+    * DurationDays : INT
+    Description : VARCHAR(500)
+    * CreatedAt : DATETIME
+    UpdatedAt : DATETIME
+}
+
+entity "AD_CAMPAIGN" as AD_CAMPAIGN {
+    * AdCampaignID : INT <<PK>>
+    --
+    * PackageID : INT <<FK>>
+    * BrandID : INT <<FK>>
+    * CampaignName : VARCHAR(255)
+    * StartDate : DATETIME
+    * EndDate : DATETIME
+    * Status : VARCHAR(50)
+    * DeliveryMode : VARCHAR(50)
+    Description : VARCHAR(500)
+    BannerUrl : VARCHAR(500)
+    VideoUrl : VARCHAR(500)
+    * CreatedAt : DATETIME
+    UpdatedAt : DATETIME
+}
+
+entity "AD_RESOURCE" as AD_RESOURCE {
+    * ResourceID : INT <<PK>>
+    --
+    * AdCampaignID : INT <<FK>>
+    * ResourceType : VARCHAR(50)
+    * ResourceURL : VARCHAR(500)
+    ContentText : TEXT
+    Resolution : VARCHAR(50)
+    * Status : VARCHAR(50)
+}
+
+entity "SPONSORED_PRODUCT" as SPONSORED_PRODUCT {
+    * SponsoredID : INT <<PK>>
+    --
+    * AdCampaignID : INT <<FK>>
+    * ProductID : INT <<FK>>
+    * Priority : INT
+    * status : VARCHAR(50)
+}
+
+entity "AD_CAMPAIGN_LOG" as AD_CAMPAIGN_LOG {
+    * LogID : INT <<PK>>
+    --
+    * AdCampaignID : INT <<FK>>
+    * ActionType : VARCHAR(50)
+    * ChargedAmount : DECIMAL(18,2)
+    * Timestamp : DATETIME
+    SponsoredID : INT <<FK>>
+    ProductID : INT <<FK>>
+    RobotID : INT <<FK>>
+    ShelfID : INT <<FK>>
+    ZoneID : INT <<FK>>
+    SlotID : INT <<FK>>
+    MemberID : INT <<FK>>
+    SessionID : VARCHAR(100)
+    XCoord : INT
+    YCoord : INT
+    PerformedBy : VARCHAR(50)
+    PerformedByUserId : INT
+}
+
+entity "AD_CAMPAIGN_ZONE" as AD_CAMPAIGN_ZONE {
+    * AdCampaignID : INT <<PK, FK>>
+    * ZoneID : INT <<PK, FK>>
+    --
+    * ZonePriceCharged : DECIMAL(18,2)
+    * PurchasedAt : DATETIME
+}
+
+entity "AD_CAMPAIGN_SHELF" as AD_CAMPAIGN_SHELF {
+    * AdCampaignID : INT <<PK, FK>>
+    * ShelfID : INT <<PK, FK>>
+    --
+    * ShelfPriceCharged : DECIMAL(18,2)
+    * PurchasedAt : DATETIME
+}
+
+entity "ROBOT_ROUTE" as ROBOT_ROUTE {
+    * RobotRouteID : INT <<PK>>
+    --
+    RobotID : INT <<FK>>
+    * MapID : INT <<FK>>
+    * RouteName : VARCHAR(100)
+    * RouteType : VARCHAR(50)
+    ZoneID : INT <<FK>>
+    Description : VARCHAR(500)
+    * CreatedAt : DATETIME
+}
+
+entity "ROUTE_NODE_MAPPING" as ROUTE_NODE_MAPPING {
+    * RouteNodeMappingID : INT <<PK>>
+    --
+    * RobotRouteID : INT <<FK>>
+    * NodeID : INT <<FK>>
+    * SequenceOrder : INT
+    * DwellTimeSeconds : INT
+}
+
+entity "ROUTE_ASSIGNMENT" as ROUTE_ASSIGNMENT {
+    * RouteAssignmentID : INT <<PK>>
+    --
+    * RobotID : INT <<FK>>
+    * RobotRouteID : INT <<FK>>
+    * AssignedAt : DATETIME
+    * Status : VARCHAR(50)
+}
+
+entity "AD_CAMPAIGN_ROUTE" as AD_CAMPAIGN_ROUTE {
+    * AdCampaignID : INT <<PK, FK>>
+    * RobotRouteID : INT <<PK, FK>>
+    --
+    * RoutePriceCharged : DECIMAL(18,2)
+    * PurchasedAt : DATETIME
+}
+
+entity "IMPORT_HISTORY" as IMPORT_HISTORY {
+    * ImportID : INT <<PK>>
+    --
+    * ImportType : VARCHAR(50)
+    * FileName : VARCHAR(255)
+    * TotalRows : INT
+    * SuccessCount : INT
+    * ErrorCount : INT
+    * DuplicateCount : INT
+    * Status : VARCHAR(50)
+    ErrorDetailsJson : TEXT
+    * ImportedBy : VARCHAR(100)
+    * ImportedAt : DATETIME
+}
+
+ACCOUNT ||--o{ MEMBER
+MEMBER ||--o{ MEMBERSHIP
+MEMBER ||--o{ MEMBERHEALTH_PREFERENCE
+HEALTH_TAG ||--o{ MEMBERHEALTH_PREFERENCE
+HEALTH_TAG ||--o{ HEALTH_TAG_CONFLICT
+CATEGORY ||--o{ SUBCATEGORY
+SUBCATEGORY ||--o{ PRODUCT_TYPE
+PRODUCT_TYPE ||--o{ PRODUCT
+PRODUCT ||--o{ PRODUCT_HEALTHTAG
+HEALTH_TAG ||--o{ PRODUCT_HEALTHTAG
+PRODUCT ||--o{ PRODUCT
+MEMBER ||--o{ CART
+CART ||--o{ CART_ITEM
+PRODUCT ||--o{ CART_ITEM
+MEMBER ||--o{ INVOICE_HISTORY
+INVOICE_HISTORY ||--o{ INVOICE_HISTORY_ITEM
+PRODUCT ||--o{ INVOICE_HISTORY_ITEM
+PRODUCT ||--o{ MEAL_SUGGESTION
+FLOOR ||--o{ ZONE
+ZONE ||--o{ AISLE
+AISLE ||--o{ SHELF
+SHELF ||--o{ SLOT
+SLOT ||--o{ PRODUCT_SLOT
+PRODUCT ||--o{ PRODUCT_SLOT
+FLOOR ||--o{ MAP
+MAP ||--o{ NAVIGATION_NODE
+NAVIGATION_NODE ||--o{ NAVIGATION_EDGE
+NAVIGATION_NODE ||--o{ SHELF
+NAVIGATION_NODE ||--o{ SHELF_SCAN
+ROBOT ||--o{ ROBOT_LOG
+ROBOT ||--o{ SHELF_SCAN
+SHELF ||--o{ SHELF_SCAN
+ROBOT ||--o{ ROBOT_ROUTE
+MAP ||--o{ ROBOT_ROUTE
+ZONE ||--o{ ROBOT_ROUTE
+ROBOT_ROUTE ||--o{ ROUTE_NODE_MAPPING
+NAVIGATION_NODE ||--o{ ROUTE_NODE_MAPPING
+ROBOT_ROUTE ||--o{ ROUTE_ASSIGNMENT
+ROBOT ||--o{ ROUTE_ASSIGNMENT
+BRAND ||--o{ AD_CAMPAIGN
+AD_PACKAGE ||--o{ AD_CAMPAIGN
+AD_CAMPAIGN ||--o{ AD_RESOURCE
+AD_CAMPAIGN ||--o{ SPONSORED_PRODUCT
+PRODUCT ||--o{ SPONSORED_PRODUCT
+AD_CAMPAIGN ||--o{ AD_CAMPAIGN_ZONE
+ZONE ||--o{ AD_CAMPAIGN_ZONE
+AD_CAMPAIGN ||--o{ AD_CAMPAIGN_SHELF
+SHELF ||--o{ AD_CAMPAIGN_SHELF
+AD_CAMPAIGN ||--o{ AD_CAMPAIGN_ROUTE
+ROBOT_ROUTE ||--o{ AD_CAMPAIGN_ROUTE
+AD_CAMPAIGN ||--o{ AD_CAMPAIGN_LOG
+SPONSORED_PRODUCT ||--o{ AD_CAMPAIGN_LOG
+PRODUCT ||--o{ AD_CAMPAIGN_LOG
+ROBOT ||--o{ AD_CAMPAIGN_LOG
+SHELF ||--o{ AD_CAMPAIGN_LOG
+ZONE ||--o{ AD_CAMPAIGN_LOG
+SLOT ||--o{ AD_CAMPAIGN_LOG
+MEMBER ||--o{ AD_CAMPAIGN_LOG
+
+@enduml

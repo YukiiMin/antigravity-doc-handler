@@ -1,0 +1,1379 @@
+[
+  {
+    "num": 1,
+    "p_idx": 1,
+    "h1": "",
+    "h2": "",
+    "h3": "",
+    "target": "image130.png",
+    "surrounding": " |  |  | "
+  },
+  {
+    "num": 2,
+    "p_idx": 53,
+    "h1": "II. Software Requirement Specification",
+    "h2": "1. Product Overview",
+    "h3": "",
+    "target": "image132.png",
+    "surrounding": "The SmartMarketBot System is an innovative AI-powered autonomous mobile robot (AMR) solution designed to revolutionize the in-store shopping experience, optimize interactive marketing campaigns, and a"
+  },
+  {
+    "num": 3,
+    "p_idx": 62,
+    "h1": "II. Software Requirement Specification",
+    "h2": "2. User Requirements",
+    "h3": "2.2.1 Diagram(s)",
+    "target": "image128.png",
+    "surrounding": "2.2 Use Cases | 2.2.1 Diagram(s) |  | 2.2.2 Descriptions | "
+  },
+  {
+    "num": 4,
+    "p_idx": 69,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.1.1 Android Robot Screen Flow",
+    "target": "image73.png",
+    "surrounding": "3.1 System Functional Overview | 3.1.1 Android Robot Screen Flow |  | 3.1.2 Android User Screen Flow | 3.1.3 Android Staff Screen Flow"
+  },
+  {
+    "num": 5,
+    "p_idx": 71,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.1.2 Android User Screen Flow",
+    "target": "image92.png",
+    "surrounding": " | 3.1.2 Android User Screen Flow | 3.1.3 Android Staff Screen Flow | 3.2 Screen Descriptions | Table 1: Android Robot Screen Flow"
+  },
+  {
+    "num": 6,
+    "p_idx": 71,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.1.2 Android User Screen Flow",
+    "target": "image20.png",
+    "surrounding": " | 3.1.2 Android User Screen Flow | 3.1.3 Android Staff Screen Flow | 3.2 Screen Descriptions | Table 1: Android Robot Screen Flow"
+  },
+  {
+    "num": 7,
+    "p_idx": 97,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.1 System Startup & Idle Kiosk Mode",
+    "target": "image148.jpg",
+    "surrounding": "3.2 App for Robot | 3.2.1 System Startup & Idle Kiosk Mode |  |  | Function Trigger"
+  },
+  {
+    "num": 8,
+    "p_idx": 97,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.1 System Startup & Idle Kiosk Mode",
+    "target": "image25.jpg",
+    "surrounding": "3.2 App for Robot | 3.2.1 System Startup & Idle Kiosk Mode |  |  | Function Trigger"
+  },
+  {
+    "num": 9,
+    "p_idx": 124,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.2 User Onboarding & Face ID Authentication",
+    "target": "image60.jpg",
+    "surrounding": "Display & Audio Policy: Enforces useKeepAwake to prevent tablet screen sleep throughout Kiosk operation; maintains robot greeting volume at standard 70% master volume. | 3.2.2 User Onboarding & Face I"
+  },
+  {
+    "num": 10,
+    "p_idx": 124,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.2 User Onboarding & Face ID Authentication",
+    "target": "image58.jpg",
+    "surrounding": "Display & Audio Policy: Enforces useKeepAwake to prevent tablet screen sleep throughout Kiosk operation; maintains robot greeting volume at standard 70% master volume. | 3.2.2 User Onboarding & Face I"
+  },
+  {
+    "num": 11,
+    "p_idx": 124,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.2 User Onboarding & Face ID Authentication",
+    "target": "image29.jpg",
+    "surrounding": "Display & Audio Policy: Enforces useKeepAwake to prevent tablet screen sleep throughout Kiosk operation; maintains robot greeting volume at standard 70% master volume. | 3.2.2 User Onboarding & Face I"
+  },
+  {
+    "num": 12,
+    "p_idx": 124,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.2 User Onboarding & Face ID Authentication",
+    "target": "image31.jpg",
+    "surrounding": "Display & Audio Policy: Enforces useKeepAwake to prevent tablet screen sleep throughout Kiosk operation; maintains robot greeting volume at standard 70% master volume. | 3.2.2 User Onboarding & Face I"
+  },
+  {
+    "num": 13,
+    "p_idx": 150,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.3 Guest Shopping Experience & Daily Promotions",
+    "target": "image70.jpg",
+    "surrounding": "Authentication Policy: Only accounts with role 'Member' are authorized to access Member Home; active session is cleared upon 60-second idle timeout. | 3.2.3 Guest Shopping Experience & Daily Promotion"
+  },
+  {
+    "num": 14,
+    "p_idx": 150,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.3 Guest Shopping Experience & Daily Promotions",
+    "target": "image78.jpg",
+    "surrounding": "Authentication Policy: Only accounts with role 'Member' are authorized to access Member Home; active session is cleared upon 60-second idle timeout. | 3.2.3 Guest Shopping Experience & Daily Promotion"
+  },
+  {
+    "num": 15,
+    "p_idx": 150,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.3 Guest Shopping Experience & Daily Promotions",
+    "target": "image1.png",
+    "surrounding": "Authentication Policy: Only accounts with role 'Member' are authorized to access Member Home; active session is cleared upon 60-second idle timeout. | 3.2.3 Guest Shopping Experience & Daily Promotion"
+  },
+  {
+    "num": 16,
+    "p_idx": 173,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.4 Member Personalization & Special Offers",
+    "target": "image37.jpg",
+    "surrounding": "Guest Policy: Guest shoppers do not accumulate loyalty reward points; upon completing a journey, system displays a prompt inviting customer to register for member benefits. | 3.2.4 Member Personalizat"
+  },
+  {
+    "num": 17,
+    "p_idx": 173,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.4 Member Personalization & Special Offers",
+    "target": "image33.jpg",
+    "surrounding": "Guest Policy: Guest shoppers do not accumulate loyalty reward points; upon completing a journey, system displays a prompt inviting customer to register for member benefits. | 3.2.4 Member Personalizat"
+  },
+  {
+    "num": 18,
+    "p_idx": 174,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.4 Member Personalization & Special Offers",
+    "target": "image54.jpg",
+    "surrounding": "3.2.4 Member Personalization & Special Offers |  |  | [TODO: ADD SCREENSHOT - Health Tag Personalized Recommendations Screen (Dietary tags: Eat Clean, Keto, Vegan)] | Function Trigger"
+  },
+  {
+    "num": 19,
+    "p_idx": 174,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.4 Member Personalization & Special Offers",
+    "target": "image1.png",
+    "surrounding": "3.2.4 Member Personalization & Special Offers |  |  | [TODO: ADD SCREENSHOT - Health Tag Personalized Recommendations Screen (Dietary tags: Eat Clean, Keto, Vegan)] | Function Trigger"
+  },
+  {
+    "num": 20,
+    "p_idx": 199,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.5 Smart Search & AI Voice Assistant",
+    "target": "image18.jpg",
+    "surrounding": "Budget Rules: Budget preferences are synchronized directly from member mobile application settings; real-time recalculation triggers upon any cart item addition or removal. | 3.2.5 Smart Search & AI V"
+  },
+  {
+    "num": 21,
+    "p_idx": 199,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.5 Smart Search & AI Voice Assistant",
+    "target": "image7.jpg",
+    "surrounding": "Budget Rules: Budget preferences are synchronized directly from member mobile application settings; real-time recalculation triggers upon any cart item addition or removal. | 3.2.5 Smart Search & AI V"
+  },
+  {
+    "num": 22,
+    "p_idx": 200,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.5 Smart Search & AI Voice Assistant",
+    "target": "image117.jpg",
+    "surrounding": "3.2.5 Smart Search & AI Voice Assistant |  |  | [TODO: ADD SCREENSHOT - Voice Recognition Query Results Screen (Parsed query and matched product list)] | Function Trigger"
+  },
+  {
+    "num": 23,
+    "p_idx": 226,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.6 Product Detail & Instant Cart Operations",
+    "target": "image46.jpg",
+    "surrounding": "Voice Timeout Policy: Automatically closes microphone and terminates listening state after 5 seconds of silence to conserve power and avoid background supermarket chatter. | 3.2.6 Product Detail & Ins"
+  },
+  {
+    "num": 24,
+    "p_idx": 250,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.7 Smart Cart & Autonomous Robot Navigation Guide",
+    "target": "image97.jpg",
+    "surrounding": "Cart Rules: Customer can add items to cart without triggering robot movement; supports quantity adjustments directly on screen. | 3.2.7 Smart Cart & Autonomous Robot Navigation Guide |  |  | Function "
+  },
+  {
+    "num": 25,
+    "p_idx": 250,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.7 Smart Cart & Autonomous Robot Navigation Guide",
+    "target": "image35.jpg",
+    "surrounding": "Cart Rules: Customer can add items to cart without triggering robot movement; supports quantity adjustments directly on screen. | 3.2.7 Smart Cart & Autonomous Robot Navigation Guide |  |  | Function "
+  },
+  {
+    "num": 26,
+    "p_idx": 250,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.7 Smart Cart & Autonomous Robot Navigation Guide",
+    "target": "image63.jpg",
+    "surrounding": "Cart Rules: Customer can add items to cart without triggering robot movement; supports quantity adjustments directly on screen. | 3.2.7 Smart Cart & Autonomous Robot Navigation Guide |  |  | Function "
+  },
+  {
+    "num": 27,
+    "p_idx": 250,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.7 Smart Cart & Autonomous Robot Navigation Guide",
+    "target": "image65.jpg",
+    "surrounding": "Cart Rules: Customer can add items to cart without triggering robot movement; supports quantity adjustments directly on screen. | 3.2.7 Smart Cart & Autonomous Robot Navigation Guide |  |  | Function "
+  },
+  {
+    "num": 28,
+    "p_idx": 250,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.7 Smart Cart & Autonomous Robot Navigation Guide",
+    "target": "image61.png",
+    "surrounding": "Cart Rules: Customer can add items to cart without triggering robot movement; supports quantity adjustments directly on screen. | 3.2.7 Smart Cart & Autonomous Robot Navigation Guide |  |  | Function "
+  },
+  {
+    "num": 29,
+    "p_idx": 250,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.7 Smart Cart & Autonomous Robot Navigation Guide",
+    "target": "image6.png",
+    "surrounding": "Cart Rules: Customer can add items to cart without triggering robot movement; supports quantity adjustments directly on screen. | 3.2.7 Smart Cart & Autonomous Robot Navigation Guide |  |  | Function "
+  },
+  {
+    "num": 30,
+    "p_idx": 279,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.8 Contextual Overlays & Autonomous Advertising",
+    "target": "image36.png",
+    "surrounding": "Navigation Invariant: Always appends start waypoint (Waypoint 7) and home return waypoint (Waypoint 7) to beginning and end of route; prevents automatic idle session logout while robot is actively nav"
+  },
+  {
+    "num": 31,
+    "p_idx": 279,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.2.8 Contextual Overlays & Autonomous Advertising",
+    "target": "image42.png",
+    "surrounding": "Navigation Invariant: Always appends start waypoint (Waypoint 7) and home return waypoint (Waypoint 7) to beginning and end of route; prevents automatic idle session logout while robot is actively nav"
+  },
+  {
+    "num": 32,
+    "p_idx": 309,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.1 Login & Face ID",
+    "target": "image85.jpg",
+    "surrounding": "3.3.1 Login & Face ID |  |  | Function Trigger | Trigger Face Login:"
+  },
+  {
+    "num": 33,
+    "p_idx": 309,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.1 Login & Face ID",
+    "target": "image40.jpg",
+    "surrounding": "3.3.1 Login & Face ID |  |  | Function Trigger | Trigger Face Login:"
+  },
+  {
+    "num": 34,
+    "p_idx": 309,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.1 Login & Face ID",
+    "target": "image129.jpg",
+    "surrounding": "3.3.1 Login & Face ID |  |  | Function Trigger | Trigger Face Login:"
+  },
+  {
+    "num": 35,
+    "p_idx": 309,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.1 Login & Face ID",
+    "target": "image67.jpg",
+    "surrounding": "3.3.1 Login & Face ID |  |  | Function Trigger | Trigger Face Login:"
+  },
+  {
+    "num": 36,
+    "p_idx": 388,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.2 Register & Register Face ID",
+    "target": "image88.jpg",
+    "surrounding": " |  |  | Function Trigger | Trigger Account Registration (Step 1): From the Login Screen -> Click the \"Đăng ký tài khoản\" (Register account) button."
+  },
+  {
+    "num": 37,
+    "p_idx": 388,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.2 Register & Register Face ID",
+    "target": "image133.jpg",
+    "surrounding": " |  |  | Function Trigger | Trigger Account Registration (Step 1): From the Login Screen -> Click the \"Đăng ký tài khoản\" (Register account) button."
+  },
+  {
+    "num": 38,
+    "p_idx": 388,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.2 Register & Register Face ID",
+    "target": "image109.jpg",
+    "surrounding": " |  |  | Function Trigger | Trigger Account Registration (Step 1): From the Login Screen -> Click the \"Đăng ký tài khoản\" (Register account) button."
+  },
+  {
+    "num": 39,
+    "p_idx": 388,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.2 Register & Register Face ID",
+    "target": "image90.jpg",
+    "surrounding": " |  |  | Function Trigger | Trigger Account Registration (Step 1): From the Login Screen -> Click the \"Đăng ký tài khoản\" (Register account) button."
+  },
+  {
+    "num": 40,
+    "p_idx": 481,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.3 Homepage / Main Dashboard",
+    "target": "image84.jpg",
+    "surrounding": "3.3.3 Homepage / Main Dashboard |  |  | Function Trigger | Access Homepage:"
+  },
+  {
+    "num": 41,
+    "p_idx": 481,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.3 Homepage / Main Dashboard",
+    "target": "image49.jpg",
+    "surrounding": "3.3.3 Homepage / Main Dashboard |  |  | Function Trigger | Access Homepage:"
+  },
+  {
+    "num": 42,
+    "p_idx": 481,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.3 Homepage / Main Dashboard",
+    "target": "image59.jpg",
+    "surrounding": "3.3.3 Homepage / Main Dashboard |  |  | Function Trigger | Access Homepage:"
+  },
+  {
+    "num": 43,
+    "p_idx": 481,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.3 Homepage / Main Dashboard",
+    "target": "image47.jpg",
+    "surrounding": "3.3.3 Homepage / Main Dashboard |  |  | Function Trigger | Access Homepage:"
+  },
+  {
+    "num": 44,
+    "p_idx": 481,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.3 Homepage / Main Dashboard",
+    "target": "image136.jpg",
+    "surrounding": "3.3.3 Homepage / Main Dashboard |  |  | Function Trigger | Access Homepage:"
+  },
+  {
+    "num": 45,
+    "p_idx": 481,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.3 Homepage / Main Dashboard",
+    "target": "image141.jpg",
+    "surrounding": "3.3.3 Homepage / Main Dashboard |  |  | Function Trigger | Access Homepage:"
+  },
+  {
+    "num": 46,
+    "p_idx": 481,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.3 Homepage / Main Dashboard",
+    "target": "image57.jpg",
+    "surrounding": "3.3.3 Homepage / Main Dashboard |  |  | Function Trigger | Access Homepage:"
+  },
+  {
+    "num": 47,
+    "p_idx": 583,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.4 Smart Utilities / AI Meal Recipes",
+    "target": "image87.jpg",
+    "surrounding": " |  |  | Function Trigger | View Recipe Preview Modal: From Homepage (\"Tiện ích thông minh\" section) -> Click the \"Xem trước\" button on any recipe card -> Opens the Recipe Detail & Portion Adjustment "
+  },
+  {
+    "num": 48,
+    "p_idx": 583,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.4 Smart Utilities / AI Meal Recipes",
+    "target": "image151.jpg",
+    "surrounding": " |  |  | Function Trigger | View Recipe Preview Modal: From Homepage (\"Tiện ích thông minh\" section) -> Click the \"Xem trước\" button on any recipe card -> Opens the Recipe Detail & Portion Adjustment "
+  },
+  {
+    "num": 49,
+    "p_idx": 676,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.5 Promotions Widget",
+    "target": "image12.jpg",
+    "surrounding": "Allergen Filtering Alignment: AI recipes recommended under \"Tiện ích thông minh\" strictly exclude ingredients registered under the user's allergen profile. | 3.3.5 Promotions Widget |  |  | "
+  },
+  {
+    "num": 50,
+    "p_idx": 676,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.5 Promotions Widget",
+    "target": "image119.jpg",
+    "surrounding": "Allergen Filtering Alignment: AI recipes recommended under \"Tiện ích thông minh\" strictly exclude ingredients registered under the user's allergen profile. | 3.3.5 Promotions Widget |  |  | "
+  },
+  {
+    "num": 51,
+    "p_idx": 753,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.6 Personalized Recommendations Grid",
+    "target": "image139.jpg",
+    "surrounding": " |  |  | Function Trigger | View Personalized Recommendations Grid:"
+  },
+  {
+    "num": 52,
+    "p_idx": 753,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.6 Personalized Recommendations Grid",
+    "target": "image112.jpg",
+    "surrounding": " |  |  | Function Trigger | View Personalized Recommendations Grid:"
+  },
+  {
+    "num": 53,
+    "p_idx": 863,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.7 Profile & Settings Overview",
+    "target": "image24.jpg",
+    "surrounding": "3.3.7 Profile & Settings Overview |  |  | Function Trigger | Access Profile & Settings:"
+  },
+  {
+    "num": 54,
+    "p_idx": 863,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.7 Profile & Settings Overview",
+    "target": "image150.jpg",
+    "surrounding": "3.3.7 Profile & Settings Overview |  |  | Function Trigger | Access Profile & Settings:"
+  },
+  {
+    "num": 55,
+    "p_idx": 943,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.8 Personal Information Screen",
+    "target": "image116.jpg",
+    "surrounding": "3.3.8 Personal Information Screen |  |  |  | "
+  },
+  {
+    "num": 56,
+    "p_idx": 943,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.8 Personal Information Screen",
+    "target": "image149.jpg",
+    "surrounding": "3.3.8 Personal Information Screen |  |  |  | "
+  },
+  {
+    "num": 57,
+    "p_idx": 943,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.8 Personal Information Screen",
+    "target": "image10.jpg",
+    "surrounding": "3.3.8 Personal Information Screen |  |  |  | "
+  },
+  {
+    "num": 58,
+    "p_idx": 943,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.8 Personal Information Screen",
+    "target": "image101.jpg",
+    "surrounding": "3.3.8 Personal Information Screen |  |  |  | "
+  },
+  {
+    "num": 59,
+    "p_idx": 943,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.8 Personal Information Screen",
+    "target": "image75.jpg",
+    "surrounding": "3.3.8 Personal Information Screen |  |  |  | "
+  },
+  {
+    "num": 60,
+    "p_idx": 1061,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.9 Personalization Settings & Shopping Preferences",
+    "target": "image142.jpg",
+    "surrounding": "Face Re-enrollment Overwrite: Updating face biometrics overwrites existing facial feature vectors in the AI database. | 3.3.9 Personalization Settings & Shopping Preferences |  |  | Function Trigger"
+  },
+  {
+    "num": 61,
+    "p_idx": 1061,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.9 Personalization Settings & Shopping Preferences",
+    "target": "image153.jpg",
+    "surrounding": "Face Re-enrollment Overwrite: Updating face biometrics overwrites existing facial feature vectors in the AI database. | 3.3.9 Personalization Settings & Shopping Preferences |  |  | Function Trigger"
+  },
+  {
+    "num": 62,
+    "p_idx": 1061,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.9 Personalization Settings & Shopping Preferences",
+    "target": "image100.jpg",
+    "surrounding": "Face Re-enrollment Overwrite: Updating face biometrics overwrites existing facial feature vectors in the AI database. | 3.3.9 Personalization Settings & Shopping Preferences |  |  | Function Trigger"
+  },
+  {
+    "num": 63,
+    "p_idx": 1136,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.10 Membership Tier & Loyalty Benefits",
+    "target": "image26.jpg",
+    "surrounding": " | 3.3.10 Membership Tier & Loyalty Benefits |  | Function Trigger | Access Membership Tier Screen:"
+  },
+  {
+    "num": 64,
+    "p_idx": 1136,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.10 Membership Tier & Loyalty Benefits",
+    "target": "image34.jpg",
+    "surrounding": " | 3.3.10 Membership Tier & Loyalty Benefits |  | Function Trigger | Access Membership Tier Screen:"
+  },
+  {
+    "num": 65,
+    "p_idx": 1213,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.11 Order History",
+    "target": "image13.jpg",
+    "surrounding": "Premium Spending Invariant: Customers holding \"Premium\" tier status implicitly have a cumulative spending of at least 10.000.000 VNĐ. The progress bar renders at 100% completion with the message \"Bạn "
+  },
+  {
+    "num": 66,
+    "p_idx": 1213,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.11 Order History",
+    "target": "image147.jpg",
+    "surrounding": "Premium Spending Invariant: Customers holding \"Premium\" tier status implicitly have a cumulative spending of at least 10.000.000 VNĐ. The progress bar renders at 100% completion with the message \"Bạn "
+  },
+  {
+    "num": 67,
+    "p_idx": 1313,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.12 Personalized Search Text",
+    "target": "image103.jpg",
+    "surrounding": "3.3.12 Personalized Search Text |  |  |  | "
+  },
+  {
+    "num": 68,
+    "p_idx": 1313,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.12 Personalized Search Text",
+    "target": "image146.jpg",
+    "surrounding": "3.3.12 Personalized Search Text |  |  |  | "
+  },
+  {
+    "num": 69,
+    "p_idx": 1313,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.12 Personalized Search Text",
+    "target": "image69.jpg",
+    "surrounding": "3.3.12 Personalized Search Text |  |  |  | "
+  },
+  {
+    "num": 70,
+    "p_idx": 1313,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.12 Personalized Search Text",
+    "target": "image15.jpg",
+    "surrounding": "3.3.12 Personalized Search Text |  |  |  | "
+  },
+  {
+    "num": 71,
+    "p_idx": 1313,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.12 Personalized Search Text",
+    "target": "image122.jpg",
+    "surrounding": "3.3.12 Personalized Search Text |  |  |  | "
+  },
+  {
+    "num": 72,
+    "p_idx": 1313,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.12 Personalized Search Text",
+    "target": "image62.jpg",
+    "surrounding": "3.3.12 Personalized Search Text |  |  |  | "
+  },
+  {
+    "num": 73,
+    "p_idx": 1313,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.12 Personalized Search Text",
+    "target": "image55.jpg",
+    "surrounding": "3.3.12 Personalized Search Text |  |  |  | "
+  },
+  {
+    "num": 74,
+    "p_idx": 1411,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.13 Personalized Search By Voice",
+    "target": "image44.jpg",
+    "surrounding": "3.3.13 Personalized Search By Voice |  |  | Function Trigger | Voice Recording Trigger: User taps the Microphone icon (🎙️ icon) on the Search bar in the Home Screen or Search Screen Header."
+  },
+  {
+    "num": 75,
+    "p_idx": 1411,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.13 Personalized Search By Voice",
+    "target": "image134.jpg",
+    "surrounding": "3.3.13 Personalized Search By Voice |  |  | Function Trigger | Voice Recording Trigger: User taps the Microphone icon (🎙️ icon) on the Search bar in the Home Screen or Search Screen Header."
+  },
+  {
+    "num": 76,
+    "p_idx": 1411,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.13 Personalized Search By Voice",
+    "target": "image140.jpg",
+    "surrounding": "3.3.13 Personalized Search By Voice |  |  | Function Trigger | Voice Recording Trigger: User taps the Microphone icon (🎙️ icon) on the Search bar in the Home Screen or Search Screen Header."
+  },
+  {
+    "num": 77,
+    "p_idx": 1411,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.13 Personalized Search By Voice",
+    "target": "image50.jpg",
+    "surrounding": "3.3.13 Personalized Search By Voice |  |  | Function Trigger | Voice Recording Trigger: User taps the Microphone icon (🎙️ icon) on the Search bar in the Home Screen or Search Screen Header."
+  },
+  {
+    "num": 78,
+    "p_idx": 1411,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.13 Personalized Search By Voice",
+    "target": "image83.jpg",
+    "surrounding": "3.3.13 Personalized Search By Voice |  |  | Function Trigger | Voice Recording Trigger: User taps the Microphone icon (🎙️ icon) on the Search bar in the Home Screen or Search Screen Header."
+  },
+  {
+    "num": 79,
+    "p_idx": 1506,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.14 Cart",
+    "target": "image89.jpg",
+    "surrounding": "3.3.14 Cart |  |  |  | "
+  },
+  {
+    "num": 80,
+    "p_idx": 1506,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.14 Cart",
+    "target": "image120.jpg",
+    "surrounding": "3.3.14 Cart |  |  |  | "
+  },
+  {
+    "num": 81,
+    "p_idx": 1506,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.14 Cart",
+    "target": "image82.jpg",
+    "surrounding": "3.3.14 Cart |  |  |  | "
+  },
+  {
+    "num": 82,
+    "p_idx": 1506,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.14 Cart",
+    "target": "image56.jpg",
+    "surrounding": "3.3.14 Cart |  |  |  | "
+  },
+  {
+    "num": 83,
+    "p_idx": 1618,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.15 In-Store Route Navigation from Checkout Counter",
+    "target": "image79.jpg",
+    "surrounding": "3.3.15 In-Store Route Navigation from Checkout Counter |  |  |  | "
+  },
+  {
+    "num": 84,
+    "p_idx": 1618,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.15 In-Store Route Navigation from Checkout Counter",
+    "target": "image127.jpg",
+    "surrounding": "3.3.15 In-Store Route Navigation from Checkout Counter |  |  |  | "
+  },
+  {
+    "num": 85,
+    "p_idx": 1618,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.15 In-Store Route Navigation from Checkout Counter",
+    "target": "image52.jpg",
+    "surrounding": "3.3.15 In-Store Route Navigation from Checkout Counter |  |  |  | "
+  },
+  {
+    "num": 86,
+    "p_idx": 1618,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.15 In-Store Route Navigation from Checkout Counter",
+    "target": "image121.jpg",
+    "surrounding": "3.3.15 In-Store Route Navigation from Checkout Counter |  |  |  | "
+  },
+  {
+    "num": 87,
+    "p_idx": 1618,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.15 In-Store Route Navigation from Checkout Counter",
+    "target": "image137.jpg",
+    "surrounding": "3.3.15 In-Store Route Navigation from Checkout Counter |  |  |  | "
+  },
+  {
+    "num": 88,
+    "p_idx": 1618,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.15 In-Store Route Navigation from Checkout Counter",
+    "target": "image66.jpg",
+    "surrounding": "3.3.15 In-Store Route Navigation from Checkout Counter |  |  |  | "
+  },
+  {
+    "num": 89,
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "target": "image144.jpg",
+    "surrounding": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan |  |  |  | "
+  },
+  {
+    "num": 90,
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "target": "image86.jpg",
+    "surrounding": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan |  |  |  | "
+  },
+  {
+    "num": 91,
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "target": "image32.jpg",
+    "surrounding": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan |  |  |  | "
+  },
+  {
+    "num": 92,
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "target": "image115.jpg",
+    "surrounding": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan |  |  |  | "
+  },
+  {
+    "num": 93,
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "target": "image98.jpg",
+    "surrounding": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan |  |  |  | "
+  },
+  {
+    "num": 94,
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "target": "image143.jpg",
+    "surrounding": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan |  |  |  | "
+  },
+  {
+    "num": 95,
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "target": "image27.jpg",
+    "surrounding": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan |  |  |  | "
+  },
+  {
+    "num": 96,
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "target": "image19.jpg",
+    "surrounding": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan |  |  |  | "
+  },
+  {
+    "num": 97,
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "target": "image81.jpg",
+    "surrounding": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan |  |  |  | "
+  },
+  {
+    "num": 98,
+    "p_idx": 1717,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3. Functional Requirements",
+    "h3": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan",
+    "target": "image104.jpg",
+    "surrounding": "3.3.16 In-Store Navigation from Arbitrary Shelf via AI OCR Tag Scan |  |  |  | "
+  },
+  {
+    "num": 99,
+    "p_idx": 1836,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.1 Login Admin",
+    "target": "image118.png",
+    "surrounding": "3.4 Web Admin | 3.4.1 Login Admin |  |  | "
+  },
+  {
+    "num": 100,
+    "p_idx": 1907,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.2 Advertisement Campaign Management (Admin Web Dashboard)",
+    "target": "image111.png",
+    "surrounding": "3.4.2 Advertisement Campaign Management (Admin Web Dashboard) |  |  | Function Trigger | Navigation Path: From Admin Dashboard Sidebar -> Click 'Chiến dịch Quảng cáo' (Ad Campaigns) menu item under MA"
+  },
+  {
+    "num": 101,
+    "p_idx": 1907,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.2 Advertisement Campaign Management (Admin Web Dashboard)",
+    "target": "image131.png",
+    "surrounding": "3.4.2 Advertisement Campaign Management (Admin Web Dashboard) |  |  | Function Trigger | Navigation Path: From Admin Dashboard Sidebar -> Click 'Chiến dịch Quảng cáo' (Ad Campaigns) menu item under MA"
+  },
+  {
+    "num": 102,
+    "p_idx": 1907,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.2 Advertisement Campaign Management (Admin Web Dashboard)",
+    "target": "image22.png",
+    "surrounding": "3.4.2 Advertisement Campaign Management (Admin Web Dashboard) |  |  | Function Trigger | Navigation Path: From Admin Dashboard Sidebar -> Click 'Chiến dịch Quảng cáo' (Ad Campaigns) menu item under MA"
+  },
+  {
+    "num": 103,
+    "p_idx": 1952,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.3 Create Advertisement Campaign",
+    "target": "image16.png",
+    "surrounding": "Unbound Product SKU: Creating an ad campaign without binding at least one supermarket product SKU displays error: \"Vui lòng chọn ít nhất 1 sản phẩm liên kết cho chiến dịch\". |  | 3.4.3 Create Advertis"
+  },
+  {
+    "num": 104,
+    "p_idx": 2008,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.4 Ad Campaign Detail",
+    "target": "image45.png",
+    "surrounding": "Creation Failed (Server Error): Display error toast with backend message and keep wizard data intact for correction | 3.4.4 Ad Campaign Detail |  | Function Trigger | Navigation Path: From Ad Campaign"
+  },
+  {
+    "num": 105,
+    "p_idx": 2034,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.5 Ad Package Management",
+    "target": "image5.png",
+    "surrounding": "Campaign Not Found (404 Error): System displays error message \"Không tìm thấy chiến dịch quảng cáo\" and provides a link back to the campaign list. | 3.4.5 Ad Package Management |  | Function Trigger |"
+  },
+  {
+    "num": 106,
+    "p_idx": 2092,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.6 Create/Edit Ad Package",
+    "target": "image102.png",
+    "surrounding": " | 3.4.6 Create/Edit Ad Package |  | Function Trigger | Navigation Path:"
+  },
+  {
+    "num": 107,
+    "p_idx": 2147,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.7 Ad Package Details",
+    "target": "image38.png",
+    "surrounding": "Submission Error (Server Error): Display toast: \"Lỗi tạo gói quảng cáo. Vui lòng thử lại\" and keep modal open for correction. | 3.4.7 Ad Package Details |  | Function Trigger | Navigation Path:"
+  },
+  {
+    "num": 108,
+    "p_idx": 2210,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.8 Brand Management Dasboard",
+    "target": "image110.png",
+    "surrounding": " | 3.4.8 Brand Management Dasboard |  | Function Trigger | Navigation Path:"
+  },
+  {
+    "num": 109,
+    "p_idx": 2268,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.9 Create Brand",
+    "target": "image124.png",
+    "surrounding": " | 3.4.9 Create Brand |  | Function Trigger | Navigation Path:"
+  },
+  {
+    "num": 110,
+    "p_idx": 2317,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.10 Update Brand",
+    "target": "image17.png",
+    "surrounding": " | 3.4.10 Update Brand |  | Function Trigger | Navigation Path:"
+  },
+  {
+    "num": 111,
+    "p_idx": 2371,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.11 Product Management",
+    "target": "image76.png",
+    "surrounding": "Update Failure (Server Error): Display error alert and keep modified values on screen for retry | 3.4.11 Product Management |  | Function Trigger | Navigation Path: From Admin Dashboard Sidebar -> Cli"
+  },
+  {
+    "num": 112,
+    "p_idx": 2454,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.12 Add New Product",
+    "target": "image64.png",
+    "surrounding": " | 3.4.12 Add New Product |  | Function Trigger | Navigation Path: From Product Management Screen (/products) -> Click \"+ Thêm Sản Phẩm\" button -> Opens \"Thêm Sản Phẩm Mới\" modal."
+  },
+  {
+    "num": 113,
+    "p_idx": 2500,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.13 Product Detail",
+    "target": "image108.png",
+    "surrounding": "Duplicate SKU Code: Display error toast: \"Mã SKU đã tồn tại trong hệ thống.\" | Server Error / Upload Failure: Display error alert: \"Không thể thêm sản phẩm. Vui lòng thử lại sau.\" and keep form state "
+  },
+  {
+    "num": 114,
+    "p_idx": 2550,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.14 Edit Product",
+    "target": "image53.png",
+    "surrounding": "Image Load Failure: Display generic category placeholder icon | 3.4.14 Edit Product |  | Function Trigger | Navigation Path:"
+  },
+  {
+    "num": 115,
+    "p_idx": 2609,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.15 Product Category Management",
+    "target": "image3.png",
+    "surrounding": " | 3.4.15 Product Category Management |  | Function Trigger | Navigation Path:"
+  },
+  {
+    "num": 116,
+    "p_idx": 2663,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.16 Add Product Category",
+    "target": "image71.png",
+    "surrounding": " | 3.4.16 Add Product Category |  | Function Trigger | Navigation Path:"
+  },
+  {
+    "num": 117,
+    "p_idx": 2709,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.17 Edit Product Category",
+    "target": "image14.png",
+    "surrounding": " | 3.4.17 Edit Product Category |  | Function Trigger | Navigation Path:"
+  },
+  {
+    "num": 118,
+    "p_idx": 2752,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.18 Health Tag Management",
+    "target": "image113.png",
+    "surrounding": "Duplicate Category Name in Same Subcategory: Display error alert: \"Tên loại sản phẩm đã tồn tại trong danh mục con này\" | Update Failure (Server Error): Display toast: \"Lỗi cập nhật loại sản phẩm. Vui"
+  },
+  {
+    "num": 119,
+    "p_idx": 2811,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.19 Add Health Tag",
+    "target": "image41.png",
+    "surrounding": "Excel Import Format Errors: Prompt Import History modal detailing invalid tag records. |  | 3.4.19 Add Health Tag | Function Trigger | Navigation Path:"
+  },
+  {
+    "num": 120,
+    "p_idx": 2859,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.20 Edit Health Tag Modal",
+    "target": "image30.png",
+    "surrounding": "Duplicate Tag Name: Display error alert: \"Tên Health Tag đã tồn tại trong hệ thống\" | Server Error: Display toast: \"Lỗi tạo Health Tag. Vui lòng thử lại\" and keep modal open for retry | 3.4.20 Edit He"
+  },
+  {
+    "num": 121,
+    "p_idx": 2909,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.21 Supermarket Shelf & Slot Management",
+    "target": "image93.png",
+    "surrounding": " | 3.4.21 Supermarket Shelf & Slot Management |  | Function Trigger | Navigation Path:"
+  },
+  {
+    "num": 122,
+    "p_idx": 2967,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.22 User Account Management",
+    "target": "image28.png",
+    "surrounding": "Robot Waypoint Disconnect: Display notice if a shelf's associated ArUco marker ID is uncalibrated in the ROS map | 3.4.22 User Account Management |  | Function Trigger | Navigation Path:"
+  },
+  {
+    "num": 123,
+    "p_idx": 3027,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.23 Create Account",
+    "target": "image51.png",
+    "surrounding": "Self-Modification Prohibited: Attempting to block/delete own account displays notice: \"Không thể tự khóa hoặc xóa tài khoản của chính bạn\" | Duplicate Email or Username: Display inline validation: \"Em"
+  },
+  {
+    "num": 124,
+    "p_idx": 3078,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.24 Edit Account Modal",
+    "target": "image135.png",
+    "surrounding": " | 3.4.24 Edit Account Modal |  | Function Trigger | Navigation Path:"
+  },
+  {
+    "num": 125,
+    "p_idx": 3129,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.25 Robot Advertisement Management",
+    "target": "image94.png",
+    "surrounding": "Update Failure (Server Error): Display toast: \"Lỗi cập nhật tài khoản. Vui lòng thử lại\" and keep modal open for correction | 3.4.25 Robot Advertisement Management |  |  | "
+  },
+  {
+    "num": 126,
+    "p_idx": 3130,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.25 Robot Advertisement Management",
+    "target": "image95.png",
+    "surrounding": "3.4.25 Robot Advertisement Management |  |  |  | "
+  },
+  {
+    "num": 127,
+    "p_idx": 3131,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.25 Robot Advertisement Management",
+    "target": "image39.png",
+    "surrounding": " |  |  |  | Function Trigger"
+  },
+  {
+    "num": 128,
+    "p_idx": 3132,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.25 Robot Advertisement Management",
+    "target": "image9.png",
+    "surrounding": " |  |  | Function Trigger | • Navigation Path:"
+  },
+  {
+    "num": 129,
+    "p_idx": 3197,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.26 Robot Shelf Patrol Management",
+    "target": "image105.png",
+    "surrounding": " | 3.4.26 Robot Shelf Patrol Management |  |  | "
+  },
+  {
+    "num": 130,
+    "p_idx": 3198,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.26 Robot Shelf Patrol Management",
+    "target": "image96.png",
+    "surrounding": "3.4.26 Robot Shelf Patrol Management |  |  |  | Function Trigger"
+  },
+  {
+    "num": 131,
+    "p_idx": 3199,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.26 Robot Shelf Patrol Management",
+    "target": "image4.png",
+    "surrounding": " |  |  | Function Trigger | Navigation Path:"
+  },
+  {
+    "num": 132,
+    "p_idx": 3268,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.27 Robot Operation",
+    "target": "image123.png",
+    "surrounding": " | 3.4.27 Robot Operation |  |  | "
+  },
+  {
+    "num": 133,
+    "p_idx": 3269,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.27 Robot Operation",
+    "target": "image43.png",
+    "surrounding": "3.4.27 Robot Operation |  |  |  | "
+  },
+  {
+    "num": 134,
+    "p_idx": 3270,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.27 Robot Operation",
+    "target": "image72.png",
+    "surrounding": " |  |  |  | "
+  },
+  {
+    "num": 135,
+    "p_idx": 3331,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.28 Robot Map Management",
+    "target": "image138.png",
+    "surrounding": " | 3.4.28 Robot Map Management |  |  | "
+  },
+  {
+    "num": 136,
+    "p_idx": 3332,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.28 Robot Map Management",
+    "target": "image74.png",
+    "surrounding": "3.4.28 Robot Map Management |  |  |  | "
+  },
+  {
+    "num": 137,
+    "p_idx": 3436,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.29 Shelf Patrol History",
+    "target": "image114.png",
+    "surrounding": " | 3.4.29 Shelf Patrol History |  | Function Trigger | Navigation Path:"
+  },
+  {
+    "num": 138,
+    "p_idx": 3522,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.30 Staff Shelf Patrol Management",
+    "target": "image48.png",
+    "surrounding": " | 3.4.30 Staff Shelf Patrol Management |  |  | Function Trigger"
+  },
+  {
+    "num": 139,
+    "p_idx": 3523,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.30 Staff Shelf Patrol Management",
+    "target": "image152.png",
+    "surrounding": "3.4.30 Staff Shelf Patrol Management |  |  | Function Trigger | Navigation Path:"
+  },
+  {
+    "num": 140,
+    "p_idx": 3619,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.31 Shelf Density Management",
+    "target": "image126.png",
+    "surrounding": " | 3.4.31 Shelf Density Management |  |  | "
+  },
+  {
+    "num": 141,
+    "p_idx": 3620,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.31 Shelf Density Management",
+    "target": "image99.png",
+    "surrounding": "3.4.31 Shelf Density Management |  |  |  | "
+  },
+  {
+    "num": 142,
+    "p_idx": 3621,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.4.31 Shelf Density Management",
+    "target": "image91.png",
+    "surrounding": " |  |  |  | Function Trigger"
+  },
+  {
+    "num": 143,
+    "p_idx": 3707,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.1 Login",
+    "target": "image77.jpg",
+    "surrounding": "3.5 Staff Mobile Experience (Staff Mobile App) | 3.5.1 Login |  | Function Trigger | Access Login Screen: Launched automatically when the SmartMarket Staff mobile app opens without a valid authenticat"
+  },
+  {
+    "num": 144,
+    "p_idx": 3778,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.2 Staff Homepage & Operational Dashboard",
+    "target": "image21.jpg",
+    "surrounding": "3.5.2 Staff Homepage & Operational Dashboard |  |  |  | "
+  },
+  {
+    "num": 145,
+    "p_idx": 3778,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.2 Staff Homepage & Operational Dashboard",
+    "target": "image11.jpg",
+    "surrounding": "3.5.2 Staff Homepage & Operational Dashboard |  |  |  | "
+  },
+  {
+    "num": 146,
+    "p_idx": 3778,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.2 Staff Homepage & Operational Dashboard",
+    "target": "image8.jpg",
+    "surrounding": "3.5.2 Staff Homepage & Operational Dashboard |  |  |  | "
+  },
+  {
+    "num": 147,
+    "p_idx": 3888,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.3 In-Place Shelf Restock Confirmation",
+    "target": "image68.jpg",
+    "surrounding": "3.5.3 In-Place Shelf Restock Confirmation |  |  |  | "
+  },
+  {
+    "num": 148,
+    "p_idx": 3888,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.3 In-Place Shelf Restock Confirmation",
+    "target": "image145.jpg",
+    "surrounding": "3.5.3 In-Place Shelf Restock Confirmation |  |  |  | "
+  },
+  {
+    "num": 149,
+    "p_idx": 3888,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.3 In-Place Shelf Restock Confirmation",
+    "target": "image106.jpg",
+    "surrounding": "3.5.3 In-Place Shelf Restock Confirmation |  |  |  | "
+  },
+  {
+    "num": 150,
+    "p_idx": 3960,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.4 Staff Interactive 2D Map & Realtime Robot Telemetry",
+    "target": "image107.jpg",
+    "surrounding": "3.5.4 Staff Interactive 2D Map & Realtime Robot Telemetry |  |  | Function Trigger | Access Supermarket Map Screen:"
+  },
+  {
+    "num": 151,
+    "p_idx": 4055,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.5 Staff Restock Notifications & Task Details",
+    "target": "image80.jpg",
+    "surrounding": " | 3.5.5 Staff Restock Notifications & Task Details |  |  | "
+  },
+  {
+    "num": 152,
+    "p_idx": 4055,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.5 Staff Restock Notifications & Task Details",
+    "target": "image23.jpg",
+    "surrounding": " | 3.5.5 Staff Restock Notifications & Task Details |  |  | "
+  },
+  {
+    "num": 153,
+    "p_idx": 4138,
+    "h1": "II. Software Requirement Specification",
+    "h2": "3.4 Web Admin",
+    "h3": "3.5.6 Staff Profile & Account Management",
+    "target": "image125.png",
+    "surrounding": "Real-time SignalR Synchronization: All new alerts and task completions MUST push instantly via SignalR to all logged-in staff apps without requiring manual page reloads. | 3.5.6 Staff Profile & Accoun"
+  }
+]

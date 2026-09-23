@@ -1,0 +1,559 @@
+@startuml
+!theme plain
+scale 3840 width
+hide circle
+skinparam linetype ortho
+skinparam nodesep 26
+skinparam ranksep 30
+skinparam roundcorner 4
+skinparam shadowing false
+skinparam defaultFontName "Segoe UI"
+skinparam defaultFontSize 11
+
+skinparam class {
+    BackgroundColor #FFFFFF
+    BorderColor #1E293B
+    BorderThickness 1.5
+    ArrowColor #1E293B
+    ArrowThickness 2.0
+    FontColor #0F172A
+    FontSize 12
+    FontStyle bold
+    HeaderBackgroundColor #F1F5F9
+    AttributeFontColor #1E293B
+    AttributeFontSize 10.5
+}
+
+' ============================================================
+' 1. TÀI KHOẢN & KHÁCH HÀNG
+' ============================================================
+entity "ACCOUNT" as ACCOUNT {
+    <color:#0F172A>●</color> <&key> **AccountID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> Username : VARCHAR(100)
+    <color:#0F172A>●</color> PasswordHash : VARCHAR(255)
+    <color:#0F172A>●</color> Email : VARCHAR(255)
+    <color:#94A3B8>○</color> Phone : VARCHAR(20)
+    <color:#0F172A>●</color> FullName : VARCHAR(255)
+    <color:#94A3B8>○</color> AvatarUrl : VARCHAR(500)
+    <color:#0F172A>●</color> Status : VARCHAR(50)
+    <color:#0F172A>●</color> Role : VARCHAR(50)
+    <color:#94A3B8>○</color> OtpCode : VARCHAR(10)
+    <color:#94A3B8>○</color> OtpExpiredAt : DATETIME
+    <color:#94A3B8>○</color> OtpType : VARCHAR(50)
+    <color:#0F172A>●</color> CreatedAt : DATETIME
+    <color:#94A3B8>○</color> RefreshToken : VARCHAR(500)
+    <color:#94A3B8>○</color> RefreshExpiry : DATETIME
+    <color:#0F172A>●</color> IsTokenRevoked : BIT
+}
+
+entity "MEMBER" as MEMBER {
+    <color:#0F172A>●</color> <&key> **MemberID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> AccountID : INT <<FK>>
+    <color:#0F172A>●</color> FullName : VARCHAR(255)
+    <color:#94A3B8>○</color> FacePath : VARCHAR(500)
+    <color:#94A3B8>○</color> FaceVector : TEXT
+    <color:#94A3B8>○</color> SpendingLimit : DECIMAL(18,2)
+    <color:#0F172A>●</color> TotalPoints : INT
+}
+
+entity "MEMBERSHIP" as MEMBERSHIP {
+    <color:#0F172A>●</color> <&key> **MembershipID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> MemberID : INT <<FK>>
+    <color:#0F172A>●</color> TierName : VARCHAR(50)
+    <color:#0F172A>●</color> Status : VARCHAR(50)
+}
+
+entity "HEALTH_TAG" as HEALTH_TAG {
+    <color:#0F172A>●</color> <&key> **HealthTagID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> TagName : VARCHAR(100)
+    <color:#0F172A>●</color> TagType : VARCHAR(50)
+    <color:#94A3B8>○</color> IconName : VARCHAR(100)
+}
+
+entity "MEMBERHEALTH_PREFERENCE" as MEMBERHEALTH_PREFERENCE {
+    <color:#0F172A>●</color> <&key> **MemberID** : INT <<PK,FK>>
+    <color:#0F172A>●</color> <&key> **HealthTagID** : INT <<PK,FK>>
+    --
+    <color:#0F172A>●</color> status : VARCHAR(50)
+}
+
+entity "HEALTH_TAG_CONFLICT" as HEALTH_TAG_CONFLICT {
+    <color:#0F172A>●</color> <&key> **TagId1** : INT <<PK,FK>>
+    <color:#0F172A>●</color> <&key> **TagId2** : INT <<PK,FK>>
+    --
+    <color:#0F172A>●</color> ErrorMessage : VARCHAR(255)
+}
+
+' ============================================================
+' 2. SẢN PHẨM & DANH MỤC
+' ============================================================
+entity "CATEGORY" as CATEGORY {
+    <color:#0F172A>●</color> <&key> **CategoryID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> CategoryName : VARCHAR(255)
+    <color:#94A3B8>○</color> Description : VARCHAR(500)
+}
+
+entity "SUBCATEGORY" as SUBCATEGORY {
+    <color:#0F172A>●</color> <&key> **SubcategoryID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> CategoryID : INT <<FK>>
+    <color:#0F172A>●</color> SubcategoryName : VARCHAR(255)
+}
+
+entity "PRODUCT_TYPE" as PRODUCT_TYPE {
+    <color:#0F172A>●</color> <&key> **ProductTypeID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> SubcategoryID : INT <<FK>>
+    <color:#0F172A>●</color> TypeName : VARCHAR(255)
+}
+
+entity "PRODUCT" as PRODUCT {
+    <color:#0F172A>●</color> <&key> **ProductID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> ProductTypeID : INT <<FK>>
+    <color:#0F172A>●</color> ProductName : VARCHAR(255)
+    <color:#0F172A>●</color> UnitPrice : DECIMAL(18,2)
+    <color:#94A3B8>○</color> PromotionPrice : DECIMAL(18,2)
+    <color:#94A3B8>○</color> ExpiredDate : DATETIME
+    <color:#94A3B8>○</color> ImageUrl : VARCHAR(500)
+    <color:#94A3B8>○</color> WeightOrVolume : DECIMAL(10,2)
+    <color:#94A3B8>○</color> Unit : VARCHAR(50)
+    <color:#94A3B8>○</color> Description : TEXT
+    <color:#0F172A>●</color> Status : VARCHAR(50)
+    <color:#94A3B8>○</color> SubstituteProductID : INT <<FK>>
+    <color:#94A3B8>○</color> SKU : VARCHAR(100)
+}
+
+entity "PRODUCT_HEALTHTAG" as PRODUCT_HEALTHTAG {
+    <color:#0F172A>●</color> <&key> **ProductID** : INT <<PK,FK>>
+    <color:#0F172A>●</color> <&key> **HealthTagID** : INT <<PK,FK>>
+}
+
+' ============================================================
+' 3. GIỎ HÀNG, HÓA ĐƠN & THỰC ĐƠN
+' ============================================================
+entity "CART" as CART {
+    <color:#0F172A>●</color> <&key> **CartID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> MemberID : INT <<FK>>
+    <color:#0F172A>●</color> CreatedAt : DATETIME
+    <color:#94A3B8>○</color> UpdatedAt : DATETIME
+}
+
+entity "CART_ITEM" as CART_ITEM {
+    <color:#0F172A>●</color> <&key> **CartItemID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> CartID : INT <<FK>>
+    <color:#0F172A>●</color> ProductID : INT <<FK>>
+    <color:#0F172A>●</color> Quantity : INT
+    <color:#0F172A>●</color> AddedAt : DATETIME
+}
+
+entity "INVOICE_HISTORY" as INVOICE_HISTORY {
+    <color:#0F172A>●</color> <&key> **InvoiceHistoryID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> MemberID : INT <<FK>>
+    <color:#0F172A>●</color> PurchaseDate : DATETIME
+    <color:#0F172A>●</color> TotalPrice : DECIMAL(18,2)
+}
+
+entity "INVOICE_HISTORY_ITEM" as INVOICE_HISTORY_ITEM {
+    <color:#0F172A>●</color> <&key> **InvoiceHistoryItemID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> InvoiceHistoryID : INT <<FK>>
+    <color:#0F172A>●</color> ProductID : INT <<FK>>
+    <color:#0F172A>●</color> Quantity : INT
+    <color:#0F172A>●</color> UnitPrice : DECIMAL(18,2)
+}
+
+entity "MEAL_SUGGESTION" as MEAL_SUGGESTION {
+    <color:#0F172A>●</color> <&key> **MealSuggestionID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> MealName : VARCHAR(255)
+    <color:#94A3B8>○</color> Description : TEXT
+    <color:#94A3B8>○</color> YieldPortions : INT
+    <color:#94A3B8>○</color> ImageUrl : VARCHAR(500)
+    <color:#94A3B8>○</color> Calories : INT
+    <color:#94A3B8>○</color> healthy_score : INT
+    <color:#94A3B8>○</color> alternative_suggestion : TEXT
+}
+
+' ============================================================
+' 4. KHÔNG GIAN SIÊU THỊ & KỆ HÀNG
+' ============================================================
+entity "FLOOR" as FLOOR {
+    <color:#0F172A>●</color> <&key> **FloorID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> FloorNumber : INT
+}
+
+entity "ZONE" as ZONE {
+    <color:#0F172A>●</color> <&key> **ZoneID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> FloorID : INT <<FK>>
+    <color:#0F172A>●</color> ZoneName : VARCHAR(100)
+    <color:#94A3B8>○</color> Description : VARCHAR(500)
+}
+
+entity "AISLE" as AISLE {
+    <color:#0F172A>●</color> <&key> **AisleID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> ZoneID : INT <<FK>>
+    <color:#0F172A>●</color> AisleCode : VARCHAR(50)
+    <color:#0F172A>●</color> AisleName : VARCHAR(100)
+}
+
+entity "SHELF" as SHELF {
+    <color:#0F172A>●</color> <&key> **ShelfID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> ShelfName : VARCHAR(100)
+    <color:#0F172A>●</color> AisleID : INT <<FK>>
+    <color:#0F172A>●</color> LevelNumber : INT
+    <color:#94A3B8>○</color> NodeID : INT <<FK>>
+}
+
+entity "SLOT" as SLOT {
+    <color:#0F172A>●</color> <&key> **SlotID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> ShelfID : INT <<FK>>
+    <color:#0F172A>●</color> SlotCode : VARCHAR(50)
+    <color:#94A3B8>○</color> LastScannedAt : DATETIME
+}
+
+entity "PRODUCT_SLOT" as PRODUCT_SLOT {
+    <color:#0F172A>●</color> <&key> **ProductsSlotID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> SlotID : INT <<FK>>
+    <color:#0F172A>●</color> ProductID : INT <<FK>>
+}
+
+' ============================================================
+' 5. BẢN ĐỒ & ROBOT
+' ============================================================
+entity "MAP" as MAP {
+    <color:#0F172A>●</color> <&key> **MapID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> FloorID : INT <<FK>>
+    <color:#0F172A>●</color> MapName : VARCHAR(100)
+    <color:#94A3B8>○</color> MapData : TEXT
+    <color:#94A3B8>○</color> FloorplanImageUrl : VARCHAR(500)
+    <color:#0F172A>●</color> WidthMeters : FLOAT
+    <color:#0F172A>●</color> HeightMeters : FLOAT
+    <color:#0F172A>●</color> Resolution : FLOAT
+    <color:#0F172A>●</color> OriginX : FLOAT
+    <color:#0F172A>●</color> OriginY : FLOAT
+    <color:#0F172A>●</color> OriginYaw : FLOAT
+    <color:#0F172A>●</color> IsActive : BIT
+    <color:#0F172A>●</color> CreatedAt : DATETIME
+    <color:#94A3B8>○</color> SlamDataUrl : VARCHAR(500)
+    <color:#94A3B8>○</color> PosegraphUrl : VARCHAR(500)
+    <color:#94A3B8>○</color> RawYamlContent : TEXT
+}
+
+entity "NAVIGATION_NODE" as NAVIGATION_NODE {
+    <color:#0F172A>●</color> <&key> **NodeID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> MapID : INT <<FK>>
+    <color:#0F172A>●</color> NodeName : VARCHAR(100)
+    <color:#0F172A>●</color> XCoord : FLOAT
+    <color:#0F172A>●</color> YCoord : FLOAT
+    <color:#0F172A>●</color> NodeType : VARCHAR(50)
+    <color:#94A3B8>○</color> NodeRole : VARCHAR(50)
+    <color:#0F172A>●</color> IsBlocked : BIT
+    <color:#94A3B8>○</color> HeadingYaw : FLOAT
+}
+
+entity "NAVIGATION_EDGE" as NAVIGATION_EDGE {
+    <color:#0F172A>●</color> <&key> **EdgeID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> FromNodeID : INT <<FK>>
+    <color:#0F172A>●</color> ToNodeID : INT <<FK>>
+    <color:#0F172A>●</color> Distance : FLOAT
+    <color:#0F172A>●</color> IsBidirectional : BIT
+}
+
+entity "ROBOT" as ROBOT {
+    <color:#0F172A>●</color> <&key> **RobotID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> RobotName : VARCHAR(100)
+    <color:#0F172A>●</color> RobotCode : VARCHAR(50)
+    <color:#0F172A>●</color> BatteryPct : INT
+    <color:#0F172A>●</color> Mode : VARCHAR(50)
+    <color:#0F172A>●</color> Status : VARCHAR(50)
+    <color:#94A3B8>○</color> LastSeenAt : DATETIME
+    <color:#94A3B8>○</color> IPAddress : VARCHAR(50)
+}
+
+entity "ROBOT_LOG" as ROBOT_LOG {
+    <color:#0F172A>●</color> <&key> **LogID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> RobotID : INT <<FK>>
+    <color:#0F172A>●</color> battery : INT
+    <color:#94A3B8>○</color> location : VARCHAR(100)
+    <color:#0F172A>●</color> status : VARCHAR(50)
+    <color:#0F172A>●</color> timestamp : DATETIME
+    <color:#94A3B8>○</color> XCoord : FLOAT
+    <color:#94A3B8>○</color> YCoord : FLOAT
+    <color:#94A3B8>○</color> HeadingRad : FLOAT
+    <color:#94A3B8>○</color> CurrentNodeId : INT
+}
+
+entity "SHELF_SCAN" as SHELF_SCAN {
+    <color:#0F172A>●</color> <&key> **ScanID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> ShelfID : INT <<FK>>
+    <color:#0F172A>●</color> RobotID : INT <<FK>>
+    <color:#94A3B8>○</color> NavigationNodeID : INT <<FK>>
+    <color:#94A3B8>○</color> MissionID : VARCHAR(100)
+    <color:#94A3B8>○</color> WaypointIndex : INT
+    <color:#0F172A>●</color> ScannedAt : DATETIME
+    <color:#0F172A>●</color> EmptyPercentage : DECIMAL(5,2)
+    <color:#0F172A>●</color> DensityPercentage : DECIMAL(5,2)
+    <color:#0F172A>●</color> NeedsRestock : BIT
+    <color:#94A3B8>○</color> ImageUrl : VARCHAR(500)
+    <color:#94A3B8>○</color> EmptySlotCount : INT
+    <color:#94A3B8>○</color> AiRecommendation : TEXT
+    <color:#94A3B8>○</color> AiRawJson : TEXT
+    <color:#94A3B8>○</color> AnalysisStatus : VARCHAR(50)
+}
+
+' ============================================================
+' 6. THƯƠNG HIỆU & QUẢNG CÁO
+' ============================================================
+entity "BRAND" as BRAND {
+    <color:#0F172A>●</color> <&key> **BrandID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> BrandName : VARCHAR(255)
+    <color:#0F172A>●</color> Wallet : DECIMAL(18,2)
+    <color:#94A3B8>○</color> Description : VARCHAR(500)
+    <color:#0F172A>●</color> IsSystemBrand : BIT
+}
+
+entity "AD_PACKAGE" as AD_PACKAGE {
+    <color:#0F172A>●</color> <&key> **PackageID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> PackageName : VARCHAR(255)
+    <color:#0F172A>●</color> ClickFee : DECIMAL(18,2)
+    <color:#0F172A>●</color> RouteUnitPrice : DECIMAL(18,2)
+    <color:#0F172A>●</color> ZoneUnitPrice : DECIMAL(18,2)
+    <color:#0F172A>●</color> ShelfUnitPrice : DECIMAL(18,2)
+    <color:#0F172A>●</color> Budget : DECIMAL(18,2)
+    <color:#0F172A>●</color> AdScore : INT
+    <color:#0F172A>●</color> Status : VARCHAR(50)
+    <color:#0F172A>●</color> DurationDays : INT
+    <color:#94A3B8>○</color> Description : VARCHAR(500)
+    <color:#0F172A>●</color> CreatedAt : DATETIME
+    <color:#94A3B8>○</color> UpdatedAt : DATETIME
+}
+
+entity "AD_CAMPAIGN" as AD_CAMPAIGN {
+    <color:#0F172A>●</color> <&key> **AdCampaignID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> PackageID : INT <<FK>>
+    <color:#0F172A>●</color> BrandID : INT <<FK>>
+    <color:#0F172A>●</color> CampaignName : VARCHAR(255)
+    <color:#0F172A>●</color> StartDate : DATETIME
+    <color:#0F172A>●</color> EndDate : DATETIME
+    <color:#0F172A>●</color> Status : VARCHAR(50)
+    <color:#0F172A>●</color> DeliveryMode : VARCHAR(50)
+    <color:#94A3B8>○</color> Description : VARCHAR(500)
+    <color:#94A3B8>○</color> BannerUrl : VARCHAR(500)
+    <color:#94A3B8>○</color> VideoUrl : VARCHAR(500)
+    <color:#0F172A>●</color> CreatedAt : DATETIME
+    <color:#94A3B8>○</color> UpdatedAt : DATETIME
+}
+
+entity "AD_RESOURCE" as AD_RESOURCE {
+    <color:#0F172A>●</color> <&key> **ResourceID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> AdCampaignID : INT <<FK>>
+    <color:#0F172A>●</color> ResourceType : VARCHAR(50)
+    <color:#0F172A>●</color> ResourceURL : VARCHAR(500)
+    <color:#94A3B8>○</color> ContentText : TEXT
+    <color:#94A3B8>○</color> Resolution : VARCHAR(50)
+    <color:#0F172A>●</color> Status : VARCHAR(50)
+}
+
+entity "SPONSORED_PRODUCT" as SPONSORED_PRODUCT {
+    <color:#0F172A>●</color> <&key> **SponsoredID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> AdCampaignID : INT <<FK>>
+    <color:#0F172A>●</color> ProductID : INT <<FK>>
+    <color:#0F172A>●</color> Priority : INT
+    <color:#0F172A>●</color> status : VARCHAR(50)
+}
+
+entity "AD_CAMPAIGN_LOG" as AD_CAMPAIGN_LOG {
+    <color:#0F172A>●</color> <&key> **LogID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> AdCampaignID : INT <<FK>>
+    <color:#0F172A>●</color> ActionType : VARCHAR(50)
+    <color:#0F172A>●</color> ChargedAmount : DECIMAL(18,2)
+    <color:#0F172A>●</color> Timestamp : DATETIME
+    <color:#94A3B8>○</color> SponsoredID : INT <<FK>>
+    <color:#94A3B8>○</color> ProductID : INT <<FK>>
+    <color:#94A3B8>○</color> RobotID : INT <<FK>>
+    <color:#94A3B8>○</color> ShelfID : INT <<FK>>
+    <color:#94A3B8>○</color> ZoneID : INT <<FK>>
+    <color:#94A3B8>○</color> SlotID : INT <<FK>>
+    <color:#94A3B8>○</color> MemberID : INT <<FK>>
+    <color:#94A3B8>○</color> SessionID : VARCHAR(100)
+    <color:#94A3B8>○</color> XCoord : INT
+    <color:#94A3B8>○</color> YCoord : INT
+    <color:#94A3B8>○</color> PerformedBy : VARCHAR(50)
+    <color:#94A3B8>○</color> PerformedByUserId : INT
+}
+
+entity "AD_CAMPAIGN_ZONE" as AD_CAMPAIGN_ZONE {
+    <color:#0F172A>●</color> <&key> **AdCampaignID** : INT <<PK,FK>>
+    <color:#0F172A>●</color> <&key> **ZoneID** : INT <<PK,FK>>
+    --
+    <color:#0F172A>●</color> ZonePriceCharged : DECIMAL(18,2)
+    <color:#0F172A>●</color> PurchasedAt : DATETIME
+}
+
+entity "AD_CAMPAIGN_SHELF" as AD_CAMPAIGN_SHELF {
+    <color:#0F172A>●</color> <&key> **AdCampaignID** : INT <<PK,FK>>
+    <color:#0F172A>●</color> <&key> **ShelfID** : INT <<PK,FK>>
+    --
+    <color:#0F172A>●</color> ShelfPriceCharged : DECIMAL(18,2)
+    <color:#0F172A>●</color> PurchasedAt : DATETIME
+}
+
+' ============================================================
+' 7. TUYẾN ĐƯỜNG & QUẢNG CÁO THEO ROUTE
+' ============================================================
+entity "ROBOT_ROUTE" as ROBOT_ROUTE {
+    <color:#0F172A>●</color> <&key> **RobotRouteID** : INT <<PK>>
+    --
+    <color:#94A3B8>○</color> RobotID : INT <<FK>>
+    <color:#0F172A>●</color> MapID : INT <<FK>>
+    <color:#0F172A>●</color> RouteName : VARCHAR(100)
+    <color:#0F172A>●</color> RouteType : VARCHAR(50)
+    <color:#94A3B8>○</color> ZoneID : INT <<FK>>
+    <color:#94A3B8>○</color> Description : VARCHAR(500)
+    <color:#0F172A>●</color> CreatedAt : DATETIME
+}
+
+entity "ROUTE_NODE_MAPPING" as ROUTE_NODE_MAPPING {
+    <color:#0F172A>●</color> <&key> **RouteNodeMappingID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> RobotRouteID : INT <<FK>>
+    <color:#0F172A>●</color> NodeID : INT <<FK>>
+    <color:#0F172A>●</color> SequenceOrder : INT
+    <color:#0F172A>●</color> DwellTimeSeconds : INT
+}
+
+entity "ROUTE_ASSIGNMENT" as ROUTE_ASSIGNMENT {
+    <color:#0F172A>●</color> <&key> **RouteAssignmentID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> RobotID : INT <<FK>>
+    <color:#0F172A>●</color> RobotRouteID : INT <<FK>>
+    <color:#0F172A>●</color> AssignedAt : DATETIME
+    <color:#0F172A>●</color> Status : VARCHAR(50)
+}
+
+entity "AD_CAMPAIGN_ROUTE" as AD_CAMPAIGN_ROUTE {
+    <color:#0F172A>●</color> <&key> **AdCampaignID** : INT <<PK,FK>>
+    <color:#0F172A>●</color> <&key> **RobotRouteID** : INT <<PK,FK>>
+    --
+    <color:#0F172A>●</color> RoutePriceCharged : DECIMAL(18,2)
+    <color:#0F172A>●</color> PurchasedAt : DATETIME
+}
+
+' ============================================================
+' 8. QUẢN TRỊ & NHẬP LIỆU
+' ============================================================
+entity "IMPORT_HISTORY" as IMPORT_HISTORY {
+    <color:#0F172A>●</color> <&key> **ImportID** : INT <<PK>>
+    --
+    <color:#0F172A>●</color> ImportType : VARCHAR(50)
+    <color:#0F172A>●</color> FileName : VARCHAR(255)
+    <color:#0F172A>●</color> TotalRows : INT
+    <color:#0F172A>●</color> SuccessCount : INT
+    <color:#0F172A>●</color> ErrorCount : INT
+    <color:#0F172A>●</color> DuplicateCount : INT
+    <color:#0F172A>●</color> Status : VARCHAR(50)
+    <color:#94A3B8>○</color> ErrorDetailsJson : TEXT
+    <color:#0F172A>●</color> ImportedBy : VARCHAR(100)
+    <color:#0F172A>●</color> ImportedAt : DATETIME
+}
+
+' ============================================================
+' RELATIONSHIPS (MANHATTAN ORTHOGONAL 90° - STRICT PHYSICAL ERD)
+' ============================================================
+ACCOUNT ||--o{ MEMBER
+MEMBER ||--o{ MEMBERSHIP
+MEMBER ||--o{ MEMBERHEALTH_PREFERENCE
+HEALTH_TAG ||--o{ MEMBERHEALTH_PREFERENCE
+HEALTH_TAG ||--o{ HEALTH_TAG_CONFLICT
+CATEGORY ||--o{ SUBCATEGORY
+SUBCATEGORY ||--o{ PRODUCT_TYPE
+PRODUCT_TYPE ||--o{ PRODUCT
+PRODUCT ||--o{ PRODUCT_HEALTHTAG
+HEALTH_TAG ||--o{ PRODUCT_HEALTHTAG
+PRODUCT ||--o{ PRODUCT
+MEMBER ||--o{ CART
+CART ||--o{ CART_ITEM
+PRODUCT ||--o{ CART_ITEM
+MEMBER ||--o{ INVOICE_HISTORY
+INVOICE_HISTORY ||--o{ INVOICE_HISTORY_ITEM
+PRODUCT ||--o{ INVOICE_HISTORY_ITEM
+PRODUCT ||--o{ MEAL_SUGGESTION
+FLOOR ||--o{ ZONE
+ZONE ||--o{ AISLE
+AISLE ||--o{ SHELF
+SHELF ||--o{ SLOT
+SLOT ||--o{ PRODUCT_SLOT
+PRODUCT ||--o{ PRODUCT_SLOT
+FLOOR ||--o{ MAP
+MAP ||--o{ NAVIGATION_NODE
+NAVIGATION_NODE ||--o{ NAVIGATION_EDGE
+NAVIGATION_NODE ||--o{ SHELF
+NAVIGATION_NODE ||--o{ SHELF_SCAN
+ROBOT ||--o{ ROBOT_LOG
+ROBOT ||--o{ SHELF_SCAN
+SHELF ||--o{ SHELF_SCAN
+ROBOT ||--o{ ROBOT_ROUTE
+MAP ||--o{ ROBOT_ROUTE
+ZONE ||--o{ ROBOT_ROUTE
+ROBOT_ROUTE ||--o{ ROUTE_NODE_MAPPING
+NAVIGATION_NODE ||--o{ ROUTE_NODE_MAPPING
+ROBOT_ROUTE ||--o{ ROUTE_ASSIGNMENT
+ROBOT ||--o{ ROUTE_ASSIGNMENT
+BRAND ||--o{ AD_CAMPAIGN
+AD_PACKAGE ||--o{ AD_CAMPAIGN
+AD_CAMPAIGN ||--o{ AD_RESOURCE
+AD_CAMPAIGN ||--o{ SPONSORED_PRODUCT
+PRODUCT ||--o{ SPONSORED_PRODUCT
+AD_CAMPAIGN ||--o{ AD_CAMPAIGN_ZONE
+ZONE ||--o{ AD_CAMPAIGN_ZONE
+AD_CAMPAIGN ||--o{ AD_CAMPAIGN_SHELF
+SHELF ||--o{ AD_CAMPAIGN_SHELF
+AD_CAMPAIGN ||--o{ AD_CAMPAIGN_ROUTE
+ROBOT_ROUTE ||--o{ AD_CAMPAIGN_ROUTE
+AD_CAMPAIGN ||--o{ AD_CAMPAIGN_LOG
+SPONSORED_PRODUCT ||--o{ AD_CAMPAIGN_LOG
+PRODUCT ||--o{ AD_CAMPAIGN_LOG
+ROBOT ||--o{ AD_CAMPAIGN_LOG
+SHELF ||--o{ AD_CAMPAIGN_LOG
+ZONE ||--o{ AD_CAMPAIGN_LOG
+SLOT ||--o{ AD_CAMPAIGN_LOG
+MEMBER ||--o{ AD_CAMPAIGN_LOG
+
+' ============================================================
+' 2-TIER MATRIX BALANCED LAYOUT ANCHORS (INVISIBLE)
+' ============================================================
+' Row 1: Account, Product, Cart/Invoice, Import Admin
+' Row 2: Store Layout, SLAM Robot, Marketing Ads, Route Ads
+MEMBER -[hidden]down-> FLOOR
+PRODUCT -[hidden]down-> MAP
+INVOICE_HISTORY -[hidden]down-> BRAND
+IMPORT_HISTORY -[hidden]down-> ROBOT_ROUTE
+
+@enduml

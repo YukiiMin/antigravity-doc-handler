@@ -234,17 +234,6 @@ TABLES = [
             ("alternative_suggestion", "TEXT", False, False, True),
         ],
     },
-    {
-        "name": "MEAL_ITEM",
-        "domain": 3,
-        "domain_name": "GIỎ HÀNG, HÓA ĐƠN & THỰC ĐƠN",
-        "columns": [
-            ("MealSuggestionID", "INT", True, True, False),
-            ("ProductID", "INT", True, True, False),
-            ("QuantityRequired", "DECIMAL(10,2)", False, False, False),
-            ("UnitOfMeasure", "VARCHAR(50)", False, False, True),
-        ],
-    },
 
     # --------------------------------------------------------------------------
     # 4. KHÔNG GIAN SIÊU THỊ & KỆ HÀNG (STORE LAYOUT DOMAIN)
@@ -420,25 +409,6 @@ TABLES = [
             ("AiRecommendation", "TEXT", False, False, True),
             ("AiRawJson", "TEXT", False, False, True),
             ("AnalysisStatus", "VARCHAR(50)", False, False, True),
-        ],
-    },
-    {
-        "name": "SEMANTIC_OBJECT",
-        "domain": 5,
-        "domain_name": "BẢN ĐỒ & ROBOT",
-        "columns": [
-            ("ObjectID", "INT", True, False, False),
-            ("MapID", "INT", False, True, False),
-            ("ObjectType", "VARCHAR(50)", False, False, False),
-            ("XMin", "FLOAT", False, False, False),
-            ("YMin", "FLOAT", False, False, False),
-            ("XMax", "FLOAT", False, False, False),
-            ("YMax", "FLOAT", False, False, False),
-            ("Label", "VARCHAR(100)", False, False, False),
-            ("Confidence", "FLOAT", False, False, False),
-            ("DetectedAt", "DATETIME", False, False, False),
-            ("ImageUrl", "VARCHAR(500)", False, False, True),
-            ("ProductTypeID", "INT", False, True, True),
         ],
     },
 
@@ -623,54 +593,6 @@ TABLES = [
             ("PurchasedAt", "DATETIME", False, False, False),
         ],
     },
-    {
-        "name": "AD_ROUTE",
-        "domain": 7,
-        "domain_name": "TUYẾN ĐƯỜNG & QUẢNG CÁO THEO ROUTE",
-        "columns": [
-            ("AdRouteID", "INT", True, False, False),
-            ("RouteName", "VARCHAR(100)", False, False, False),
-            ("Description", "VARCHAR(500)", False, False, True),
-            ("IsActive", "BIT", False, False, False),
-            ("IsAutonomous", "BIT", False, False, False),
-            ("CreatedAt", "DATETIME", False, False, False),
-        ],
-    },
-    {
-        "name": "AD_ROUTE_CAMPAIGN",
-        "domain": 7,
-        "domain_name": "TUYẾN ĐƯỜNG & QUẢNG CÁO THEO ROUTE",
-        "columns": [
-            ("AdRouteID", "INT", True, True, False),
-            ("AdCampaignID", "INT", True, True, False),
-        ],
-    },
-    {
-        "name": "AdRouteNodes",
-        "domain": 7,
-        "domain_name": "TUYẾN ĐƯỜNG & QUẢNG CÁO THEO ROUTE",
-        "columns": [
-            ("AdRouteNodeID", "INT", True, False, False),
-            ("AdRouteID", "INT", False, True, False),
-            ("NodeID", "INT", False, True, False),
-            ("SequenceOrder", "INT", False, False, False),
-            ("DwellTimeSeconds", "INT", False, False, False),
-            ("ZoneID", "INT", False, True, True),
-            ("ShelfID", "INT", False, True, True),
-        ],
-    },
-    {
-        "name": "ROBOT_AD_ROUTE_ASSIGNMENT",
-        "domain": 7,
-        "domain_name": "TUYẾN ĐƯỜNG & QUẢNG CÁO THEO ROUTE",
-        "columns": [
-            ("AssignmentID", "INT", True, False, False),
-            ("RobotID", "INT", False, True, False),
-            ("AdRouteID", "INT", False, True, False),
-            ("AssignedAt", "DATETIME", False, False, False),
-            ("Status", "VARCHAR(50)", False, False, False),
-        ],
-    },
 
     # --------------------------------------------------------------------------
     # 8. QUẢN TRỊ & NHẬP LIỆU (ADMIN & AUDIT DOMAIN)
@@ -722,8 +644,7 @@ RELATIONSHIPS = [
     ("MEMBER", "||--o{", "INVOICE_HISTORY"),
     ("INVOICE_HISTORY", "||--o{", "INVOICE_HISTORY_ITEM"),
     ("PRODUCT", "||--o{", "INVOICE_HISTORY_ITEM"),
-    ("MEAL_SUGGESTION", "||--o{", "MEAL_ITEM"),
-    ("PRODUCT", "||--o{", "MEAL_ITEM"),
+    ("PRODUCT", "||--o{", "MEAL_SUGGESTION"),
 
     # Store Layout & Shelves
     ("FLOOR", "||--o{", "ZONE"),
@@ -739,8 +660,6 @@ RELATIONSHIPS = [
     ("NAVIGATION_NODE", "||--o{", "NAVIGATION_EDGE"),
     ("NAVIGATION_NODE", "||--o{", "SHELF"),
     ("NAVIGATION_NODE", "||--o{", "SHELF_SCAN"),
-    ("MAP", "||--o{", "SEMANTIC_OBJECT"),
-    ("PRODUCT_TYPE", "||--o{", "SEMANTIC_OBJECT"),
 
     # Robotics
     ("ROBOT", "||--o{", "ROBOT_LOG"),
@@ -768,14 +687,6 @@ RELATIONSHIPS = [
     # Route Ads & Assignments
     ("AD_CAMPAIGN", "||--o{", "AD_CAMPAIGN_ROUTE"),
     ("ROBOT_ROUTE", "||--o{", "AD_CAMPAIGN_ROUTE"),
-    ("AD_ROUTE", "||--o{", "AD_ROUTE_CAMPAIGN"),
-    ("AD_CAMPAIGN", "||--o{", "AD_ROUTE_CAMPAIGN"),
-    ("AD_ROUTE", "||--o{", "AdRouteNodes"),
-    ("NAVIGATION_NODE", "||--o{", "AdRouteNodes"),
-    ("ZONE", "||--o{", "AdRouteNodes"),
-    ("SHELF", "||--o{", "AdRouteNodes"),
-    ("AD_ROUTE", "||--o{", "ROBOT_AD_ROUTE_ASSIGNMENT"),
-    ("ROBOT", "||--o{", "ROBOT_AD_ROUTE_ASSIGNMENT"),
 
     # Ad Campaign Logs
     ("AD_CAMPAIGN", "||--o{", "AD_CAMPAIGN_LOG"),
@@ -888,7 +799,7 @@ def generate_master_spec() -> dict:
         "engine": "plantuml",
         "diagram_type": "erd",
         "diagram_name": "master_erd_smart_mart",
-        "title": "Smart Mart 47-Table Master Architecture Physical ERD (4K UHD 100% Attributes Orthogonal)",
+        "title": "Smart Mart 40-Table Master Architecture Physical ERD (4K UHD 100% Attributes Orthogonal)",
         "output_path": "diagram_assets/master_erd_smart_mart.png",
         "dpi": 96,
         "width_cm": 14.0,
@@ -911,19 +822,19 @@ def generate_sub_specs() -> list[tuple[str, dict]]:
             "CATEGORY", "SUBCATEGORY", "PRODUCT_TYPE", "PRODUCT", "PRODUCT_HEALTHTAG"
         ]),
         (3, "sub_erd_cart_invoice_meal", "Phân hệ 3: Giỏ hàng, Hóa đơn & Gợi ý Món ăn (Physical ERD)", [
-            "CART", "CART_ITEM", "INVOICE_HISTORY", "INVOICE_HISTORY_ITEM", "MEAL_SUGGESTION", "MEAL_ITEM"
+            "CART", "CART_ITEM", "INVOICE_HISTORY", "INVOICE_HISTORY_ITEM", "MEAL_SUGGESTION"
         ]),
         (4, "sub_erd_store_layout", "Phân hệ 4: Bố trí Mặt bằng Siêu thị & Vị trí Kệ hàng (Physical ERD)", [
             "FLOOR", "ZONE", "AISLE", "SHELF", "SLOT", "PRODUCT_SLOT"
         ]),
         (5, "sub_erd_slam_robot", "Phân hệ 5: Điều hướng Robot & Bản đồ SLAM (Physical ERD)", [
-            "MAP", "NAVIGATION_NODE", "NAVIGATION_EDGE", "ROBOT", "ROBOT_LOG", "SHELF_SCAN", "SEMANTIC_OBJECT"
+            "MAP", "NAVIGATION_NODE", "NAVIGATION_EDGE", "ROBOT", "ROBOT_LOG", "SHELF_SCAN"
         ]),
         (6, "sub_erd_marketing_ads", "Phân hệ 6: Quảng cáo & Tiếp thị Thương hiệu (Physical ERD)", [
             "BRAND", "AD_PACKAGE", "AD_CAMPAIGN", "AD_RESOURCE", "SPONSORED_PRODUCT", "AD_CAMPAIGN_LOG", "AD_CAMPAIGN_ZONE", "AD_CAMPAIGN_SHELF"
         ]),
         (7, "sub_erd_robot_routes", "Phân hệ 7: Tuyến đường Di chuyển & Quảng cáo theo Route (Physical ERD)", [
-            "ROBOT_ROUTE", "ROUTE_NODE_MAPPING", "ROUTE_ASSIGNMENT", "AD_CAMPAIGN_ROUTE", "AD_ROUTE", "AD_ROUTE_CAMPAIGN", "AdRouteNodes", "ROBOT_AD_ROUTE_ASSIGNMENT"
+            "ROBOT_ROUTE", "ROUTE_NODE_MAPPING", "ROUTE_ASSIGNMENT", "AD_CAMPAIGN_ROUTE"
         ]),
         (8, "sub_erd_import_admin", "Phân hệ 8: Quản trị Dữ liệu & Lịch sử Nhập liệu (Physical ERD)", [
             "IMPORT_HISTORY"
