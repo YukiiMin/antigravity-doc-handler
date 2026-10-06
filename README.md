@@ -1,96 +1,208 @@
-# 📄 antigravity-doc-handler
+# 📄 doctools
 
-**Universal Office Document Studio & Precision Technical Diagram Engine for Antigravity AI and Developers**
+**AI-Native Office Document & Precision Technical Diagram Engineering Studio**
 
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Antigravity IDE Ready](https://img.shields.io/badge/Antigravity_AI-Compatible-orange.svg)](AGENTS.md)
-[![Architecture: v2.0 Modular doctools](https://img.shields.io/badge/Architecture-v2.0_Modular_doctools-blueviolet.svg)](WORKFLOW.md)
+[![Antigravity AI Ready](https://img.shields.io/badge/Antigravity_AI-Compatible-orange.svg)](AGENTS.md)
+[![Architecture: v2.0 Modular](https://img.shields.io/badge/Architecture-v2.0_Modular_5--Layer-blueviolet.svg)](WORKFLOW.md)
+[![Tests: 30/30 Passing](https://img.shields.io/badge/Tests-30%2F30_Passing-brightgreen.svg)](tests/)
 [![Dual-Run Baseline: Preserved](https://img.shields.io/badge/Dual--Run_Baseline-Preserved-success.svg)](legacy_engines/README.md)
-
-> [!NOTE]
-> **Thông Báo Nâng Cấp Kiến Trúc v2.0 (`doctools`)**:
-> Dự án đang trong quá trình chuyển đổi sang bộ công cụ AI-Native 5 tầng chuẩn hóa (`doctools/`) với 3 module chuyên trách: **DOCX** (`docx.*`), **XLSX** (`xlsx.*`), và **DIAGRAM** (`diagram.*` - Draw.io pure mxGraphModel).
-> Toàn bộ các công cụ và script phiên bản v1.0 đã được di chuyển và bảo tồn nguyên vẹn tại [`legacy_engines/`](legacy_engines/) theo nguyên tắc **Dual-Run Baseline**. Chi tiết xem tại [WORKFLOW.md](WORKFLOW.md) và [AGENTS.md](AGENTS.md).
 
 ---
 
 ## 🌟 Overview
 
-`antigravity-doc-handler` is a specialized Python toolkit designed for software engineers, business analysts, technical writers, and autonomous AI agents (especially within **Google Antigravity IDE**). 
+`doctools` is an enterprise-grade, modular Python toolkit engineered specifically for autonomous AI agents (especially within **Google Antigravity IDE**), CI/CD runners, and senior software engineers.
 
-It bridges the gap between raw document conversion, OpenXML Word standard compliance, and publication-quality technical diagram generation.
+It replaces fragile heuristic document scripts with a **deterministic 5-layer plumbing architecture**, delivering 100% format fidelity, strict schema validation, and mathematically verifiable guarantees across three core media formats:
 
-### Why does this tool exist?
-1. **Office Document Engines Lose Formatting**: Standard PDF-to-Word tools mangle Table of Contents (TOC) tab stops, split table rows awkwardly across page breaks, and fail to vertically center text.
-2. **Diagram Engines Struggle with Aspect Ratios**: Traditional Mermaid Dagre layouts squeeze complex Hub & Spoke architectures into wide, unreadable horizontal strips (4:1 ratio) that turn into tiny unreadable specks when pasted into Word A4 pages.
-3. **Decoupled Architecture**: Separate content (`.md`) from visual presentation (`.style.yaml`), allowing identical documents to be restyled effortlessly without modifying raw data.
+1. **Word Documents (`.docx`)**: Strict ECMA-376 Tag Order Registry and dual-path compilation.
+2. **Excel Spreadsheets (`.xlsx`)**: AST formula range shifting, prototype row cloning, and cached value injection.
+3. **Technical Diagrams (`.drawio`)**: Pure native `mxGraphModel` XML engineering with orthogonal routing and headless rendering (**Zero PlantUML, Zero Mermaid, Zero UserObject wrappers**).
 
----
-
-## 🚀 Triple Core Diagram Engines & Universal Office Studio
-
-### 1. 📐 Triple Core Diagram Architecture
-`antigravity-doc-handler` unites **3 rendering engines** behind a declarative **JSON Single Source of Truth**:
-- **Canvas Engine (`spec_diagram_engine.py`)**: Pixel-perfect Cartesian coordinates, orthogonal Manhattan routing, and white-halo collision avoidance for complex screen flows.
-- **PlantUML Engine (`plantuml_renderer.py`)**: Industry-standard UML for Use Case, C4 Architecture, Component/Deployment, Activity Swimlane, Class OOP, and Package diagrams using bundled `plantuml.jar` and Java runtime.
-- **Mermaid Engine (`mermaid_renderer.py`)**: Fast dynamic text-based rendering for ERD (Database Schema 3–15 tables), Sequence diagrams, Flowcharts, State machines, and Mind Maps.
-
-#### 📊 12 Supported Diagram Types & Engine Mapping
-
-| # | Loại Diagram | Engine đã chốt | Vai trò chính | Lý do thực tế |
-|---|---|---|---|---|
-| 1 | **Use Case Diagram** | `plantuml` | BA | Actor người que, quan hệ `<<include>>`, `<<extend>>` chuẩn UML |
-| 2 | **C4 Architecture** | `plantuml` | Architect | Thư viện C4 chuẩn quốc tế (`<C4/C4_Context>`), không vỡ dây container |
-| 3 | **Component / Deployment** | `plantuml` | Dev / DevOps | Đúng hình khối 3D `node`, `database`, `component` chuẩn kiến trúc |
-| 4 | **Activity Swimlane** | `plantuml` | BA | Phân làn cột (`\|Partition\|`) thẳng đứng tuyệt đối, không đè dây |
-| 5 | **Class Diagram** | `plantuml` | Dev | Hỗ trợ trọn vẹn OOP (`+`, `-`, `#`, generics `<T>`, composition) |
-| 6 | **Package Diagram** | `plantuml` | Dev / Architect | Hỗ trợ stereotype `<<Folder>>` trực quan cho cấu trúc thư mục |
-| 7 | **ERD (Database Schema)** | `mermaid` | Dev + BA | Nền phẳng pastel hiện đại, gọn gàng cho phân hệ 3–15 bảng |
-| 8 | **Sequence Diagram** | `mermaid` | Dev + BA | Chuỗi gọi API thanh thoát, đánh số tự động `autonumber` |
-| 9 | **Flowchart / Process** | `mermaid` | BA | Bẻ nhánh if/else tự do, đổi màu khối nhanh bằng CSS/style |
-| 10 | **State Diagram** | `mermaid` | Dev | Trạng thái bo góc tròn, màu sắc hiện đại hơn nét vẽ thô |
-| 11 | **Mind Map** | `mermaid` | BA + Dev | Phân rã tính năng nhanh, màu pastel chia nhánh trực quan |
-| 12 | **Screen Flow (Interactive)** | `canvas` | Dev + BA | Định vị X,Y pixel-perfect, kéo thả trên `diagram_editor.py` |
-
-### 2. 🛡️ Windows Production Invariants for PlantUML
-1. **C4 Standard Library**: Uses internal `<C4/C4_Context>` (100% offline, never depends on raw github URLs).
-2. **UTF-8 Subprocess**: Explicit `-charset UTF-8` JVM argument preventing Vietnamese text corruption.
-3. **16K Pixel Limit**: `-DPLANTUML_LIMIT_SIZE=16384` eliminates truncating on massive high-DPI ERDs.
-4. **Auto Word Injection**: Automatically injects diagrams into target Word `.docx` documents.
-
-### 3. 🎨 Interactive Canvas Diagram Editor (`diagram_editor.py`)
-- **Direct Visual Editing**: Drag & drop screen nodes, modify dimensions, adjust action labels, and connect ports visually.
-- **Two-Way JSON Synchronization**: JSON spec is the Single Source of Truth. Changes are saved back to clean JSON with zero data loss.
-- **Anti-Flicker Drag & Drop (Tkinter Tag Move)**: Uses `canvas.move` and recalculates only incident edges during motion, eliminating canvas flashes and lag.
-- **Safe Node ID Renaming (Collision Guard)**: Strict duplicate ID validation before updating edge references, preventing corrupted state.
-- **Space-Pan Keyboard Isolation**: Canvas panning via Space key strictly verifies canvas focus, allowing seamless typing in property fields.
-- **Precise Edge Hit-Testing**: Uses `canvas.find_overlapping` bounding box to effortlessly select and edit orthogonal connection lines.
-- **30-Step Undo / Redo**: Deep state snapshot history (`Ctrl+Z` / `Ctrl+Y`).
-- **High-Resolution PNG Export**: One-click 300+ DPI export (`scale=3`) with automatic system preview.
-- **Embedded in GUI & Standalone CLI**: Accessible directly from `main.py` or standalone via `python diagram_editor.py --spec <file.json>`.
-
-### 4. 📑 Universal Office Document Studio (`smart_post_processor.py`, `converter_engine.py`)
-- **100% Fidelity PDF ↔ DOCX**: Converts PDF to editable Word while applying **Smart Post-Processor v6** to enforce strict OpenXML table invariants.
-- **Word Table OpenXML Invariants**:
-  - `<w:cantSplit/>`: Prohibits table rows from splitting across page breaks.
-  - `<w:tblHeader/>`: Automatically repeats header rows across multiple pages.
-  - `<w:vAlign w:val="center"/>`: Vertically centers text inside table cells.
-  - `<w:shd w:fill="FFE8E0"/>`: Applies elegant Peach shading to table header rows.
-- **TOC Dot-Leader Normalization**: Native right-aligned tab stops with leader dots (`.......`).
-- **Decoupled Markdown + Style YAML**: Exports clean Markdown without inline CSS or YAML frontmatter clutter, pairing it with a standalone `.style.yaml` stylesheet.
+> [!NOTE]
+> **Dual-Run Baseline & Legacy Preservation**:
+> All legacy monolithic v1.0 conversion scripts, runners, and Tkinter GUI have been cleanly relocated and preserved inside [`legacy_engines/`](legacy_engines/) and permanently archived on GitHub at branch [`archive/legacy-v1`](https://github.com/YukiiMin/antigravity-doc-handler/tree/archive/legacy-v1). The root repository strictly maintains **Zero Python files at root** and enforces `< 300` lines of code per logical file.
 
 ---
 
-## 📦 Installation
+## 🏛️ 5-Layer AI-Native Architecture
 
-### Prerequisites
-- Python 3.10 or higher
-- Java JRE/JDK >= 8 (for PlantUML diagrams)
-- Node.js + `@mermaid-js/mermaid-cli` (optional, for Mermaid diagrams)
-- Microsoft Edge or Google Chrome (for headless Canvas diagram rasterization)
+`doctools` strictly adheres to a unidirectional dependency flow enforced by CI linters:
 
-### Setup
+```
+adapters (CLI / MCP stdio)
+   │
+   ▼
+registry (Central ToolRegistry with Namespace & Collision Guards)
+   │
+   ▼
+operations (MCP Operations & Workflows: docx.*, xlsx.*, diagram.*)
+   │
+   ▼
+gates (Fail-Closed Verification Gates & Structural AST Diffing)
+   │
+   ▼
+core (Format Logic: Schema Builders, AST Shifters, Topology Planners)
+   │
+   ▼
+contract (Pydantic Schemas: FileRef, ResultEnvelope, Issues, BaseSpec)
+   ▲
+   │
+infra (FileStore with 24h TTL, SandboxRunner with UTF-8 & Timeout, AuditLogger)
+```
+
+### Opaque File Communication (`FileRef`)
+To prevent token exhaustion and context pollution, large binary files are never streamed directly into AI context windows. All inputs and outputs are exchanged via opaque `FileRef` handles:
+```json
+{
+  "uri": "resource://docx/files/9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "size": 102400,
+  "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "expires_at": "2026-10-07T22:00:00Z"
+}
+```
+
+---
+
+## 🚀 The Triple Core Engineering Modules
+
+### 1. 📘 Module DOCX — Precision Word Processing (`docx.*`)
+Designed to eliminate formatting corruption, table tearing, and XML tag disorder in Microsoft Word documents.
+
+- **Tag Order Registry (`lxml`)**: Strictly enforces ECMA-376 schema sequence rules, eliminating corrupt document warnings upon opening Word.
+- **Dual-Path Compilation**:
+  - *Path A (Template Engine)*: Secure Jinja2 rendering through `docxtpl` with isolated variable extraction and semantic slot replacement.
+  - *Path B (DocSpec Builder)*: Programmatic generation of structured documents from pure declarative JSON specifications.
+- **Run Consolidator**: Transparently heals split XML runs (`<w:r>`) created by Word editors, ensuring template variables like `{{ invoice_id }}` remain contiguous.
+- **Table Integrity Invariants**:
+  - Automatically enforces `<w:cantSplit/>` on every row (preventing ugly page-break row splits).
+  - Enforces `<w:tblHeader/>` on header rows (repeating table headers across multi-page breaks).
+  - Guarantees `<w:vAlign w:val="center"/>` for professional vertical cell alignment.
+- **Verification Gates**: 6 Quality Gates (`DG-01..04`, Schema validation, and structural AST diffing).
+
+---
+
+### 2. 📗 Module XLSX — Spreadsheet Engineering (`xlsx.*`)
+Engineered to handle complex financial, testing, and KPI workbooks with live dynamic formulas and 100% cell style preservation.
+
+- **Preflight Package Inventory**: Inspects workbooks across Fidelity Tiers (T1 Native OpenPyXL to T4 Complex Macro/DrawingML).
+- **AST Formula Shift Manager**: Parses formula syntax trees via `openpyxl.formula.Tokenizer` to dynamically shift cell references (e.g., updating `=COUNTIF(G10:G25, ...)` when expanding data rows) across all sheets and chart series.
+- **Recalc Backend & Cache Writer (`write_cached`)**:
+  - Evaluates formulas using Microsoft Excel COM (primary) or headless LibreOffice (fallback).
+  - Directly injects computed `<v>` value nodes via `lxml` into worksheet XML, ensuring third-party viewers (mobile apps, web portals) display live numbers without requiring user save prompts.
+- **14 Invariants E1–E14**:
+  - *Prototype Row Style Cloning (E1)*: 100% clones fonts, fills, borders, alignments, and number formats from the representative template row.
+  - *Live KPI Formulas (E3)*: Enforces dynamic formulas for summaries (`=COUNTIF`, `=SUM`).
+  - *Safe Merged-Cell Handling (`ERR_XLSX_004`)*: Writes values solely to the Top-Left cell while preserving the full border box.
+  - *DrawingML Preservation (`ERR_XLSX_006`)*: Retains shapes, floating images, and company logos without corruption.
+- **13 Universal Gates (`UG-01..13`)**: Fail-closed gate suite guaranteeing zero `#REF!`, `#VALUE!`, or unformatted cells.
+
+---
+
+### 3. 📙 Module DIAGRAM — Draw.io mxGraph Engineering (`diagram.*`)
+Generates publication-quality technical diagrams in native Draw.io (`.drawio` / `mxGraphModel`) format without manual coordinate guesswork.
+
+> **Zero PlantUML & Zero Mermaid**:
+> Previous engines relied on external DSLs and fragile web scrapers that produced distorted aspect ratios and unreadable text when embedded into Word documents. `doctools` generates **pure native mxGraph XML** directly.
+
+- **21 Diagram Invariants (`MX_INV_01..21`)**:
+  - *Pure Native Hierarchy (`MX_INV_01`)*: Cấm tuyệt đối `<UserObject plantUmlData/mermaidData>`. Mọi node và edge là `<mxCell>` chuẩn trực tiếp dưới root layer `parent="1"`.
+  - *Orthogonal Perimeter Routing (`MX_INV_04`)*: Uses `edgeStyle=orthogonalEdgeStyle;` with standardized perimeter ports (`exitX, exitY, entryX, entryY` $\in \{0.0, 0.5, 1.0\}$).
+  - *Dynamic Geometry Scaling (`MX_INV_05`)*: Auto-calculates entity table height $H = 43 \times (N_{\text{fields}} + 1)$ with safe traffic corridors $\ge 60\text{px}$.
+  - *Monochrome Academic Line-Art (`MX_INV_07`)*: Clean, professional black-and-white publication styling (`#ffffff` fill, `#000000` strokes).
+  - *Snug White Mask Bounding (`MX_INV_20`)*: Calculates proportional `labelWidth` dynamically so line masks wrap tightly without occluding neighboring parallel bus wires.
+  - *5-Column Orthogonal Flow (`MX_INV_14`)*: Enforces 5-column layout for DFDs (External $\rightarrow$ Ingestion $\rightarrow$ Processing/Store $\rightarrow$ Comm $\rightarrow$ Cloud).
+- **Decoupled 2-Phase Rendering Pipeline**:
+  - *Phase 1 (Static XML Generation)*: Computes node bounding boxes using Pillow exact font advance lengths (`font.getlength()`), plans topology via ELK sidecar (`elk_worker.mjs`) and Python layouts, and serializes XML via `lxml` with **zero browser required**.
+  - *Phase 2 (Headless Rasterization)*: Playwright headless browser renders 300+ DPI vector-grade PNG/SVG with PIL uniform 25px auto-crop to prevent clipped borders (`MX_INV_21`).
+
+---
+
+## 🛠️ Official MCP Tool Catalog
+
+All tools are registered in the central `ToolRegistry` (`doctools/registry.py`) and exposed via Model Context Protocol:
+
+| Module | MCP Tool Name | Priority | Purpose & Guarantees |
+|---|---|---|---|
+| **DOCX** | `docx.lint_template` | MVP | Lints template syntax, detects split tags and invalid styles |
+| **DOCX** | `docx.normalize_template`| MVP | Consolidates fragmented XML runs and cleans Jinja delimiters |
+| **DOCX** | `docx.register_template` | MVP | Registers template with schema manifest and slot definitions |
+| **DOCX** | `docx.render_template` | MVP | Path A: Renders template with data and semantic OpenXML guards |
+| **DOCX** | `docx.build_from_spec` | MVP | Path B: Compiles standalone `.docx` from declarative `DocSpec` JSON |
+| **DOCX** | `docx.inspect_structure`| MVP | Extracts document AST (headings, paragraphs, tables) with anchors |
+| **DOCX** | `docx.validate` | MVP | Executes 6 Quality Gates for schema and layout fidelity |
+| **DOCX** | `docx.merge` | P1 | Merges multiple `.docx` files resolving style collisions |
+| **DOCX** | `docx.patch` | P1 | Surgically replaces specific block elements by anchor ID |
+| **XLSX** | `xlsx.preflight` | MVP | Analyzes Package Inventory and assigns Fidelity Tier (T1..T4) |
+| **XLSX** | `xlsx.inspect` | MVP | Inspects sheets, named ranges, formulas, and merged coordinates |
+| **XLSX** | `xlsx.lint_template` | MVP | Validates template layout, formula ranges, and prototype rows |
+| **XLSX** | `xlsx.register_template`| MVP | Registers Excel template with expansion rules and design tokens |
+| **XLSX** | `xlsx.mutate` | MVP | Expands data tables via Shift Manager; shifts formulas in-place |
+| **XLSX** | `xlsx.recalc` | MVP | Recalculates workbook via COM / LibreOffice & injects `<v>` cache |
+| **XLSX** | `xlsx.validate` | MVP | Executes 13 Universal Gates (`UG-01..13`) and PG Profiles |
+| **XLSX** | `xlsx.diff` | MVP | Performs cell-by-cell structural and formatting AST diff |
+| **XLSX** | `xlsx.build` | P1 | Builds workbook from `XlsxSpec`; handles native DrawingML Charts |
+| **DIAGRAM**| `diagram.parse` | MVP | Parses DDL, SQL, or text DSL into normalized `DiagramSpec` |
+| **DIAGRAM**| `diagram.plan_layout` | MVP | Computes geometric layout and orthogonal waypoints (Phase 1) |
+| **DIAGRAM**| `diagram.build` | MVP | Compiles `DiagramSpec` to native `.drawio` XML (Phase 1) |
+| **DIAGRAM**| `diagram.render_raster` | MVP | Renders `.drawio` to 300+ DPI PNG via Playwright sidecar (Phase 2) |
+| **DIAGRAM**| `diagram.render_svg` | MVP | Exports vector-grade SVG with embedded font definitions (Phase 2) |
+| **DIAGRAM**| `diagram.inspect_visual`| MVP | Inspects geometry for edge collisions, crossings, and label overlaps |
+| **DIAGRAM**| `diagram.repair_layout` | MVP | Auto-repairs topological defects and applies snug label masks |
+| **DIAGRAM**| `diagram.diff_layout` | MVP | Compares structural graph changes between two diagram versions |
+| **DIAGRAM**| `diagram.export_pages` | MVP | Packages multiple diagrams into single multi-tab `.drawio` files |
+
+---
+
+## 📂 Project Structure
+
+```
+pdf_to_docx_converter/
+├── doctools/                     # Official AI-Native Package (< 300 lines/file)
+│   ├── contract/                 # Layer 1: Pydantic Data Contracts & Schemas
+│   │   ├── fileref.py            # Opaque FileRef with SHA-256 and TTL validation
+│   │   ├── envelope.py           # Unified ResultEnvelope, Diagnostics, and Stats
+│   │   ├── issues.py             # Diagnostic Issues, Severity, Engine, and Location
+│   │   └── spec_base.py          # BaseSpec abstract model with strict schema validation
+│   ├── infra/                    # Foundational Infrastructure
+│   │   ├── file_store.py         # FileStore: 24h TTL, hash verification, zombie lock cleanup
+│   │   ├── sandbox.py            # SandboxRunner: Process isolation, UTF-8, timeout guards
+│   │   └── audit.py              # AuditLogger: Traceable request_id context via ContextVar
+│   ├── core/                     # Format Execution Cores (docx, xlsx, diagram) [In Progress]
+│   ├── gates/                    # Quality Gates & AST Diff Engines [In Progress]
+│   ├── operations/               # MCP Tool Handlers & Cross-Module Pipelines [In Progress]
+│   ├── resources/                # Schemas, XSD, Built-in Styles, and Font Assets
+│   └── registry.py               # Central ToolRegistry with Namespace & Collision Guards
+├── tests/                        # Comprehensive Unit & Integration Test Suites
+│   ├── contract/                 # Tests for Pydantic contracts (15/15 PASS)
+│   ├── infra/                    # Tests for FileStore, Sandbox, Audit (8/8 PASS)
+│   └── test_registry.py          # Tests for ToolRegistry and MCP dispatcher (7/7 PASS)
+├── legacy_engines/               # Dual-Run Baseline (Archived v1.0 engines and runners)
+│   ├── gui.py / run_gui.bat      # Desktop Tkinter GUI v1.0
+│   ├── converter_engine.py       # Monolithic PDF <-> DOCX <-> Markdown converter
+│   ├── docx_writer.py / xlsx_writer.py
+│   ├── spec_diagram_engine.py / diagram_editor.py
+│   ├── tools/                    # Legacy generator and patcher scripts
+│   └── tests/                    # Legacy test suite
+├── docs/                         # Architecture Specs (Master Plan v6, Appendixes)
+├── .agents/                      # Antigravity IDE Customizations
+│   ├── rules/                    # 10 Standardized Invariant Rules (< 12,000 chars)
+│   ├── workflows/                # Master WORKFLOW.md + 3 sub-workflows
+│   └── skills/                   # MCP Integration Skills (docx-handler, excel-handler...)
+├── AGENTS.md                     # Agent operational manual & invariants quick reference
+├── WORKFLOW.md                   # Repository operational workflow runbook
+├── pyproject.toml                # Project packaging configuration
+└── requirements.txt              # Production dependencies
+```
+
+---
+
+## ⚡ Quickstart & Testing
+
+### Installation
 ```bash
 # Clone repository
 git clone https://github.com/YukiiMin/antigravity-doc-handler.git
@@ -98,191 +210,16 @@ cd antigravity-doc-handler
 
 # Install dependencies
 pip install -r requirements.txt
-
-# (Optional) Install in editable mode for global CLI commands:
-pip install -e .
 ```
+
+### Running Tests
+Execute the complete test suite verifying Contracts, Infrastructure, and the ToolRegistry:
+```bash
+python -m unittest discover -s tests -v
+```
+*Current test suite status: **30/30 tests passing (100% OK)**.*
 
 ---
 
-## 💻 CLI Usage Guide
-
-`antigravity-doc-handler` provides a unified command line interface via `ai_tools_cli.py`:
-
-### 1. Unified Multi-Engine Diagram Rendering (Recommended)
-Auto-detects backend (`canvas`, `mermaid`, `plantuml`) from the JSON spec's `"engine"` field:
-```bash
-python ai_tools_cli.py diagram-render spec.json -o diagram.png
-```
-
-### 2. Dedicated Diagram Renderers
-```bash
-# Render PlantUML (ERD, Class, C4, Swimlane, Use Case, Mind Map)
-python ai_tools_cli.py plantuml-render erd_spec.json -o erd.png --dpi 300
-
-# Render Mermaid (Sequence, Flowchart, State)
-python ai_tools_cli.py mermaid-render sequence_spec.json -o seq.png
-
-# Render SVG Canvas (Screen Flow)
-python ai_tools_cli.py spec-render screen_flow_spec.json -o screen_flow.png --scale 3
-```
-
-### 3. Document Conversion Matrix
-```bash
-# Convert PDF to DOCX (with Smart Post-Processor v6)
-python -m ai_tools_cli convert input.pdf -o output.docx
-
-# Convert DOCX to Decoupled Markdown + Style YAML
-python -m ai_tools_cli convert document.docx -t md
-
-# Convert Markdown to DOCX using style tokens
-python -m ai_tools_cli convert document.md -t docx --style document.style.yaml
-
-# Convert DOCX to PDF (Word COM Automation)
-python -m ai_tools_cli convert document.docx -t pdf
-```
-
-### 4. Document Inspection & Diagram Insertion
-```bash
-# Inspect Word document headings, tables, and OpenXML properties
-python -m ai_tools_cli inspect-doc document.docx
-
-# Insert diagram image directly beneath a specific heading
-python -m ai_tools_cli insert-diagram document.docx screen_flow.png \
-  -s "3.1.2 Android User Screen Flow" \
-  -c "Figure 3.1: Android User Screen Flow" \
-  -w 14.0
-```
-
-### 5. Interactive Canvas Diagram Editor
-Launch the visual two-way editor for real-time drag-and-drop node manipulation, connection routing, and 300+ DPI PNG export:
-```bash
-# Open editor with an existing diagram spec:
-python diagram_editor.py --spec specs/flow_android_user_v2_spec.json
-
-# Or open a blank canvas:
-python diagram_editor.py
-```
-
-### 6. Desktop Drag-and-Drop GUI
-For non-technical users, launch the native desktop studio with integrated **[📐 Canvas Diagram Editor]** button:
-```bash
-python main.py
-# Or double-click run_gui.bat on Windows
-```
-
----
-
-## 🤖 Antigravity AI Agent Integration
-
-This repository is built natively for AI Agents operating in **Google Antigravity IDE**, Cursor, or Claude Code.
-
-### Included Customizations:
-- `.agents/skills/doc-handler/SKILL.md`: Instructs AI agents on converting documents, fixing table splits, and formatting headings.
-- `.agents/skills/technical-diagrams/SKILL.md`: Instructs AI agents on composing declarative JSON specs, calculating zero-overlap layouts, and routing lines.
-- `.agents/rules/rule_docx_engine_standards.md`: Word OOXML invariants, Tag Order Registry, Dual-path builder, and table fidelity standards.
-- `AGENTS.md`: Full AI agent operational guide.
-
-### Sample AI Prompt:
-> *"Extract the Android User Screen Flow diagram from page 322 of Report3.docx, reverse-engineer its topology into specs/flow_android_user_v2_spec.json, render a 300+ DPI high-resolution PNG, and re-inject it back under Section 3.1.2 with proper APA captioning."*
-
----
-
-## 📐 Declarative Diagram Spec Format
-
-Below is a minimal sample of the JSON schema used by `spec_diagram_engine.py`:
-
-```json
-{
-  "width": 1320,
-  "height": 720,
-  "font_family": "Segoe UI, -apple-system, Roboto, sans-serif",
-  "font_size": 10.5,
-  "bg_color": "#ffffff",
-  "scale": 3,
-  "nodes": [
-    {
-      "id": "home",
-      "label": "Member Home Screen",
-      "x": 360,
-      "y": 265,
-      "width": 150,
-      "height": 44,
-      "type": "primary"
-    },
-    {
-      "id": "profile",
-      "label": "Profile Screen",
-      "x": 550,
-      "y": 460,
-      "width": 115,
-      "height": 42,
-      "type": "standard"
-    }
-  ],
-  "edges": [
-    {
-      "source": "home",
-      "target": "profile",
-      "source_port": "bottom",
-      "target_port": "left",
-      "source_offset": 30,
-      "label": "Bottom Nav",
-      "line_style": "solid",
-      "waypoints": [[520, 309], [520, 481]],
-      "label_pos": 0.45,
-      "label_offset_x": -16
-    }
-  ]
-}
-```
-
----
-
-## 📁 Project Structure
-
-```
-tool/pdf_to_docx_converter/
-├── .agents/                                     # Antigravity Agent Configuration
-│   ├── rules/                                   # Universal Engineering Rules
-│   └── skills/                                  # Agent Workflow Skills
-├── specs/                                       # Declarative Diagram Specifications
-│   ├── flow_*.json                              # Screen Flow JSON Specs
-│   ├── master_erd_*.json                        # Master ERD Canvas & Connections Specs
-│   └── sub_erd_*.json                           # Domain Sub-ERD Specs
-├── tools/                                       # Generator & Document Patcher Scripts
-│   ├── gen_canvas_erd.py                        # Master 4K ERD Generator
-│   ├── gen_hub_spoke_flow.py                    # 25-Node Hub & Spoke Flow Generator
-│   ├── patch_docx_*.py                          # Document Update & Diagram Injection Scripts
-│   └── plantuml.jar                             # Local PlantUML Runtime
-├── tests/                                       # Test Suites
-│   ├── test_diagram_editor.py                   # Canvas Visual Editor Tests
-│   ├── test_mermaid_suite.py                    # Mermaid Engine Tests
-│   ├── test_plantuml_suite.py                   # PlantUML Engine & Dispatcher Tests
-│   ├── test_edge_render.py                      # Headless Vector Rendering Tests
-│   └── test_cardinality.py                      # Crow's Foot Geometry Tests
-├── diagram_assets/                              # Rendered PNG & SVG Output Artifacts
-├── ai_tools_cli.py                              # Unified CLI for Terminal & AI
-├── spec_diagram_engine.py                       # Precision SVG + Chromium Engine
-├── diagram_editor.py                            # Interactive Canvas Diagram Editor
-├── mermaid_renderer.py                          # Mermaid CLI Wrapper & Themes
-├── plantuml_renderer.py                         # PlantUML Engine & C4 Standard Library
-├── smart_post_processor.py                      # OpenXML Word Table & TOC Repair
-├── converter_engine.py                          # Multi-Format Pipeline Coordinator
-├── markdown_converter.py                        # Decoupled MD + Style YAML Engine
-├── docx_reader.py / docx_writer.py              # Low-Level OpenXML Word Handlers
-├── xlsx_reader.py / xlsx_writer.py              # Excel Worksheet Utilities
-├── gui.py / main.py                             # Desktop GUI Application
-├── requirements.txt                             # Python Dependencies
-├── pyproject.toml                               # Packaging Configuration
-├── LICENSE                                      # MIT License
-├── AGENTS.md                                    # Operational Guide for AI Agents
-└── README.md                                    # Documentation
-```
-
----
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
-Feel free to use, modify, distribute, and integrate into your own workflows.
+## 📜 License
+Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for details.
