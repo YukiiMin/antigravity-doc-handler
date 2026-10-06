@@ -42,10 +42,8 @@ pdf_to_docx_converter/
 ├── tests/                        # Bộ kiểm thử chuẩn hóa cho doctools
 ├── docs/                         # Kế hoạch kiến trúc (Master Plan v6) & Specs cập nhật
 ├── .agents/                      # Cấu hình Customization của Antigravity IDE
-│   ├── rules/                    # Bộ quy chuẩn bất biến (< 12,000 ký tự)
-│   ├── workflows/                # Master WORKFLOW.md + 3 sub-workflows module hóa
-│   └── skills/                   # Skills tương tác (docx-handler, excel-handler, mxgraph-diagram-engineering)
-└── WORKFLOW.md                   # Master Workflow chính thống của repository
+│   ├── rules/                    # Bộ quy chuẩn bất biến (Glob-triggered theo module path)
+│   └── skills/                   # Skills tương tác (docx-handler, excel-handler, mxgraph-diagram-engineering, doctools-delivery)
 ```
 
 ---

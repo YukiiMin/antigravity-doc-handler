@@ -6,7 +6,7 @@ description: AI-Native Diagram Engineering Skill for Draw.io (mxGraphModel). Pro
 # Skill: mxGraphModel & Draw.io Diagram Engineering (AI-Native Engine)
 
 > **Mục tiêu**: Chuẩn hóa toàn bộ quy trình thiết kế, sinh mã, kiểm định và tối ưu hóa sơ đồ kỹ thuật chất lượng cao trên Draw.io (`mxGraphModel`).  
-> **Nguyên tắc nền tảng**: Tuân thủ 100% tài liệu [`.agents/rules/rule_diagram_engine_standards.md`](file:///d:/Minh/For_myself/ZSCORT_GSU26_SAP05/tool/pdf_to_docx_converter/.agents/rules/rule_diagram_engine_standards.md) và Quy trình Chuẩn `WF-DIAG-01..05` trong [WORKFLOW.md](file:///d:/Minh/For_myself/ZSCORT_GSU26_SAP05/tool/pdf_to_docx_converter/WORKFLOW.md).
+> **Nguyên tắc nền tảng**: Tuân thủ 100% tài liệu [`.agents/rules/rule_diagram_engine_standards.md`](file:///d:/Minh/For_myself/ZSCORT_GSU26_SAP05/tool/pdf_to_docx_converter/.agents/rules/rule_diagram_engine_standards.md) và Quy trình Chuẩn `WF-DIAG-01..05` tại skill `doctools-delivery`.
 
 ---
 

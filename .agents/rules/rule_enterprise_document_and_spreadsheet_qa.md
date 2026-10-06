@@ -1,3 +1,8 @@
+---
+trigger: model_decision
+description: Quy chuẩn kiểm toán chất lượng và chẩn đoán tĩnh/ngữ nghĩa Enterprise Document & Spreadsheet QA (DOCX, XLSX, Diagram, Zombie locks cleanup)
+---
+
 # Rule: Enterprise Document & Spreadsheet QA / Diagnostics Standard
 
 > **Scope**: Áp dụng bắt buộc cho toàn bộ các tác vụ đọc, sửa, tạo, chẩn đoán (QA/Diagnostic) và chuyển đổi tài liệu văn phòng

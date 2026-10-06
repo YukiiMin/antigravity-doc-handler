@@ -1,10 +1,11 @@
 ---
+trigger: model_decision
 description: Quy chuẩn Git Workflow & Kỷ luật Commit cho Solo Dev cộng tác với AI Agent trong dự án lớn
 ---
 
 # Rule: Git Workflow & Commit Protocol (Solo Dev + AI Agent)
 
-> **Phạm vi**: Áp dụng bắt buộc cho toàn bộ chu trình phát triển của bộ công cụ `doctools` (`tool/pdf_to_docx_converter`).  
+> **Phạm vi**: Áp dụng bắt buộc cho toàn bộ chu trình phát triển của bộ công cụ `doctools` (`tool/pdf_to_docx_converter`).
 > **Mục tiêu**: Ngăn chặn 100% tình trạng mất dấu vết (lost context), ô nhiễm git log bằng mã nguồn lỗi, đồng thời bảo vệ nhánh `main` luôn tinh gọn cho người dùng cuối.
 
 ---

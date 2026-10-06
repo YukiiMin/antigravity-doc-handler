@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 description: Mandatory context recovery protocol after conversation truncation (CHECKPOINT signal)
 ---
 
@@ -70,4 +71,3 @@ Nếu phát hiện bất kỳ dấu hiệu nào sau đây:
 - Liệt kê rõ các điểm khác biệt và đề xuất phương án xử lý cụ thể.
 - Sử dụng công cụ `ask_question` hoặc `/grill-me` để chốt 100% phương án trước khi viết code.
 - **TUYỆT ĐỐI KHÔNG** tự ý đoán mò, làm rồi sửa nhiều lần gây lãng phí token và thời gian.
-

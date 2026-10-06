@@ -1,3 +1,8 @@
+---
+trigger: model_decision
+description: Quy chuẩn cổng kiểm định chất lượng tự động, xác minh độ trung thực (fidelity) và kiểm tra đa định dạng trước khi bàn giao
+---
+
 # Rule: Automated Quality Gate, Fidelity Verification & Multi-Format Validation
 
 > **Scope**: Mandatory automated validation checks before delivering any generated or patched document (`.docx`, `.xlsx`, `.xls`, `.pdf`, `.png`, `.svg`).
@@ -24,7 +29,7 @@ import openpyxl
 
 def run_excel_quality_gate(xlsx_path: str):
     wb = openpyxl.load_workbook(xlsx_path, data_only=False)
-    
+
     # 1. Zero Placeholders
     placeholder_errors = []
     for sheetname in wb.sheetnames:

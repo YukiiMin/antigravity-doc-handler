@@ -1,7 +1,12 @@
+---
+trigger: glob
+globs: doctools/**/diagram/**, tests/test_diagram/**, **/*.drawio*
+---
+
 # Rule: DIAGRAM Engine & Technical Diagram Standards
 
-> **Module**: DIAGRAM (Technical Diagram & Architecture Visualization)  
-> **Căn cứ**: Diagram Foundation Plan v1.0, Master Architecture Plan v6, 21 bất biến `MX_INV_01..21`.  
+> **Module**: DIAGRAM (Technical Diagram & Architecture Visualization)
+> **Căn cứ**: Diagram Foundation Plan v1.0, Master Architecture Plan v6, 21 bất biến `MX_INV_01..21`.
 > **Scope**: Bắt buộc áp dụng cho mọi tác vụ sinh, kiểm định, vá, import và render sơ đồ kỹ thuật (`.drawio`, PNG/SVG) trong `doctools` / `pdf_to_docx_converter`.
 
 ---

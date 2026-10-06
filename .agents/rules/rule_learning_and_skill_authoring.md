@@ -1,3 +1,8 @@
+---
+trigger: model_decision
+description: Quy chuẩn tác giả Rules và Skills (Meta-Rule cho /learn, cấu trúc SKILL.md, Progressive Disclosure và chống rule bloat)
+---
+
 # Rule: How to Write Rules & Skills (Meta-Rule for `/learn`)
 
 > **Scope**: Applies every time `/learn` is invoked or a new rule/skill file is being authored.
@@ -114,3 +119,13 @@ Every skill must include at minimum:
 4. **Set `RequestFeedback = true`** — never modify rule/skill files before user approval.
 5. **Execute** only after explicit approval (or auto-approval via review policy).
 6. **Sync** to both repos if the rule applies to the tool sub-repository as well.
+
+---
+
+## 6. Architecture & Progressive Disclosure Standards
+
+Mọi Rule và Skill mới tạo hoặc sửa đổi bắt buộc phải tuân thủ chuẩn kiến trúc phân tầng tại skill `agent-context-architecture`:
+- **Frontmatter Rule**: Bắt buộc chỉ rõ `trigger:` (`glob` với `globs:`, hoặc `model_decision` với `description:`). Không để trống `globs:` dẫn đến lỗi `0/250` trên IDE.
+- **Ngân sách**: File Rule không quá 12,000 ký tự; toàn bộ rules kích hoạt không quá 20,000 tokens.
+- **Progressive Disclosure**: Chuyển các quy trình đa bước phức tạp thành Skill Package (`SKILL.md` + `references/` + `scripts/`), không viết tài liệu dạng monolithic.
+- Chi tiết xem tại [.agents/skills/agent-context-architecture/SKILL.md](file:///d:/Minh/For_myself/ZSCORT_GSU26_SAP05/tool/pdf_to_docx_converter/.agents/skills/agent-context-architecture/SKILL.md).

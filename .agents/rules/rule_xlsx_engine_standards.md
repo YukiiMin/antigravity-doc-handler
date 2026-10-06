@@ -1,6 +1,11 @@
+---
+trigger: glob
+globs: doctools/**/xlsx/**, tests/test_xlsx/**, **/*.xlsx, **/*.xls
+---
+
 # Rule: XLSX Engine & Spreadsheet Processing Standards
 
-> **Scope**: Bắt buộc áp dụng cho mọi tác vụ đọc, sửa, tạo, kiểm định và chuyển đổi bảng tính Excel (`.xlsx`, `.xls`) trong `doctools` / `pdf_to_docx_converter`.  
+> **Scope**: Bắt buộc áp dụng cho mọi tác vụ đọc, sửa, tạo, kiểm định và chuyển đổi bảng tính Excel (`.xlsx`, `.xls`) trong `doctools` / `pdf_to_docx_converter`.
 > **Căn cứ**: Xlsx Foundation Plan v1.1, thực nghiệm EV-01..13, bộ quy tắc E1..E14 và mã lỗi `ERR_XLSX_001..007`.
 
 ---

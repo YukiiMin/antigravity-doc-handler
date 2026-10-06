@@ -8,6 +8,7 @@ description: Master operations guide, mental model, and decision tree for XLSX E
 Sử dụng skill này bất cứ khi nào bạn cần tạo, đọc, sửa đổi, kiểm tra, kiểm định, tính toán hoặc đối chiếu bảng tính Excel (`.xlsx`, `.xls`) từ template doanh nghiệp hoặc phát sinh từ đặc tả `XlsxSpec`.
 
 > **Quy chuẩn bắt buộc**: Xem [rule_xlsx_engine_standards.md](file:///d:/Minh/For_myself/ZSCORT_GSU26_SAP05/tool/pdf_to_docx_converter/.agents/rules/rule_xlsx_engine_standards.md) để tuân thủ các bất biến E1–E14, ERR_XLSX_001..007, Shift invariants và giao thức Grill-Before-Deviate.
+> **Quy trình Phân phối & Git**: Tuân thủ quy chuẩn Micro-Commit Cadence (X.Y.Z) và Git Workflow tại skill `doctools-delivery`.
 
 ---
 

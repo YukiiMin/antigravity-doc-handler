@@ -1,3 +1,8 @@
+---
+trigger: glob
+globs: doctools/**/docx/**, tests/test_docx/**, **/*.docx
+---
+
 # Rule: DOCX Engine Standards & OOXML Invariants
 
 > **Module**: DOCX (Word Processing & Decoupled Conversion)

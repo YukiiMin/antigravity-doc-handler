@@ -7,7 +7,8 @@ description: Master operations guide, mental model, and decision tree for DOCX E
 
 Use this skill whenever you need to create, modify, inspect, repair, or convert Word documents (`.docx`), Markdown documentation (`.md`), and format-accurate PDF documents.
 
-> **Lưu ý**: Đối với các tác vụ thiết kế và render sơ đồ kỹ thuật (Draw.io, ERD, Sequence, Architecture), vui lòng kích hoạt skill chuyên trách: `mxgraph-diagram-engineering`.
+> **Lưu ý**: Đối với các tác vụ thiết kế và render sơ đồ kỹ thuật (Draw.io, ERD, Sequence, Architecture), kích hoạt skill chuyên trách: `mxgraph-diagram-engineering`.
+> **Quy trình Phân phối & Git**: Tuân thủ quy chuẩn Micro-Commit Cadence (X.Y.Z) và Git Workflow tại skill `doctools-delivery`.
 
 ---
 
