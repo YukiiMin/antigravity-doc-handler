@@ -12,7 +12,7 @@ import os
 import tempfile
 import zipfile
 from pathlib import Path
-from typing import Dict, Union
+from typing import Any, Dict, Union
 import docx
 
 
@@ -79,6 +79,22 @@ class PackageWriter:
             for name, content in parts.items():
                 zf.writestr(name, content)
         return bio.getvalue()
+
+    @staticmethod
+    def create_modified_package(
+        reader: Any,
+        modified_parts: Dict[str, bytes],
+    ) -> bytes:
+        """Tạo gói byte DOCX mới dựa trên reader gốc kèm các part đã sửa."""
+        all_parts: Dict[str, bytes] = {}
+        for name in reader.get_part_names():
+            if name in modified_parts:
+                all_parts[name] = modified_parts[name]
+            else:
+                data = reader.get_part_bytes(name)
+                if data is not None:
+                    all_parts[name] = data
+        return PackageWriter.write_parts_to_bytes(all_parts)
 
 
 def safe_write_package(
