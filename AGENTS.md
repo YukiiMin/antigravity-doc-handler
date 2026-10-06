@@ -1,104 +1,78 @@
-# AGENTS.md — Guidance for Antigravity AI Agents
+# AGENTS.md — Antigravity Agent Operations & Architecture Manual
 
-Welcome, AI Agent! This file is your operational manual for `antigravity-doc-handler`.
-
-## 📦 What is this Repository?
-
-`antigravity-doc-handler` is a specialized Python toolkit designed for:
-1. **High-Fidelity Document Processing**: Bidirectional conversion between PDF, DOCX, and Markdown with zero data loss, OpenXML table repair, and decoupled styling.
-2. **Precision Technical Diagram Engine**: Programmatic and declarative generation of publication-grade Hub & Spoke architecture and mobile screen flow diagrams (300+ DPI, vector SVG + headless Chromium PNG).
+> **Thư mục dự án**: `tool/pdf_to_docx_converter`  
+> **Phiên bản**: 2.0 (AI-Native Modular Architecture)  
+> **Bộ công cụ cốt lõi**: `doctools` (DOCX, XLSX, DIAGRAM)  
+> **Kiến trúc song hành**: `legacy_engines/` (Bảo tồn Dual-Run Baseline)
 
 ---
 
-## 🛠 Available Skills & Rules
+## 🚀 Quick Reference: MCP Namespaces & Tool Catalog
 
-The workspace includes preconfigured Antigravity customizations:
-- **Skill 1**: [doc-handler](.agents/skills/doc-handler/SKILL.md) — PDF/Word/Markdown conversion, OpenXML table repair, document inspection, and JSON supremacy mental model.
-- **Skill 2**: [excel-handler](.agents/skills/excel-handler/SKILL.md) — XLSX Engine & Spreadsheet Automation, in-place template mutation, Tokenizer formula shifting, lxml Cache Writer, and two-tier UG/PG validation.
-- **Skill 3**: [mxgraph-diagram-engineering](.agents/skills/mxgraph-diagram-engineering/SKILL.md) — AI-Native Diagram Engineering for Draw.io (mxGraphModel), topology planning, orthogonal routing, headless rendering, visual inspection, and layout auto-repair.
-- **Rule 1**: [rule_diagram_engine_standards.md](.agents/rules/rule_diagram_engine_standards.md) — Mandatory standards for Draw.io mxGraphModel invariants (`MX_INV_01..21`, DG-00..08, PG profiles, no manual coordinate guessing, snug label masks).
-- **Rule 2**: [rule_docx_engine_standards.md](.agents/rules/rule_docx_engine_standards.md) — Mandatory standards for Word OOXML invariants (`cantSplit`, `tblHeader`, `Tag Order Registry`), Dual-path builder, and Run Consolidator.
-- **Rule 3**: [rule_xlsx_engine_standards.md](.agents/rules/rule_xlsx_engine_standards.md) — Mandatory standards for Excel OOXML invariants (Shift Tokenizer, Cache Writer `<v>`, DrawingML preservation, Two-tier UG/PG verification, Grill-Before-Deviate).
-- **Master Workflows**: [WORKFLOW.md](WORKFLOW.md) — End-to-end execution workflows for DOCX, XLSX, and DIAGRAM Modules (Path A Template/DSL, Path B Spec, Triage, Cross-module pipelines).
+Tất cả các công cụ của bộ công cụ `doctools` được điều phối qua Registry tập trung với tiền tố tường minh:
 
----
-
-## 💻 CLI Commands Cheat Sheet
-
-When user requests you to perform document tasks or draw diagrams, run these commands:
-
-| Task | Command Line |
-|---|---|
-| **Unified Multi-Engine Diagram Render** | `python ai_tools_cli.py diagram-render <spec.json> -o <out.png>` |
-| **Render PlantUML Diagram** | `python ai_tools_cli.py plantuml-render <spec.json> -o <out.png> --dpi 300` |
-| **Render Mermaid Diagram** | `python ai_tools_cli.py mermaid-render <spec.json> -o <out.png>` |
-| **Render SVG Canvas Precision Diagram** | `python ai_tools_cli.py spec-render <spec.json> -o <out.png> --scale 3` |
-| **Direct Diagram Engine CLI** | `python spec_diagram_engine.py --spec <spec.json> --out <out.png> --scale 3` |
-| **Interactive Canvas Diagram Editor** | `python diagram_editor.py --spec <spec.json>` |
-| **Convert PDF to DOCX** | `python -m ai_tools_cli convert <input.pdf> -o <output.docx>` |
-| **Convert DOCX to Decoupled MD** | `python -m ai_tools_cli convert <document.docx> -t md` |
-| **Convert MD to Styled DOCX** | `python -m ai_tools_cli convert <document.md> -t docx --style <doc.style.yaml>` |
-| **Inspect DOCX Headings & Tables** | `python -m ai_tools_cli inspect-doc <document.docx>` |
-| **Insert Image into DOCX** | `python -m ai_tools_cli insert-diagram <doc.docx> <img.png> -s "Heading" -c "Caption"` |
-| **Launch Desktop GUI** | `python main.py` |
+| Module | Tiền Tố | Các Công Cụ Chính | Tiêu Chuẩn & Rào Chắn |
+|---|---|---|---|
+| **DOCX** | `docx.*` | `lint_template`, `normalize_template`, `register_template`, `render_template`, `build_from_spec`, `inspect_structure`, `patch`, `merge`, `validate` | OpenXML Guards, `cantSplit`, `tblHeader`, Zero-Mutation Raw Cells |
+| **XLSX** | `xlsx.*` | `preflight`, `inspect`, `mutate`, `build`, `validate`, `diff`, `recalc`, `lint_template`, `register_template` | 14 Bất biến E1–E14, 13 Universal Gates UG-01..13, AST Formula Shift |
+| **DIAGRAM** | `diagram.*` | `parse`, `plan_layout`, `build`, `render_raster`, `render_svg`, `inspect_visual`, `repair_layout`, `diff_layout`, `export_pages` | 21 Bất biến `MX_INV_01..21`, Pure mxGraphModel, Orthogonal Routing |
 
 ---
 
-## ⚡ Core Engine Architecture
+## ⚡ Cấu Trúc Mã Nguồn Dự Án (Project Layout)
 
 ```
-antigravity-doc-handler/
-├── spec_diagram_engine.py      # SVG Canvas Engine (Pixel-perfect Screen Flow)
-├── diagram_editor.py           # Interactive Canvas Editor (Drag & Drop, 2-Way JSON Sync)
-├── plantuml_renderer.py        # PlantUML Engine (ERD, Class, C4, Swimlane, Use Case, Mindmap)
-├── mermaid_renderer.py         # Mermaid Engine (Sequence, Flowchart, State)
-├── specs/                      # Declarative Diagram Specs (flow_*.json, master_erd_*.json)
-├── tools/                      # Generator & Patcher Scripts + plantuml.jar
-│   ├── gen_canvas_erd.py       # Master 4K ERD Generator
-│   ├── gen_hub_spoke_flow.py   # Hub & Spoke Flow Generator
-│   ├── patch_docx_*.py         # Document Patcher Scripts
-│   └── plantuml.jar            # Local PlantUML JAR (v1.2026+, bundled C4 standard library)
-├── tests/                      # Test Suites (tests/test_*.py)
-├── diagram_assets/             # High-Res Rendered PNG / SVG Artifacts
-├── ai_tools_cli.py              # Unified CLI Dispatcher for AI Agents & Terminal Users
-├── smart_post_processor.py      # OpenXML Post-Processor (TOC tab stops, table invariants)
-├── converter_engine.py          # Unified Multi-Format Conversion Engine
-├── markdown_converter.py        # Decoupled Markdown + Style YAML Parser/Serializer
-├── docx_reader.py / docx_writer.py # Low-level Word OpenXML Handlers & Auto-Inject Pipeline
-└── skills/
-    └── technical-diagrams/     # Skill: Multi-Engine Technical Diagrams & Classification
+pdf_to_docx_converter/
+├── doctools/                     # Bộ công cụ AI-Native thế hệ mới (Phát triển theo Phase)
+│   ├── contract/                 # Pydantic Schemas (FileRef, Envelope, Issue, BaseSpec)
+│   ├── infra/                    # FileStore mờ, Sandbox Runner, Headless Pool, Audit Log
+│   ├── docx/                     # Module Word (Template Jinja Path A + DocSpec Path B)
+│   ├── xlsx/                     # Module Excel (AST Formula Shifter + Cache Writer lxml)
+│   ├── diagram/                  # Module Diagram (Draw.io pure XML + Topology Planner)
+│   └── registry.py               # MCP Tool Dispatcher tập trung
+├── legacy_engines/               # Kho lưu trữ bảo tồn mã nguồn v1.0 (Dual-Run Baseline)
+│   ├── gui.py / run_gui.bat      # Giao diện Desktop Tkinter v1.0
+│   ├── converter_engine.py       # Điều phối chuyển đổi PDF <-> DOCX <-> Markdown
+│   ├── docx_reader.py / docx_writer.py
+│   ├── xlsx_reader.py / xlsx_writer.py
+│   ├── spec_diagram_engine.py / diagram_editor.py
+│   ├── tools/                    # Script chẩn đoán và tiện ích cũ
+│   ├── tests/                    # Bộ kiểm thử cho các engine cũ
+│   └── TOOLS_INVENTORY.md        # Danh mục công cụ và bài học v1.0
+├── tests/                        # Bộ kiểm thử chuẩn hóa cho doctools
+├── docs/                         # Kế hoạch kiến trúc (Master Plan v6) & Specs cập nhật
+├── .agents/                      # Cấu hình Customization của Antigravity IDE
+│   ├── rules/                    # Bộ quy chuẩn bất biến (< 12,000 ký tự)
+│   ├── workflows/                # Master WORKFLOW.md + 3 sub-workflows module hóa
+│   └── skills/                   # Skills tương tác (docx-handler, excel-handler, mxgraph-diagram-engineering)
+└── WORKFLOW.md                   # Master Workflow chính thống của repository
 ```
 
 ---
 
-## 🎯 Important Invariants & Diagram Selection Rules
+## 🎯 Important Invariants & Engine Rules
 
-### Diagram Engine Selection Rules (MANDATORY):
-1. **Always Read `"engine"` Field First**: Dispatch to `"canvas"`, `"mermaid"`, or `"plantuml"`.
-2. **Tuân Thủ Chuẩn Phân Loại 12 Loại Sơ Đồ Kỹ Thuật**:
-   - **`canvas` Engine** (1):
-     - Screen Flow (Interactive) — Tọa độ pixel-perfect, kéo thả trên `diagram_editor.py`.
-   - **`mermaid` Engine** (5):
-     - ERD (Database Schema) — Nền phẳng pastel hiện đại, gọn gàng cho phân hệ 3–15 bảng.
-     - Sequence Diagram — Chuỗi gọi API thanh thoát, đánh số tự động `autonumber`.
-     - Flowchart / Process — Bẻ nhánh if/else tự do, đổi màu khối nhanh bằng CSS/style.
-     - State Diagram — Trạng thái bo góc tròn, màu sắc hiện đại.
-     - Mind Map — Phân rã tính năng nhanh, màu pastel chia nhánh trực quan.
-   - **`plantuml` Engine** (6):
-     - Use Case Diagram — Actor người que, quan hệ `<<include>>`, `<<extend>>` chuẩn UML.
-     - C4 Architecture — Thư viện C4 chuẩn quốc tế (`<C4/C4_Context>`), không vỡ dây container.
-     - Component / Deployment — Đúng hình khối 3D `node`, `database`, `component`.
-     - Activity Swimlane — Phân làn cột (`|Partition|`) thẳng đứng tuyệt đối, không đè dây.
-     - Class Diagram — Hỗ trợ trọn vẹn OOP (`+`, `-`, `#`, generics `<T>`, composition).
-     - Package Diagram — Hỗ trợ stereotype `<<Folder>>` trực quan cho cấu trúc thư mục.
-3. **Tuân thủ 4 Bẫy Kỹ Thuật Windows Cho PlantUML**:
-   - C4: Luôn dùng `!include <C4/C4_Context>` Standard Library nội bộ, tuyệt đối KHÔNG dùng URL Raw GitHub.
-   - Font: Ghi file UTF-8 và truyền cờ JVM `-charset UTF-8` để tiếng Việt không bị vỡ.
-   - Limit: Luôn truyền `-DPLANTUML_LIMIT_SIZE=16384` để ảnh kiến trúc/sơ đồ lớn không bị mờ hoặc cắt cụt.
-   - Auto-Inject: Luôn kiểm tra `inject_into` để tự động nhúng vào DOCX sau khi render PNG.
-4. **Table Invariants**: Whenever modifying Word `.docx` tables, ensure `<w:cantSplit/>`, `<w:tblHeader/>`, and `<w:vAlign w:val="center"/>` are present.
-5. **Diagram Aspect Ratio**: Keep technical diagrams within the $1.6:1 - 1.85:1$ aspect ratio (e.g. $1400 \times 770\text{px}$ or $1360 \times 720\text{px}$) to perfectly fit standard portrait A4 margins ($14\text{cm}$ print width) without font shrinkage.
-6. **JSON Spec Supremacy**: Always author declarative `.json` specs for diagrams. Do not rely on uncontrolled auto-layout.
-7. **Standardized English Screen Names**: All node box titles must be 100% technical English (`Login Screen`, `Home Dashboard`, `Cart Screen`). Never put Vietnamese inside node boxes.
-8. **Codebase-Truth Action Phrasing**: Use English verbs (`Click`, `Tap`, `Select`) + quoted original button labels (`Click "Đăng nhập"`). Default to 100% English for multi-language projects.
-9. **Multi-line Wrapping & Collision Avoidance**: Always break action labels across multiple lines with `\n` when length $> 18-22$ characters. Pre-validate using engine AABB collision detection (`[WARN] Label collision detected`).
+### 1. Module DOCX (Word Processing)
+- **The Last Paragraph Rule (`ERR_DOCX_001`)**: Mọi cell bảng (`<w:tc>`) bắt buộc phải kết thúc bằng tối thiểu một thẻ `<w:p>`.
+- **Run Text Overwrite (`ERR_DOCX_002`)**: Thao tác nội dung qua `cell.paragraphs[0].runs`, tuyệt đối không gán `cell.text = "..."` làm mất định dạng run.
+- **Table Integrity (`ERR_DOCX_003`)**: Bảng nhiều trang bắt buộc có `<w:cantSplit/>` trên từng dòng và `<w:tblHeader/>` trên dòng tiêu đề.
+- **Image Bounds (`ERR_DOCX_005`)**: Chiều rộng ảnh không vượt quá khổ in khả dụng ($\le 15.92\text{ cm}$ cho A4 portrait lề chuẩn).
+
+### 2. Module XLSX (Spreadsheet Engineering)
+- **Template-Driven Token Extraction (E1)**: 100% token định dạng trích xuất từ reference sheet, không đoán mò.
+- **Live KPI Formulas (E3)**: Toàn bộ ô tóm tắt và KPI phải dùng công thức động (`=COUNTIF`, `=SUM`), không hardcode số tĩnh.
+- **Safe Merged-Cell Handling (`ERR_XLSX_004`)**: Chỉ gán giá trị vào Top-Left cell; đồng bộ border toàn dải merged chống rách viền.
+- **DrawingML Preservation (`ERR_XLSX_006`)**: Luôn load trực tiếp template gốc; không tạo `Workbook()` rỗng làm mất shapes/logo.
+- **13 Universal Gates (UG-01..13)**: Mọi thao tác mutate/build bắt buộc vượt qua cổng kiểm định trước khi bàn giao.
+
+### 3. Module DIAGRAM (Draw.io mxGraphModel)
+- **Pure Native Hierarchy (`MX_INV_01`)**: Cấm tuyệt đối `<UserObject mermaidData/plantUmlData>`. Mọi node và edge là `<mxCell>` trực tiếp dưới `parent="1"`.
+- **Orthogonal Perimeter Routing (`MX_INV_04`)**: Sử dụng `edgeStyle=orthogonalEdgeStyle;` kèm các cổng viền chuẩn (`exitX, exitY, entryX, entryY` là `0.0`, `0.5`, `1.0`).
+- **Dynamic Geometry Scaling (`MX_INV_05`)**: Chiều cao bảng $H = 43 \times (N_{\text{fields}} + 1)$, hành lang giao thông an toàn $\ge 60\text{px}$.
+- **Monochrome Academic Line-Art (`MX_INV_07`)**: Ưu tiên phong cách học thuật trắng đen (#ffffff fill, #000000 stroke).
+- **Playwright Headless Sidecar (`MX_INV_21`)**: Đo kích thước chữ và render ảnh độ phân giải cao qua sidecar, PIL uniform padding 25px chống cắt xén.
+
+### 4. Git & Workflow Protocol
+- **Dual-Run Baseline**: Trong suốt quá trình phát triển, các engine và script trong `legacy_engines/` luôn được bảo đảm khả năng thực thi độc lập.
+- **Verifiable Sub-Step Gate**: Chỉ commit khi hoàn thành một module con có test pass 100% và được người dùng phê duyệt commit message.
+- **Scope Boundary**: Chỉ commit vào repo con (`antigravity-doc-handler`), tuyệt đối không đụng vào main repo SAP trừ khi được chỉ định.

@@ -1,0 +1,73 @@
+{
+  "archived_at": "2026-09-18T13:06:00.283553",
+  "archived_by": "Antigravity AI",
+  "total_files": 11,
+  "files": [
+    {
+      "filename": "create_example_test01.py",
+      "reason": "Single-sheet test prototype; superseded by build_final_workbook.py",
+      "key_logic_preserved": "Direct token mapping from Example to test sheet",
+      "original_path": "tool/pdf_to_docx_converter/tools\\create_example_test01.py"
+    },
+    {
+      "filename": "create_example_test_sheet.py",
+      "reason": "Early prototype for example sheet; superseded by build_final_workbook.py",
+      "key_logic_preserved": "Extraction of row 9 header tokens",
+      "original_path": "tool/pdf_to_docx_converter/tools\\create_example_test_sheet.py"
+    },
+    {
+      "filename": "generate_report5_deliverables.py",
+      "reason": "Early dual-pipeline generator; superseded by build_final_workbook.py",
+      "key_logic_preserved": "Batch generation skeleton",
+      "original_path": "tool/pdf_to_docx_converter/tools\\generate_report5_deliverables.py"
+    },
+    {
+      "filename": "generate_enhanced_ux_excel.py",
+      "reason": "Early UX enhancement experiment; superseded by rule_excel_template_preservation_and_ux.md E2",
+      "key_logic_preserved": "Color badge ideas and freeze panes concepts",
+      "original_path": "tool/pdf_to_docx_converter/tools\\generate_enhanced_ux_excel.py"
+    },
+    {
+      "filename": "generate_chohung_unit_test.py",
+      "reason": "Specialized one-off deliverable; superseded by standardized template generator",
+      "key_logic_preserved": "ChoHung mapping structure",
+      "original_path": "tool/pdf_to_docx_converter/tools\\generate_chohung_unit_test.py"
+    },
+    {
+      "filename": "precision_template_injector.py",
+      "reason": "Direct in-place overwrite prototype; superseded by clone-and-mutate approach",
+      "key_logic_preserved": "Cell coordinate replacement heuristics",
+      "original_path": "tool/pdf_to_docx_converter/tools\\precision_template_injector.py"
+    },
+    {
+      "filename": "format_unit_test_files.py",
+      "reason": "Early legacy unit test formatter",
+      "key_logic_preserved": "Row height baseline settings",
+      "original_path": "tool/pdf_to_docx_converter/tools\\format_unit_test_files.py"
+    },
+    {
+      "filename": "inspect_example_tokens.py",
+      "reason": "Ad-hoc token inspector; consolidated into unified_qa_diagnostic.py",
+      "key_logic_preserved": "Cell signature extraction (font, fill, border, alignment)",
+      "original_path": "tool/pdf_to_docx_converter/tools\\inspect_example_tokens.py"
+    },
+    {
+      "filename": "inspect_full_example.py",
+      "reason": "Ad-hoc properties inspector; consolidated into unified_qa_diagnostic.py",
+      "key_logic_preserved": "Tab color and freeze panes inspection",
+      "original_path": "tool/pdf_to_docx_converter/tools\\inspect_full_example.py"
+    },
+    {
+      "filename": "verify_chohung.py",
+      "reason": "One-off verification script for ChoHung deliverable; consolidated into unified_qa_diagnostic.py",
+      "key_logic_preserved": "Sheet count check and cell value verification",
+      "original_path": "tool/pdf_to_docx_converter/tools\\verify_chohung.py"
+    },
+    {
+      "filename": "verify_semantic_fidelity.py",
+      "reason": "One-off semantic audit; consolidated into unified_qa_diagnostic.py",
+      "key_logic_preserved": "Function sheet list verification",
+      "original_path": "tool/pdf_to_docx_converter/tools\\verify_semantic_fidelity.py"
+    }
+  ]
+}

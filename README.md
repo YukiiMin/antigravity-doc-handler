@@ -5,7 +5,13 @@
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Antigravity IDE Ready](https://img.shields.io/badge/Antigravity_AI-Compatible-orange.svg)](AGENTS.md)
-[![Resolution: 300+ DPI](https://img.shields.io/badge/DPI-300%2B_Vector_Grade-purple.svg)](spec_diagram_engine.py)
+[![Architecture: v2.0 Modular doctools](https://img.shields.io/badge/Architecture-v2.0_Modular_doctools-blueviolet.svg)](WORKFLOW.md)
+[![Dual-Run Baseline: Preserved](https://img.shields.io/badge/Dual--Run_Baseline-Preserved-success.svg)](legacy_engines/README.md)
+
+> [!NOTE]
+> **Thông Báo Nâng Cấp Kiến Trúc v2.0 (`doctools`)**:
+> Dự án đang trong quá trình chuyển đổi sang bộ công cụ AI-Native 5 tầng chuẩn hóa (`doctools/`) với 3 module chuyên trách: **DOCX** (`docx.*`), **XLSX** (`xlsx.*`), và **DIAGRAM** (`diagram.*` - Draw.io pure mxGraphModel).
+> Toàn bộ các công cụ và script phiên bản v1.0 đã được di chuyển và bảo tồn nguyên vẹn tại [`legacy_engines/`](legacy_engines/) theo nguyên tắc **Dual-Run Baseline**. Chi tiết xem tại [WORKFLOW.md](WORKFLOW.md) và [AGENTS.md](AGENTS.md).
 
 ---
 

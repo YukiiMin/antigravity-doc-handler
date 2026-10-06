@@ -20,10 +20,15 @@ try:
 except ImportError:
     HAS_DND = False
 
+_CURR_DIR = os.path.dirname(os.path.abspath(__file__))
+if _CURR_DIR not in sys.path:
+    sys.path.insert(0, _CURR_DIR)
+
 try:
-    from .converter_engine import convert_universal, get_pdf_page_count
-except (ImportError, ValueError):
-    from converter_engine import convert_universal, get_pdf_page_count  # type: ignore
+    from converter_engine import convert_universal, get_pdf_page_count
+except ImportError:
+    from legacy_engines.converter_engine import convert_universal, get_pdf_page_count  # type: ignore
+
 
 
 class UniversalDocStudioApp:
