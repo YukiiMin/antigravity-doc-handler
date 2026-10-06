@@ -123,6 +123,7 @@ báo lỗi         phân tích evidence thử lại (max 2)   qua /grill-me  ch�
 ## 5. Quy Chuẩn Git Tracking Cho Solo Dev + AI Agent
 
 - **Mô hình nhánh**: Nhánh `main` sạch 100%; Nhánh `archive/legacy-v1` lưu bảo tồn code cũ lên GitHub sau Phase 0.1; Nhánh phát triển theo Phase (`feat/phase-X-...`).
+- **Quy chuẩn mã hóa Micro-Commit**: Mỗi Phase X được phân rã thành các mục lớn theo độ ưu tiên: `X.1` (MVP), `X.2` (P1), `X.3` (P2). Khi triển khai thực tế, Agent chia thành các tiểu bước kiểm chứng được: `X.Y.0`, `X.Y.1`, `X.Y.2`... Mỗi tiểu bước có unit test pass 100% $\rightarrow$ Agent đề xuất commit $\rightarrow$ User duyệt $\rightarrow$ Mới commit.
 - **Điểm kích hoạt commit (Verifiable Sub-Step Gate)**: Hoàn thành 1 module con + pass 100% test $\rightarrow$ Agent dừng lại, in bằng chứng pass test, đề xuất commit message $\rightarrow$ Người dùng duyệt $\rightarrow$ Mới commit.
 - **Format commit**: `type(scope): description [Gate/TC ref]` (vd: `feat(infra): implement FileStore with TTL cleanup [UG-01, DGM-TC-01]`).
 - **Cơ chế phục hồi lỗi**: Keep Dirty State kèm `git diff` rõ ràng khi vi phạm luật Max 1 Fix Attempt.
