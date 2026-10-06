@@ -40,4 +40,6 @@ legacy_engines/scratch/
 ~$*
 tools/archive/
 data-set/
+.agent_scratchpad.md
+
 
