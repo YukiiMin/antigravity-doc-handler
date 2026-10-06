@@ -174,7 +174,7 @@ This repository is built natively for AI Agents operating in **Google Antigravit
 ### Included Customizations:
 - `.agents/skills/doc-handler/SKILL.md`: Instructs AI agents on converting documents, fixing table splits, and formatting headings.
 - `.agents/skills/technical-diagrams/SKILL.md`: Instructs AI agents on composing declarative JSON specs, calculating zero-overlap layouts, and routing lines.
-- `.agents/rules/rule_decoupled_document_converter.md`: System invariants for document fidelity and diagram styling.
+- `.agents/rules/rule_docx_engine_standards.md`: Word OOXML invariants, Tag Order Registry, Dual-path builder, and table fidelity standards.
 - `AGENTS.md`: Full AI agent operational guide.
 
 ### Sample AI Prompt:

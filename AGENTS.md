@@ -14,9 +14,12 @@ Welcome, AI Agent! This file is your operational manual for `antigravity-doc-han
 
 The workspace includes preconfigured Antigravity customizations:
 - **Skill 1**: [doc-handler](.agents/skills/doc-handler/SKILL.md) — PDF/Word/Markdown conversion, OpenXML table repair, document inspection, and JSON supremacy mental model.
-- **Skill 2**: [technical-diagrams](.agents/skills/technical-diagrams/SKILL.md) — Declarative diagram rendering (`spec-render`), orthogonal Manhattan routing, multi-line wrapping, and collision prevention.
-- **Rule 1**: [rule_technical_diagram_standards.md](.agents/rules/rule_technical_diagram_standards.md) — Mandatory standards for English screen names, codebase-truth action labels, multi-line wrapping (`\n`), and automated AABB collision detection.
-- **Rule 2**: [rule_decoupled_document_converter.md](.agents/rules/rule_decoupled_document_converter.md) — Mandatory standards for table OpenXML invariants (`cantSplit`, `tblHeader`, `vAlign="center"`) and decoupled styling.
+- **Skill 2**: [excel-handler](.agents/skills/excel-handler/SKILL.md) — XLSX Engine & Spreadsheet Automation, in-place template mutation, Tokenizer formula shifting, lxml Cache Writer, and two-tier UG/PG validation.
+- **Skill 3**: [mxgraph-diagram-engineering](.agents/skills/mxgraph-diagram-engineering/SKILL.md) — AI-Native Diagram Engineering for Draw.io (mxGraphModel), topology planning, orthogonal routing, headless rendering, visual inspection, and layout auto-repair.
+- **Rule 1**: [rule_diagram_engine_standards.md](.agents/rules/rule_diagram_engine_standards.md) — Mandatory standards for Draw.io mxGraphModel invariants (`MX_INV_01..21`, DG-00..08, PG profiles, no manual coordinate guessing, snug label masks).
+- **Rule 2**: [rule_docx_engine_standards.md](.agents/rules/rule_docx_engine_standards.md) — Mandatory standards for Word OOXML invariants (`cantSplit`, `tblHeader`, `Tag Order Registry`), Dual-path builder, and Run Consolidator.
+- **Rule 3**: [rule_xlsx_engine_standards.md](.agents/rules/rule_xlsx_engine_standards.md) — Mandatory standards for Excel OOXML invariants (Shift Tokenizer, Cache Writer `<v>`, DrawingML preservation, Two-tier UG/PG verification, Grill-Before-Deviate).
+- **Master Workflows**: [WORKFLOW.md](WORKFLOW.md) — End-to-end execution workflows for DOCX, XLSX, and DIAGRAM Modules (Path A Template/DSL, Path B Spec, Triage, Cross-module pipelines).
 
 ---
 

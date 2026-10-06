@@ -32,10 +32,9 @@ Khi bắt đầu làm bất kỳ tác vụ nào thuộc domain dưới đây, **
 | UI5 Controller, OData call, fetchJson, JSONModel | `rule_ui5_controller_linter_standards.md` |
 | TR Tree, CTS hierarchy, SE09, TADIR object resolution | `rule_sap_cts_tr_hierarchy.md` |
 | Search screen, empty query validation | `rule_search_validation.md` |
-| Technical diagram, ERD, DB schema | `rule_technical_diagram_standards.md` + `rule_database_erd_standards.md` |
-| Draw.io, mxGraphModel, .drawio, XML diagram, diagram rendering | `rule_mxgraph_drawio_diagram_standards.md` |
-| Document converter, PDF export | `rule_decoupled_document_converter.md` |
-| Excel Template, openpyxl, Spreadsheet Data Injection, Matrix UX | `rule_excel_template_preservation_and_ux.md` |
+| Technical diagram, Draw.io, ERD, mxGraphModel, .drawio, XML diagram, diagram rendering | `rule_diagram_engine_standards.md` |
+| DOCX Engine, Document converter, OpenXML | `rule_docx_engine_standards.md` |
+| Excel Template, openpyxl, Spreadsheet Data Injection, Matrix UX, XLSX Engine | `rule_xlsx_engine_standards.md` |
 | Docx/Excel QA, unified_qa_diagnostic, OpenXML, DrawingML, Table borders | `rule_enterprise_document_and_spreadsheet_qa.md` |
 | `/learn` invoked, writing new Rule, writing new Skill | `rule_learning_and_skill_authoring.md` |
 | git commit, git push | `rule_git_workflow.md` |
