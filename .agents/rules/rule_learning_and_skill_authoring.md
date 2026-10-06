@@ -1,19 +1,19 @@
 ---
 trigger: model_decision
-description: Quy chuẩn tác giả Rules và Skills (Meta-Rule cho /learn, cấu trúc SKILL.md, Progressive Disclosure và chống rule bloat)
+description: Meta-rule for /learn command, rule authoring, skill creation, progressive disclosure, and preventing context bloat. Hướng dẫn viết rules và skills, cấu trúc SKILL.md, học kinh nghiệm, chống học vẹt, tối ưu hóa token budget.
 ---
 
 # Rule: How to Write Rules & Skills (Meta-Rule for `/learn`)
 
-> **Scope**: Applies every time `/learn` is invoked or a new rule/skill file is being authored.
-> This rule governs the quality and generality of all rules and skills in this repository.
+> **Scope**: Applies every time `/learn` is invoked or a new rule/skill file is being authored.  
+> This rule governs the quality, generality, and architecture of all rules and skills in this repository.
 
 ---
 
 ## Core Principle: Generalize the Mechanism, Never Memorize the Output
 
 A learning is **only valuable** if it prevents an entire *class* of mistakes — not just a single instance.
-Rules that hardcode a one-time observed value ("learned" from a specific file) are *learning vẹt* (rote memorization) and must be rejected.
+Rules that hardcode a one-time observed value ("learned" from a specific file) are *rote memorization* and MUST be rejected.
 
 ---
 
@@ -26,9 +26,9 @@ A rule **MUST satisfy at least one** of the following conditions:
 | **Generality ≥ 3** | The principle is applicable in 3 or more distinct situations across different files, projects, or domains. |
 | **Critical Prevention** | User explicitly requests the rule be recorded to prevent one specific catastrophic mistake from ever recurring. Even if domain-specific, treat it as a protected invariant for that domain. |
 
-A rule is **INVALID** (learning vẹt) if:
+A rule is **INVALID** (rote memorization) if:
 - It hardcodes a concrete observed value (a color hex, font name, pixel size, row number) from one specific file.
-- The "rule" is really a description of what was done in one session — not a transferable principle.
+- The "rule" is merely a journal entry describing what was done in one session rather than a transferable principle.
 - It cannot be applied by an AI that has never seen the original file, user, or session.
 
 ---
@@ -38,14 +38,14 @@ A rule is **INVALID** (learning vẹt) if:
 ### ✅ Ask "Why?" not "What?"
 The rule must capture the **reasoning principle**, not the **observed outcome**.
 
-| Bad (learning vẹt) | Good (transferable principle) |
+| Bad (Rote Memorization) | Good (Transferable Principle) |
 |---|---|
 | `Font for 'O' marks is Tahoma 12pt Bold` | `Extract mark cell font from the reference Example/Template sheet; never hardcode` |
 | `fill = #000080` | `fill = extracted from ws_example[ref_cell].fill — the template's own value` |
 | `Statistics C12 = ='Function 1'!A7` | `Summary cells MUST be live cross-sheet formulas; never hardcode aggregate numbers` |
 
 ### ✅ Replace concrete values with the derivation method
-```
+```python
 # Bad:
 MARK_FONT = Font(name='Tahoma', size=12, bold=True)
 
@@ -56,18 +56,17 @@ MARK_FONT = copy(ref_cell.font)  # derived from the workbook itself, not guessed
 
 ### ✅ Triggerable in isolation
 The rule must be actionable by an AI that has **never seen the original file**.
-Test this by asking: "If I read only this rule with no other context, will I produce the correct behavior?"
+Test this by asking: *"If I read only this rule with no other context, will I produce the correct behavior?"*
 
 ### ✅ Abstract over projects and files
 Never mention specific file names, sheet names, or cell addresses as the rule's anchor.
-Use abstract concepts: "the reference sheet", "the first populated equivalent cell", "the template's established region".
+Use abstract concepts: *"the reference sheet"*, *"the first populated equivalent cell"*, *"the template's established region"*.
 
 ---
 
 ## 3. The "One-Time Exception" Pattern
 
 When user explicitly says **"record this specific case to never repeat it"**:
-
 Write the rule with two parallel entries:
 
 ```markdown
@@ -100,7 +99,7 @@ Write the rule with two parallel entries:
 ### ✅ Skills must reference rules, not duplicate them
 ```markdown
 # In a skill:
-> See `rule_excel_template_preservation_and_ux.md` for format extraction invariants.
+> See `rule_xlsx_engine_standards.md` for format extraction invariants.
 # Do NOT re-paste the rule content — it will drift out of sync.
 ```
 
@@ -114,18 +113,18 @@ Every skill must include at minimum:
 ## 5. `/learn` Session Workflow (Mandatory Steps)
 
 1. **Identify the mistake class** — not just what broke, but *why* it would break again.
-2. **Determine scope** — is this universal (≥3 scenarios) or critical-prevention (user-requested specific case)?
-3. **Draft** the rule in `learning_proposal.md` artifact using the above checklist.
+2. **Determine scope** — is this universal ($\ge 3$ scenarios) or critical-prevention (user-requested specific case)?
+3. **Draft** the rule in a `learning_proposal.md` artifact using the above checklist.
 4. **Set `RequestFeedback = true`** — never modify rule/skill files before user approval.
-5. **Execute** only after explicit approval (or auto-approval via review policy).
-6. **Sync** to both repos if the rule applies to the tool sub-repository as well.
+5. **Execute** only after explicit approval.
+6. **Sync** to both repos if the rule applies to the parent workspace as well.
 
 ---
 
 ## 6. Architecture & Progressive Disclosure Standards
 
-Mọi Rule và Skill mới tạo hoặc sửa đổi bắt buộc phải tuân thủ chuẩn kiến trúc phân tầng tại skill `agent-context-architecture`:
-- **Frontmatter Rule**: Bắt buộc chỉ rõ `trigger:` (`glob` với `globs:`, hoặc `model_decision` với `description:`). Không để trống `globs:` dẫn đến lỗi `0/250` trên IDE.
-- **Ngân sách**: File Rule không quá 12,000 ký tự; toàn bộ rules kích hoạt không quá 20,000 tokens.
-- **Progressive Disclosure**: Chuyển các quy trình đa bước phức tạp thành Skill Package (`SKILL.md` + `references/` + `scripts/`), không viết tài liệu dạng monolithic.
-- Chi tiết xem tại [.agents/skills/agent-context-architecture/SKILL.md](file:///d:/Minh/For_myself/ZSCORT_GSU26_SAP05/tool/pdf_to_docx_converter/.agents/skills/agent-context-architecture/SKILL.md).
+All newly created or modified rules and skills MUST adhere to the layered context architecture defined in skill `agent-context-architecture`:
+- **Rule Frontmatter**: Must explicitly declare `trigger:` (`glob` with `globs:`, or `model_decision` with `description:`). Never leave `globs:` empty, which triggers IDE warnings.
+- **Budget**: Individual rule files must not exceed 12,000 characters; active rule sets must stay well within the 20,000 token limit.
+- **Progressive Disclosure**: Encapsulate complex multi-step processes into structured skill packages (`SKILL.md` + `references/` + `scripts/`), avoiding monolithic rule dumps.
+- For full details, see [.agents/skills/agent-context-architecture/SKILL.md](file:///d:/Minh/For_myself/ZSCORT_GSU26_SAP05/tool/pdf_to_docx_converter/.agents/skills/agent-context-architecture/SKILL.md).

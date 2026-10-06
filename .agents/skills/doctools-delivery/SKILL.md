@@ -1,68 +1,68 @@
 ---
 name: doctools-delivery
-description: Quy trình phân phối và nghiệm thu mã nguồn doctools: Micro-Commit Cadence (X.Y.Z), Git Workflow Gates, Triage Diagnostics và quy trình chuyển đổi liên module.
+description: Delivery protocol and verification cadence for doctools: Micro-Commit Cadence (X.Y.Z), Git workflow gates, diagnostics triage, and cross-module pipelines. Nghiệm thu mã nguồn, kỷ luật commit, quy trình phân phối, commit cho tôi, chẩn đoán lỗi, pipeline liên module.
 ---
 
 # Skill: doctools-delivery
 
-> **Purpose**: Chuẩn hóa toàn bộ quy trình phát triển, kiểm thử, phân phối (delivery) và nghiệm thu mã nguồn giữa Solo Dev và AI Agent trong dự án `doctools`.
+> **Purpose**: Standardize the development, verification, delivery, and acceptance protocol between solo developers and AI agents across the `doctools` suite.
 
 ---
 
 ## 1. When to Use
-Kích hoạt khi:
-- Bắt đầu triển khai hoặc nghiệm thu một Phase / Sub-step trong Master Plan (`X.Y.Z`).
-- Cần thực hiện kiểm định chất lượng, chạy test suite, và đóng gói commit Git.
-- Cần điều phối luồng xử lý liên module (Cross-Module: XLSX $\rightarrow$ DOCX, DIAGRAM $\rightarrow$ DOCX).
-- Xử lý và phân loại lỗi / cảnh báo chẩn đoán (`Diagnostics` triage).
+Activate this skill when:
+- Starting or completing a phase or sub-step in the Master Plan (`X.Y.Z`).
+- Running test suites, verifying quality gates, and packaging Git commits.
+- Coordinating cross-module pipelines (e.g., XLSX $\rightarrow$ DOCX, DIAGRAM $\rightarrow$ DOCX).
+- Triaging engine diagnostics, errors, and warnings.
 
 ---
 
 ## 2. Micro-Commit Cadence (`X.Y.Z`) & Git Gate
 
-Quy tắc bất biến cho mọi Phase phát triển:
-1. **Phân rã mã số vi mô**:
-   - `X`: Phase lớn (`1`: DOCX, `2`: XLSX, `3`: DIAGRAM).
-   - `Y`: Nhóm tính năng theo ưu tiên (`1`: MVP, `2`: P1, `3`: P2).
-   - `Z`: Tiểu bước kiểm chứng được (`0`, `1`, `2`...).
-2. **Kỷ luật Verifiable Gate**:
-   - Mỗi tiểu bước `X.Y.Z` phải có unit test độc lập.
-   - Chạy toàn bộ test suite đạt **100% PASS**.
-   - Agent dừng lại, in bằng chứng pass test và đề xuất lệnh commit.
-   - **BẮT BUỘC có phê duyệt tường minh của User mới được commit và push**.
-   - Chi tiết: Xem [references/micro_commit_cadence.md](references/micro_commit_cadence.md).
+Core cadence for every development phase:
+1. **Micro-Cadence Code Structure**:
+   - `X`: Major phase (`1`: DOCX, `2`: XLSX, `3`: DIAGRAM).
+   - `Y`: Feature priority tier (`1`: MVP, `2`: P1, `3`: P2).
+   - `Z`: Verifiable sub-step (`0`, `1`, `2`...).
+2. **Verifiable Gate Discipline**:
+   - Each sub-step `X.Y.Z` requires independent unit tests.
+   - Run the full test suite to confirm **100% PASS**.
+   - The Agent halts, prints test pass evidence, and proposes a commit command.
+   - **MANDATORY explicit user approval before executing `git commit` and `git push`**.
+   - See [references/micro_commit_cadence.md](references/micro_commit_cadence.md).
 
 ---
 
 ## 3. Decision Tree: Triage & Delivery Flow
 
 ```
-                      [Triển khai Tiểu bước X.Y.Z]
-                                   │
-                                   ▼
-                       [Chạy Test Suite Toàn Diện]
-                                   │
-            ┌──────────────────────┴──────────────────────┐
-            ▼                                             ▼
-       [Có Tests Thất Bại]                           [100% Tests PASS]
-            │                                             │
-      [Max 1 Fix Attempt]                                 ▼
-      Thử sửa 1 lần duy nhất                     [Đề xuất Git Commit]
-            │                                 Format: feat(scope): ... [Gate]
-     ┌──────┴──────┐                                      │
-     ▼             ▼                                      ▼
-[Pass 100%]    [Vẫn Lỗi]                         [User Duyệt Tường Minh]
-     │             │                                      │
-     │       DỪNG LẠI NGAY!                               ▼
-     │       Giải thích root cause,              [Thực thi Commit & Push]
-     │       chờ phản hồi của User                        │
-     │                                                    ▼
-     └───────────────────────────────────────► [Chuyển sang X.Y.(Z+1)]
+                      [Implement Sub-step X.Y.Z]
+                                  │
+                                  ▼
+                     [Run Comprehensive Test Suite]
+                                  │
+           ┌──────────────────────┴──────────────────────┐
+           ▼                                             ▼
+     [Tests Failed]                               [100% Tests PASS]
+           │                                             │
+     [Max 1 Fix Attempt]                                 ▼
+   Attempt single fix attempt                   [Propose Git Commit]
+           │                                 Format: feat(scope): ... [Gate]
+    ┌──────┴──────┐                                      │
+    ▼             ▼                                      ▼
+[Pass 100%]    [Still Fails]                    [Explicit User Approval]
+    │             │                                      │
+    │       HALT IMMEDIATELY!                            ▼
+    │       Explain root cause,                 [Execute Commit & Push]
+    │       await user guidance                          │
+    │                                                    ▼
+    └───────────────────────────────────────► [Advance to X.Y.(Z+1)]
 ```
 
 ---
 
 ## 4. Diagnostics Triage & Cross-Module References
 
-- **Xử lý chẩn đoán**: Xem [references/diagnostics_triage.md](references/diagnostics_triage.md) để phân loại `errors` vs `warnings` (`W-DEV-*` kích hoạt `/grill-me`).
-- **Quy trình liên module**: Xem [references/cross_module_pipelines.md](references/cross_module_pipelines.md) cho các pipeline tích hợp DOCX + XLSX + DIAGRAM.
+- **Diagnostics Triage**: See [references/diagnostics_triage.md](references/diagnostics_triage.md) for categorizing `errors` vs `warnings` (`W-DEV-*` triggers `/grill-me`).
+- **Cross-Module Pipelines**: See [references/cross_module_pipelines.md](references/cross_module_pipelines.md) for integrated pipelines combining DOCX, XLSX, and DIAGRAM.

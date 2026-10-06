@@ -1,29 +1,29 @@
 # Reference: Activation Modes, Triggers & Frontmatter Parsing
 
-> **Module**: `agent-context-architecture`
-> **Mục tiêu**: Chuẩn hóa 4 chế độ kích hoạt Rule trong Antigravity IDE, giải mã cơ chế parser nội bộ của extension và phòng tránh lỗi giao diện GUI rỗng mẫu Glob (`0/250`).
+> **Module**: `agent-context-architecture`  
+> **Purpose**: Standardize the 4 rule activation modes in Antigravity IDE, decode the internal parser mechanics, and prevent empty glob pattern UI warnings (`0/250`).
 
 ---
 
-## 1. Bốn Chế Độ Kích Hoạt Của Rule
+## 1. The 4 Rule Activation Modes
 
-Trong Antigravity IDE, mỗi file rule tại `.agents/rules/*.md` có thể được cấu hình với 1 trong 4 chế độ:
+In Antigravity IDE, each rule file under `.agents/rules/*.md` can be configured with one of 4 activation triggers:
 
-| Activation Mode | Thuộc tính `trigger:` | Trường đi kèm bắt buộc | Khi nào nên dùng? | Chi phí Token |
+| Activation Mode | `trigger:` Property | Required Companion Field | When to Use | Token Cost |
 |---|---|---|---|---|
-| **Glob** | `glob` | `globs: <pattern>` | Khi rule chỉ áp dụng cho nhóm file/thư mục cụ thể (vd: `*.docx`, `doctools/core/**`) | Tối ưu nhất (Chỉ tốn token khi chạm đúng file) |
-| **Model Decision** | `model_decision` | `description: <text>` | Khi rule phụ thuộc ngữ cảnh bài toán (vd: QA, Refactoring, Git, Auth) | Rất tốt (Model tự cân nhắc nạp dựa trên description) |
-| **Always-On** | `always_on` | *(không có)* | Bất biến tối quan trọng không thể bỏ qua ở bất kỳ bước nào | Đắt nhất (Chiếm dung lượng trong mọi prompt) |
-| **Manual** | `manual` | *(không có)* | Chỉ nạp khi người dùng gõ tường minh `@rule_name` vào khung chat | Không tốn token tự động |
+| **Glob** | `glob` | `globs: <pattern>` | Rule applies strictly to specific files/directories (e.g., `*.docx`, `doctools/core/**`) | Highly optimal (Only loaded when touching matching files) |
+| **Model Decision** | `model_decision` | `description: <text>` | Rule depends on task semantics (e.g., QA, Git, Delivery, Meta-learning) | Very efficient (Model evaluates relevance via description) |
+| **Always-On** | `always_on` | *(none)* | Supreme invariants critical across every single turn and iteration | Highest cost (Occupies tokens in every prompt) |
+| **Manual** | `manual` | *(none)* | Loaded strictly when user explicitly types `@rule_name` in chat | Zero automatic token cost |
 
 ---
 
-## 2. Giải Mã Cơ Chế Parser Nội Bộ Của Antigravity IDE
+## 2. Antigravity IDE Internal Parser Mechanics
 
-Trình soạn thảo quy tắc tùy biến trong extension Antigravity (module `extension.js`) không sử dụng một thư viện YAML đầy đủ mà duyệt theo từng dòng ký tự:
+The rule editor extension in Antigravity IDE (`extension.js`) parses frontmatter line-by-line rather than using a full YAML engine:
 
 ```javascript
-// Trích xuất logic phân tích cú pháp từ extension.js
+// Frontmatter parser extraction from extension.js
 const lines = rawText.split('\n');
 let trigger = 'always_on';
 let globParam = '';
@@ -40,49 +40,50 @@ for (const line of lines) {
 }
 ```
 
-### 2.1. Phân tích nguyên nhân lỗi "Glob Pattern 0/250"
-Khi người dùng hoặc Agent tạo file markdown có frontmatter:
+### 2.1. Root Cause Analysis of "Glob Pattern 0/250"
+When an author writes frontmatter missing the `globs:` field:
 ```yaml
 ---
 trigger: glob
 ---
 ```
-Do thiếu dòng `globs: ...`, parser của IDE gán `globParam = ''`. Khi hiển thị lên giao diện Webview Custom Editor:
-- Dropdown **Activation Mode** hiển thị là `Glob`.
-- Ô nhập liệu **Glob Pattern** hiển thị rỗng: `Enter glob pattern... 0/250`.
-- **Hậu quả**: Rule này **không bao giờ được kích hoạt** vì không có pattern nào khớp!
+Because `globs:` is omitted, `globParam` defaults to empty string `''`. In the Custom Editor Webview UI:
+- Dropdown **Activation Mode** shows `Glob`.
+- Textbox **Glob Pattern** displays empty: `Enter glob pattern... 0/250`.
+- **Consequence**: The rule is **NEVER triggered** because no file paths match an empty pattern!
 
 ---
 
-## 3. Cú Pháp Chuẩn Xác Cho Từng Chế Độ
+## 3. Standard Syntax for Each Trigger Mode
 
-### 3.1. Cấu hình Chế độ Glob (Chính xác 100%)
+### 3.1. Glob Mode Configuration
 ```yaml
 ---
 trigger: glob
 globs: doctools/**/docx/**, tests/test_docx/**, **/*.docx
+description: Concise bilingual summary for fallback semantic matching
 ---
 ```
-> **Lưu ý**: Các pattern phân cách bằng dấu phẩy `,`. Sử dụng `**` để đệ quy thư mục con.
+> **Note**: Separate patterns with commas `,`. Use `**` for recursive directory matching.
 
-### 3.2. Cấu hình Chế độ Model Decision (Kèm mô tả súc tích)
+### 3.2. Model Decision Mode Configuration
 ```yaml
 ---
 trigger: model_decision
-description: Quy chuẩn kiểm toán chất lượng, bảo toàn DrawingML và sửa chữa tài liệu văn phòng
+description: Technical summary in English followed by Vietnamese semantic keywords
 ---
 ```
-> **Lưu ý**: Dòng `description` phải nêu rõ **từ khóa kích hoạt** và **miền nghiệp vụ** để AI Agent có thể đánh giá chính xác khi nào nên tải rule vào ngữ cảnh.
+> **Note**: The `description` field MUST contain both concise English technical concepts and common Vietnamese domain keywords so the LLM triggers reliably across both languages.
 
-### 3.3. Cấu hình Chế độ Always-On
+### 3.3. Always-On Mode Configuration
 ```yaml
 ---
 trigger: always_on
 ---
 ```
-> **Khuyến nghị**: Chỉ sử dụng `always_on` cho các quy tắc phục hồi ngữ cảnh (`rule_context_recovery_protocol.md`) hoặc các bất biến an toàn dữ liệu khẩn cấp. Không dùng quá 2 file `always_on` trong một repo.
+> **Guideline**: Reserve `always_on` strictly for emergency safety invariants or context recovery protocols. Never exceed 2 `always_on` rules in a repository.
 
-### 3.4. Cấu hình Chế độ Manual
+### 3.4. Manual Mode Configuration
 ```yaml
 ---
 trigger: manual
@@ -91,10 +92,10 @@ trigger: manual
 
 ---
 
-## 4. Bảng Kiểm Tra Nhanh Trước Khi Hoàn Tất Rule (Checklist)
+## 4. Pre-Flight Rule Checklist
 
-- [ ] File có chứa thẻ mở đầu `---` và kết thúc `---` cho frontmatter.
-- [ ] Nếu `trigger: glob` $\rightarrow$ Đã có dòng `globs:` với pattern hợp lệ, không để trống.
-- [ ] Nếu `trigger: model_decision` $\rightarrow$ Đã có dòng `description:` nêu rõ mục tiêu và miền tác vụ.
-- [ ] Độ dài toàn bộ file rule không vượt quá 12,000 ký tự (giới hạn cảnh báo của IDE).
-- [ ] Mở file trên Antigravity IDE UI kiểm tra: Ô input không hiển thị `0/250` khi chọn Glob.
+- [ ] File has valid opening `---` and closing `---` frontmatter markers.
+- [ ] If `trigger: glob` $\rightarrow$ contains `globs:` with valid patterns, never empty.
+- [ ] If `trigger: model_decision` $\rightarrow$ contains `description:` with bilingual keywords.
+- [ ] Total rule file size does not exceed 12,000 characters (IDE warning threshold).
+- [ ] Webview UI verifies without empty `0/250` glob warnings.

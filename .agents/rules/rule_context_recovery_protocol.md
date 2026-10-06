@@ -1,73 +1,81 @@
 ---
 trigger: model_decision
-description: Mandatory context recovery protocol after conversation truncation (CHECKPOINT signal)
+description: Mandatory context recovery protocol after conversation truncation, session restart, or checkpoint signals. Phục hồi ngữ cảnh sau khi bị ngắt quãng, tín hiệu CHECKPOINT, mở session mới, nạp lại GEMINI.md và scratchpad, không đoán mò.
 ---
 
-# Context Recovery Protocol After Truncation
+# Rule: Context Recovery Protocol After Truncation
 
 ## 1. CHECKPOINT Detection & Mandatory Recovery Sequence
 
-Khi conversation bắt đầu bằng hoặc chứa `{{ CHECKPOINT N }}` (system-injected truncation summary):
+When a conversation starts with or contains `{{ CHECKPOINT N }}` (system-injected truncation summary), or upon opening a brand-new session:
 
-**TRƯỚC KHI** xử lý bất kỳ user request nào, bắt buộc thực hiện theo thứ tự:
+**BEFORE** processing any user request, you MUST execute the following sequence in exact order:
 
-1. **Đọc `GEMINI.md`** tại workspace root — critical invariants checklist cho toàn bộ project.
-2. **Đọc `.agent_scratchpad.md`** — current goal, completed steps, remaining TODOs.
-3. **Không đọc thêm rule files khác** trong recovery sequence (tránh token waste — GEMINI.md đã đủ).
-4. Nội tâm confirm: "GEMINI.md đã load, scratchpad đã đọc" → proceed xử lý user request.
+1. **Read `GEMINI.md`** at the workspace root — critical invariants checklist for the entire project.
+2. **Read `.agent_scratchpad.md`** — current goal, completed steps, and remaining TODOs.
+3. **Do NOT read additional rule files** during the recovery sequence (avoids token waste — `GEMINI.md` is sufficient).
+4. Perform internal check: *"GEMINI.md loaded, scratchpad read"* → proceed with processing the user request.
 
-**Không được skip bước này dù user đã mô tả task trong message đầu tiên.**
+**NEVER skip this sequence, even if the user provides a detailed task description in the first prompt.**
+
+---
 
 ## 2. Mid-Session Rule Self-Check
 
-Khi chuẩn bị viết code mà gặp một trong các pattern sau, **dừng lại và check GEMINI.md trước**:
+When preparing to write code and encountering any of the following patterns, **STOP and verify `GEMINI.md` first**:
 
-- Chuẩn bị viết `FOR ALL ENTRIES` với 2 bảng khác nhau (type mismatch risk)
-- Chuẩn bị thêm comment giải thích vào ABAP class body
-- Chuẩn bị dùng `encodeURIComponent()` trong OData URL
-- Chuẩn bị viết `fetchJson().then(function(oData) { if (oData.SomeField)` (array treated as object)
-- Chuẩn bị gọi auto-apply sau release TR
+- Preparing to write cross-table joins with mismatched keys or schemas.
+- Preparing to add conversational fluff or explanatory commentary inside production code blocks.
+- Preparing to write regex-based formula string replaces instead of tokenizer AST parsing.
+- Preparing to overwrite table cell text directly via `cell.text = "..."` instead of run-level mutation.
+- Preparing to execute unapproved git commits or pushes.
+
+---
 
 ## 3. Scratchpad Discipline
 
-- `.agent_scratchpad.md` là **nguồn truth duy nhất** cho task state giữa các session.
-- Cập nhật scratchpad **TRƯỚC KHI** kết thúc mỗi response khi task có > 3 steps.
-- Khi checkpoint xảy ra, scratchpad là cầu nối duy nhất cho task context còn lại.
-- Format bắt buộc:
-  ```
+- `.agent_scratchpad.md` is the **single source of truth** for task state across iterations and sessions.
+- Update the scratchpad **BEFORE** ending every response whenever a task has $> 3$ steps.
+- When a checkpoint occurs, the scratchpad is the primary bridge preserving operational context.
+- Mandatory structure:
+  ```markdown
   ## Current Goal
   ## Progress / Completed Steps
   ## Key Decisions Made
   ## Remaining TODOs
   ```
 
+---
+
 ## 4. Token Economy During Recovery
 
-- **Không** đọc toàn bộ 17 rule files sau checkpoint — quá tốn token.
-- `GEMINI.md` là file duy nhất cần đọc trong recovery. Nó chứa invariants cô đọng từ toàn bộ rules.
-- Nếu cần chi tiết về một rule cụ thể → đọc đúng file đó trong `.agents/rules/`.
+- **Do NOT** read all rule files after a checkpoint — this consumes excessive context budget.
+- `GEMINI.md` is the sole mandatory recovery file. It consolidates the essential invariants from all domain rules.
+- When details of a specific domain are required, selectively inspect that exact file in `.agents/rules/`.
 
-## 5. Zero-Assumption Context & Clarification Protocol (Session Mới & Template Mới)
+---
 
-Khi tiếp nhận một session mới, một máy mới hoặc một bài toán sinh tài liệu/code với bộ template mới:
+## 5. Zero-Assumption Context & Clarification Protocol (New Sessions & Templates)
 
-### A. Anatomy Inspection (Khảo sát cấu trúc bắt buộc TRƯỚC KHI code)
-1. Khảo sát toàn diện Template gốc:
-   - Các sheet tổng quan (`Cover`, `Functions`, `Statistics`...) và sheet chi tiết tham chiếu (`Example`, `Template`...).
-   - Đếm số dòng mẫu, vị trí hàng Subtotal/Total, các công thức KPI động (`=COUNTIF`, `=SUM`), và tọa độ/chuỗi tham chiếu của Biểu đồ (Charts).
-   - Kiểm tra font chữ, cỡ chữ, màu nền, viền và thiết lập Auto-scaling/Wrap text.
-2. Khảo sát Dataset đầu vào (Input):
-   - Số lượng bản ghi/hàm thực tế, cấu trúc trường dữ liệu, kiểu dữ liệu (raw values vs computed).
-   - Nhận diện nguy cơ thay đổi độ cao bảng khiến dòng Subtotal dời vị trí làm gãy công thức chart.
+When receiving a new session, new machine setup, or generating code/documents against a new template set:
+
+### A. Mandatory Anatomy Inspection (Inspect BEFORE Coding)
+1. Comprehensive inspection of the base template:
+   - Overview sheets (`Cover`, `Functions`, `Statistics`) and detailed reference sheets (`Example`, `Template`).
+   - Count prototype rows, locate Subtotal/Total rows, dynamic KPI formulas (`=COUNTIF`, `=SUM`), and chart series/anchor coordinates.
+   - Inspect typography (font, size), fill colors, borders, and auto-scaling/wrap text flags.
+2. Comprehensive inspection of input datasets:
+   - Volume of actual records, field schemas, data types (raw values vs computed).
+   - Identify risks of table expansion displacing summary rows and breaking chart ranges.
 
 ### B. Context Gap Analysis & Clarification Trigger
-Nếu phát hiện bất kỳ dấu hiệu nào sau đây:
-- Số lượng dòng thực tế khác với template mẫu (ví dụ: template 3 dòng nhưng input 20 dòng).
-- File template có biểu đồ hoặc khối thống kê phụ thuộc vào vị trí dòng Subtotal.
-- Có sự mơ hồ trong cách phân bổ dữ liệu vào các nhóm (Precondition vs Input parameters vs Condition marks).
-- Format file input bị lỗi (bị shrink font size, sai viền, mất merge) so với Template chuẩn.
+If any of the following symptoms are detected:
+- Row counts differ drastically from template defaults (e.g., template has 3 rows but input has 20 rows).
+- Template contains charts or summary blocks dependent on Subtotal row positioning.
+- Ambiguity in categorizing data groups (Precondition vs Input parameters vs Condition marks).
+- Input file formatting contains anomalies (shrunken fonts, mismatched borders, missing merges) compared to reference standards.
 
-👉 **BẮT BUỘC DỪNG LẠI (STOP) & HỎI NGƯỜI DÙNG**:
-- Liệt kê rõ các điểm khác biệt và đề xuất phương án xử lý cụ thể.
-- Sử dụng công cụ `ask_question` hoặc `/grill-me` để chốt 100% phương án trước khi viết code.
-- **TUYỆT ĐỐI KHÔNG** tự ý đoán mò, làm rồi sửa nhiều lần gây lãng phí token và thời gian.
+👉 **MANDATORY STOP & ASK THE USER**:
+- Explicitly list observed discrepancies and propose concrete remediation options.
+- Use the `ask_question` tool or `/grill-me` workflow to resolve 100% of ambiguities before writing code.
+- **NEVER** guess blindly or iterate through trial-and-error edits that waste tokens and time.

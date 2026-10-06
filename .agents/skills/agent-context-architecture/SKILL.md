@@ -1,85 +1,86 @@
 ---
 name: agent-context-architecture
-description: Kiến trúc chuẩn hóa phân tầng ngữ cảnh (Hierarchical Context + Progressive Disclosure) cho AI Agent: GEMINI.md, Rules, Skills, Specs và Scripts. Dùng khi thiết kế, tái cấu trúc hoặc bảo trì bộ Customization cho Solo Dev cộng tác với AI.
+description: Hierarchical context architecture and progressive disclosure system for AI agents (GEMINI.md, Rules, Skills, Specs, and Scripts). Kiến trúc phân tầng ngữ cảnh, tối ưu token budget, thiết kế rules và skills, chống context bloat, walk-up scoping.
 ---
 
 # Skill: Agent Context Architecture (AI-Native System)
 
-> **Mục tiêu**: Định hình kiến trúc phân tầng ngữ cảnh chuẩn xác nhất (Hierarchical Context Architecture) cho Antigravity IDE / Cursor / Claude, triệt tiêu 100% tình trạng "Context Bloat" (tràn bộ nhớ) và "Lost in the Middle" (quên chỉ thị giữa chừng).
+> **Goal**: Establish the optimal Hierarchical Context Architecture for Antigravity IDE, Cursor, and Claude, eliminating 100% of "Context Bloat" and "Lost in the Middle" degradation.
 
 ---
 
 ## 1. When to Use
-Kích hoạt skill này khi:
-- Khởi tạo dự án mới cần thiết lập bộ quy chuẩn làm việc cho AI Agent (`GEMINI.md`, `.agents/rules/`, `.agents/skills/`).
-- Tái cấu trúc hoặc tối ưu hóa dự án hiện hữu đang bị phình to context hoặc cảnh báo đỏ (vượt 12,000 ký tự / 20,000 tokens rule budget).
-- Phân định một yêu cầu kỹ thuật nên viết vào **GEMINI.md**, **Rule**, **Skill**, hay **Spec**.
-- Chuyển đổi các quy trình cũ (Workflows monolithic) sang kiến trúc đóng gói module hóa (Skills).
+Activate this skill when:
+- Bootstrapping a new project requiring an AI Agent operating standard (`GEMINI.md`, `.agents/rules/`, `.agents/skills/`).
+- Refactoring or optimizing an existing project suffering from context bloat or red warnings (exceeding 12,000 characters or 20,000 token active rule budget).
+- Deciding whether a technical constraint belongs in **GEMINI.md**, a **Rule**, a **Skill**, or a **Spec**.
+- Migrating legacy monolithic workflows into modular packaged skills.
 
 ---
 
-## 2. Mô Hình 5 Tầng Ngữ Cảnh (The 5-Layer Context Model)
+## 2. The 5-Layer Context Model
 
-Tuyệt đối không coi mọi file markdown đều là "context file". Mỗi thành phần có vai trò và vòng đời kích hoạt độc lập:
+Never treat all markdown files as generic "context files". Each component has a distinct role and activation lifecycle:
 
-| Thành Phần | Định Nghĩa Bản Chất | Cơ Chế Kích Hoạt | Vai Trò & Ngân Sách |
+| Layer | Component | Activation Mechanism | Role & Budget |
 |---|---|---|---|
-| **GEMINI.md / AGENTS.md** | Context nền tảng theo thư mục (Walk-up Scoping) | **Always On** (trong scope) | Bản đồ dự án, danh mục module, bất biến tối thượng. **Root $\le 100$ dòng**, **Module $\le 40$ dòng**. Không dùng frontmatter. |
-| **.agents/rules/*.md** | Rào chắn, coding standards, ràng buộc kiến trúc | **glob**, **model_decision**, **always_on**, **manual** | Quy định "Phải làm / Không được làm". Ngân sách tối đa 20,000 tokens active rules; tối đa 12,000 ký tự/file. |
-| **.agents/skills/** | Năng lực chuyên môn, quy trình đa bước | **Progressive Disclosure** (Khám phá qua name + description) | Đóng gói trọn vẹn: `SKILL.md` (hướng dẫn) + `references/` (kiến thức sâu) + `scripts/` (công cụ thực thi). |
-| **SPEC / DOCS** | Nguồn chân lý kỹ thuật (Source of Truth) | **On-Demand / Reference** | Đặc tả kiến trúc, hợp đồng dữ liệu, bảng ánh xạ. Chỉ đọc khi Agent/Skill yêu cầu tường minh. |
-| **SCRIPTS** | Công cụ xác định, thuật toán tính toán nặng | **Execution as Black Box** | Để máy tính thực thi các việc phức tạp (đo pixel, tính layout, format diff), không bắt Agent đoán mò. |
+| **Layer 1** | **GEMINI.md / AGENTS.md** | **Always On** (within folder scope) | Project navigation map, module directory, supreme invariants. **Root $\le 100$ lines**, **Module $\le 40$ lines**. No frontmatter. |
+| **Layer 2** | **.agents/rules/*.md** | **glob**, **model_decision**, **always_on**, **manual** | Mandatory invariants, coding standards, architectural guardrails. Maximum 20,000 token active budget; max 12,000 chars/file. |
+| **Layer 3** | **.agents/skills/** | **Progressive Disclosure** (discovered via name + description) | Modular capabilities: `SKILL.md` (instructions) + `references/` (deep knowledge) + `scripts/` (executables). |
+| **Layer 4** | **SPEC / DOCS** | **On-Demand / Reference** | Technical specifications, data contracts, mapping dictionaries. Read strictly when requested by an Agent or Skill. |
+| **Layer 5** | **SCRIPTS** | **Black-Box Execution** | Heavy deterministic algorithms (pixel measurement, layout calculation, format diffing). Executed via tools, never guessed by LLM. |
 
 ---
 
-## 3. Decision Tree: Phân Loại Thông Tin Vào Đâu?
+## 3. Decision Tree: Where Does Information Belong?
 
-Khi bạn muốn đưa một thông tin/quy tắc vào dự án, đối chiếu cây quyết định:
+Use this decision tree when introducing new instructions into the system:
 
 ```
-                            [Tôi muốn đưa thông tin này vào hệ thống]
+                            [I want to add information to the system]
                                                 │
                  ┌──────────────────────────────┴──────────────────────────────┐
                  ▼                                                             ▼
-     [Ràng Buộc Bắt Buộc / Invariant]                              [Năng Lực / Hướng Dẫn Tác Vụ]
+     [Mandatory Constraint / Invariant]                           [Operational Capability / Workflow]
                  │                                                             │
      ┌───────────┴───────────┐                                                 ▼
-     ▼                       ▼                                        [Tạo Thư Mục Skill Mới]
-[Toàn cục / Dự án]     [Theo Module Cụ Thể]                        .agents/skills/<name>/SKILL.md
+     ▼                       ▼                                        [Create New Skill Package]
+[Global / Cross-Cutting] [Module-Specific]                             .agents/skills/<name>/SKILL.md
      │                       │                                                 │
      ▼                       ▼                                   ┌─────────────┴─────────────┐
-[GEMINI.md (Root)]     [Chọn Cơ Chế Rule]                        ▼                           ▼
-(Ngắn gọn ≤ 100 dòng)        │                            [Quy Trình Chính]          [Tài Liệu Chi Tiết]
-                             ├─ Chạm file cụ thể? ──► trigger: glob                 references/<topic>.md
-                             ├─ Tùy ngữ cảnh task? ──► trigger: model_decision
-                             └─ Chỉ khi user gọi?  ──► trigger: manual
+[GEMINI.md (Root)]      [Choose Rule Trigger]                    ▼                           ▼
+(Concise ≤ 100 lines)        │                            [Core Workflow]             [Deep Reference]
+                             ├─ Touches specific files? ──► trigger: glob             references/<topic>.md
+                             ├─ Depends on task context? ──► trigger: model_decision
+                             └─ Only on user request?   ──► trigger: manual
 ```
 
 ---
 
-## 4. Bảng Quy Chuẩn Trình Bày Frontmatter Cho Rules
+## 4. Rule Frontmatter Standards
 
-Trong Antigravity IDE, frontmatter của Rules bắt buộc theo đúng cấu trúc:
+In Antigravity IDE, rule frontmatter MUST adhere to the following schemas:
 
 ```yaml
-# 1. Kích hoạt theo đường dẫn file (Tất định 100%):
+# 1. Deterministic file path activation:
 ---
 trigger: glob
 globs: doctools/**/docx/**, tests/test_docx/**, **/*.docx
+description: Concise bilingual summary for fallback semantic matching
 ---
 
-# 2. Kích hoạt theo đánh giá ngữ nghĩa của AI Model (Kèm mô tả):
+# 2. Semantic evaluation activation (requires rich description):
 ---
 trigger: model_decision
-description: Quy chuẩn kiểm toán chất lượng và chẩn đoán lỗi tài liệu văn phòng
+description: Enterprise Document & Spreadsheet QA standards... Kiểm toán chất lượng tài liệu văn phòng...
 ---
 
-# 3. Kích hoạt luôn luôn (Thận trọng, tốn context):
+# 3. Always active (use sparingly, consumes persistent budget):
 ---
 trigger: always_on
 ---
 
-# 4. Kích hoạt thủ công khi user gõ @ten-rule:
+# 4. Manual user invocation only (@rule-name):
 ---
 trigger: manual
 ---
@@ -87,9 +88,9 @@ trigger: manual
 
 ---
 
-## 5. Danh Mục References Chuyên Sâu Đi Kèm
+## 5. Companion Reference Guides
 
-- [references/5_layer_context_model.md](references/5_layer_context_model.md): Phân tích chi tiết 5 tầng ngữ cảnh và cơ chế Walk-up Scoping.
-- [references/activation_modes_and_triggers.md](references/activation_modes_and_triggers.md): So sánh chi tiết 4 chế độ kích hoạt Rule và kỹ thuật viết `globs` không bị rỗng.
-- [references/progressive_disclosure_and_budgets.md](references/progressive_disclosure_and_budgets.md): Quản lý ngân sách 20,000 token active rules và kỹ thuật lazy-load kiến thức.
-- [references/templates_and_boilerplates.md](references/templates_and_boilerplates.md): Bộ template mẫu sẵn dùng (Root GEMINI, Module GEMINI, Glob Rule, Model-decision Rule, SKILL package).
+- [references/5_layer_context_model.md](references/5_layer_context_model.md): Deep-dive analysis of the 5 layers and Walk-Up Scoping mechanisms.
+- [references/activation_modes_and_triggers.md](references/activation_modes_and_triggers.md): Detailed comparison of the 4 rule triggers and preventing empty `globs:` warnings.
+- [references/progressive_disclosure_and_budgets.md](references/progressive_disclosure_and_budgets.md): Managing the 20,000 token active budget and lazy-loading techniques.
+- [references/templates_and_boilerplates.md](references/templates_and_boilerplates.md): Ready-to-use boilerplate templates (Root GEMINI, Module GEMINI, Glob Rule, Model-decision Rule, SKILL package).

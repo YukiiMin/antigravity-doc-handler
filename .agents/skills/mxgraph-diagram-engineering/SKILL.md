@@ -1,72 +1,72 @@
 ---
 name: mxgraph-diagram-engineering
-description: AI-Native Diagram Engineering Skill for Draw.io (mxGraphModel). Professional generation, topology layout, orthogonal routing, headless rendering, visual inspection, and layout auto-repair without manual coordinate guesswork.
+description: AI-Native Diagram Engineering Skill for Draw.io (mxGraphModel). Professional generation, topology layout, orthogonal routing, headless rendering, visual inspection, and layout auto-repair without manual coordinate guesswork. Vẽ sơ đồ Draw.io, mô hình mxGraphModel, ERD Crow's Foot, sơ đồ khối kiến trúc, routing dây trực giao, render không cắt cụt.
 ---
 
 # Skill: mxGraphModel & Draw.io Diagram Engineering (AI-Native Engine)
 
-> **Mục tiêu**: Chuẩn hóa toàn bộ quy trình thiết kế, sinh mã, kiểm định và tối ưu hóa sơ đồ kỹ thuật chất lượng cao trên Draw.io (`mxGraphModel`).  
-> **Nguyên tắc nền tảng**: Tuân thủ 100% tài liệu [`.agents/rules/rule_diagram_engine_standards.md`](file:///d:/Minh/For_myself/ZSCORT_GSU26_SAP05/tool/pdf_to_docx_converter/.agents/rules/rule_diagram_engine_standards.md) và Quy trình Chuẩn `WF-DIAG-01..05` tại skill `doctools-delivery`.
+> **Goal**: Standardize the design, generation, validation, and layout optimization of professional engineering diagrams on Draw.io (`mxGraphModel`).  
+> **Mandatory Invariants**: Adhere 100% to [`.agents/rules/rule_diagram_engine_standards.md`](file:///d:/Minh/For_myself/ZSCORT_GSU26_SAP05/tool/pdf_to_docx_converter/.agents/rules/rule_diagram_engine_standards.md) and the Delivery Cadence in `doctools-delivery`.
 
 ---
 
-## 1. Mental Model Vận Hành AI-Native (Cốt Lõi)
+## 1. AI-Native Operational Mental Model
 
-1. **AI KHÔNG Tự Viết XML Draw.io**: AI tuyệt đối không tự chắp vá hàng ngàn dòng XML bằng tay. Rủi ro hỏng tag, rách cấu trúc hoặc Draw.io từ chối Apply là cực kỳ cao.
-2. **AI KHÔNG Tự Đoán Tọa Độ Pixel Bằng Tay**: Bố cục không gian $(x, y)$, chiều rộng/cao, và đường đi của dây nối (orthogonal waypoints) phải do layout planner tất định (`Sugiyama`, `Force-Directed`, `Radial`) tính toán.
-3. **Giao Tiếp Bằng JSON Spec Chuẩn (`DiagramSpec`)**: AI tập trung vào logic hệ thống (danh sách `nodes`, `edges`, `groups`, `topology`, `theme`), trao đổi với Engine qua các công cụ MCP.
-4. **Kiểm Định Thị Giác Khép Kín (Visual Closed-Loop Inspection)**: Bản vẽ sinh ra bắt buộc phải được render headless sang PNG/SVG và kiểm tra trực quan tự động bằng `diagram.inspect_visual` trước khi bàn giao.
+1. **AI NEVER Writes Raw Draw.io XML**: The AI client never writes thousands of lines of raw XML by hand. The risk of malformed tags, corrupt hierarchies, or Draw.io parse rejections is extremely high.
+2. **AI NEVER Guesses Pixel Coordinates**: Geometric coordinates $(x, y)$, dimensions, and orthogonal routing waypoints are calculated by deterministic layout planners (`Sugiyama`, `Force-Directed`, `Radial`).
+3. **Structured JSON Communication (`DiagramSpec`)**: The AI focuses exclusively on system architecture (entities, relations, groups, topology, theme), delegating layout to the engine via MCP tools.
+4. **Visual Closed-Loop Inspection**: Generated drawings are rendered headless to PNG/SVG and automatically verified via `diagram.inspect_visual` before delivery.
 
 ---
 
-## 2. Bảng Tra Cứu 21 Bất Biến Cốt Lõi (MX_INV_01–21)
+## 2. The 21 Core Invariants Reference (`MX_INV_01–21`)
 
-| Mã | Tên Bất Biến | Nguyên Tắc Kỹ Thuật Bắt Buộc |
+| Code | Name | Mandatory Technical Rule |
 |---|---|---|
-| `MX_INV_01` | **Pure Native Hierarchy** | Cấm thẻ `<UserObject mermaidData/plantUmlData>`. Mọi node và edge phải là `<mxCell>` trực tiếp dưới `parent="1"`. |
-| `MX_INV_02` | **Minimalist & Well-Formed XML** | Xóa metadata rác (`mermaidBaseStyle`, `mermaidId`, `alternateBounds`). XML well-formed 100%, dung lượng gọn nhẹ. |
-| `MX_INV_03` | **Container-Level Docking** | Dây nối ERD chỉ kết nối vào vỏ bảng (`table_X`), nghiêm cấm nối vào cell con (`tableRow`/`partialRectangle`). |
-| `MX_INV_04` | **Orthogonal Perimeter Routing** | `edgeStyle=orthogonalEdgeStyle;` kèm cổng viền chuẩn (`exitX, exitY, entryX, entryY` là `0.0`, `0.5`, `1.0`). |
-| `MX_INV_05` | **Dynamic Geometry Scaling** | Chiều cao bảng ERD: $H = 43 \times (N_{\text{fields}} + 1)$; hành lang giao thông giữa các khối $\ge 60$px. |
-| `MX_INV_06` | **Dual Delivery** | Xuất theo định dạng yêu cầu (`.drawio` và `.png`/`.svg` đi kèm; không tạo file rác trùng lặp). |
-| `MX_INV_07` | **Academic Line-Art First** | Ưu tiên Monochrome học thuật: `#ffffff` fill, `#000000` text/viền, nét đứt `#888888` cho liên kết tùy chọn. |
-| `MX_INV_08` | **Collision-Free Labels & Masks** | Nhãn trên dây phải có `labelBackgroundColor=#ffffff;` chống đè nét; hành lang chạy dây $\ge 40$px. |
-| `MX_INV_09` | **Multi-Page Single-File** | Hỗ trợ đóng gói đa sơ đồ trong 1 file `.drawio` duy nhất với nhiều tab `<diagram name="...">`. |
-| `MX_INV_10` | **Schematic Direct Taps** | Dây nguồn màu (+12V Red, +5V Orange, +3V3 Blue, GND Black) đi thẳng từ rail vào IC/MCU. Không gắn ô text thừa trên dây nguồn. |
-| `MX_INV_11` | **Fractional Port Anchoring** | Nối Hub sang vệ tinh dùng toạ độ vi phân chu vi (`exitY = 0.05..1.0`) khớp $y_{\text{center}}$ đích để tạo đường ngang phẳng 100% (Zero-Zigzag). |
-| `MX_INV_12` | **Discrete Highway Corridors** | Tuyến bus song song đi qua các trục tọa độ rời rạc cách $\ge 30$–$50$px. Nhãn dài bọc thẻ HTML chống tràn. |
-| `MX_INV_13` | **Schematic Horizontal Strip** | Module chính xếp dải ngang 1 hàng (L-to-R), Rails nguồn trên đỉnh, GND dưới đáy cắm thẳng đứng. GPIO đi qua bus tầng dưới. |
-| `MX_INV_14` | **DFD 5-Column Flow** | DFD tuân thủ 5 cột ($C_1$ External $\rightarrow$ $C_2$ Ingestion $\rightarrow$ $C_3$ Processing/Store $\rightarrow$ $C_4$ Comm $\rightarrow$ $C_5$ Cloud). Nhãn dùng `offset` mask trắng. |
-| `MX_INV_15` | **Dynamic Edge Label Width** | Cấm `\n`/`<br>` trong label; bắt buộc `labelWidth=<W>;html=1;whiteSpace=wrap;labelBackgroundColor=#FFFFFF;` để Draw.io auto-wrap. |
-| `MX_INV_16` | **4-Tier Stroke Hierarchy** | Tier 1 (Khung lớn/Rail: 2.5–3.0px) > Tier 2 (MCU/IC: 1.8–2.0px, `#F8F9FA`) > Tier 3 (Ngoại vi: 1.2px) > Tier 4 (Line dây: 1.0px). |
-| `MX_INV_17` | **Dedicated Rail Header Legend** | Sơ đồ Schematic nhiều rail: text tên rail tách thành cột Header riêng ($x < x_{\text{first\_ic}}$), thân rail để `value=""` chống đè chữ. |
-| `MX_INV_18` | **MCU Egress Waterfall** | Tuyến bus GPIO từ MCU không đâm xuyên hộp linh kiện phụ; xuất phát từ mép phải (`exitX=1.0`), đi vào hành lang dọc ($\ge 80\text{px}$) rồi đổ waterfall xuống bus. |
-| `MX_INV_19` | **4-Sided Data Store Enclosure** | Kho Dữ Liệu (D1, D2) trong DFD bắt buộc có đủ 4 cạnh viền (`top=1;bottom=1;left=1;right=1;` hoặc `shape=rectangle;`) chống mất viền. |
-| `MX_INV_20` | **Snug Mask Bounding** | CẤM gán cứng `labelWidth` lớn cho nhãn ngắn. `labelWidth` phải tính động theo độ dài text để mask trắng ôm khít chữ, không che lấp dây lân cận. |
-| `MX_INV_21` | **Dynamic Viewport Bounds** | Headless render PNG: viewport $\ge \max(X, Y) + 160\text{px}$, PIL auto-crop 25px uniform padding chống cắt cụt đồ hoạ. |
+| `MX_INV_01` | **Pure Native Hierarchy** | Forbid `<UserObject mermaidData/plantUmlData>`. All nodes and edges must be native `<mxCell>` children under `parent="1"`. |
+| `MX_INV_02` | **Minimalist & Well-Formed XML** | Strip metadata bloat (`mermaidBaseStyle`, `alternateBounds`). 100% well-formed, compact XML. |
+| `MX_INV_03` | **Container-Level Docking** | ERD edges dock exclusively to parent container tables (`table_X`), never to child row cells (`tableRow`). |
+| `MX_INV_04` | **Orthogonal Perimeter Routing** | `edgeStyle=orthogonalEdgeStyle;` with standard perimeter anchor ports (`exitX, exitY, entryX, entryY` at `0.0`, `0.5`, `1.0`). |
+| `MX_INV_05` | **Dynamic Geometry Scaling** | Table height: $H = 43 \times (N_{\text{fields}} + 1)$; routing corridor between boxes $\ge 60$px. |
+| `MX_INV_06` | **Dual Delivery** | Deliver both native `.drawio` source and high-DPI raster/vector rendering (PNG/SVG). |
+| `MX_INV_07` | **Academic Line-Art First** | Monochrome line-art preferred: `#ffffff` fill, `#000000` text/stroke, dashed `#888888` for optional links. |
+| `MX_INV_08` | **Collision-Free Labels & Masks** | Wire labels require `labelBackgroundColor=#ffffff;` to prevent line overlap; routing corridor $\ge 40$px. |
+| `MX_INV_09` | **Multi-Page Single-File** | Bundle related views into a single `.drawio` file with multiple `<diagram name="...">` tabs. |
+| `MX_INV_10` | **Schematic Direct Taps** | Color-coded power rails (+12V Red, +5V Orange, +3V3 Blue, GND Black) route directly to ICs without redundant text nodes. |
+| `MX_INV_11` | **Fractional Port Anchoring** | Hub-to-satellite links use fractional coordinates (`exitY = 0.05..1.0`) aligned to target $y_{\text{center}}$ for zero-zigzag flat horizontal lines. |
+| `MX_INV_12` | **Discrete Highway Corridors** | Parallel buses route along discrete axes spaced $\ge 30$–$50$px. HTML wrapping prevents label spill. |
+| `MX_INV_13` | **Schematic Horizontal Strip** | Main ICs arranged horizontally (L-to-R), top power rails, vertical bottom GND ties. |
+| `MX_INV_14` | **DFD 5-Column Flow** | 5-column flow ($C_1$ External $\rightarrow$ $C_2$ Ingestion $\rightarrow$ $C_3$ Processing $\rightarrow$ $C_4$ Comm $\rightarrow$ $C_5$ Cloud). White mask offsets on labels. |
+| `MX_INV_15` | **Dynamic Edge Label Width** | Forbid literal `\n`, `<br>` in edge labels; use `labelWidth=<W>;html=1;whiteSpace=wrap;labelBackgroundColor=#FFFFFF;` for native wrap. |
+| `MX_INV_16` | **4-Tier Stroke Hierarchy** | Tier 1 (Frames/Rails: 2.5–3.0px) > Tier 2 (MCU/IC: 1.8–2.0px) > Tier 3 (Peripherals: 1.2px) > Tier 4 (Wires: 1.0px). |
+| `MX_INV_17` | **Dedicated Rail Header Legend** | Dedicated header column for rail labels ($x < x_{\text{first\_ic}}$); rail body sets `value=""` to avoid line clutter. |
+| `MX_INV_18` | **MCU Egress Waterfall** | MCU GPIO buses exit right (`exitX=1.0`), route via dedicated vertical corridors ($\ge 80\text{px}$), then cascade down to the main bus. |
+| `MX_INV_19` | **4-Sided Data Store Enclosure** | DFD data stores (D1, D2) must retain all 4 borders (`top=1;bottom=1;left=1;right=1;`). |
+| `MX_INV_20` | **Snug Mask Bounding** | Calculate dynamic label bounds snugly matching text width so white background masks do not obscure adjacent wires. |
+| `MX_INV_21` | **Dynamic Viewport Bounds** | Headless render scans $(\max_X, \max_Y)$. Viewport $\ge \max + 160\text{px}$, PIL auto-crop with 25px uniform padding prevents clipping. |
 
 ---
 
-## 3. Danh Mục Công Cụ MCP Diagram Engine (`diagram.*`)
+## 3. Core MCP Tool Catalog (`diagram.*`)
 
-| Tên Công Cụ MCP | Phân Lớp | Mô Tả Chức Năng Chính |
+| Tool Name | Tier | Primary Function |
 |---|---|---|
-| `diagram.parse` | MVP | Bóc tách Mermaid, PlantUML, SQL DDL thành `DiagramSpec` chuẩn hóa, loại bỏ hoàn toàn metadata rác. |
-| `diagram.plan_layout` | MVP | Tính toán bố cục tất định (Sugiyama, Force, Radial), phân tầng, chống va chạm, trả về `LayoutPlan`. |
-| `diagram.build` | MVP | Biên dịch `DiagramSpec` + `LayoutPlan` thành pure native `mxGraphModel` XML (`.drawio`). |
-| `diagram.render_raster`| MVP | Render headless sang ảnh raster PNG chất lượng cao (300 DPI) qua Playwright sidecar hoặc Draw.io CLI. |
-| `diagram.render_svg` | MVP | Xuất sơ đồ ra file vector SVG trong suốt, sắc nét cho in ấn. |
-| `diagram.inspect_visual`| MVP | Kiểm tra thị giác khép kín: phát hiện va chạm nhãn-dây, cắt cụt chữ, dây đâm xuyên hộp linh kiện. |
-| `diagram.repair_layout`| P1 | Tự động căn chỉnh lại hành lang bus, cổng viền và khoảng cách khi phát hiện va chạm hình học. |
-| `diagram.diff_layout` | P1 | So sánh sự khác biệt cấu trúc và thị giác giữa 2 phiên bản sơ đồ (`.drawio` trước và sau). |
-| `diagram.export_pages` | P1 | Tách và xuất từng trang độc lập từ file `.drawio` chứa nhiều tab trang. |
+| `diagram.parse` | MVP | Parses Mermaid, PlantUML, SQL DDL into normalized `DiagramSpec`, stripping metadata bloat. |
+| `diagram.plan_layout` | MVP | Computes deterministic layout (Sugiyama, Force, Radial), layering, and collision avoidance, returning `LayoutPlan`. |
+| `diagram.build` | MVP | Compiles `DiagramSpec` + `LayoutPlan` into pure native `mxGraphModel` XML (`.drawio`). |
+| `diagram.render_raster`| MVP | Headless render to high-resolution PNG (300 DPI) via Playwright sidecar or Draw.io CLI. |
+| `diagram.render_svg` | MVP | Exports crisp vector SVG with transparent background for publication. |
+| `diagram.inspect_visual`| MVP | Visual closed-loop check: flags label-wire collisions, text clipping, and pierced component boxes. |
+| `diagram.repair_layout`| P1 | Automatically adjusts bus corridors, docking ports, and spacing upon detecting collisions. |
+| `diagram.diff_layout` | P1 | Compares structural and visual differences between two diagram versions. |
+| `diagram.export_pages` | P1 | Splits and exports individual pages from multi-page `.drawio` files. |
 
 ---
 
-## 4. Quy Trình Vận Hành Chuẩn 5 Bước Cho AI
+## 4. Standard 5-Step Operational Workflow
 
-### Bước 1 — Lập Đặc Tả DiagramSpec JSON
-AI chuẩn hóa mô tả bài toán thành cấu trúc `DiagramSpec`:
+### Step 1 — Draft DiagramSpec JSON
+Normalize requirements into a structured `DiagramSpec`:
 ```json
 {
   "title": "Authentication Microservice Architecture",
@@ -86,53 +86,52 @@ AI chuẩn hóa mô tả bài toán thành cấu trúc `DiagramSpec`:
 }
 ```
 
-### Bước 2 — Hoạch Định Bố Cục Tất Định (`diagram.plan_layout`)
-Gọi `diagram.plan_layout(spec=diagram_spec)` để nhận `LayoutPlan`:
-- Tự động gán tọa độ $(x, y)$, chiều dài/rộng từng node.
-- Tự động tính toán đường rẽ nhánh orthogonal cho từng edge, bảo đảm không đè nhau.
+### Step 2 — Deterministic Layout Planning (`diagram.plan_layout`)
+Call `diagram.plan_layout(spec=diagram_spec)` to receive `LayoutPlan`:
+- Coordinates $(x, y)$ and dimensions assigned to each node.
+- Orthogonal routing waypoints calculated for each edge without overlaps.
 
-### Bước 3 — Biên Dịch XML Native (`diagram.build`)
-Gọi `diagram.build(spec=diagram_spec, layout_plan=layout_plan)`:
-- Tạo ra file `.drawio` hoàn toàn sạch, tuân thủ `MX_INV_01..05`.
-- Nhận về `file_ref_drawio`.
+### Step 3 — Compile Native XML (`diagram.build`)
+Call `diagram.build(spec=diagram_spec, layout_plan=layout_plan)`:
+- Generates clean `.drawio` XML adhering to `MX_INV_01..05`.
+- Returns output `file_ref_drawio`.
 
-### Bước 4 — Headless Render & Soi Thị Giác
-1. Gọi `diagram.render_raster(file_ref=file_ref_drawio, format="png")` $\rightarrow$ Nhận `png_ref`.
-2. Gọi `diagram.inspect_visual(file_ref=png_ref)` $\rightarrow$ Nhận báo cáo thị giác:
-   - Danh sách vi phạm (nếu có): `collisions`, `pierced_boxes`, `clipped_labels`.
+### Step 4 — Headless Render & Visual Inspection
+1. Call `diagram.render_raster(file_ref=file_ref_drawio, format="png")` $\rightarrow$ Receive `png_ref`.
+2. Call `diagram.inspect_visual(file_ref=png_ref)` $\rightarrow$ Receive visual report:
+   - Violations list: `collisions`, `pierced_boxes`, `clipped_labels`.
 
-### Bước 5 — Triage Kết Quả & Bàn Giao
-- Nếu báo cáo `diagnostics` sạch 100%: Bàn giao cả 2 file `.drawio` và `.png` cho người dùng.
-- Nếu có lỗi hình học: Xem Mục 5 để xử lý tự động qua `diagram.repair_layout` hoặc điều chỉnh spec.
+### Step 5 — Triage & Delivery
+- If diagnostics report is 100% clean: Deliver both `.drawio` and `.png` files to the user.
+- If geometric collisions occur: Invoke `diagram.repair_layout` or adjust spec parameters.
 
 ---
 
-## 5. Triage & Xử Lý Sự Cố (Troubleshooting & Auto-Repair)
+## 5. Troubleshooting & Auto-Repair Reference
 
-### Bảng Mã Lỗi Diagram Engine (`E-DGM-*`)
+### Error Codes (`E-DGM-*`)
 
-| Mã Lỗi | Nhóm Lỗi | Nguyên Nhân Kỹ Thuật | Phương Án Khắc Phục Chuẩn |
+| Error Code | Category | Technical Cause | Remediation |
 |---|---|---|---|
-| `E-DGM-SPEC-SCHEMA` | Schema | Cấu trúc `DiagramSpec` thiếu trường bắt buộc hoặc sai kiểu | AI tự sửa JSON Spec theo đường dẫn báo lỗi. |
-| `E-DGM-SEC-INJECTION` | Security | Label chứa thẻ script độc hại hoặc injection XML | Loại bỏ mã độc, escape chuỗi XML an toàn. |
-| `E-DGM-TOPOLOGY-PORT` | Topology | Cổng viền docking không hợp lệ (ngoài khoảng 0.0–1.0) | Kích hoạt Auto-Repair đưa về cổng viền chuẩn. |
-| `E-DGM-XML-USEROBJECT` | XML | Phát hiện thẻ cấm `<UserObject mermaidData>` (`MX_INV_01`) | Chuyển đổi thành `<mxCell>` thuần túy. |
-| `E-DGM-XML-CORRUPT` | XML | Cắt cụt thẻ XML hoặc thiếu thẻ đóng `<root>` | Re-serialize qua `xml_serializer.py`. |
-| `E-DGM-FONT-METRICS` | Layout | Thiếu font file hệ thống, không tính được text width | Kích hoạt bộ fallback Pillow font metrics. |
-| `E-DGM-ROUTING-PIERCE` | Routing | Dây nối đâm xuyên qua hộp linh kiện phụ (`MX_INV_18`) | Nắn tuyến dây vào hành lang Waterfall ($x \ge 80\text{px}$). |
-| `E-DGM-RENDER-CRASH` | Render | Tiến trình headless render bị timeout hoặc crash | Khởi động lại Chromium sidecar sandbox. |
-| `W-LAYOUT-COLLISION` | Warning | Hai nhãn dây nằm quá gần nhau ($\Delta d < 20\text{px}$) | Giãn khoảng cách trục bus $\ge 30$–$50$px. |
+| `E-DGM-SPEC-SCHEMA` | Schema | Missing required fields or invalid types | AI corrects JSON Spec following error path. |
+| `E-DGM-SEC-INJECTION` | Security | Label contains script tags or XML injection | Strip malicious content, escape XML characters. |
+| `E-DGM-TOPOLOGY-PORT` | Topology | Perimeter docking port outside 0.0–1.0 | Trigger Auto-Repair to clamp to perimeter anchors. |
+| `E-DGM-XML-USEROBJECT` | XML | Detected forbidden `<UserObject mermaidData>` | Convert to pure `<mxCell>` hierarchy. |
+| `E-DGM-XML-CORRUPT` | XML | Malformed XML or missing closing tags | Re-serialize via `xml_serializer.py`. |
+| `E-DGM-FONT-METRICS` | Layout | Missing system font, unable to measure text | Activate Pillow bundled font metrics fallback. |
+| `E-DGM-ROUTING-PIERCE` | Routing | Edge cuts through peripheral box (`MX_INV_18`)| Route edge through Waterfall corridor ($x \ge 80\text{px}$). |
+| `E-DGM-RENDER-CRASH` | Render | Headless render timed out or crashed | Restart Chromium sidecar sandbox. |
+| `W-LAYOUT-COLLISION` | Warning | Labels positioned too closely ($\Delta d < 20\text{px}$) | Expand bus axis spacing $\ge 30$–$50$px. |
 
-### Nguyên Tắc Chặn Vòng Lặp Vô Tận (Fail-Fast)
-- Tối đa **2 lần gọi sửa tự động** (`diagram.repair_layout`).
-- Nếu sau 1 lần sửa mà số lượng lỗi không giảm hoặc xuất hiện lỗi mới: **DỪNG LẠI NGAY**, in nguyên nhân và hình ảnh chẩn đoán ra để người dùng quyết định.
+### Infinite Loop Prevention (Fail-Fast Rule)
+- Maximum **2 automated repair attempts** (`diagram.repair_layout`).
+- If errors persist after attempt 1 without reduction: **HALT IMMEDIATELY**, present evidence and visual inspection output for user guidance.
 
 ---
 
-## 6. Lưu Ý Trong Giai Đoạn Chuyển Tiếp (Transitional Fallback)
+## 6. Transitional Fallback Scripts
 
-Trong thời gian hoàn thiện khung sườn Phase 0 và Phase 3 theo Master Plan v6:
-- Nếu môi trường chưa nạp runtime MCP `diagram.*`, Agent có thể sử dụng các script phụ trợ khẩn cấp tại `.agents/skills/mxgraph-diagram-engineering/scripts/`:
-  - `build_drawio.py`: Sinh XML thuần cơ bản cho ERD.
-  - `validate_drawio.py`: Kiểm định 4 cổng cú pháp.
-- Mọi sơ đồ sinh ra bằng script phụ trợ đều phải được đối chiếu thủ công nghiêm ngặt với 21 bất biến `MX_INV_01..21` trước khi bàn giao!
+Prior to full deployment of MCP `diagram.*` runtime services, auxiliary utility scripts remain available under `.agents/skills/mxgraph-diagram-engineering/scripts/`:
+- `build_drawio.py`: Deterministic pure XML generator for ERD tables.
+- `validate_drawio.py`: Syntax and gate verification.
+- All diagrams generated via auxiliary scripts MUST be manually validated against `MX_INV_01..21` prior to delivery.

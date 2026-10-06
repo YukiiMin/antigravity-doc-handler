@@ -1,6 +1,6 @@
 ---
 trigger: model_decision
-description: Quy chuẩn cổng kiểm định chất lượng tự động, xác minh độ trung thực (fidelity) và kiểm tra đa định dạng trước khi bàn giao
+description: Automated quality gate, fidelity verification, and multi-format validation before delivery. Cổng kiểm định chất lượng, xác minh độ trung thực tài liệu, kiểm tra placeholder, toàn vẹn công thức, DrawingML, nghiệm thu trước khi bàn giao.
 ---
 
 # Rule: Automated Quality Gate, Fidelity Verification & Multi-Format Validation
