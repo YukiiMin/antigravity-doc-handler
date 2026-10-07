@@ -1,6 +1,6 @@
 """
 doctools.contract.docx
-Pydantic contracts and schemas for DOCX operations, templates, and DocSpec.
+Pydantic contracts and schemas for DOCX operations, templates, DocSpec, and Patch.
 """
 
 from doctools.contract.docx.manifest import (
@@ -21,6 +21,10 @@ from doctools.contract.docx.docspec import (
     RunSpec,
     TableBlock,
 )
+from doctools.contract.docx.patch import (
+    PatchOp,
+    PatchSpec,
+)
 
 __all__ = [
     "LayoutPolicy",
@@ -37,4 +41,6 @@ __all__ = [
     "ParagraphBlock",
     "RunSpec",
     "TableBlock",
+    "PatchOp",
+    "PatchSpec",
 ]
