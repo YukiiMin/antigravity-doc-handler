@@ -28,6 +28,10 @@ from .merge_ops import (
     docx_merge,
     register_merge_ops,
 )
+from .field_ops import (
+    docx_update_fields,
+    register_field_ops,
+)
 
 __all__ = [
     "docx_lint_template",
@@ -46,4 +50,6 @@ __all__ = [
     "register_patch_ops",
     "docx_merge",
     "register_merge_ops",
+    "docx_update_fields",
+    "register_field_ops",
 ]
