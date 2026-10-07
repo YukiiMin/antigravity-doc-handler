@@ -24,6 +24,7 @@ The system operates via **Hierarchical Scope + Glob Rules + Progressive Skills**
 | **XLSX** | `doctools/core/xlsx/`, `doctools/operations/xlsx/`, `tests/test_xlsx/` | `rule_xlsx_engine_standards.md` | `excel-handler` |
 | **DIAGRAM** | `doctools/core/diagram/`, `doctools/operations/diagram/`, `tests/test_diagram/` | `rule_diagram_engine_standards.md` | `mxgraph-diagram-engineering` |
 | **QA / GATES** | `doctools/gates/`, `tests/conformance/` | `rule_quality_gate_and_verification.md`, `rule_enterprise_document_and_spreadsheet_qa.md` | `doctools-delivery` |
+| **EMPIRICAL TEST** | `data-set/`, empirical scenarios, live document audits | `rule_empirical_testing_protocol.md` | `empirical-testing` |
 | **DELIVERY** | Entire repo during micro-commit `X.Y.Z` execution | `rule_git_workflow.md`, `rule_substep_cadence_and_context_refresh.md` | `doctools-delivery` |
 
 *Note*: Detailed OpenXML invariants (`ERR_DOCX_*`), 14 Excel invariants (`E1–E14`), and 21 Draw.io invariants (`MX_INV_01–21`) are automatically loaded via **glob triggers** when touching relevant files; they are never bloated into root context.
