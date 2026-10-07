@@ -102,3 +102,7 @@ def register_preflight_ops(registry: Any) -> None:
     )
     def _preflight_tool(file_ref: Any) -> ResultEnvelope:
         return xlsx_preflight(file_ref_or_path=file_ref, file_store=registry.file_store)
+
+
+register_xlsx_preflight_tools = register_preflight_ops
+
