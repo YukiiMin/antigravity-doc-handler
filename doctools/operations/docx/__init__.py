@@ -24,6 +24,10 @@ from .patch_ops import (
     docx_patch,
     register_patch_ops,
 )
+from .merge_ops import (
+    docx_merge,
+    register_merge_ops,
+)
 
 __all__ = [
     "docx_lint_template",
@@ -40,4 +44,6 @@ __all__ = [
     "register_inspect_ops",
     "docx_patch",
     "register_patch_ops",
+    "docx_merge",
+    "register_merge_ops",
 ]
