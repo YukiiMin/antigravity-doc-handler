@@ -14,6 +14,10 @@ from .preflight_ops import (
     register_xlsx_preflight_tools,
     xlsx_preflight,
 )
+from .recalc_ops import (
+    register_xlsx_recalc_tools,
+    xlsx_recalc,
+)
 from .template_ops import (
     register_xlsx_template_tools,
     xlsx_lint_template,
@@ -40,4 +44,6 @@ __all__ = [
     "register_xlsx_validate_tools",
     "xlsx_inspect",
     "register_xlsx_inspect_tools",
+    "xlsx_recalc",
+    "register_xlsx_recalc_tools",
 ]
