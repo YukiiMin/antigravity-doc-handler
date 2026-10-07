@@ -65,9 +65,8 @@ class TestDocxConformance(unittest.TestCase):
             "layout_policy_default": {"apply_guards": "apply"},
         }
         reg_env = docx_register_template(
-            template_path_or_ref=tpl_path,
+            template_ref=tpl_path,
             manifest=manifest_data,
-            file_store=self.file_store,
         )
         self.assertTrue(reg_env.success)
 

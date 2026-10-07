@@ -43,7 +43,7 @@ def _resolve_template_input(
     if isinstance(template_ref_or_id, str) and not template_ref_or_id.startswith(("file://", "resource://", "/", "\\")):
         rec = template_registry.get(template_ref_or_id)
         if rec is not None:
-            return file_store.resolve(rec.file_ref), rec.manifest, None
+            return template_registry.file_store.resolve(rec.file_ref), rec.manifest, None
 
     input_val = template_ref_or_id
     if isinstance(input_val, dict) and "uri" in input_val:
