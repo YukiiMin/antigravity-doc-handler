@@ -15,6 +15,11 @@ from .build_ops import (
     docx_build_document,
     register_build_ops,
 )
+from .inspect_ops import (
+    docx_inspect_structure,
+    docx_validate,
+    register_inspect_ops,
+)
 
 __all__ = [
     "docx_lint_template",
@@ -26,4 +31,7 @@ __all__ = [
     "docx_render_template",
     "docx_build_document",
     "register_build_ops",
+    "docx_inspect_structure",
+    "docx_validate",
+    "register_inspect_ops",
 ]
