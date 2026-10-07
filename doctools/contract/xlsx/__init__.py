@@ -2,11 +2,6 @@
 doctools.contract.xlsx — Các hợp đồng dữ liệu cho XLSX Engine.
 """
 
-from .preflight import (
-    FidelityTier,
-    PackageInventory,
-    SheetInventory,
-)
 from .manifest import (
     AnchorConfig,
     CalcPolicyConfig,
@@ -17,6 +12,19 @@ from .mutation import (
     CellUpdate,
     MutationSpec,
     TableExpansion,
+)
+from .preflight import (
+    FidelityTier,
+    PackageInventory,
+    SheetInventory,
+)
+from .spec import (
+    CellSpec,
+    ChartSpec,
+    SheetSpec,
+    StyleSpec,
+    TableSpec,
+    XlsxSpec,
 )
 
 __all__ = [
@@ -30,4 +38,10 @@ __all__ = [
     "CellUpdate",
     "MutationSpec",
     "TableExpansion",
+    "CellSpec",
+    "ChartSpec",
+    "SheetSpec",
+    "StyleSpec",
+    "TableSpec",
+    "XlsxSpec",
 ]

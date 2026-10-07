@@ -2,6 +2,10 @@
 doctools.operations.xlsx — Các thao tác nghiệp vụ và công cụ MCP cho XLSX Engine.
 """
 
+from .build_ops import (
+    register_xlsx_build_tools,
+    xlsx_build,
+)
 from .inspect_ops import (
     register_xlsx_inspect_tools,
     xlsx_inspect,
@@ -46,4 +50,6 @@ __all__ = [
     "register_xlsx_inspect_tools",
     "xlsx_recalc",
     "register_xlsx_recalc_tools",
+    "xlsx_build",
+    "register_xlsx_build_tools",
 ]
