@@ -22,6 +22,10 @@ from .recalc_ops import (
     register_xlsx_recalc_tools,
     xlsx_recalc,
 )
+from .repair_ops import (
+    register_xlsx_repair_tools,
+    xlsx_repair,
+)
 from .template_ops import (
     register_xlsx_template_tools,
     xlsx_lint_template,
@@ -52,4 +56,6 @@ __all__ = [
     "register_xlsx_recalc_tools",
     "xlsx_build",
     "register_xlsx_build_tools",
+    "xlsx_repair",
+    "register_xlsx_repair_tools",
 ]
