@@ -13,6 +13,11 @@ from .manifest import (
     RequiredPackageConfig,
     XlsxTemplateManifest,
 )
+from .mutation import (
+    CellUpdate,
+    MutationSpec,
+    TableExpansion,
+)
 
 __all__ = [
     "FidelityTier",
@@ -22,4 +27,7 @@ __all__ = [
     "CalcPolicyConfig",
     "RequiredPackageConfig",
     "XlsxTemplateManifest",
+    "CellUpdate",
+    "MutationSpec",
+    "TableExpansion",
 ]
