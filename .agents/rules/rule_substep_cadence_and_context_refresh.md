@@ -1,11 +1,11 @@
 ---
 trigger: model_decision
-description: Sub-step verification cadence, automated micro-commit cadence, and mandatory context refresh protocol before starting the next sub-step in Phase 1. Quy chuẩn nghiệm thu tiểu bước 1.x.x, tự động micro-commit, nạp lại context, nạp spec trước khi code, chống hallucination.
+description: Sub-step verification cadence, automated micro-commit cadence, and mandatory context refresh protocol before starting the next sub-step in Phase 1. Quy chuẩn nghiệm thu tiểu bước 1.x.x, tự động micro-commit, nạp lại context,chống hallucination.
 ---
 
 # Rule: Sub-Step Cadence, Automated Micro-Commit & Context Refresh Protocol
 
-> **Scope**: Mandatory operational protocol executed at the completion of every sub-step (`X.Y.Z`) across `doctools` development.  
+> **Scope**: Mandatory operational protocol executed at the completion of every sub-step (`X.Y.Z`) across `doctools` development.
 > **Goal**: Enforce verifiable quality gates, automate micro-commits under granted authority, and eliminate hallucination or context drift by refreshing exact specs before coding the next sub-step.
 
 ---

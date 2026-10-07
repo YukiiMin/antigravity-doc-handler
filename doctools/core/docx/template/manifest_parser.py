@@ -13,7 +13,7 @@ from typing import Any, Dict, List, Union
 import yaml
 from pydantic import ValidationError
 
-from doctools.contract import Engine, Issue, Severity
+from doctools.contract import Engine, Issue, Severity, Location
 from doctools.contract.docx.manifest import TemplateManifest
 
 _VALID_IDENTIFIER = re.compile(r"^[a-zA-Z_][a-zA-Z0-9_]*$")
@@ -142,7 +142,8 @@ def validate_manifest_against_template(
                     severity=Severity.WARNING,
                     engine=Engine.DOCX,
                     message=f"Variable name '{var_name}' is not a standard identifier.",
-                    location={"variable": var_name},
+                    location=Location(element=f"variable:{var_name}"),
+                    evidence={"variable": var_name},
                     fixable_by="human",
                 )
             )
