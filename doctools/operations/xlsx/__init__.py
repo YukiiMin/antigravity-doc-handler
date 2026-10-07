@@ -6,6 +6,10 @@ from .build_ops import (
     register_xlsx_build_tools,
     xlsx_build,
 )
+from .export_ops import (
+    register_xlsx_export_tools,
+    xlsx_export_legacy_xls,
+)
 from .inspect_ops import (
     register_xlsx_inspect_tools,
     xlsx_inspect,
@@ -58,4 +62,6 @@ __all__ = [
     "register_xlsx_build_tools",
     "xlsx_repair",
     "register_xlsx_repair_tools",
+    "xlsx_export_legacy_xls",
+    "register_xlsx_export_tools",
 ]
