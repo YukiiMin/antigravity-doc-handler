@@ -12,6 +12,7 @@ from .export_ops import (
 )
 from .inspect_ops import (
     register_xlsx_inspect_tools,
+    xlsx_coverage_report,
     xlsx_inspect,
 )
 from .mutate_ops import (
@@ -55,6 +56,7 @@ __all__ = [
     "xlsx_diff",
     "register_xlsx_validate_tools",
     "xlsx_inspect",
+    "xlsx_coverage_report",
     "register_xlsx_inspect_tools",
     "xlsx_recalc",
     "register_xlsx_recalc_tools",

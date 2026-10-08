@@ -1,19 +1,21 @@
 """
-doctools.operations.xlsx.inspect_ops — Thao tác MCP kiểm tra chi tiết cấu trúc bảng tính (xlsx.inspect).
-Tuân thủ FR-01, FR-02, D-02 của Foundation Plan v1.1:
-- Cung cấp cái nhìn toàn diện về workbook: danh sách sheets, dải ô, công thức, hàm sử dụng, ô gộp và biểu đồ.
+doctools.operations.xlsx.inspect_ops — Thao tác MCP kiểm tra chi tiết cấu trúc bảng tính (xlsx.inspect)
+và báo cáo ma trận bao phủ năng lực (xlsx.coverage_report).
+Tuân thủ FR-30, FR-36, D-26, D-28 của Foundation Plan v1.2.
 """
 
 from __future__ import annotations
-import os
+import io
 from pathlib import Path
-import re
-from typing import Any, Dict, List, Optional, Set, Union
+from typing import Any, Dict, List, Optional, Union
+import zipfile
 import openpyxl
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 from doctools.contract.envelope import Diagnostics, FileRef, ResultEnvelope, Stats
 from doctools.contract.issues import Engine, Issue, Severity
+from doctools.core.xlsx.inspect.coverage_analyzer import CoverageAnalyzer
+from doctools.core.xlsx.inspect.sheet_inspector import TieredSheetInspector
 from doctools.infra.file_store import FileStore
 from doctools.registry import ToolRegistry
 
@@ -23,6 +25,20 @@ class InspectInput(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
     file_ref: Union[str, Dict[str, Any]]
+    level: str = Field(default="summary", description="summary | structure | objects | cells")
+    sheet: Optional[str] = Field(default=None, description="Tên worksheet mục tiêu")
+    anchor: Optional[str] = Field(default=None, description="Anchor hoặc dải ô")
+    page: int = Field(default=1, ge=1, description="Trang kết quả phân trang")
+    max_items: int = Field(default=100, ge=1, le=500, description="Số lượng mục tối đa mỗi trang")
+
+
+class CoverageReportInput(BaseModel):
+    """Schema đầu vào cho MCP tool xlsx.coverage_report."""
+    model_config = ConfigDict(extra="ignore")
+
+    file_ref: Optional[Union[str, Dict[str, Any]]] = Field(
+        default=None, description="Tùy chọn file_ref để đối soát năng lực thực tế trên file"
+    )
 
 
 def _resolve_file(
@@ -45,16 +61,31 @@ def _resolve_file(
     return Path(str_val).resolve()
 
 
+def _get_package_parts(file_path: Path) -> List[str]:
+    """Trích xuất danh sách tệp con trong file zip OOXML."""
+    try:
+        with zipfile.ZipFile(file_path, "r") as zf:
+            return zf.namelist()
+    except Exception:
+        return []
+
+
 def xlsx_inspect(
     file_ref_or_path: Union[str, FileRef, Dict[str, Any], Path],
+    level: str = "summary",
+    sheet: Optional[str] = None,
+    anchor: Optional[str] = None,
+    page: int = 1,
+    max_items: int = 100,
     file_store: Optional[FileStore] = None,
 ) -> ResultEnvelope:
-    """Kiểm tra chi tiết nội dung, công thức và cấu trúc một tệp Excel."""
+    """Kiểm tra chi tiết nội dung, công thức và cấu trúc một tệp Excel theo 4 cấp độ phân tầng."""
     diag = Diagnostics(engine=Engine.XLSX)
 
     try:
         real_path = _resolve_file(file_ref_or_path, file_store)
         wb = openpyxl.load_workbook(real_path, data_only=False)
+        package_parts = _get_package_parts(real_path)
     except Exception as exc:
         diag.add_issue(
             Issue(
@@ -66,49 +97,34 @@ def xlsx_inspect(
         )
         return ResultEnvelope(success=False, diagnostics=diag)
 
-    sheets_info: List[Dict[str, Any]] = []
-    total_formulas = 0
-    functions_used: Set[str] = set()
-    fn_re = re.compile(r"([A-Z_]+)\(")
+    inspector = TieredSheetInspector(wb, package_parts)
 
-    for ws in wb.worksheets:
-        f_count = 0
-        merged_count = len(ws.merged_cells.ranges)
-        tables_count = len(ws.tables)
+    norm_level = level.lower().strip()
+    if norm_level == "structure":
+        inspect_data = inspector.inspect_structure()
+    elif norm_level == "objects":
+        inspect_data = inspector.inspect_objects(page=page, max_items=max_items)
+    elif norm_level == "cells":
+        inspect_data = inspector.inspect_cells(
+            sheet_name=sheet, anchor=anchor, page=page, max_items=max_items
+        )
+    else:  # default "summary"
+        norm_level = "summary"
+        inspect_data = inspector.inspect_summary()
 
-        for row in ws.iter_rows(values_only=True):
-            for val in row:
-                if val is not None:
-                    s_val = str(val).strip()
-                    if s_val.startswith("="):
-                        f_count += 1
-                        for fn in fn_re.findall(s_val):
-                            functions_used.add(fn)
-
-        total_formulas += f_count
-        sheets_info.append({
-            "name": ws.title,
-            "max_row": ws.max_row,
-            "max_column": ws.max_column,
-            "formulas_count": f_count,
-            "merged_ranges_count": merged_count,
-            "tables_count": tables_count,
-            "state": ws.sheet_state,
-        })
-
-    drawingml_count = sum(len(getattr(ws, "_drawings", [])) for ws in wb.worksheets)
-    images_count = sum(len(getattr(ws, "_images", [])) for ws in wb.worksheets)
+    # Legacy & backward compatible keys for summary
+    extra_stats: Dict[str, Any] = dict(inspect_data)
+    if norm_level == "summary":
+        extra_stats["drawingml_count"] = sum(
+            1 for p in package_parts if p.startswith("xl/drawings/")
+        )
+        extra_stats["images_count"] = sum(
+            1 for p in package_parts if p.startswith("xl/media/")
+        )
 
     stats = Stats(
         elements_processed=len(wb.worksheets),
-        extra={
-            "sheets_count": len(wb.worksheets),
-            "sheets": sheets_info,
-            "total_formulas": total_formulas,
-            "unique_functions": sorted(list(functions_used)),
-            "drawingml_count": drawingml_count,
-            "images_count": images_count,
-        },
+        extra=extra_stats,
     )
 
     return ResultEnvelope(
@@ -119,13 +135,79 @@ def xlsx_inspect(
     )
 
 
+def xlsx_coverage_report(
+    file_ref_or_path: Optional[Union[str, FileRef, Dict[str, Any], Path]] = None,
+    file_store: Optional[FileStore] = None,
+) -> ResultEnvelope:
+    """Báo cáo ma trận bao phủ năng lực theo Phụ lục I của Foundation Spec v1.2."""
+    diag = Diagnostics(engine=Engine.XLSX)
+    baseline = CoverageAnalyzer.get_baseline_matrix()
+
+    report_extra: Dict[str, Any] = {
+        "baseline_matrix": baseline,
+        "total_feature_families": len(baseline),
+    }
+
+    if file_ref_or_path:
+        try:
+            real_path = _resolve_file(file_ref_or_path, file_store)
+            wb = openpyxl.load_workbook(real_path, data_only=False)
+            package_parts = _get_package_parts(real_path)
+            audit = CoverageAnalyzer.analyze_workbook(wb, package_parts)
+            report_extra["workbook_audit"] = audit
+        except Exception as exc:
+            diag.add_issue(
+                Issue(
+                    code="W-XLSX-COVERAGE-AUDIT-FAILED",
+                    severity=Severity.WARNING,
+                    engine=Engine.XLSX,
+                    message=f"Không thể đọc file để kiểm toán ma trận bao phủ: {exc}",
+                )
+            )
+
+    return ResultEnvelope(
+        success=True,
+        diagnostics=diag,
+        guarantees_applied=["COVERAGE_MATRIX_REPORTED"],
+        stats=Stats(elements_processed=len(baseline), extra=report_extra),
+    )
+
+
 def register_xlsx_inspect_tools(registry: ToolRegistry) -> None:
-    """Đăng ký MCP tool xlsx.inspect vào ToolRegistry."""
+    """Đăng ký các MCP tools xlsx.inspect và xlsx.coverage_report vào ToolRegistry."""
 
     @registry.register(
         name="xlsx.inspect",
-        description="Kiểm tra chi tiết danh sách sheets, kích thước, công thức, hàm số và thành phần vẽ trong Excel.",
+        description="Kiểm tra chi tiết workbook theo 4 cấp độ phân tầng: summary, structure, objects, cells.",
         input_model=InspectInput,
     )
-    def handle_inspect(file_ref: Union[str, Dict[str, Any]]) -> ResultEnvelope:
-        return xlsx_inspect(file_ref_or_path=file_ref, file_store=registry.file_store)
+    def handle_inspect(
+        file_ref: Union[str, Dict[str, Any]],
+        level: str = "summary",
+        sheet: Optional[str] = None,
+        anchor: Optional[str] = None,
+        page: int = 1,
+        max_items: int = 100,
+    ) -> ResultEnvelope:
+        return xlsx_inspect(
+            file_ref_or_path=file_ref,
+            level=level,
+            sheet=sheet,
+            anchor=anchor,
+            page=page,
+            max_items=max_items,
+            file_store=registry.file_store,
+        )
+
+    @registry.register(
+        name="xlsx.coverage_report",
+        description="Báo cáo ma trận bao phủ năng lực 5 trạng thái theo Phụ lục I của Spec v1.2.",
+        input_model=CoverageReportInput,
+    )
+    def handle_coverage_report(
+        file_ref: Optional[Union[str, Dict[str, Any]]] = None,
+    ) -> ResultEnvelope:
+        return xlsx_coverage_report(
+            file_ref_or_path=file_ref,
+            file_store=registry.file_store,
+        )
