@@ -45,6 +45,13 @@ from .validate_ops import (
     xlsx_diff,
     xlsx_validate,
 )
+from .write_catalog import (
+    register_xlsx_write_catalog_tools,
+    xlsx_copy_sheet,
+    xlsx_set_conditional_format,
+    xlsx_set_format,
+    xlsx_set_validation,
+)
 
 __all__ = [
     "xlsx_preflight",
@@ -72,4 +79,9 @@ __all__ = [
     "register_xlsx_repair_tools",
     "xlsx_export_legacy_xls",
     "register_xlsx_export_tools",
+    "xlsx_set_format",
+    "xlsx_set_validation",
+    "xlsx_set_conditional_format",
+    "xlsx_copy_sheet",
+    "register_xlsx_write_catalog_tools",
 ]
