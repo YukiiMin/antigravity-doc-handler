@@ -8,10 +8,17 @@ from .style_cloner import (
     clone_row_style,
     sync_merged_borders,
 )
+from .sheet_cloner import (
+    SheetCloner,
+    clone_sheet_with_parity,
+)
 
 __all__ = [
     "XlsxMutator",
     "clone_cell_style",
     "clone_row_style",
     "sync_merged_borders",
+    "SheetCloner",
+    "clone_sheet_with_parity",
 ]
+
