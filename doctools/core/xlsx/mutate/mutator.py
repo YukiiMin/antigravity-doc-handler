@@ -9,6 +9,7 @@ Tuân thủ E1..E14, D-02, D-04, FR-05, FR-06, FR-09 của Foundation Plan v1.1:
 """
 
 from __future__ import annotations
+from copy import copy
 from typing import Any, Dict, List, Optional, Set, Tuple, Union
 import openpyxl
 from openpyxl.utils.cell import column_index_from_string, coordinate_to_tuple
@@ -178,6 +179,19 @@ class XlsxMutator:
             for rng in list(ws.merged_cells.ranges):
                 sync_merged_borders(ws, rng)
 
+            # Vá viền nếu chính sách inherit_prototype được bật tường minh (D-04, FR-06, FR-14)
+            eff_policy = exp.border_policy if exp.border_policy != "preserve_exact" else spec.border_policy
+            if eff_policy == "inherit_prototype":
+                repaired = self._repair_borders_from_prototype(ws, proto_row, ws.max_row)
+                if repaired:
+                    issues.append(Issue(
+                        code="I-XLSX-BORDER-REPAIRED",
+                        severity=Severity.INFO,
+                        engine=Engine.XLSX,
+                        message=f"Đã sửa viền cho {len(repaired)} ô theo prototype dòng {proto_row} (chính sách inherit_prototype).",
+                        evidence={"sheet": ws.title, "repaired_count": len(repaired), "cells": repaired[:10]},
+                    ))
+
         # 3. Thực thi các cập nhật ô đơn lẻ (CellUpdate)
         for update in spec.cell_updates:
             if update.sheet in self.workbook.sheetnames:
@@ -212,3 +226,31 @@ class XlsxMutator:
             for c_offset, val in enumerate(row_data, start=1):
                 is_id = (c_offset in id_cols)
                 self._write_cell_safe(ws, row_idx, c_offset, val, is_id_column=is_id)
+
+    def _repair_borders_from_prototype(self, ws: Worksheet, proto_row: int, max_r: int) -> List[str]:
+        """Sửa các ô thiếu viền trong bảng theo prototype_row khi được bật inherit_prototype (D-04, FR-14)."""
+        repaired_coords: List[str] = []
+        max_col = ws.max_column or 1
+        for c in range(1, max_col + 1):
+            proto_border = ws.cell(row=proto_row, column=c).border
+            if not proto_border:
+                continue
+            has_proto_side = any(
+                getattr(getattr(proto_border, s, None), "style", None) is not None
+                for s in ("top", "bottom", "left", "right")
+            )
+            if not has_proto_side:
+                continue
+
+            for r in range(proto_row + 1, min(max_r + 1, 100)):
+                cell = ws.cell(row=r, column=c)
+                if cell.value is not None:
+                    has_side = cell.border and any(
+                        getattr(getattr(cell.border, s, None), "style", None) is not None
+                        for s in ("top", "bottom", "left", "right")
+                    )
+                    if not has_side:
+                        cell.border = copy(proto_border)
+                        repaired_coords.append(cell.coordinate)
+        return repaired_coords
+

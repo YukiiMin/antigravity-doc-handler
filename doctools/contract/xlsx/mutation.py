@@ -46,6 +46,9 @@ class TableExpansion(BaseModel):
     range_policy: Literal["table_aware", "excel_native", "shrink_safe"] = Field(
         default="table_aware", description="Chính sách co giãn dải ô công thức tổng hợp"
     )
+    border_policy: Literal["preserve_exact", "inherit_prototype"] = Field(
+        default="preserve_exact", description="Chính sách viền bảng: preserve_exact (không sửa ngầm) hoặc inherit_prototype"
+    )
 
 
 class MutationSpec(BaseModel):
@@ -57,6 +60,9 @@ class MutationSpec(BaseModel):
 
     template_ref_or_id: str = Field(
         ..., description="Định danh template đã đăng ký hoặc FileRef/URI của file Excel gốc"
+    )
+    border_policy: Literal["preserve_exact", "inherit_prototype"] = Field(
+        default="preserve_exact", description="Chính sách viền toàn cục: preserve_exact hoặc inherit_prototype"
     )
     expansions: List[TableExpansion] = Field(
         default_factory=list, description="Danh sách các bảng cần mở rộng dữ liệu"
