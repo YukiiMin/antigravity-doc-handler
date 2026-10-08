@@ -15,6 +15,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from doctools.contract.envelope import Diagnostics, FileRef, ResultEnvelope, Stats
 from doctools.contract.issues import Engine, Issue, Severity
 from doctools.core.xlsx.inspect.coverage_analyzer import CoverageAnalyzer
+from doctools.core.xlsx.inspect.formula_profiler import FormulaProfiler
 from doctools.core.xlsx.inspect.sheet_inspector import TieredSheetInspector
 from doctools.infra.file_store import FileStore
 from doctools.registry import ToolRegistry
@@ -39,6 +40,14 @@ class CoverageReportInput(BaseModel):
     file_ref: Optional[Union[str, Dict[str, Any]]] = Field(
         default=None, description="Tùy chọn file_ref để đối soát năng lực thực tế trên file"
     )
+
+
+class AnalyzeFormulasInput(BaseModel):
+    """Schema đầu vào cho MCP tool xlsx.analyze_formulas."""
+    model_config = ConfigDict(extra="ignore")
+
+    file_ref: Union[str, Dict[str, Any]]
+    sheet: Optional[str] = Field(default=None, description="Tùy chọn lọc sheet cụ thể")
 
 
 def _resolve_file(
@@ -112,7 +121,6 @@ def xlsx_inspect(
         norm_level = "summary"
         inspect_data = inspector.inspect_summary()
 
-    # Legacy & backward compatible keys for summary
     extra_stats: Dict[str, Any] = dict(inspect_data)
     if norm_level == "summary":
         extra_stats["drawingml_count"] = sum(
@@ -173,8 +181,53 @@ def xlsx_coverage_report(
     )
 
 
+def xlsx_analyze_formulas(
+    file_ref_or_path: Union[str, FileRef, Dict[str, Any], Path],
+    sheet: Optional[str] = None,
+    file_store: Optional[FileStore] = None,
+) -> ResultEnvelope:
+    """Phân tích công thức R1C1, phát hiện phá mẫu, chu trình và tham chiếu ô rỗng (FR-31, EV-15)."""
+    diag = Diagnostics(engine=Engine.XLSX)
+
+    try:
+        real_path = _resolve_file(file_ref_or_path, file_store)
+        wb = openpyxl.load_workbook(real_path, data_only=False)
+    except Exception as exc:
+        diag.add_issue(
+            Issue(
+                code="E-XLSX-FORMULA-LOAD-FAILED",
+                severity=Severity.ERROR,
+                engine=Engine.XLSX,
+                message=f"Không thể đọc file để phân tích công thức: {exc}",
+            )
+        )
+        return ResultEnvelope(success=False, diagnostics=diag)
+
+    profiler = FormulaProfiler(wb)
+    report = profiler.profile(target_sheet=sheet)
+
+    # Attach warnings to diagnostics
+    for items, msg_fn in [
+        (report.get("pattern_breaks", []), lambda it: it["message"]),
+        (report.get("empty_cell_references", []), lambda it: it["message"]),
+        (report.get("circular_references", []), lambda it: f"Phát hiện chu trình: {it['cycle']}"),
+    ]:
+        for it in items:
+            diag.add_issue(Issue(code=it["code"], severity=Severity.WARNING, engine=Engine.XLSX, message=msg_fn(it)))
+
+    return ResultEnvelope(
+        success=True,
+        diagnostics=diag,
+        guarantees_applied=["FORMULAS_ANALYZED"],
+        stats=Stats(
+            elements_processed=report.get("total_formulas", 0),
+            extra=report,
+        ),
+    )
+
+
 def register_xlsx_inspect_tools(registry: ToolRegistry) -> None:
-    """Đăng ký các MCP tools xlsx.inspect và xlsx.coverage_report vào ToolRegistry."""
+    """Đăng ký các MCP tools xlsx.inspect, xlsx.coverage_report, xlsx.analyze_formulas vào ToolRegistry."""
 
     @registry.register(
         name="xlsx.inspect",
@@ -211,3 +264,19 @@ def register_xlsx_inspect_tools(registry: ToolRegistry) -> None:
             file_ref_or_path=file_ref,
             file_store=registry.file_store,
         )
+
+    @registry.register(
+        name="xlsx.analyze_formulas",
+        description="Phân tích công thức R1C1, phát hiện phá mẫu, chu trình và tham chiếu ô rỗng.",
+        input_model=AnalyzeFormulasInput,
+    )
+    def handle_analyze_formulas(
+        file_ref: Union[str, Dict[str, Any]],
+        sheet: Optional[str] = None,
+    ) -> ResultEnvelope:
+        return xlsx_analyze_formulas(
+            file_ref_or_path=file_ref,
+            sheet=sheet,
+            file_store=registry.file_store,
+        )
+
