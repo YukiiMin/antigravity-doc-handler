@@ -8,6 +8,11 @@ from doctools.core.xlsx.inspect.coverage_analyzer import (
     CoverageState,
     FeatureCategory,
 )
+from doctools.core.xlsx.inspect.format_profiler import (
+    FormatProfiler,
+    classify_number_format,
+    resolve_color,
+)
 from doctools.core.xlsx.inspect.formula_profiler import (
     FormulaProfiler,
     a1_to_r1c1_coordinate,
@@ -19,8 +24,11 @@ __all__ = [
     "CoverageAnalyzer",
     "CoverageState",
     "FeatureCategory",
+    "FormatProfiler",
     "FormulaProfiler",
     "TieredSheetInspector",
     "a1_to_r1c1_coordinate",
+    "classify_number_format",
     "normalize_formula_to_r1c1",
+    "resolve_color",
 ]
