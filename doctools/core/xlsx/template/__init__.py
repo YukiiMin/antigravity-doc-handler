@@ -2,6 +2,10 @@
 doctools.core.xlsx.template — Module quản lý template, manifest và static linter cho XLSX.
 """
 
+from .function_registry import (
+    FunctionEntry,
+    FunctionRegistry,
+)
 from .manifest_parser import (
     ManifestParseError,
     parse_locked_zone,
@@ -19,6 +23,8 @@ from .template_registry import (
 )
 
 __all__ = [
+    "FunctionEntry",
+    "FunctionRegistry",
     "ManifestParseError",
     "parse_locked_zone",
     "parse_manifest",

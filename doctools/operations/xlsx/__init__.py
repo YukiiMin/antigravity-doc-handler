@@ -15,6 +15,7 @@ from .inspect_ops import (
     xlsx_analyze_formulas,
     xlsx_coverage_report,
     xlsx_describe_formats,
+    xlsx_function_catalog,
     xlsx_inspect,
 )
 from .mutate_ops import (
@@ -61,6 +62,7 @@ __all__ = [
     "xlsx_coverage_report",
     "xlsx_analyze_formulas",
     "xlsx_describe_formats",
+    "xlsx_function_catalog",
     "register_xlsx_inspect_tools",
     "xlsx_recalc",
     "register_xlsx_recalc_tools",

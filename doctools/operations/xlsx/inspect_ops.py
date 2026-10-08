@@ -1,11 +1,13 @@
 """
 doctools.operations.xlsx.inspect_ops — Thao tác MCP kiểm tra chi tiết cấu trúc bảng tính (xlsx.inspect),
 báo cáo ma trận bao phủ (xlsx.coverage_report), phân tích công thức (xlsx.analyze_formulas),
-và mô tả định dạng (xlsx.describe_formats). Tuân thủ FR-30, FR-31, FR-33, FR-36, D-26, D-28.
+mô tả định dạng (xlsx.describe_formats), và tra cứu Function Registry (xlsx.function_catalog).
+Tuân thủ FR-30, FR-31, FR-32, FR-33, FR-36, D-26, D-27, D-28.
 """
 
 from __future__ import annotations
 from pathlib import Path
+import re
 from typing import Any, Dict, List, Optional, Union
 import zipfile
 import openpyxl
@@ -17,6 +19,7 @@ from doctools.core.xlsx.inspect.coverage_analyzer import CoverageAnalyzer
 from doctools.core.xlsx.inspect.format_profiler import FormatProfiler
 from doctools.core.xlsx.inspect.formula_profiler import FormulaProfiler
 from doctools.core.xlsx.inspect.sheet_inspector import TieredSheetInspector
+from doctools.core.xlsx.template.function_registry import FunctionRegistry
 from doctools.infra.file_store import FileStore
 from doctools.registry import ToolRegistry
 
@@ -46,6 +49,13 @@ class DescribeFormatsInput(BaseModel):
     model_config = ConfigDict(extra="ignore")
     file_ref: Union[str, Dict[str, Any]]
     sheet: Optional[str] = Field(default=None)
+
+
+class FunctionCatalogInput(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    query: Optional[str] = Field(default=None, description="Tên hàm tìm kiếm")
+    category: Optional[str] = Field(default=None, description="Nhóm hàm Microsoft")
+    file_ref: Optional[Union[str, Dict[str, Any]]] = Field(default=None, description="File đối soát hàm sử dụng")
 
 
 def _resolve_file(input_val: Any, file_store: Optional[FileStore] = None) -> Path:
@@ -169,6 +179,53 @@ def xlsx_describe_formats(
     return ResultEnvelope(success=True, diagnostics=diag, guarantees_applied=["FORMATS_DESCRIBED"], stats=Stats(elements_processed=report.get("unique_fonts_count", 0), extra=report))
 
 
+def xlsx_function_catalog(
+    query: Optional[str] = None,
+    category: Optional[str] = None,
+    file_ref_or_path: Optional[Union[str, FileRef, Dict[str, Any], Path]] = None,
+    file_store: Optional[FileStore] = None,
+) -> ResultEnvelope:
+    diag = Diagnostics(engine=Engine.XLSX)
+    reg = FunctionRegistry()
+    search_results = reg.search(query=query, category=category)
+    diff_summary = reg.get_differential_matrix_summary()
+
+    report_extra: Dict[str, Any] = {
+        "query": query,
+        "category": category,
+        "results_count": len(search_results),
+        "results": search_results,
+        "differential_matrix": diff_summary,
+    }
+
+    if file_ref_or_path:
+        try:
+            real_path = _resolve_file(file_ref_or_path, file_store)
+            wb = openpyxl.load_workbook(real_path, data_only=False)
+            fns_found = set()
+            fn_re = re.compile(r"([A-Z0-9_\.]+)\(")
+            for ws in wb.worksheets:
+                for row in ws.iter_rows(values_only=True):
+                    for v in row:
+                        if v and str(v).startswith("="):
+                            for m in fn_re.findall(str(v).upper()):
+                                fns_found.add(m)
+
+            audit_res = reg.audit_functions(sorted(list(fns_found)))
+            report_extra["workbook_audit"] = audit_res
+
+            for u in audit_res["unknown_functions"]:
+                diag.add_issue(Issue(code="W-FX-UNKNOWN", severity=Severity.WARNING, engine=Engine.XLSX, message=f"Hàm '{u}' không có trong Function Registry."))
+            for p in audit_res["prefix_functions"]:
+                diag.add_issue(Issue(code="W-FX-COMPAT-PREFIX", severity=Severity.INFO, engine=Engine.XLSX, message=f"Hàm '{p['name']}' cần tiền tố '{p['prefix']}' khi lưu."))
+            for r in audit_res["risky_functions"]:
+                diag.add_issue(Issue(code="W-FX-RISKY", severity=Severity.WARNING, engine=Engine.XLSX, message=f"Hàm '{r['name']}' thuộc diện rủi ro bảo mật ({r['category']})."))
+        except Exception as exc:
+            diag.add_issue(Issue(code="W-XLSX-FUNCTION-AUDIT-FAILED", severity=Severity.WARNING, engine=Engine.XLSX, message=str(exc)))
+
+    return ResultEnvelope(success=True, diagnostics=diag, guarantees_applied=["FUNCTION_CATALOG_CHECKED"], stats=Stats(elements_processed=len(search_results), extra=report_extra))
+
+
 def register_xlsx_inspect_tools(registry: ToolRegistry) -> None:
     @registry.register(name="xlsx.inspect", description="Kiểm tra chi tiết workbook 4 cấp độ.", input_model=InspectInput)
     def handle_inspect(file_ref: Any, level: str = "summary", sheet: Optional[str] = None, anchor: Optional[str] = None, page: int = 1, max_items: int = 100) -> ResultEnvelope:
@@ -185,3 +242,7 @@ def register_xlsx_inspect_tools(registry: ToolRegistry) -> None:
     @registry.register(name="xlsx.describe_formats", description="Mô tả 12 lớp định dạng số, Font, viền.", input_model=DescribeFormatsInput)
     def handle_formats(file_ref: Any, sheet: Optional[str] = None) -> ResultEnvelope:
         return xlsx_describe_formats(file_ref, sheet, registry.file_store)
+
+    @registry.register(name="xlsx.function_catalog", description="Tra cứu Function Registry và ma trận Fx vi sai.", input_model=FunctionCatalogInput)
+    def handle_catalog(query: Optional[str] = None, category: Optional[str] = None, file_ref: Optional[Any] = None) -> ResultEnvelope:
+        return xlsx_function_catalog(query=query, category=category, file_ref_or_path=file_ref, file_store=registry.file_store)
