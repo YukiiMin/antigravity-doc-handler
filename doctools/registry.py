@@ -205,3 +205,15 @@ class ToolRegistry:
     def is_registered(self, tool_name: str) -> bool:
         """Kiểm tra xem công cụ đã có trong registry chưa."""
         return tool_name in self._tools
+
+    def get_system_instructions(self) -> str:
+        """Returns standard MCP Server instructions for connected LLM clients (Zero-Shot Guidance)."""
+        return (
+            "DOCTOOLS MCP SERVER OPERATING INSTRUCTIONS:\n"
+            "1. FAIL-CLOSED DISCIPLINE: Never hand-write openpyxl/pandas scripts to edit workbooks. "
+            "All mutations must pass through xlsx.* tools.\n"
+            "2. THE 7-STEP LOOP: preflight -> inspect -> plan -> mutate -> recalc -> validate/diff -> deliver.\n"
+            "3. DIAGNOSTICS: When issues arise, read 'fixable_by' and 'suggested_action'. Never silence "
+            "warnings by deleting formulas or writing 0 (The -AA7 lesson).\n"
+            "4. OPERATOR PLAYBOOK: Refer to .agents/skills/xlsx-engine-operator/SKILL.md for complete rules."
+        )

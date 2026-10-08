@@ -11,7 +11,7 @@ from typing import Any, Dict, List, Optional
 import openpyxl
 from openpyxl.worksheet.worksheet import Worksheet
 
-from doctools.contract.issues import Engine, Issue, Location, Severity
+from doctools.contract.issues import Engine, FixableBy, Issue, Location, Severity
 from doctools.core.xlsx.inspect.formula_profiler import FormulaProfiler
 
 
@@ -44,6 +44,8 @@ def check_ug14_validation_parity(
                         code="E-XLSX-UG14-VALIDATION-DROPPED",
                         severity=Severity.ERROR,
                         engine=Engine.XLSX,
+                        fixable_by=FixableBy.AI,
+                        suggested_action="Use xlsx.copy_sheet (SheetCloner) instead of naive openpyxl copy to preserve Data Validations, or use xlsx.set_validation.",
                         message=(
                             f"Sheet '{ws.title}' has 0 Data Validations but reference sheet "
                             f"'{reference_sheet}' has {ref_dv_count} validations (EV-15.1)."
@@ -62,6 +64,8 @@ def check_ug14_validation_parity(
                         code="E-XLSX-UG14-VALIDATION-DROPPED",
                         severity=Severity.ERROR,
                         engine=Engine.XLSX,
+                        fixable_by=FixableBy.AI,
+                        suggested_action="Re-attach missing validation via xlsx.set_validation or clone with SheetCloner.",
                         message=f"Sheet '{ws.title}' dropped all {expected} Data Validations expected from template.",
                         location=Location(sheet=ws.title),
                     )
@@ -114,6 +118,8 @@ def check_ug15_table_border_consistency(wb: openpyxl.Workbook) -> List[Issue]:
                                     code="W-XLSX-UG15-INCONSISTENT-BORDERS",
                                     severity=Severity.WARNING,
                                     engine=Engine.XLSX,
+                                    fixable_by=FixableBy.ENGINE,
+                                    suggested_action="If repair is authorized, pass border_policy='inherit_prototype' in MutationSpec to inherit from prototype row.",
                                     message=(
                                         f"Inconsistent border at {ws.title}!{cell.coordinate}: "
                                         f"missing border present in prototype row {proto_row}."
@@ -138,14 +144,20 @@ def check_ug16_formula_deterministic_anomaly(wb: openpyxl.Workbook) -> List[Issu
     report = profiler.profile()
 
     for item in report.get("empty_cell_references", []):
+        target_cell = item.get("target")
         issues.append(
             Issue(
                 code="W-XLSX-UG16-EMPTY-CELL-REF",
                 severity=Severity.WARNING,
                 engine=Engine.XLSX,
+                fixable_by=FixableBy.AI,
+                suggested_action=(
+                    f"Check formula intent. Referencing empty cell '{target_cell}' usually indicates a typo for "
+                    "a summary data cell (e.g. O7). Update formula target via xlsx.mutate."
+                ),
                 message=item.get("message", "Formula references an empty cell."),
                 location=Location(sheet=item.get("sheet"), cell=item.get("cell")),
-                evidence={"formula": item.get("formula"), "target": item.get("target")},
+                evidence={"formula": item.get("formula"), "target": target_cell},
             )
         )
 

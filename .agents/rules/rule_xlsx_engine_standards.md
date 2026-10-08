@@ -11,6 +11,16 @@ description: XLSX Engine standards, 14 invariants E1-E14, formula AST shifting, 
 
 ---
 
+## 0. Mandatory Operational Skill Activation (Fail-Closed Loop)
+
+> [!IMPORTANT]
+> **Before touching, reading, or modifying any Excel spreadsheet (`.xlsx`, `.xls`)**, you MUST read [xlsx-engine-operator/SKILL.md](file:///d:/Minh/For_myself/ZSCORT_GSU26_SAP05/tool/pdf_to_docx_converter/.agents/skills/xlsx-engine-operator/SKILL.md).
+> 1. **Follow the 7-Step Loop**: `preflight` $\rightarrow$ `inspect` $\rightarrow$ plan $\rightarrow$ `mutate` $\rightarrow$ `recalc` $\rightarrow$ `validate` & `diff` $\rightarrow$ deliver.
+> 2. **STRICT PROHIBITION on Scripting**: Never hand-write openpyxl/pandas scripts to modify workbooks. All mutations MUST route through `xlsx.*` MCP tools.
+> 3. **Diagnostic Triage**: Read `fixable_by: engine | ai | human`. Never silence warnings by clearing formulas or writing `0` over them (The `-AA7` lesson).
+
+---
+
 ## 1. Core Design Philosophy
 
 1. **Deterministic Engine, Decisive AI**: The engine is a deterministic MCP server without internal AI prompts or data summarization. The AI client orchestrates structure, tools, and diagnostics.
